@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
- <span class="menu-text">Part I: Foundations and Theoretical Framework</span>
+ <span class="menu-text">Part I</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -177,6 +177,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#classification-and-examples-of-active-systems" id="toc-classification-and-examples-of-active-systems" class="nav-link" data-scroll-target="#classification-and-examples-of-active-systems">Classification and Examples of Active Systems</a></li>
   <li><a href="#distinguishing-features-from-equilibrium-systems" id="toc-distinguishing-features-from-equilibrium-systems" class="nav-link" data-scroll-target="#distinguishing-features-from-equilibrium-systems">Distinguishing features from equilibrium systems</a></li>
   <li><a href="#overview-of-theoretical-approaches-and-challenges" id="toc-overview-of-theoretical-approaches-and-challenges" class="nav-link" data-scroll-target="#overview-of-theoretical-approaches-and-challenges">Overview of theoretical approaches and challenges</a></li>
+  <li><a href="#challenges-in-the-field-of-active-matter" id="toc-challenges-in-the-field-of-active-matter" class="nav-link" data-scroll-target="#challenges-in-the-field-of-active-matter">Challenges in the field of active matter</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -537,19 +538,21 @@ The Boids Model Explained
 <section id="classification-and-examples-of-active-systems" class="level3">
 <h3 class="anchored" data-anchor-id="classification-and-examples-of-active-systems">Classification and Examples of Active Systems</h3>
 <p>Active matter encompasses a diverse range of systems, from biological organisms to synthetic particles, that share the common feature of continuously converting energy into systematic motion. These systems can be organized into several categories based on their energy sources, symmetries, and the nature of their interactions, providing a framework for understanding their distinct behaviors and properties.</p>
-<div id="fig-active-matter-systems" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Diagram showing various examples of active matter systems including biological and synthetic realizations">
+<div id="fig-active-matter-systems" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-active-matter-systems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../assets/images/lecture01/41526_2022_230_Fig1_HTML.png.webp" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-active-matter-systems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Overview of active matter systems at different scales and domains. The field spans from microscopic biological systems like cellular components to macroscopic collective behaviors and engineered synthetic systems.
+Figure&nbsp;2: Overview of active matter systems at different scales and domains. The field spans from microscopic biological systems like cellular components to macroscopic collective behaviors and engineered synthetic systems. (<a href="https://doi.org/10.1038/s41526-022-00230-7">source</a>)
 </figcaption>
 </figure>
 </div>
 <p>Active matter systems can be categorized based on several key characteristics:</p>
-<section id="energy-conversion-mechanism" class="level4">
-<h4 class="anchored" data-anchor-id="energy-conversion-mechanism"><strong>Energy conversion mechanism</strong></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><strong>Energy conversion mechanism</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><strong>Symmetry of motion</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><strong>Structural arrangement</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><strong>Length scale and dimensionality</strong></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <ul>
 <li><strong>Biological active matter</strong>: Systems that convert chemical energy (ATP, nutrients) into mechanical work (e.g., bacteria, cells, tissues). These systems span multiple scales, from molecular motors like kinesin and myosin that transport cargo along cytoskeletal filaments, to cellular components such as the dynamic cytoskeleton that enables cell shape changes and migration. At multicellular scales, coordinated activity enables tissue morphogenesis during development, wound healing, and collective cell migration. The energy conversion typically involves ATP hydrolysis, which provides approximately 20 kT of energy per molecule, enabling these systems to perform work against thermal fluctuations. Unlike their synthetic counterparts, biological active matter often exhibits adaptive behaviors, feedback regulation, and hierarchical organization that enhances functionality and robustness.</li>
 </ul>
@@ -598,9 +601,8 @@ Figure&nbsp;4: Synthetic active particles can be designed with asymmetric proper
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="symmetry-of-motion" class="level4">
-<h4 class="anchored" data-anchor-id="symmetry-of-motion"><strong>Symmetry of motion</strong></h4>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <ul>
 <li><strong>Polar active matter</strong>: Entities with defined front-back asymmetry and directional motion (e.g., birds, fish). These systems are characterized by particles or organisms that have a clear direction of motion and can align their movement with neighbors. For example, fish schools demonstrate this through their streamlined body shape that defines a clear swimming direction, while their lateral line system helps them align with neighboring fish. Similarly, migratory birds show polar order through their aerodynamic body structure and visual alignment with flock-mates during flight. At the microscopic scale, many bacteria like E. coli exhibit polar motion through their flagellar propulsion system that creates directed swimming. The polar nature of these systems often leads to unique collective phenomena like the emergence of large-scale coherent motion and the formation of traveling bands or density waves.</li>
 </ul>
@@ -664,35 +666,36 @@ Figure&nbsp;6: Examples of apolar active matter: melanocytes (<a href="https://c
 <ul>
 <li><strong>Chiral active matter</strong>: Systems with inherent rotational motion or handedness. These systems exhibit systematic rotational motion in addition to translational movement, often due to structural asymmetry or biased force generation. Examples include bacterial flagella that rotate to create propulsion, sperm cells that swim with helical trajectories, and synthetic microswimmers with chiral shapes that spin as they move through fluid. The interplay between rotational and translational motion in these systems can lead to unique collective behaviors, such as the formation of rotating clusters or vortex arrays. At the microscopic scale, molecular motors like the bacterial flagellar motor demonstrate how nature utilizes chirality to generate motion, while at larger scales, schools of fish can form rotating vortex patterns through their collective swimming behavior.</li>
 </ul>
-</section>
-<section id="medium-and-interactions" class="level4">
-<h4 class="anchored" data-anchor-id="medium-and-interactions"><strong>Medium and interactions</strong></h4>
+<p>##<strong>Medium and interactions</strong> - <strong>Dry active matter</strong>: Systems where momentum dissipates to a substrate (e.g., cells on surfaces). In these systems, the primary interaction between particles occurs through direct contact or short-range forces, as the substrate quickly dampens any long-range hydrodynamic effects. A classic example is cells crawling on a surface, where the friction with the substrate dominates the dynamics. Another example is vibrated granular layers, where energy input causes particle motion but momentum is quickly dissipated through collisions with the base plate and between particles.</p>
 <ul>
-<li><p><strong>Dry active matter</strong>: Systems where momentum dissipates to a substrate (e.g., cells on surfaces). In these systems, the primary interaction between particles occurs through direct contact or short-range forces, as the substrate quickly dampens any long-range hydrodynamic effects. A classic example is cells crawling on a surface, where the friction with the substrate dominates the dynamics. Another example is vibrated granular layers, where energy input causes particle motion but momentum is quickly dissipated through collisions with the base plate and between particles.</p></li>
-<li><p><strong>Wet active matter</strong>: Systems embedded in a fluid where hydrodynamic interactions dominate (e.g., bacterial suspensions). These systems exhibit complex long-range interactions mediated by the fluid, as the motion of each active particle creates flow fields that affect distant particles. Examples include swimming microorganisms in water, where the fluid flows generated by one organism can influence the motion of others several body lengths away. Active colloids in suspension also demonstrate these effects, where the chemical activity or motion of particles creates fluid flows that lead to collective behaviors and pattern formation.</p></li>
+<li><strong>Wet active matter</strong>: Systems embedded in a fluid where hydrodynamic interactions dominate (e.g., bacterial suspensions). These systems exhibit complex long-range interactions mediated by the fluid, as the motion of each active particle creates flow fields that affect distant particles. Examples include swimming microorganisms in water, where the fluid flows generated by one organism can influence the motion of others several body lengths away. Active colloids in suspension also demonstrate these effects, where the chemical activity or motion of particles creates fluid flows that lead to collective behaviors and pattern formation.</li>
 </ul>
-</section>
-<section id="structural-arrangement" class="level4">
-<h4 class="anchored" data-anchor-id="structural-arrangement"><strong>Structural arrangement</strong></h4>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <ul>
 <li><p><strong>Active crystals</strong>: Ordered lattice-like arrangements with activity. These systems maintain crystalline order while individual units remain active, such as in bacterial colonies that form regular spatial patterns while each bacterium continues to move and metabolize. A key example is the formation of living crystals from light-activated colloidal particles, where the particles self-organize into a crystalline lattice while maintaining their individual motility.</p></li>
 <li><p><strong>Active glasses</strong>: Disordered, jammed configurations with activity. Unlike traditional glasses, these systems combine structural disorder with persistent local motion, leading to unique dynamical behaviors. Examples include dense bacterial suspensions at high concentrations where cells become trapped in disordered configurations but continue to exert active forces on their neighbors, or crowded solutions of motor proteins and filaments where steric constraints create glassy dynamics despite ongoing ATP-driven activity.</p></li>
 <li><p><strong>Active fluids/gases</strong>: Flowing systems with active components. These systems exhibit fluid-like behavior but with constituents that continuously inject energy at the microscopic scale. Examples range from dilute bacterial suspensions that show enhanced diffusion and collective motion, to dense active liquid crystals where the interplay between flow and orientational order creates complex dynamical patterns like active turbulence. In the gas-like regime, systems like midge swarms demonstrate how active particles can maintain cohesion while exhibiting fluid-like properties.</p></li>
 </ul>
-</section>
-<section id="length-scale-and-dimensionality" class="level4">
-<h4 class="anchored" data-anchor-id="length-scale-and-dimensionality"><strong>Length scale and dimensionality</strong></h4>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <ul>
 <li><p><strong>Microscopic</strong>: Cellular and subcellular systems (cytoskeleton, bacterial colonies). At this scale, active matter emerges from molecular motors like kinesin and dynein walking along cytoskeletal filaments, or the collective motion of bacterial cells in colonies. The cytoskeleton itself is a fascinating example where networks of actin filaments and microtubules, driven by ATP-powered molecular motors, create complex dynamics essential for cell function and division.</p></li>
-<li><p><strong>Mesoscopic</strong>: Tissue and organ-level organizations. At the tissue level, collective cell behavior leads to emergent phenomena like wound healing and morphogenesis during development. Epithelial tissues demonstrate active matter dynamics through coordinated cell migration and mechanical force transmission between neighboring cells. These intermediate scales bridge individual cell behavior with organ-level function.</p></li>
-<li><p><strong>Macroscopic</strong>: Animal groups, human crowds. Large-scale collective behaviors emerge in systems like bird flocks, fish schools, and human crowds in urban environments. These systems demonstrate how simple interaction rules between individuals can create complex, coordinated motion patterns that span hundreds or thousands of times the size of individual agents. Traffic flow and pedestrian dynamics are particularly relevant examples for urban planning and crowd safety.</p></li>
-<li><p><strong>Quasi-2D vs.&nbsp;3D systems</strong>: Systems confined to surfaces vs.&nbsp;fully three-dimensional systems. Many active matter systems are effectively two-dimensional, like bacterial colonies growing on agar plates or cells migrating on substrates. These confined geometries often simplify both experimental observation and theoretical analysis. In contrast, true three-dimensional systems like bacterial suspensions in fluid or cell movement in tissue matrices exhibit additional complexities due to hydrodynamic interactions and the full range of possible motion directions.</p></li>
+<li><p><strong>Mesoscopic</strong>: Tissue and organ-level organizations. At the tissue level, collective cell behavior leads to emergent phenomena like wound healing and morphogenesis during development. Epithelial tissues demonstrate active matter dynamics through coordinated cell migration and mechanical force transmission between neighboring cells. These intermediate scales bridge individual cell behavior with organ-level function. ::: {#fig-morphogenesis}</p></li>
 </ul>
-</section>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/QF1BW9fFhig?si=nSWW1lDf8Xw_RpS5" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Time-lapse microscopy of Drosophila embryo development showing gastrulation and tissue folding - a striking example of how active matter principles govern morphogenesis. The coordinated cell shape changes and movements create complex three-dimensional structures from an initially simple tissue sheet. <a href="https://www.youtube.com/@tglab">source</a></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p><strong>Macroscopic</strong>: Animal groups, human crowds. Large-scale collective behaviors emerge in systems like bird flocks, fish schools, and human crowds in urban environments. These systems demonstrate how simple interaction rules between individuals can create complex, coordinated motion patterns that span hundreds or thousands of times the size of individual agents. Traffic flow and pedestrian dynamics are particularly relevant examples for urban planning and crowd safety.</p></li>
+<li><p><strong>Quasi-2D vs.&nbsp;3D systems</strong>: Systems confined to surfaces vs.&nbsp;fully three-dimensional systems. Many active matter systems are effectively two-dimensional, like bacterial colonies growing on agar plates or cells migrating on substrates. These confined geometries often simplify both experimental observation and theoretical analysis. In contrast, true three-dimensional systems like bacterial suspensions in fluid or cell movement in tissue matrices exhibit additional complexities due to hydrodynamic interactions and the full range of possible motion directions. :::</p></li>
+</ul>
 </section>
 <section id="distinguishing-features-from-equilibrium-systems" class="level3">
 <h3 class="anchored" data-anchor-id="distinguishing-features-from-equilibrium-systems">Distinguishing features from equilibrium systems</h3>
-<p>Active matter fundamentally differs from equilibrium systems in several crucial aspects:</p>
+<p>Understanding how active matter systems differ from equilibrium systems is crucial for developing new theoretical frameworks and experimental approaches. The continuous energy input and self-driven nature of active matter leads to behaviors that challenge our traditional physics understanding. Consider the following key distinctions between equilibrium and active matter systems:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -763,34 +766,56 @@ Figure&nbsp;6: Examples of apolar active matter: melanocytes (<a href="https://c
 <section id="overview-of-theoretical-approaches-and-challenges" class="level3">
 <h3 class="anchored" data-anchor-id="overview-of-theoretical-approaches-and-challenges">Overview of theoretical approaches and challenges</h3>
 <p>The theoretical description of active matter draws from and extends multiple branches of physics:</p>
-<section id="kinetic-theories" class="level4">
-<h4 class="anchored" data-anchor-id="kinetic-theories"><strong>Kinetic theories</strong></h4>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Kinetic theories</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Continuum field theories</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Agent-based and particle models</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <ul>
 <li><p><strong>Boltzmann-like approaches</strong>: Describing probability distributions of particle positions and orientations in active systems. For example, in bacterial suspensions, this approach tracks how the probability of finding bacteria with specific positions and swimming directions evolves over time. The key difference from classical Boltzmann equations is the inclusion of self-propulsion forces and alignment interactions. These equations have been particularly successful in describing the transition from disordered to ordered states in active systems like bird flocks and fish schools.</p></li>
 <li><p><strong>Fokker-Planck equations</strong>: Capturing the evolution of probability densities in phase space by incorporating both deterministic and stochastic effects. In active matter, these equations describe how probability distributions change due to systematic forces (like self-propulsion), random fluctuations (thermal or active noise), and interactions between particles. For instance, they can model how Janus particles move under the influence of chemical gradients while experiencing rotational diffusion, or how swimming bacteria respond to chemical attractants while subject to tumbling events.</p></li>
 <li><p><strong>Smoluchowski equations</strong>: Modeling overdamped dynamics common in biological active systems where inertial effects are negligible compared to viscous forces. These equations are particularly relevant for microscopic swimmers like bacteria or colloidal particles where the Reynolds number is very small. They have been successfully applied to describe phenomena like bacterial chemotaxis, the collective motion of cell populations, and the dynamics of motor proteins along cytoskeletal filaments. A classic example is modeling E. coli’s run-and-tumble motion, where the Smoluchowski equation captures the interplay between directed swimming and random reorientations.</p></li>
 </ul>
-</section>
-<section id="continuum-field-theories" class="level4">
-<h4 class="anchored" data-anchor-id="continuum-field-theories"><strong>Continuum field theories</strong></h4>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <ul>
 <li><p><strong>Toner-Tu theory</strong>: A hydrodynamic framework that describes collective motion in flocking systems by incorporating broken continuous symmetry. Unlike equilibrium systems, the theory predicts true long-range order can exist even in two dimensions. For example, it successfully explains how starling murmurations maintain coherent motion across thousands of birds despite environmental perturbations.</p></li>
 <li><p><strong>Active gel theories</strong>: These theories extend traditional liquid crystal physics by incorporating force-generating active stresses. They are particularly successful in describing biological materials like the cell cytoskeleton, where molecular motors generate internal forces. A key example is explaining the spontaneous flows observed in actomyosin networks, where myosin motors walking along actin filaments create large-scale coherent motion.</p></li>
 <li><p><strong>Active nematics</strong>: Field theories that describe systems with orientational order but no polar direction, driven out of equilibrium by active stresses. These theories have been instrumental in understanding phenomena like the chaotic dynamics of microtubule-kinesin mixtures, where energy input from molecular motors leads to the continuous creation, motion, and annihilation of topological defects, resulting in active turbulence.</p></li>
 <li><p><strong>Phase field models</strong>: Mathematical frameworks that track the evolution of interfaces and boundaries in active systems without explicitly tracking individual particles. These models have been successfully applied to describe phenomena like cell membrane deformation during motility, tissue morphogenesis, and the dynamics of active droplets. For instance, they can capture how a crawling cell changes shape and moves by coupling chemical signals to mechanical deformations of the cell membrane.</p></li>
 </ul>
-</section>
-<section id="agent-based-and-particle-models" class="level4">
-<h4 class="anchored" data-anchor-id="agent-based-and-particle-models"><strong>Agent-based and particle models</strong></h4>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <ul>
 <li><p><strong>Vicsek model</strong>: The foundational model for collective motion where particles move at constant speed and align their direction with neighbors within a certain radius, subject to noise. For example, in simulating bird flocks, each bird adjusts its direction to match the average flight direction of nearby birds, plus some random variation. This simple rule produces rich collective behaviors like the transition from disordered motion at high noise to coordinated flocking at low noise.</p></li>
 <li><p><strong>Active Brownian particles</strong>: Self-propelled particles that maintain constant speed but undergo rotational diffusion, leading to persistent random walks. A classic example is light-activated Janus colloids - microscopic particles with one hemisphere coated in a light-responsive material. Under illumination, these particles swim in a directed manner but gradually change direction due to thermal fluctuations, resulting in motion that is ballistic at short times but diffusive at long times.</p></li>
 <li><p><strong>Run-and-tumble models</strong>: These models capture the motion pattern of bacteria like E. coli, which alternate between straight “runs” and random “tumbles.” During runs, the bacteria swim in nearly straight lines using their flagella. Tumbles occur when the flagella bundle comes apart, causing the cell to randomly reorient. This mechanism allows bacteria to effectively explore their environment and respond to chemical gradients through biased random walks.</p></li>
 <li><p><strong>Active Ornstein-Uhlenbeck particles</strong>: A model incorporating temporal correlations in the active propulsion force, leading to more realistic descriptions of biological swimmers. For instance, in modeling the motion of algae like Chlamydomonas, the swimming force isn’t purely random but shows correlations over the time scale of the flagellar beat cycle. This correlation produces more accurate predictions of diffusion and clustering behaviors compared to simpler active particle models.</p></li>
 </ul>
+</div>
+</div>
+</div>
 </section>
-<section id="key-theoretical-challenges" class="level4">
-<h4 class="anchored" data-anchor-id="key-theoretical-challenges"><strong>Key theoretical challenges</strong></h4>
+<section id="challenges-in-the-field-of-active-matter" class="level3">
+<h3 class="anchored" data-anchor-id="challenges-in-the-field-of-active-matter">Challenges in the field of active matter</h3>
+<p>The scientific study of active matter presents several key theoretical and experimental challenges that continue to motivate research and technological innovation in the field:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Experimental challenges</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Theoretical challenges</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li><p><strong>Diversity in propulsion mechanisms and functionality</strong>: Creating synthetic active particles with diverse propulsion strategies and functional capabilities remains challenging. Current systems are largely limited to chemical catalysis, light activation, or magnetic actuation. Beyond propulsion, developing particles capable of force generation, information processing, and programmable behaviors through compartmentalization and feedback control is crucial. This includes systems that can adapt their behavior based on environmental cues or machine learning algorithms.</p></li>
+<li><p><strong>Multi-component systems</strong>: Developing heterogeneous active matter systems with different types of particles that can interact and coordinate. For example, combining light-activated and chemically-powered particles, or integrating passive and active components to create hierarchical structures with emergent behaviors.</p></li>
+<li><p><strong>Measurement techniques</strong>: Developing methods to track fast dynamics across multiple scales. Active matter systems often exhibit complex spatiotemporal dynamics that require simultaneous tracking of individual particles and collective behaviors. High-speed imaging, particle tracking, and flow visualization techniques must be adapted to capture both the rapid motion of individual active units and the slower evolution of large-scale patterns.</p></li>
+<li><p><strong>System preparation</strong>: Creating synthetic particles with programmable behaviors and functions. The synthesis of active colloids requires careful control over particle size, shape, surface chemistry, and catalyst distribution, as well as the integration of responsive elements that enable specific functionalities. For instance, incorporating multiple catalytic or stimuli-responsive domains to create particles capable of complex tasks remains technically challenging.</p></li>
+<li><p><strong>Boundary conditions</strong>: Controlling and characterizing interactions with surfaces. Active matter systems are highly sensitive to boundary conditions, which can significantly influence their behavior. Creating well-defined boundaries while maintaining activity and avoiding unwanted surface effects requires careful experimental design and characterization.</p></li>
+<li><p><strong>Energy input</strong>: Maintaining steady, uniform activation across synthetic systems. Whether through chemical fuel concentration, light intensity, magnetic fields, or electric fields, ensuring uniform activation throughout the sample volume is crucial. Challenges include maintaining constant H2O2 concentration for catalytic swimmers or uniform illumination for light-activated particles.</p></li>
+<li><p><strong>Time limitations</strong>: Managing fuel depletion and particle degradation while maintaining function. Synthetic active systems face challenges like catalyst poisoning, fuel consumption, and photobleaching that can impair their ability to perform desired tasks. For chemical swimmers, local fuel depletion can create concentration gradients that affect particle behavior, while light-activated systems may suffer from photodamage over time.</p></li>
+<li><p><strong>Imaging limitations</strong>: Balancing spatial and temporal resolution with field of view. Active matter often requires both high-resolution imaging to track individual particles and wide-field observation to capture collective effects. This creates technical challenges in microscopy and imaging systems, particularly for three-dimensional systems.</p></li>
+<li><p><strong>Parameter space</strong>: Exploring vast parameter spaces with limited resources. Synthetic active matter systems have many tunable parameters including particle size, shape, surface chemistry, fuel concentration, and external field strengths. Systematically exploring these parameters while maintaining experimental consistency requires significant time and resources.</p></li>
+<li><p><strong>System integration</strong>: Incorporating active matter into functional devices or materials while maintaining desired behaviors. Synthetic active matter experiments require careful integration with other components while preserving activity and function. Creating stable, reliable systems that can operate under real-world conditions presents significant engineering challenges.</p></li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <ul>
 <li><p><strong>Bridging scales</strong>: Connecting microscopic mechanisms to macroscopic behaviors. Active matter systems often exhibit behaviors across many orders of magnitude in length and time scales, making it challenging to track how molecular-level processes give rise to large-scale collective phenomena. For example, in bacterial colonies, individual cell motility and interactions must be connected to population-level dynamics and pattern formation, requiring sophisticated multi-scale modeling approaches.</p></li>
 <li><p><strong>Non-equilibrium statistical mechanics</strong>: Developing systematic frameworks beyond equilibrium concepts. Traditional statistical mechanics relies heavily on concepts like detailed balance and the fluctuation-dissipation theorem, which break down in active systems due to continuous energy input. The lack of an energy minimum principle or equivalent organizing framework makes it difficult to develop general theories for non-equilibrium steady states.</p></li>
@@ -801,24 +826,11 @@ Figure&nbsp;6: Examples of apolar active matter: melanocytes (<a href="https://c
 <li><p><strong>Information flow</strong>: Quantifying information processing in active biological systems. Biological active matter systems process and respond to information in sophisticated ways, from bacterial chemotaxis to collective decision making in animal groups. Developing theoretical frameworks to quantify and model this information processing remains a major challenge.</p></li>
 <li><p><strong>Predictive power</strong>: Developing theories with quantitative predictive capabilities for experiments. The complexity and non-equilibrium nature of active matter systems often leads to theories that are qualitative rather than quantitative in nature. Making precise, testable predictions requires better understanding of the relevant control parameters and their relationships to observable phenomena.</p></li>
 </ul>
-</section>
-<section id="key-experimental-challenges" class="level4">
-<h4 class="anchored" data-anchor-id="key-experimental-challenges"><strong>Key experimental challenges</strong></h4>
-<ul>
-<li><p><strong>Control and reproducibility</strong>: Maintaining consistent activity levels and environmental conditions. Biological active matter systems are particularly sensitive to environmental factors like temperature, pH, and nutrient concentrations. Even synthetic systems face challenges in maintaining uniform activity across samples and over time. For example, bacterial swimming speeds can vary significantly with minor changes in growth conditions, making quantitative comparisons between experiments difficult.</p></li>
-<li><p><strong>Measurement techniques</strong>: Developing methods to track fast dynamics across multiple scales. Active matter systems often exhibit complex spatiotemporal dynamics that require simultaneous tracking of individual particles and collective behaviors. High-speed imaging, particle tracking, and flow visualization techniques must be adapted to capture both the rapid motion of individual active units and the slower evolution of large-scale patterns.</p></li>
-<li><p><strong>System preparation</strong>: Creating well-defined initial conditions and uniform properties. The preparation of active matter systems, whether biological or synthetic, requires careful control over particle properties, concentrations, and activation mechanisms. For instance, synthesizing active colloids with uniform shape, size, and surface properties is crucial for reproducible experiments but technically challenging.</p></li>
-<li><p><strong>Boundary conditions</strong>: Controlling and characterizing interactions with surfaces. Active matter systems are highly sensitive to boundary conditions, which can significantly influence their behavior. Creating well-defined boundaries while maintaining activity and avoiding unwanted surface effects requires careful experimental design and characterization.</p></li>
-<li><p><strong>Energy input</strong>: Maintaining steady, uniform energy supply across the system. Active matter requires continuous energy input to maintain non-equilibrium dynamics. Ensuring this energy supply is uniform and constant across the system volume and over experimental timescales presents significant challenges, particularly in biological systems where metabolic activity can vary.</p></li>
-<li><p><strong>Time limitations</strong>: Dealing with finite activity duration and system stability. Many active matter systems have limited lifetimes due to fuel depletion, particle degradation, or loss of biological activity. This temporal constraint affects the types of experiments that can be performed and the phenomena that can be studied, particularly for long-time behaviors.</p></li>
-<li><p><strong>Imaging limitations</strong>: Balancing spatial and temporal resolution with field of view. Active matter often requires both high-resolution imaging to track individual particles and wide-field observation to capture collective effects. This creates technical challenges in microscopy and imaging systems, particularly for three-dimensional systems.</p></li>
-<li><p><strong>Parameter space</strong>: Exploring vast parameter spaces with limited resources. Active matter systems often have many control parameters that can affect their behavior. Systematically exploring this parameter space while maintaining experimental consistency requires significant time and resources.</p></li>
-<li><p><strong>Data analysis</strong>: Processing and interpreting large datasets with complex dynamics. The high-throughput nature of many active matter experiments generates vast amounts of data that require sophisticated analysis techniques. Developing robust methods to extract meaningful parameters and identify relevant patterns remains challenging.</p></li>
-<li><p><strong>System isolation</strong>: Preventing unwanted external influences while maintaining activity. Active matter experiments often require careful isolation from external perturbations while still allowing necessary energy input and measurement access. This creates technical challenges in experimental design and implementation.</p></li>
-</ul>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 </section>
 
@@ -913,7 +925,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/fcichos\.github\.io\/AM25\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
