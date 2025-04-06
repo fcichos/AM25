@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  search: true
+  title: "Active Matter Physics"
+  page-navigation: true
+  navbar:
+    background: primary
+    search: true
+    right:
+      - icon: github
+  sidebar:
+    style: "floating" # Options: "floating", "sticky"
+    logo: assets/images/mona_logo.png
+    collapse-level: 3
+    contents:
+      - text: Home
+        href: index.qmd
+      - text: "---" # This creates a divider
+      - section: "Course Info"
+        contents:
+          - text: Instructor
+            href: course-info/intructors.qmd
+      - text: "---" # This creates a divider
+      - text: "Part I: Foundations and Theoretical Framework"
+      - section: "Introduction to Active Matter"
+        contents:
+          - text: Lecture 1
+            href: lecture01/lecture01.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+    toc-depth: 3
