@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -172,6 +201,15 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture-2-non-equilibrium-statistical-mechanics" id="toc-lecture-2-non-equilibrium-statistical-mechanics" class="nav-link active" data-scroll-target="#lecture-2-non-equilibrium-statistical-mechanics">Lecture 2: Non-equilibrium Statistical Mechanics</a></li>
+  <li><a href="#brief-review-of-equilibrium-statistical-mechanics" id="toc-brief-review-of-equilibrium-statistical-mechanics" class="nav-link" data-scroll-target="#brief-review-of-equilibrium-statistical-mechanics">Brief review of equilibrium statistical mechanics</a>
+  <ul class="collapse">
+  <li><a href="#canonical-ensemble-and-partition-function" id="toc-canonical-ensemble-and-partition-function" class="nav-link" data-scroll-target="#canonical-ensemble-and-partition-function">Canonical ensemble and partition function</a></li>
+  <li><a href="#free-energy-and-thermodynamic-potentials" id="toc-free-energy-and-thermodynamic-potentials" class="nav-link" data-scroll-target="#free-energy-and-thermodynamic-potentials">Free energy and thermodynamic potentials</a></li>
+  <li><a href="#ergodicity-and-detailed-balance" id="toc-ergodicity-and-detailed-balance" class="nav-link" data-scroll-target="#ergodicity-and-detailed-balance">Ergodicity and detailed balance</a></li>
+  <li><a href="#phase-space-and-liouvilles-theorem" id="toc-phase-space-and-liouvilles-theorem" class="nav-link" data-scroll-target="#phase-space-and-liouvilles-theorem">Phase space and Liouville’s theorem</a></li>
+  <li><a href="#brownian-motion-and-the-langevin-equation" id="toc-brownian-motion-and-the-langevin-equation" class="nav-link" data-scroll-target="#brownian-motion-and-the-langevin-equation">Brownian motion and the Langevin equation</a></li>
+  </ul></li>
+  <li><a href="#fluctuation-dissipation-theorem-and-its-breakdown" id="toc-fluctuation-dissipation-theorem-and-its-breakdown" class="nav-link" data-scroll-target="#fluctuation-dissipation-theorem-and-its-breakdown">Fluctuation-dissipation theorem and its breakdown</a></li>
   </ul>
 </nav>
     </div>
@@ -206,6 +244,88 @@ ul.task-list li input[type="checkbox"] {
 <li>Stochastic thermodynamics approach</li>
 <li>Time-reversal symmetry breaking</li>
 </ul>
+</section>
+<section id="brief-review-of-equilibrium-statistical-mechanics" class="level2">
+<h2 class="anchored" data-anchor-id="brief-review-of-equilibrium-statistical-mechanics">Brief review of equilibrium statistical mechanics</h2>
+<p>Equilibrium statistical mechanics provides the foundation for understanding non-equilibrium phenomena in active matter. Here, we review key concepts that will be essential for our study of active systems.</p>
+<section id="canonical-ensemble-and-partition-function" class="level3">
+<h3 class="anchored" data-anchor-id="canonical-ensemble-and-partition-function">Canonical ensemble and partition function</h3>
+<p>For a system in thermal equilibrium with a heat bath at temperature <span class="math inline">\(T\)</span>, the probability of finding the system in a microstate with energy <span class="math inline">\(E_i\)</span> is given by the Boltzmann distribution:</p>
+<p><span class="math display">\[P_i = \frac{1}{Z} e^{-\beta E_i}\]</span></p>
+<p>where <span class="math inline">\(\beta = 1/(k_B T)\)</span>, <span class="math inline">\(k_B\)</span> is Boltzmann’s constant, and <span class="math inline">\(Z\)</span> is the partition function:</p>
+<p><span class="math display">\[Z = \sum_i e^{-\beta E_i}\]</span></p>
+<p>The partition function is central to statistical mechanics as it connects microscopic properties to macroscopic observables. For instance, the average energy is:</p>
+<p><span class="math display">\[\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}\]</span></p>
+</section>
+<section id="free-energy-and-thermodynamic-potentials" class="level3">
+<h3 class="anchored" data-anchor-id="free-energy-and-thermodynamic-potentials">Free energy and thermodynamic potentials</h3>
+<p>The Helmholtz free energy <span class="math inline">\(F\)</span> is related to the partition function by:</p>
+<p><span class="math display">\[F = -k_B T \ln Z\]</span></p>
+<p>This relationship allows us to calculate thermodynamic quantities such as entropy <span class="math inline">\(S\)</span>:</p>
+<p><span class="math display">\[S = -\left(\frac{\partial F}{\partial T}\right)_V = k_B \ln Z + \frac{\langle E \rangle}{T}\]</span></p>
+<p>For systems with fixed particle number, volume, and temperature (canonical ensemble), minimizing <span class="math inline">\(F\)</span> determines the equilibrium state.</p>
+</section>
+<section id="ergodicity-and-detailed-balance" class="level3">
+<h3 class="anchored" data-anchor-id="ergodicity-and-detailed-balance">Ergodicity and detailed balance</h3>
+<p>A key assumption in equilibrium statistical mechanics is ergodicity—the equivalence between time averages and ensemble averages:</p>
+<p><span class="math display">\[\langle A \rangle_{\text{time}} = \lim_{T\to\infty} \frac{1}{T} \int_0^T A(t) dt = \langle A \rangle_{\text{ensemble}}\]</span></p>
+<p>Equilibrium dynamics satisfies detailed balance, a microscopic time-reversal symmetry condition. For transitions between states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> with rates <span class="math inline">\(W_{i\to j}\)</span> and <span class="math inline">\(W_{j\to i}\)</span>:</p>
+<p><span class="math display">\[\frac{W_{i\to j}}{W_{j\to i}} = \frac{P_j^{\text{eq}}}{P_i^{\text{eq}}} = e^{-\beta(E_j-E_i)}\]</span></p>
+<p>Detailed balance ensures that there are no net probability currents in equilibrium.</p>
+</section>
+<section id="phase-space-and-liouvilles-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="phase-space-and-liouvilles-theorem">Phase space and Liouville’s theorem</h3>
+<p>For classical systems with positions <span class="math inline">\(\mathbf{q}\)</span> and momenta <span class="math inline">\(\mathbf{p}\)</span>, the phase space distribution function <span class="math inline">\(\rho(\mathbf{q},\mathbf{p},t)\)</span> evolves according to Liouville’s equation:</p>
+<p><span class="math display">\[\frac{\partial \rho}{\partial t} = -\{\rho, H\}\]</span></p>
+<p>where <span class="math inline">\(\{\cdot,\cdot\}\)</span> denotes the Poisson bracket and <span class="math inline">\(H\)</span> is the Hamiltonian. At equilibrium, <span class="math inline">\(\rho\)</span> is time-independent and given by:</p>
+<p><span class="math display">\[\rho_{\text{eq}}(\mathbf{q},\mathbf{p}) = \frac{1}{Z} e^{-\beta H(\mathbf{q},\mathbf{p})}\]</span></p>
+</section>
+<section id="brownian-motion-and-the-langevin-equation" class="level3">
+<h3 class="anchored" data-anchor-id="brownian-motion-and-the-langevin-equation">Brownian motion and the Langevin equation</h3>
+<p>Brownian motion provides a simple yet powerful model for understanding thermal fluctuations. The Langevin equation describes the motion of a Brownian particle:</p>
+<p><span class="math display">\[m\frac{d^2x}{dt^2} = -\gamma\frac{dx}{dt} - \frac{dU(x)}{dx} + \xi(t)\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is the friction coefficient, <span class="math inline">\(U(x)\)</span> is the potential energy, and <span class="math inline">\(\xi(t)\)</span> is Gaussian white noise with:</p>
+<p><span class="math display">\[\langle\xi(t)\rangle = 0, \quad \langle\xi(t)\xi(t')\rangle = 2\gamma k_B T \delta(t-t')\]</span></p>
+<p>The noise amplitude is related to the friction coefficient through the fluctuation-dissipation relation, a consequence of thermal equilibrium.</p>
+<p>In the overdamped limit, which is often relevant for colloidal systems and active matter, inertial effects can be neglected:</p>
+<p><span class="math display">\[\gamma\frac{dx}{dt} = -\frac{dU(x)}{dx} + \xi(t)\]</span></p>
+<p>This framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles.</p>
+</section>
+</section>
+<section id="fluctuation-dissipation-theorem-and-its-breakdown" class="level2">
+<h2 class="anchored" data-anchor-id="fluctuation-dissipation-theorem-and-its-breakdown">Fluctuation-dissipation theorem and its breakdown</h2>
+<p>The fluctuation-dissipation theorem (FDT) represents one of the cornerstones of equilibrium statistical mechanics, establishing a fundamental relationship between the response of a system to small external perturbations and its spontaneous fluctuations at thermal equilibrium. However, this elegant theorem breaks down in active matter systems, providing a clear signature of non-equilibrium behavior.</p>
+<p>Let’s begin with a precise formulation of the FDT in equilibrium systems. Consider a system described by a set of variables <span class="math inline">\(\{x_i\}\)</span>. The response function <span class="math inline">\(\chi_{ij}(t-t')\)</span> quantifies how the average value of <span class="math inline">\(x_i\)</span> at time <span class="math inline">\(t\)</span> changes due to a small perturbation applied to <span class="math inline">\(x_j\)</span> at an earlier time <span class="math inline">\(t'\)</span>:</p>
+<p><span class="math display">\[\chi_{ij}(t-t') = \frac{\delta \langle x_i(t) \rangle}{\delta h_j(t')}\]</span></p>
+<p>where <span class="math inline">\(h_j\)</span> represents an external field conjugate to <span class="math inline">\(x_j\)</span>, and <span class="math inline">\(\langle \cdot \rangle\)</span> denotes an ensemble average.</p>
+<p>The correlation function <span class="math inline">\(C_{ij}(t-t')\)</span>, on the other hand, measures the statistical correlation between spontaneous fluctuations of the variables:</p>
+<p><span class="math display">\[C_{ij}(t-t') = \langle x_i(t) x_j(t') \rangle - \langle x_i(t) \rangle \langle x_j(t') \rangle\]</span></p>
+<p>The fluctuation-dissipation theorem connects these two quantities. For a system at thermal equilibrium at temperature <span class="math inline">\(T\)</span>, the theorem states:</p>
+<p><span class="math display">\[\chi_{ij}(t-t') = -\frac{1}{k_B T} \frac{d}{dt} C_{ij}(t-t') \quad \text{for } t &gt; t'\]</span></p>
+<p>where <span class="math inline">\(k_B\)</span> is Boltzmann’s constant. In the frequency domain, this relationship becomes:</p>
+<p><span class="math display">\[\chi_{ij}''(\omega) = \frac{\omega}{2k_B T} C_{ij}(\omega)\]</span></p>
+<p>where <span class="math inline">\(\chi_{ij}''(\omega)\)</span> is the imaginary part of the Fourier transform of the response function, and <span class="math inline">\(C_{ij}(\omega)\)</span> is the Fourier transform of the correlation function.</p>
+<p>To derive this result, we can start from the Langevin equation for a Brownian particle in a potential <span class="math inline">\(U(x)\)</span>:</p>
+<p><span class="math display">\[m\ddot{x} + \gamma \dot{x} + \nabla U(x) = \xi(t)\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is the friction coefficient and <span class="math inline">\(\xi(t)\)</span> is a Gaussian white noise with <span class="math inline">\(\langle \xi(t) \rangle = 0\)</span> and <span class="math inline">\(\langle \xi(t) \xi(t') \rangle = 2\gamma k_B T \delta(t-t')\)</span>.</p>
+<p>In the overdamped limit, which is relevant for most microscopic systems, this simplifies to:</p>
+<p><span class="math display">\[\gamma \dot{x} = -\nabla U(x) + \xi(t)\]</span></p>
+<p>For small displacements around an equilibrium position, we can linearize the potential and calculate both the response function and the correlation function explicitly. The result confirms the fluctuation-dissipation relation.</p>
+<p>The physical interpretation of the FDT is profound: the same microscopic processes that cause dissipation when the system is perturbed externally also drive the spontaneous fluctuations at equilibrium. Or conversely, the system’s response to external perturbations can be predicted from knowledge of its equilibrium fluctuations.</p>
+<p>In active matter systems, however, the FDT breaks down systematically. Active matter encompasses systems composed of self-propelled units that convert stored or ambient energy into directed motion. Examples include bacterial suspensions, cellular tissues, bird flocks, and artificial microswimmers.</p>
+<p>For active systems, we can quantify the breakdown of the FDT by defining an effective temperature <span class="math inline">\(T_{\text{eff}}(\omega)\)</span> through:</p>
+<p><span class="math display">\[T_{\text{eff}}(\omega) = \frac{\omega C_{ij}(\omega)}{2k_B \chi_{ij}''(\omega)}\]</span></p>
+<p>In equilibrium systems, <span class="math inline">\(T_{\text{eff}}(\omega) = T\)</span> is constant across all frequencies. In active systems, <span class="math inline">\(T_{\text{eff}}(\omega)\)</span> becomes frequency-dependent, often showing dramatic deviations from the bath temperature at frequencies related to active processes.</p>
+<p>Consider a simple model of active matter: a particle subject to both thermal noise and an active force <span class="math inline">\(f_a(t)\)</span>:</p>
+<p><span class="math display">\[\gamma \dot{x} = -\nabla U(x) + \xi(t) + f_a(t)\]</span></p>
+<p>The active force typically has a finite correlation time <span class="math inline">\(\tau_a\)</span> and strength characterized by an active diffusion coefficient <span class="math inline">\(D_a\)</span>:</p>
+<p><span class="math display">\[\langle f_a(t) f_a(t') \rangle = \gamma^2 D_a \exp(-|t-t'|/\tau_a)\]</span></p>
+<p>Solving this model shows that the correlation function <span class="math inline">\(C(\omega)\)</span> receives contributions from both thermal and active processes, while the response function <span class="math inline">\(\chi''(\omega)\)</span> remains determined solely by the dissipative properties of the medium. This mismatch leads to a violation of the FDT.</p>
+<p>The extent of FDT violation can be quantified by the ratio:</p>
+<p><span class="math display">\[\frac{T_{\text{eff}}(\omega)}{T} = 1 + \frac{D_a \tau_a}{D} \frac{1}{1 + \omega^2 \tau_a^2}\]</span></p>
+<p>where <span class="math inline">\(D = k_B T/\gamma\)</span> is the equilibrium diffusion coefficient. At low frequencies (<span class="math inline">\(\omega \tau_a \ll 1\)</span>), the effective temperature can be much larger than the bath temperature if <span class="math inline">\(D_a \tau_a \gg D\)</span>, indicating strong non-equilibrium effects. At high frequencies (<span class="math inline">\(\omega \tau_a \gg 1\)</span>), thermal effects dominate and <span class="math inline">\(T_{\text{eff}}(\omega) \approx T\)</span>.</p>
+<p>The breakdown of the FDT has important practical consequences. In active systems, measurements of spontaneous fluctuations cannot be used to predict the response to external perturbations using equilibrium statistical mechanics. Conversely, the violation of the FDT provides a quantitative tool to characterize the non-equilibrium nature of active systems, even when the microscopic details of active processes are unknown.</p>
+<p>This FDT violation is closely connected to entropy production, which we will explore next as a fundamental measure of the arrow of time in non-equilibrium systems.</p>
 
 
 </section>
