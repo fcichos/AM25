@@ -135,7 +135,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../course-info/intructors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Instructor</span></a>
+ <span class="menu-text">Instructors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-info/resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-info/schedule.ipynb" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Course Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../course-info/exam.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam</span></a>
   </div>
 </li>
       </ul>
@@ -174,8 +192,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lecture-1" id="toc-lecture-1" class="nav-link active" data-scroll-target="#lecture-1">Lecture 1</a>
   <ul class="collapse">
   <li><a href="#historical-context-and-emergence-of-the-field" id="toc-historical-context-and-emergence-of-the-field" class="nav-link" data-scroll-target="#historical-context-and-emergence-of-the-field">Historical context and emergence of the field</a></li>
-  <li><a href="#classification-and-examples-of-active-systems" id="toc-classification-and-examples-of-active-systems" class="nav-link" data-scroll-target="#classification-and-examples-of-active-systems">Classification and Examples of Active Systems</a></li>
   <li><a href="#distinguishing-features-from-equilibrium-systems" id="toc-distinguishing-features-from-equilibrium-systems" class="nav-link" data-scroll-target="#distinguishing-features-from-equilibrium-systems">Distinguishing features from equilibrium systems</a></li>
+  <li><a href="#classification-and-examples-of-active-systems" id="toc-classification-and-examples-of-active-systems" class="nav-link" data-scroll-target="#classification-and-examples-of-active-systems">Classification and Examples of Active Systems</a></li>
   <li><a href="#overview-of-theoretical-approaches-and-challenges" id="toc-overview-of-theoretical-approaches-and-challenges" class="nav-link" data-scroll-target="#overview-of-theoretical-approaches-and-challenges">Overview of theoretical approaches and challenges</a></li>
   <li><a href="#challenges-in-the-field-of-active-matter" id="toc-challenges-in-the-field-of-active-matter" class="nav-link" data-scroll-target="#challenges-in-the-field-of-active-matter">Challenges in the field of active matter</a></li>
   </ul></li>
@@ -216,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
 
 <style>
   #boids-container {
-    width: 600px;
+    width: 800px;
     height: 500px;
     margin: 0 auto;
     border: 0px solid #ccc;
@@ -231,8 +249,8 @@ ul.task-list li input[type="checkbox"] {
     height: 0;
     border-left: 2.5px solid transparent;
     border-right: 2.5px solid transparent;
-    border-top: 6px solid #000000;
-    transform-origin: 50% 33%;
+    border-bottom: 6px solid #000000;
+    transform-origin: 50% 67%;
   }
 
   .controls {
@@ -259,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
     <button id="reset-btn">Reset Simulation</button>
   </div>
   <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 10px; margin-right: 100px;">
-    <label style="margin-bottom: 5px;">Separation: <input type="range" id="separation" min="0" max="2" step="0.1" value="2.5"></label>
+    <label style="margin-bottom: 5px;">Separation: <input type="range" id="separation" min="0" max="5" step="0.1" value="2.5"></label>
     <label style="margin-bottom: 5px;">Alignment: <input type="range" id="alignment" min="0" max="2" step="0.1" value="0.2"></label>
     <label style="margin-bottom: 5px;">Cohesion: <input type="range" id="cohesion" min="0" max="2" step="0.1" value="0.2"></label>
   </div>
@@ -271,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Configuration
   const config = {
     numBoids: 1000,
-    width: 600,
+    width: 800,
     height: 500,
     maxSpeed: 3,
     minSpeed: 1,
@@ -535,6 +553,76 @@ The Boids Model Explained
 <p>Experimental breakthroughs with bacterial suspensions (notably work by Igor Aranson and Raymond Goldstein on Bacillus subtilis), cell tissues (including Xavier Trepat’s research at IBEC in Barcelona on epithelial cell sheets), and synthetic active colloids (pioneered by European researchers like Jérémie Palacci (Lyon/San Diego), Julien Perrin (Paris), and Clemens Bechinger (Konstanz/Stuttgart) with light-activated Janus particles) further propelled the field forward. The development of artificial microswimmers by international collaborations involving European teams led by Roberto Di Leonardo (Rome), Ramin Golestanian (Oxford/Göttingen), and Frank Cichos (Leipzig), alongside US-based researchers like Steve Granick and Ayusman Sen, opened new avenues for creating controllable active systems outside biological contexts.</p>
 <p>By the 2010s, active matter had developed into a distinct discipline with dedicated conferences and research groups worldwide. The establishment of specialized research centers across Europe such as the Max Planck Institute for Dynamics and Self-Organization in Göttingen, the Physics of Living Matter Group at Cambridge, the Biological Physics and Morphogenesis groups at MPIPKS Dresden, alongside the Syracuse Soft and Living Matter Program, the Center for the Physics of Biological Function at Princeton, and the Active Matter Lab at MIT reflected the field’s growing importance. Major milestones included the observation of motility-induced phase separation by Michael Cates (Edinburgh) and Julien Tailleur (Paris) (2013), the discovery of topological defect motility in active nematics by Zvonimir Dogic and collaborators (2014), and the creation of the first autonomous active material capable of performing work by Daniela Wilson’s group (Nijmegen) (2019). The field continues to expand with increasing interdisciplinary collaborations between physicists, biologists, materials scientists, and engineers, addressing fundamental questions in non-equilibrium physics while developing applications in biomedicine, soft robotics, and smart materials.</p>
 </section>
+<section id="distinguishing-features-from-equilibrium-systems" class="level3">
+<h3 class="anchored" data-anchor-id="distinguishing-features-from-equilibrium-systems">Distinguishing features from equilibrium systems</h3>
+<p>Understanding how active matter systems differ from equilibrium systems is crucial for developing new theoretical frameworks and experimental approaches. The continuous energy input and self-driven nature of active matter leads to behaviors that challenge our traditional physics understanding. Consider the following key distinctions between equilibrium and active matter systems:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 38%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Equilibrium Systems</th>
+<th>Active Matter Systems</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Detailed Balance</strong></td>
+<td>Forward and reverse processes occur at equal rates</td>
+<td>Continuously broken through energy consumption, driving the system away from equilibrium</td>
+</tr>
+<tr class="even">
+<td><strong>Fluctuation-Dissipation Theorem</strong></td>
+<td>Valid relationship between spontaneous fluctuations and response to external perturbations</td>
+<td>Breaks down as fluctuations can be driven by internal activity</td>
+</tr>
+<tr class="odd">
+<td><strong>Particle Motion</strong></td>
+<td>Random Brownian motion</td>
+<td>Persistent directional motion over certain timescales</td>
+</tr>
+<tr class="even">
+<td><strong>Statistical Distributions</strong></td>
+<td>Follow Boltzmann statistics</td>
+<td>Non-Boltzmann statistics, making standard thermodynamic tools inapplicable</td>
+</tr>
+<tr class="odd">
+<td><strong>Macroscopic Currents</strong></td>
+<td>Absent in steady states</td>
+<td>Can sustain macroscopic currents and flux cycles even in steady states</td>
+</tr>
+<tr class="even">
+<td><strong>Phase Behavior</strong></td>
+<td>Well-established equilibrium phases</td>
+<td>Unique phase transitions with no equilibrium counterparts (e.g., motility-induced phase separation, active turbulence)</td>
+</tr>
+<tr class="odd">
+<td><strong>Mechanical Pressure</strong></td>
+<td>Independent of boundary properties</td>
+<td>Can depend on properties of confining walls, violating equilibrium equations of state</td>
+</tr>
+<tr class="even">
+<td><strong>Energy and Entropy</strong></td>
+<td>Minimize free energy, maximize entropy</td>
+<td>Continuously dissipate energy and produce entropy even in steady states</td>
+</tr>
+<tr class="odd">
+<td><strong>Time-Reversal Symmetry</strong></td>
+<td>Dynamics appear similar when played forward or backward</td>
+<td>Dynamics look distinctly different when played forward versus backward</td>
+</tr>
+<tr class="even">
+<td><strong>Force Characteristics</strong></td>
+<td>Derivable from a potential energy function</td>
+<td>Cannot generally be derived from a potential energy function</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="classification-and-examples-of-active-systems" class="level3">
 <h3 class="anchored" data-anchor-id="classification-and-examples-of-active-systems">Classification and Examples of Active Systems</h3>
 <p>Active matter encompasses a diverse range of systems, from biological organisms to synthetic particles, that share the common feature of continuously converting energy into systematic motion. These systems can be organized into several categories based on their energy sources, symmetries, and the nature of their interactions, providing a framework for understanding their distinct behaviors and properties.</p>
@@ -702,76 +790,6 @@ Figure&nbsp;7: Time-lapse microscopy of Drosophila embryo development showing ga
 </div>
 </div>
 </div>
-</section>
-<section id="distinguishing-features-from-equilibrium-systems" class="level3">
-<h3 class="anchored" data-anchor-id="distinguishing-features-from-equilibrium-systems">Distinguishing features from equilibrium systems</h3>
-<p>Understanding how active matter systems differ from equilibrium systems is crucial for developing new theoretical frameworks and experimental approaches. The continuous energy input and self-driven nature of active matter leads to behaviors that challenge our traditional physics understanding. Consider the following key distinctions between equilibrium and active matter systems:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 38%">
-<col style="width: 44%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>Equilibrium Systems</th>
-<th>Active Matter Systems</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Detailed Balance</strong></td>
-<td>Forward and reverse processes occur at equal rates</td>
-<td>Continuously broken through energy consumption, driving the system away from equilibrium</td>
-</tr>
-<tr class="even">
-<td><strong>Fluctuation-Dissipation Theorem</strong></td>
-<td>Valid relationship between spontaneous fluctuations and response to external perturbations</td>
-<td>Breaks down as fluctuations can be driven by internal activity</td>
-</tr>
-<tr class="odd">
-<td><strong>Particle Motion</strong></td>
-<td>Random Brownian motion</td>
-<td>Persistent directional motion over certain timescales</td>
-</tr>
-<tr class="even">
-<td><strong>Statistical Distributions</strong></td>
-<td>Follow Boltzmann statistics</td>
-<td>Non-Boltzmann statistics, making standard thermodynamic tools inapplicable</td>
-</tr>
-<tr class="odd">
-<td><strong>Macroscopic Currents</strong></td>
-<td>Absent in steady states</td>
-<td>Can sustain macroscopic currents and flux cycles even in steady states</td>
-</tr>
-<tr class="even">
-<td><strong>Phase Behavior</strong></td>
-<td>Well-established equilibrium phases</td>
-<td>Unique phase transitions with no equilibrium counterparts (e.g., motility-induced phase separation, active turbulence)</td>
-</tr>
-<tr class="odd">
-<td><strong>Mechanical Pressure</strong></td>
-<td>Independent of boundary properties</td>
-<td>Can depend on properties of confining walls, violating equilibrium equations of state</td>
-</tr>
-<tr class="even">
-<td><strong>Energy and Entropy</strong></td>
-<td>Minimize free energy, maximize entropy</td>
-<td>Continuously dissipate energy and produce entropy even in steady states</td>
-</tr>
-<tr class="odd">
-<td><strong>Time-Reversal Symmetry</strong></td>
-<td>Dynamics appear similar when played forward or backward</td>
-<td>Dynamics look distinctly different when played forward versus backward</td>
-</tr>
-<tr class="even">
-<td><strong>Force Characteristics</strong></td>
-<td>Derivable from a potential energy function</td>
-<td>Cannot generally be derived from a potential energy function</td>
-</tr>
-</tbody>
-</table>
 </section>
 <section id="overview-of-theoretical-approaches-and-challenges" class="level3">
 <h3 class="anchored" data-anchor-id="overview-of-theoretical-approaches-and-challenges">Overview of theoretical approaches and challenges</h3>
