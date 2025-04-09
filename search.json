@@ -29,6 +29,17 @@
     "text": "About this site"
   },
   {
+    "objectID": "course-info/schedule.html",
+    "href": "course-info/schedule.html",
+    "title": "Course Schedule",
+    "section": "",
+    "text": "This course is a master course in physics to introduce into the field of active matter. The course is comprising a series of lectures and exercise sessions, which allow students to apply the concepts learned in the lectures to real-world problems.\nThe lectures will take place in person every\nThursday, 9:15 AM SR 224\nstarting April 10th.\nThe seminars will take place in person every\nXXX, 10:00 AM SR 224\nstarting April 1Xth.\nThe exam will be oral and dates witll be provided during the lecture period.",
+    "crumbs": [
+      "Course Info",
+      "Course Schedule"
+    ]
+  },
+  {
     "objectID": "course-info/exam.html",
     "href": "course-info/exam.html",
     "title": "Exam",
@@ -107,7 +118,7 @@
     "href": "course-info/intructors.html",
     "title": "Instructors",
     "section": "",
-    "text": "Linnéstr. 5, 04103 Leipzig\nOffice: 322\nPhone: +49 341 97 32571\nEmail: lastname@physik.uni-leipzig.de\n\n##Seminars\n\n\n\n\nLinnéstr. 5, 04103 Leipzig\nOffice: 333a\nPhone: +49 341 97 32570\nEmail: lastname@physik.uni-leipzig.de",
+    "text": "Linnéstr. 5, 04103 Leipzig\nOffice: 322\nPhone: +49 341 97 32571\nEmail: lastname@physik.uni-leipzig.de",
     "crumbs": [
       "Course Info",
       "Instructors"
@@ -118,7 +129,18 @@
     "href": "course-info/intructors.html#lectures",
     "title": "Instructors",
     "section": "",
-    "text": "Linnéstr. 5, 04103 Leipzig\nOffice: 322\nPhone: +49 341 97 32571\nEmail: lastname@physik.uni-leipzig.de\n\n##Seminars\n\n\n\n\nLinnéstr. 5, 04103 Leipzig\nOffice: 333a\nPhone: +49 341 97 32570\nEmail: lastname@physik.uni-leipzig.de",
+    "text": "Linnéstr. 5, 04103 Leipzig\nOffice: 322\nPhone: +49 341 97 32571\nEmail: lastname@physik.uni-leipzig.de",
+    "crumbs": [
+      "Course Info",
+      "Instructors"
+    ]
+  },
+  {
+    "objectID": "course-info/intructors.html#seminars",
+    "href": "course-info/intructors.html#seminars",
+    "title": "Instructors",
+    "section": "Seminars",
+    "text": "Seminars\n\nDr. Xiangzun Wang\n\nLinnéstr. 5, 04103 Leipzig\nOffice: 333a\nPhone: +49 341 97 32570\nEmail: lastname@physik.uni-leipzig.de",
     "crumbs": [
       "Course Info",
       "Instructors"
