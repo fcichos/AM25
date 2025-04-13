@@ -1,0 +1,15 @@
+---
+title: "Microscopic Models of Self-propulsion"
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+
+### Lecture 3: Microscopic Models of Self-propulsion
+- Active Brownian particles
+- Run-and-tumble particles
+- Swimming at low Reynolds number
+- Hydrodynamic interactions
+- Microswimmer force dipoles

@@ -1,0 +1,12 @@
+{
+  "hash": "2665f22024d05d11e67f1d5db728d8f3",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Resources\"\njupyter: python3\nformat:\n  html:\n    toc: true\n    toc-location: right\n    code-fold: true\n    fig-cap-location: bottom\n---\n\n\n\n\n\n\n### Books on Soft Matter\n\n- Jacob N. Israelachvili: Intermolecular and Surface Forces: With Applications to Colloidal and Biological Systems (Academic Press)\n- Rob Phillips, Jane Kondev, Julie Theriot: Physical Biology of the Cell (Garland Science)\n- Richard A.L. Jones: Soft Condensed Matter (Oxford University Press)\n- Michael Rubinstein, Ralph H. Colby: Polymer Physics (Oxford University Press)\n- Jonathan Howard: Mechanics of Motor Proteins and the Cytoskeleton (Sinauer Associates)\n- M. Doi and S.F. Edwards: The Theory of Polymer Dynamics (Oxford Academic Press)\n- P.G. de Gennes and J. Prost: The Physics of Liquid Crystals (Oxford Academic Press)\n\n### The Active Matter Book\n\n- [Active Matter](https://fcichos)\n\n",
+    "supporting": [
+      "resources_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

@@ -13,6 +13,8 @@
 - Entropy production in active systems
 - Stochastic thermodynamics approach
 - Time-reversal symmetry breaking
+- Experimental signatures of non-equilibrium behavior
+- Experimental methods for characterizing non-equilibrium systems
 
 ### Lecture 3: Microscopic Models of Self-propulsion
 - Active Brownian particles
@@ -21,7 +23,7 @@
 - Hydrodynamic interactions
 - Microswimmer force dipoles
 
-### Lecture 4: Continuum Theories
+### Lecture 4: Continuum Theories (keep simple)
 - Hydrodynamic theories and coarse-graining
 - Active liquid crystals
 - Toner-Tu model for flocking
@@ -67,7 +69,7 @@
 - Nuclear organization
 - In vitro reconstitution experiments
 
-### Lecture 10: Biological Active Matter II - Multicellular Systems
+### Lecture 10: Biological Active Matter II - Multicellular Systems (think about more synthetic and less biological)
 - Bacterial suspensions and biofilms
 - Cell monolayers and tissue dynamics
 - Morphogenesis and developmental biology
@@ -88,14 +90,3 @@
 - Quantum active matter
 - Unsolved problems and future directions
 - Concluding discussion and course summary
-
-## Assessment Structure
-- Problem sets (40%): Theoretical problems and numerical simulations
-- Midterm exam (20%): Covering fundamental concepts (after Lecture 6)
-- Final project (40%): Literature review or computational investigation of an active matter system of choice, with short presentation
-
-## Recommended Prerequisites
-- Statistical mechanics
-- Soft matter physics or fluid dynamics
-- Basic programming skills for numerical simulations
-- Differential equations and linear algebra

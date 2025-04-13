@@ -1,0 +1,154 @@
+---
+title: "Non-equilibrium Statistical Mechanics"
+format:
+  html:
+    toc: true
+    toc-location: right
+---
+
+
+<!--
+### Lecture 2: Non-equilibrium Statistical Mechanics
+- Brief review of equilibrium statistical physics
+- Fluctuation-dissipation theorem and its breakdown
+- Entropy production in active systems
+- Stochastic thermodynamics approach
+- Time-reversal symmetry breaking
+-->
+
+## Brief review of equilibrium statistical mechanics
+
+Equilibrium statistical mechanics provides the foundation for understanding non-equilibrium phenomena in active matter. Here, we review key concepts that will be essential for our study of active systems.
+
+### Canonical ensemble and partition function
+
+For a system in thermal equilibrium with a heat bath at temperature $T$, the probability of finding the system in a microstate with energy $E_i$ is given by the Boltzmann distribution:
+
+$$P_i = \frac{1}{Z} e^{-\beta E_i}$$
+
+where $\beta = 1/(k_B T)$, $k_B$ is Boltzmann's constant, and $Z$ is the partition function:
+
+$$Z = \sum_i e^{-\beta E_i}$$
+
+The partition function is central to statistical mechanics as it connects microscopic properties to macroscopic observables. For instance, the average energy is:
+
+$$\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}$$
+
+### Free energy and thermodynamic potentials
+
+The Helmholtz free energy $F$ is related to the partition function by:
+
+$$F = -k_B T \ln Z$$
+
+This relationship allows us to calculate thermodynamic quantities such as entropy $S$:
+
+$$S = -\left(\frac{\partial F}{\partial T}\right)_V = k_B \ln Z + \frac{\langle E \rangle}{T}$$
+
+For systems with fixed particle number, volume, and temperature (canonical ensemble), minimizing $F$ determines the equilibrium state.
+
+### Ergodicity and detailed balance
+
+A key assumption in equilibrium statistical mechanics is ergodicity—the equivalence between time averages and ensemble averages:
+
+$$\langle A \rangle_{\text{time}} = \lim_{T\to\infty} \frac{1}{T} \int_0^T A(t) dt = \langle A \rangle_{\text{ensemble}}$$
+
+Equilibrium dynamics satisfies detailed balance, a microscopic time-reversal symmetry condition. For transitions between states $i$ and $j$ with rates $W_{i\to j}$ and $W_{j\to i}$:
+
+$$\frac{W_{i\to j}}{W_{j\to i}} = \frac{P_j^{\text{eq}}}{P_i^{\text{eq}}} = e^{-\beta(E_j-E_i)}$$
+
+Detailed balance ensures that there are no net probability currents in equilibrium.
+
+### Phase space and Liouville's theorem
+
+For classical systems with positions $\mathbf{q}$ and momenta $\mathbf{p}$, the phase space distribution function $\rho(\mathbf{q},\mathbf{p},t)$ evolves according to Liouville's equation:
+
+$$\frac{\partial \rho}{\partial t} = -\{\rho, H\}$$
+
+where $\{\cdot,\cdot\}$ denotes the Poisson bracket and $H$ is the Hamiltonian. At equilibrium, $\rho$ is time-independent and given by:
+
+$$\rho_{\text{eq}}(\mathbf{q},\mathbf{p}) = \frac{1}{Z} e^{-\beta H(\mathbf{q},\mathbf{p})}$$
+
+### Brownian motion and the Langevin equation
+
+Brownian motion provides a simple yet powerful model for understanding thermal fluctuations. The Langevin equation describes the motion of a Brownian particle:
+
+$$m\frac{d^2x}{dt^2} = -\gamma\frac{dx}{dt} - \frac{dU(x)}{dx} + \xi(t)$$
+
+where $\gamma$ is the friction coefficient, $U(x)$ is the potential energy, and $\xi(t)$ is Gaussian white noise with:
+
+$$\langle\xi(t)\rangle = 0, \quad \langle\xi(t)\xi(t')\rangle = 2\gamma k_B T \delta(t-t')$$
+
+The noise amplitude is related to the friction coefficient through the fluctuation-dissipation relation, a consequence of thermal equilibrium.
+
+In the overdamped limit, which is often relevant for colloidal systems and active matter, inertial effects can be neglected:
+
+$$\gamma\frac{dx}{dt} = -\frac{dU(x)}{dx} + \xi(t)$$
+
+This framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles.
+
+
+## Fluctuation-dissipation theorem and its breakdown
+
+The fluctuation-dissipation theorem (FDT) represents one of the cornerstones of equilibrium statistical mechanics, establishing a fundamental relationship between the response of a system to small external perturbations and its spontaneous fluctuations at thermal equilibrium. However, this elegant theorem breaks down in active matter systems, providing a clear signature of non-equilibrium behavior.
+
+Let's begin with a precise formulation of the FDT in equilibrium systems. Consider a system described by a set of variables $\{x_i\}$. The response function $\chi_{ij}(t-t')$ quantifies how the average value of $x_i$ at time $t$ changes due to a small perturbation applied to $x_j$ at an earlier time $t'$:
+
+$$\chi_{ij}(t-t') = \frac{\delta \langle x_i(t) \rangle}{\delta h_j(t')}$$
+
+where $h_j$ represents an external field conjugate to $x_j$, and $\langle \cdot \rangle$ denotes an ensemble average.
+
+The correlation function $C_{ij}(t-t')$, on the other hand, measures the statistical correlation between spontaneous fluctuations of the variables:
+
+$$C_{ij}(t-t') = \langle x_i(t) x_j(t') \rangle - \langle x_i(t) \rangle \langle x_j(t') \rangle$$
+
+The fluctuation-dissipation theorem connects these two quantities. For a system at thermal equilibrium at temperature $T$, the theorem states:
+
+$$\chi_{ij}(t-t') = -\frac{1}{k_B T} \frac{d}{dt} C_{ij}(t-t') \quad \text{for } t > t'$$
+
+where $k_B$ is Boltzmann's constant. In the frequency domain, this relationship becomes:
+
+$$\chi_{ij}''(\omega) = \frac{\omega}{2k_B T} C_{ij}(\omega)$$
+
+where $\chi_{ij}''(\omega)$ is the imaginary part of the Fourier transform of the response function, and $C_{ij}(\omega)$ is the Fourier transform of the correlation function.
+
+To derive this result, we can start from the Langevin equation for a Brownian particle in a potential $U(x)$:
+
+$$m\ddot{x} + \gamma \dot{x} + \nabla U(x) = \xi(t)$$
+
+where $\gamma$ is the friction coefficient and $\xi(t)$ is a Gaussian white noise with $\langle \xi(t) \rangle = 0$ and $\langle \xi(t) \xi(t') \rangle = 2\gamma k_B T \delta(t-t')$.
+
+In the overdamped limit, which is relevant for most microscopic systems, this simplifies to:
+
+$$\gamma \dot{x} = -\nabla U(x) + \xi(t)$$
+
+For small displacements around an equilibrium position, we can linearize the potential and calculate both the response function and the correlation function explicitly. The result confirms the fluctuation-dissipation relation.
+
+The physical interpretation of the FDT is profound: the same microscopic processes that cause dissipation when the system is perturbed externally also drive the spontaneous fluctuations at equilibrium. Or conversely, the system's response to external perturbations can be predicted from knowledge of its equilibrium fluctuations.
+
+In active matter systems, however, the FDT breaks down systematically. Active matter encompasses systems composed of self-propelled units that convert stored or ambient energy into directed motion. Examples include bacterial suspensions, cellular tissues, bird flocks, and artificial microswimmers.
+
+For active systems, we can quantify the breakdown of the FDT by defining an effective temperature $T_{\text{eff}}(\omega)$ through:
+
+$$T_{\text{eff}}(\omega) = \frac{\omega C_{ij}(\omega)}{2k_B \chi_{ij}''(\omega)}$$
+
+In equilibrium systems, $T_{\text{eff}}(\omega) = T$ is constant across all frequencies. In active systems, $T_{\text{eff}}(\omega)$ becomes frequency-dependent, often showing dramatic deviations from the bath temperature at frequencies related to active processes.
+
+Consider a simple model of active matter: a particle subject to both thermal noise and an active force $f_a(t)$:
+
+$$\gamma \dot{x} = -\nabla U(x) + \xi(t) + f_a(t)$$
+
+The active force typically has a finite correlation time $\tau_a$ and strength characterized by an active diffusion coefficient $D_a$:
+
+$$\langle f_a(t) f_a(t') \rangle = \gamma^2 D_a \exp(-|t-t'|/\tau_a)$$
+
+Solving this model shows that the correlation function $C(\omega)$ receives contributions from both thermal and active processes, while the response function $\chi''(\omega)$ remains determined solely by the dissipative properties of the medium. This mismatch leads to a violation of the FDT.
+
+The extent of FDT violation can be quantified by the ratio:
+
+$$\frac{T_{\text{eff}}(\omega)}{T} = 1 + \frac{D_a \tau_a}{D} \frac{1}{1 + \omega^2 \tau_a^2}$$
+
+where $D = k_B T/\gamma$ is the equilibrium diffusion coefficient. At low frequencies ($\omega \tau_a \ll 1$), the effective temperature can be much larger than the bath temperature if $D_a \tau_a \gg D$, indicating strong non-equilibrium effects. At high frequencies ($\omega \tau_a \gg 1$), thermal effects dominate and $T_{\text{eff}}(\omega) \approx T$.
+
+The breakdown of the FDT has important practical consequences. In active systems, measurements of spontaneous fluctuations cannot be used to predict the response to external perturbations using equilibrium statistical mechanics. Conversely, the violation of the FDT provides a quantitative tool to characterize the non-equilibrium nature of active systems, even when the microscopic details of active processes are unknown.
+
+This FDT violation is closely connected to entropy production, which we will explore next as a fundamental measure of the arrow of time in non-equilibrium systems.
