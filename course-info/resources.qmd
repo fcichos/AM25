@@ -23,4 +23,4 @@ format:
 
 ### The Active Matter Book
 
-- [Active Matter](https://fcichos.github.io/AM25/course-info/book/ActiveMatterBook.pdf)
+- <a href="https://github.com/fcichos/AM25/raw/f062193f63f331d2b7249951c6c17ec0e289871f/course-info/book/ActiveMatterBook.pdf" download>Active Matter Book</a>
