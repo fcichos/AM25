@@ -44,3 +44,5 @@ website:
         contents:
           - text: Lecture 1
             href: lecture01/lecture01.qmd
+          - text: Lecture 2
+            href: lecture02/lecture02.qmd

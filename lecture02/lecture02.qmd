@@ -30,9 +30,51 @@ where $\beta = 1/(k_B T)$, $k_B$ is Boltzmann's constant, and $Z$ is the partiti
 
 $$Z = \sum_i e^{-\beta E_i}$$
 
+In physical terms, the Boltzmann distribution reflects how energy is partitioned among the available states at thermal equilibrium. States with lower energy are exponentially more likely to be occupied than states with higher energy. For active matter systems, this distribution is significantly altered because energy is continuously injected at the microscopic level, driving the system away from this equilibrium distribution.
+
 The partition function is central to statistical mechanics as it connects microscopic properties to macroscopic observables. For instance, the average energy is:
 
 $$\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}$$
+
+This relationship highlights how the partition function serves as a generating function for thermodynamic quantities. When studying active matter, we'll see that traditional partition functions often cannot be defined because these systems don't explore phase space according to Boltzmann statistics.
+
+::: {.callout-note collapse="true"}
+## Sedimentation Example
+
+
+::: {#fig-perrin-sedimentation }
+
+![](/assets/images/lecture02/sedimentation_perrin.png){width=50%}
+
+Perrin's sedimentation experiments. The exponential decay in the number density of colloidal particles with height directly confirmed the Boltzmann distribution and provided key evidence for the atomic theory of matter.
+:::
+
+A clear demonstration of the Boltzmann distribution's power can be derived from the canonical partition function using the barometric distribution of particles in a gravitational field. Consider colloidal particles suspended in a fluid in a gravitational field $g$.
+
+For this system, we can construct the partition function by integrating over all possible heights:
+
+$$Z = \int_0^{\infty} e^{-\beta E(h)} dh = \int_0^{\infty} e^{-\beta mgh} dh = \frac{1}{\beta mg}$$
+
+The probability density for finding a particle at height $h$ is:
+
+$$P(h) = \frac{e^{-\beta mgh}}{Z} = \beta mg e^{-\beta mgh}$$
+
+From this, we can derive the number density $n(h)$ by multiplying by the total number of particles $N$:
+
+$$n(h) = N \cdot P(h) = N \beta mg e^{-\beta mgh}$$
+
+If we define $n_0$ as the density at $h=0$, then $n_0 = N \beta mg$, and we obtain:
+
+$$n(h) = n_0 e^{-\beta mgh} = n_0 e^{-\frac{mgh}{k_B T}}$$
+
+Taking the logarithm of both sides:
+
+$$\ln\left(\frac{n(h)}{n_0}\right) = -\beta mgh = -\frac{mgh}{k_B T}$$
+
+This direct connection between the partition function and the observable barometric distribution provides a compelling experimental verification of statistical mechanics. Jean Perrin used this relationship in 1908 to experimentally determine Avogadro's number and provide crucial evidence for the atomic theory of matter. Today, similar experiments with colloidal particles serve as textbook demonstrations of statistical mechanics in action.
+
+
+:::
 
 ### Free energy and thermodynamic potentials
 
@@ -46,17 +88,201 @@ $$S = -\left(\frac{\partial F}{\partial T}\right)_V = k_B \ln Z + \frac{\langle 
 
 For systems with fixed particle number, volume, and temperature (canonical ensemble), minimizing $F$ determines the equilibrium state.
 
+The principle of free energy minimization is particularly important for understanding the contrast with active systems. In active matter, free energy is constantly being pumped into the system through microscopic driving mechanisms (e.g., molecular motors in cell cytoskeleton, metabolic processes in bacteria, or artificial propulsion mechanisms in synthetic swimmers). Consequently, these systems cannot be described by a minimum free energy principle, which is a fundamental departure from equilibrium thermodynamics.
+
 ### Ergodicity and detailed balance
 
 A key assumption in equilibrium statistical mechanics is ergodicity—the equivalence between time averages and ensemble averages:
 
 $$\langle A \rangle_{\text{time}} = \lim_{T\to\infty} \frac{1}{T} \int_0^T A(t) dt = \langle A \rangle_{\text{ensemble}}$$
 
+In practical terms, ergodicity means that if you observe a single system for a sufficiently long time, it will eventually visit all microscopic states consistent with its macroscopic constraints, allowing time averages to equal ensemble averages. Active matter systems often violate ergodicity by persistently exploring only a subset of the available phase space due to their self-propulsion mechanisms. This has profound implications for both experimental measurements and theoretical descriptions of active systems.
+
 Equilibrium dynamics satisfies detailed balance, a microscopic time-reversal symmetry condition. For transitions between states $i$ and $j$ with rates $W_{i\to j}$ and $W_{j\to i}$:
 
 $$\frac{W_{i\to j}}{W_{j\to i}} = \frac{P_j^{\text{eq}}}{P_i^{\text{eq}}} = e^{-\beta(E_j-E_i)}$$
 
 Detailed balance ensures that there are no net probability currents in equilibrium.
+
+
+### Example: Two Brownian particles with non-uniform temperatures
+
+To concretely illustrate how equilibrium concepts apply to coupled systems and how they break down when thermal equilibrium is violated, let's consider a simple model: two Brownian particles connected by springs, with different temperatures.
+
+Consider the following system:
+- Two Brownian particles with positions $x_1$ and $x_2$
+- Particle 1 is connected to a fixed wall by a spring with constant $k_1$
+- The two particles are connected to each other by a spring with constant $k_2$
+- Particle 2 is connected to a fixed wall by a spring with constant $k_3$
+- Particle 1 experiences thermal fluctuations at temperature $T_1$
+- Particle 2 experiences thermal fluctuations at temperature $T_2$
+
+The Langevin equations for this system are:
+
+$$\gamma_1 \frac{dx_1}{dt} = -k_1 x_1 - k_2(x_1 - x_2) + \xi_1(t)$$
+$$\gamma_2 \frac{dx_2}{dt} = -k_3 x_2 - k_2(x_2 - x_1) + \xi_2(t)$$
+
+where $\gamma_i$ are the friction coefficients and $\xi_i(t)$ are Gaussian white noises with:
+
+$$\langle \xi_i(t) \rangle = 0, \quad \langle \xi_i(t) \xi_i(t') \rangle = 2\gamma_i k_B T_i \delta(t-t')$$
+
+When $T_1 = T_2$, this system is in thermal equilibrium, and the probability distribution for the positions follows the Boltzmann distribution:
+
+$$P(x_1, x_2) \propto \exp\left(-\frac{1}{k_B T}[k_1 x_1^2/2 + k_2(x_1-x_2)^2/2 + k_3 x_2^2/2]\right)$$
+
+However, when $T_1 \neq T_2$, the system is driven out of equilibrium, leading to a non-Boltzmann stationary distribution. The correlation between $x_1$ and $x_2$ encodes information about the non-equilibrium nature of the system.
+
+```{python}
+#| echo: false
+#| label: fig-current
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.colors import LogNorm
+from scipy.stats import gaussian_kde
+
+# Set random seed for reproducibility
+np.random.seed(42)
+
+# System parameters
+k1 = 1.0  # Spring constant connecting particle 1 to wall
+k2 = 1.0  # Spring constant connecting particles 1 and 2
+k3 = 1.0  # Spring constant connecting particle 2 to wall
+gamma1 = 1.0  # Friction coefficient for particle 1
+gamma2 = 1.0  # Friction coefficient for particle 2
+kB = 1.0  # Boltzmann constant
+
+# Temperatures (different for non-equilibrium)
+T1 = 2.0  # Temperature for particle 1
+T2 = 0.5  # Temperature for particle 2
+
+# Simulation parameters
+dt = 0.01  # Time step
+num_steps = 1000000  # Number of time steps
+num_burnin = 100000  # Number of burn-in steps to discard
+record_interval = 10  # Record positions every N steps
+
+# Initialize positions
+x1 = 0.0
+x2 = 0.0
+
+# Arrays to store the recorded positions
+positions = np.zeros((2, (num_steps - num_burnin) // record_interval))
+record_idx = 0
+
+# Arrays to store flux information
+flux_bins = 20
+x1_edges = np.linspace(-3, 3, flux_bins + 1)
+x2_edges = np.linspace(-3, 3, flux_bins + 1)
+flux_x1 = np.zeros((flux_bins, flux_bins))
+flux_x2 = np.zeros((flux_bins, flux_bins))
+bin_counts = np.zeros((flux_bins, flux_bins))
+
+# Main simulation loop
+for step in range(num_steps):
+    # Store current positions for flux calculation
+    old_x1, old_x2 = x1, x2
+
+    # Generate thermal noise
+    noise1 = np.sqrt(2 * gamma1 * kB * T1 * dt) * np.random.normal()
+    noise2 = np.sqrt(2 * gamma2 * kB * T2 * dt) * np.random.normal()
+
+    # Calculate forces
+    force1 = -k1 * x1 - k2 * (x1 - x2)
+    force2 = -k3 * x2 - k2 * (x2 - x1)
+
+    # Update positions (overdamped Langevin equation)
+    x1 += (force1 / gamma1) * dt + noise1 / gamma1
+    x2 += (force2 / gamma2) * dt + noise2 / gamma2
+
+    # Record positions after burn-in period
+    if step >= num_burnin and step % record_interval == 0:
+        positions[0, record_idx] = x1
+        positions[1, record_idx] = x2
+        record_idx += 1
+
+    # Update flux information after burn-in
+    if step >= num_burnin:
+        # Find the bin indices for the current position
+        i1 = np.digitize(old_x1, x1_edges) - 1
+        i2 = np.digitize(old_x2, x2_edges) - 1
+
+        # Ensure indices are within bounds
+        if 0 <= i1 < flux_bins and 0 <= i2 < flux_bins:
+            # Calculate displacement vector
+            dx1 = x1 - old_x1
+            dx2 = x2 - old_x2
+
+            # Accumulate flux and count
+            flux_x1[i1, i2] += dx1
+            flux_x2[i1, i2] += dx2
+            bin_counts[i1, i2] += 1
+
+# Normalize flux by bin counts to get average flux per bin
+with np.errstate(divide='ignore', invalid='ignore'):
+    flux_x1 = np.where(bin_counts > 0, flux_x1 / bin_counts, 0)
+    flux_x2 = np.where(bin_counts > 0, flux_x2 / bin_counts, 0)
+
+# Calculate theoretical covariance matrix for equilibrium case
+# This would represent the Boltzmann distribution if T1 = T2
+k_matrix = np.array([[k1 + k2, -k2], [-k2, k3 + k2]])
+cov_eq = np.linalg.inv(k_matrix)
+
+# Calculate center of distribution and prepare for plotting
+mean_position = np.array([np.mean(positions[0]), np.mean(positions[1])])
+x1_centers = (x1_edges[:-1] + x1_edges[1:]) / 2
+x2_centers = (x2_edges[:-1] + x2_edges[1:]) / 2
+X1, X2 = np.meshgrid(x1_centers, x2_centers)
+
+# Calculate position of each bin relative to center and adjust flux vectors to reveal circulation
+# This is similar to the method in the paper
+for i in range(flux_bins):
+    for j in range(flux_bins):
+        # Calculate vector from current position to center
+        central_force_x = mean_position[0] - x1_centers[i]
+        central_force_y = mean_position[1] - x2_centers[j]
+
+        # Remove the central tendency to reveal the circulation
+        # We subtract the component of the flux pointing toward the center
+        if central_force_x != 0 or central_force_y != 0:
+            # Normalize the central force vector
+            norm = np.sqrt(central_force_x**2 + central_force_y**2)
+            central_force_x /= norm
+            central_force_y /= norm
+
+            # Calculate dot product to find component in the central direction
+            dot_product = flux_x1[i, j]*central_force_x + flux_x2[i, j]*central_force_y
+
+            # Subtract the radial component to keep only the circulation
+            flux_x1[i, j] -= dot_product * central_force_x
+            flux_x2[i, j] -= dot_product * central_force_y
+
+# Create figure
+plt.figure(figsize=(12, 10))
+
+# Plot the 2D histogram of particle positions with flux vectors
+plt.subplot(2, 2, 1)
+hist, xedges, yedges = np.histogram2d(positions[0], positions[1], bins=50, density=True)
+extent = [xedges[0], xedges[-1], yedges[0], yedges[-1]]
+plt.imshow(hist.T, origin='lower', aspect='auto', extent=extent, cmap='viridis', norm=LogNorm())
+plt.colorbar(label='Probability density')
+
+# Add flux arrows
+scale_factor = 0.5
+#Q = plt.quiver(X2, X1, flux_x2.T, flux_x1.T, scale=scale_factor,
+#              width=0.002, color='white', alpha=0.8)
+#plt.quiverkey(Q, 0.9, 0.1, 0.1/scale_factor, r'Flux', labelpos='E', coordinates='figure')
+plt.plot(mean_position[0], mean_position[1], 'ro', markersize=5)  # Mark the center
+
+plt.xlabel('$x_1$')
+plt.ylabel('$x_2$' )
+plt.title('Joint Probability Distribution $P(x_1, x_2)$ with Probability Flux')
+
+plt.show()
+```
+
+In this non-equilibrium scenario, energy flows from the hotter to the colder particle, driving the system away from equilibrium. The stationary state represents a balance between this energy flow and dissipation, rather than a state of maximum entropy as in equilibrium systems. The detailed balance condition is violated, and the system exhibits persistent probability currents in phase space - a hallmark of non-equilibrium behavior.
+
+The violation of detailed balance is perhaps the most direct signature of non-equilibrium behavior in active matter. For example, in bacterial suspensions, each bacterium consumes energy to propel itself in a persistent direction, creating microscopic probability currents that have no counterpart in equilibrium systems. These probability currents can lead to emergent macroscopic phenomena such as collective motion, phase separation without attractive interactions (known as motility-induced phase separation), and other surprising collective behaviors that would be thermodynamically prohibited in equilibrium systems.
 
 ### Phase space and Liouville's theorem
 
@@ -67,6 +293,10 @@ $$\frac{\partial \rho}{\partial t} = -\{\rho, H\}$$
 where $\{\cdot,\cdot\}$ denotes the Poisson bracket and $H$ is the Hamiltonian. At equilibrium, $\rho$ is time-independent and given by:
 
 $$\rho_{\text{eq}}(\mathbf{q},\mathbf{p}) = \frac{1}{Z} e^{-\beta H(\mathbf{q},\mathbf{p})}$$
+
+Liouville's theorem states that the phase space density behaves like an incompressible fluid - it cannot be created or destroyed, only redistributed. In active systems, this fundamental conservation law is violated because the microscopic dynamics cannot be derived from a Hamiltonian. Instead, active systems require modified descriptions that account for energy injection and dissipation at the particle level.
+
+From a practical perspective, this means that we need to extend our theoretical frameworks beyond Hamiltonian mechanics when studying active matter. Statistical field theories, stochastic thermodynamics, and kinetic theories have all been adapted and extended to describe the phase space evolution of active systems.
 
 ### Brownian motion and the Langevin equation
 
@@ -80,11 +310,19 @@ $$\langle\xi(t)\rangle = 0, \quad \langle\xi(t)\xi(t')\rangle = 2\gamma k_B T \d
 
 The noise amplitude is related to the friction coefficient through the fluctuation-dissipation relation, a consequence of thermal equilibrium.
 
+For master students approaching active matter, it's crucial to understand that the Langevin equation serves as a conceptual bridge between equilibrium and non-equilibrium physics. To model active particles, we typically modify this equation by adding a self-propulsion term. For example, the simplest model of an active Brownian particle (ABP) adds a propulsion force of constant magnitude but changing direction:
+
+$$\gamma\frac{d\mathbf{r}}{dt} = -\nabla U(\mathbf{r}) + \gamma v_0 \mathbf{n}(t) + \boldsymbol{\xi}(t)$$
+
+where $v_0$ is the swimming speed and $\mathbf{n}(t)$ is a unit vector that undergoes rotational diffusion. This seemingly simple modification leads to profound physical consequences, including enhanced diffusion, boundary accumulation, and novel collective behaviors.
+
 In the overdamped limit, which is often relevant for colloidal systems and active matter, inertial effects can be neglected:
 
 $$\gamma\frac{dx}{dt} = -\frac{dU(x)}{dx} + \xi(t)$$
 
-This framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles.
+This overdamped approximation is particularly relevant for microscopic active systems like bacterial suspensions, catalytic Janus particles, or colloidal rollers, where the Reynolds number is extremely low (typically 10^-5 to 10^-2). In these systems, viscous forces dominate over inertial forces, meaning that particles stop moving almost instantaneously when propulsion ceases - a counterintuitive regime compared to our macroscopic experience.
+
+This framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles. As we'll see in subsequent sections, active matter requires expanding our theoretical tools beyond equilibrium statistical mechanics to account for the continuous energy input that drives these fascinating systems far from equilibrium.
 
 
 ## Fluctuation-dissipation theorem and its breakdown
