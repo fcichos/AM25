@@ -2,4 +2,4 @@
 title: "About"
 ---
 
-About this site
+This is the Active Matter Physics website.
