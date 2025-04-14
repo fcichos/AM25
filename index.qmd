@@ -2,7 +2,7 @@
 title: "Active Matter Physics"
 ---
 
-![](assets/images/header.png)
+![Header](assets/images/header.png)
 
 # Active Matter: General Course Description
 
