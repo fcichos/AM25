@@ -119,21 +119,11 @@
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Active Matter Physics",
-    "section": "",
-    "text": "Active matter represents a rapidly evolving interdisciplinary field at the intersection of soft matter physics, biological physics, and non-equilibrium statistical mechanics. This course explores systems composed of self-propelled entities that convert energy into directed motion, giving rise to complex collective behaviors and emergent phenomena not found in traditional passive materials.\n\n\nThe course will examine both natural and synthetic active matter systems across multiple scales:\n\nBiological active matter: From the cytoskeleton and subcellular structures to bacterial suspensions, cell tissues, and animal groups\nSynthetic active matter: Including artificial microswimmers, active colloids, and engineered systems that mimic biological functionality\n\nStudents will gain a fundamental understanding of how local energy consumption at the individual unit level drives remarkable collective behaviors like self-organization, pattern formation, and spontaneous flows through non-equilibrium processes.\n\n\n\n\nFoundations of non-equilibrium statistical physics\nMicroscopic and continuum theoretical frameworks\nExperimental techniques and model systems\nSelf-propulsion mechanisms and motility\nPhase transitions specific to active systems\nEmergence of collective motion and flocking\nActive turbulence and topological defects\nMechanical properties of active materials\nBiological applications and biomimetic engineering\n\nThe course will balance theoretical principles with experimental observations, emphasizing the universal physical mechanisms that govern these diverse systems despite their different microscopic details.\n\n\n\nUpon completion, students will be able to: - Identify and analyze active matter systems across disciplines - Apply theoretical models to predict behavior in active systems - Understand the key differences between equilibrium and non-equilibrium phenomena - Connect fundamental physical principles to biological functions - Appreciate the potential applications in materials science, robotics, and biomedicine\nThis course is suitable for advanced undergraduate and graduate students with backgrounds in physics, engineering, biophysics, or related fields.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
     "objectID": "index.html#course-overview",
     "href": "index.html#course-overview",
     "title": "Active Matter Physics",
-    "section": "",
-    "text": "The course will examine both natural and synthetic active matter systems across multiple scales:\n\nBiological active matter: From the cytoskeleton and subcellular structures to bacterial suspensions, cell tissues, and animal groups\nSynthetic active matter: Including artificial microswimmers, active colloids, and engineered systems that mimic biological functionality\n\nStudents will gain a fundamental understanding of how local energy consumption at the individual unit level drives remarkable collective behaviors like self-organization, pattern formation, and spontaneous flows through non-equilibrium processes.",
+    "section": "Course Overview",
+    "text": "Course Overview\nThe course will examine both natural and synthetic active matter systems across multiple scales:\n\nBiological active matter: From the cytoskeleton and subcellular structures to bacterial suspensions, cell tissues, and animal groups\nSynthetic active matter: Including artificial microswimmers, active colloids, and engineered systems that mimic biological functionality\n\nStudents will gain a fundamental understanding of how local energy consumption at the individual unit level drives remarkable collective behaviors like self-organization, pattern formation, and spontaneous flows through non-equilibrium processes.",
     "crumbs": [
       "Home"
     ]
@@ -142,8 +132,8 @@
     "objectID": "index.html#key-concepts-and-topics",
     "href": "index.html#key-concepts-and-topics",
     "title": "Active Matter Physics",
-    "section": "",
-    "text": "Foundations of non-equilibrium statistical physics\nMicroscopic and continuum theoretical frameworks\nExperimental techniques and model systems\nSelf-propulsion mechanisms and motility\nPhase transitions specific to active systems\nEmergence of collective motion and flocking\nActive turbulence and topological defects\nMechanical properties of active materials\nBiological applications and biomimetic engineering\n\nThe course will balance theoretical principles with experimental observations, emphasizing the universal physical mechanisms that govern these diverse systems despite their different microscopic details.",
+    "section": "Key Concepts and Topics",
+    "text": "Key Concepts and Topics\n\nFoundations of non-equilibrium statistical physics\nMicroscopic and continuum theoretical frameworks\nExperimental techniques and model systems\nSelf-propulsion mechanisms and motility\nPhase transitions specific to active systems\nEmergence of collective motion and flocking\nActive turbulence and topological defects\nMechanical properties of active materials\nBiological applications and biomimetic engineering\n\nThe course will balance theoretical principles with experimental observations, emphasizing the universal physical mechanisms that govern these diverse systems despite their different microscopic details.",
     "crumbs": [
       "Home"
     ]
@@ -152,8 +142,8 @@
     "objectID": "index.html#learning-objectives",
     "href": "index.html#learning-objectives",
     "title": "Active Matter Physics",
-    "section": "",
-    "text": "Upon completion, students will be able to: - Identify and analyze active matter systems across disciplines - Apply theoretical models to predict behavior in active systems - Understand the key differences between equilibrium and non-equilibrium phenomena - Connect fundamental physical principles to biological functions - Appreciate the potential applications in materials science, robotics, and biomedicine\nThis course is suitable for advanced undergraduate and graduate students with backgrounds in physics, engineering, biophysics, or related fields.",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nUpon completion, students will be able to: - Identify and analyze active matter systems across disciplines - Apply theoretical models to predict behavior in active systems - Understand the key differences between equilibrium and non-equilibrium phenomena - Connect fundamental physical principles to biological functions - Appreciate the potential applications in materials science, robotics, and biomedicine\nThis course is suitable for advanced undergraduate and graduate students with backgrounds in physics, engineering, biophysics, or related fields.",
     "crumbs": [
       "Home"
     ]
