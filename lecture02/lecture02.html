@@ -230,11 +230,15 @@ window.Quarto = {
   <li><a href="#canonical-ensemble-and-partition-function" id="toc-canonical-ensemble-and-partition-function" class="nav-link" data-scroll-target="#canonical-ensemble-and-partition-function">Canonical ensemble and partition function</a></li>
   <li><a href="#free-energy-and-thermodynamic-potentials" id="toc-free-energy-and-thermodynamic-potentials" class="nav-link" data-scroll-target="#free-energy-and-thermodynamic-potentials">Free energy and thermodynamic potentials</a></li>
   <li><a href="#ergodicity-and-detailed-balance" id="toc-ergodicity-and-detailed-balance" class="nav-link" data-scroll-target="#ergodicity-and-detailed-balance">Ergodicity and detailed balance</a></li>
-  <li><a href="#example-two-brownian-particles-with-non-uniform-temperatures" id="toc-example-two-brownian-particles-with-non-uniform-temperatures" class="nav-link" data-scroll-target="#example-two-brownian-particles-with-non-uniform-temperatures">Example: Two Brownian particles with non-uniform temperatures</a></li>
-  <li><a href="#phase-space-and-liouvilles-theorem" id="toc-phase-space-and-liouvilles-theorem" class="nav-link" data-scroll-target="#phase-space-and-liouvilles-theorem">Phase space and Liouville’s theorem</a></li>
   <li><a href="#brownian-motion-and-the-langevin-equation" id="toc-brownian-motion-and-the-langevin-equation" class="nav-link" data-scroll-target="#brownian-motion-and-the-langevin-equation">Brownian motion and the Langevin equation</a></li>
+  <li><a href="#fluctuation-dissipation-relation-fdt" id="toc-fluctuation-dissipation-relation-fdt" class="nav-link" data-scroll-target="#fluctuation-dissipation-relation-fdt">Fluctuation dissipation relation (FDT)</a></li>
   </ul></li>
-  <li><a href="#fluctuation-dissipation-theorem-and-its-breakdown" id="toc-fluctuation-dissipation-theorem-and-its-breakdown" class="nav-link" data-scroll-target="#fluctuation-dissipation-theorem-and-its-breakdown">Fluctuation-dissipation theorem and its breakdown</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#two-brownian-particles-with-non-uniform-temperatures" id="toc-two-brownian-particles-with-non-uniform-temperatures" class="nav-link" data-scroll-target="#two-brownian-particles-with-non-uniform-temperatures">Two Brownian particles with non-uniform temperatures</a></li>
+  <li><a href="#chlamydomonas-swimming" id="toc-chlamydomonas-swimming" class="nav-link" data-scroll-target="#chlamydomonas-swimming">Chlamydomonas Swimming</a></li>
+  <li><a href="#primary-cilia-in-epithelial-cells" id="toc-primary-cilia-in-epithelial-cells" class="nav-link" data-scroll-target="#primary-cilia-in-epithelial-cells">Primary cilia in epithelial cells</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -270,16 +274,16 @@ window.Quarto = {
 -->
 <section id="brief-review-of-equilibrium-statistical-mechanics" class="level2">
 <h2 class="anchored" data-anchor-id="brief-review-of-equilibrium-statistical-mechanics">Brief review of equilibrium statistical mechanics</h2>
-<p>Equilibrium statistical mechanics provides the foundation for understanding non-equilibrium phenomena in active matter. Here, we review key concepts that will be essential for our study of active systems.</p>
+<p>Equilibrium statistical mechanics may seem like a contradictory starting point for understanding fundamentally non-equilibrium phenomena in active matter. However, we begin with these concepts precisely because understanding how and why active systems violate equilibrium principles illuminates their unique properties. In this section, we review key equilibrium concepts that provide a crucial reference frame against which we can measure and characterize the non-equilibrium nature of active systems.</p>
 <section id="canonical-ensemble-and-partition-function" class="level3">
 <h3 class="anchored" data-anchor-id="canonical-ensemble-and-partition-function">Canonical ensemble and partition function</h3>
-<p>For a system in thermal equilibrium with a heat bath at temperature <span class="math inline">\(T\)</span>, the probability of finding the system in a microstate with energy <span class="math inline">\(E_i\)</span> is given by the Boltzmann distribution:</p>
-<p><span class="math display">\[P_i = \frac{1}{Z} e^{-\beta E_i}\]</span></p>
-<p>where <span class="math inline">\(\beta = 1/(k_B T)\)</span>, <span class="math inline">\(k_B\)</span> is Boltzmann’s constant, and <span class="math inline">\(Z\)</span> is the partition function:</p>
-<p><span class="math display">\[Z = \sum_i e^{-\beta E_i}\]</span></p>
-<p>In physical terms, the Boltzmann distribution reflects how energy is partitioned among the available states at thermal equilibrium. States with lower energy are exponentially more likely to be occupied than states with higher energy. For active matter systems, this distribution is significantly altered because energy is continuously injected at the microscopic level, driving the system away from this equilibrium distribution.</p>
+<p>For a system in thermal equilibrium with a heat bath at temperature <span class="math inline">\(T\)</span> not exchanging particles with the environment, the probability of finding the system in a microstate with phase space coordinates <span class="math inline">\(\Gamma = \{\mathbf{q}, \mathbf{p}\}\)</span> is given by the Boltzmann distribution:</p>
+<p><span class="math display">\[P(\Gamma) = \frac{1}{Z} e^{-\beta H(\Gamma)}\]</span></p>
+<p>where <span class="math inline">\(\beta = 1/(k_B T)\)</span>, <span class="math inline">\(k_B\)</span> is Boltzmann’s constant, <span class="math inline">\(H(\Gamma)\)</span> is the Hamiltonian of the system, and <span class="math inline">\(Z\)</span> is the partition function:</p>
+<p><span class="math display">\[Z = \int e^{-\beta H(\Gamma)} d\Gamma\]</span></p>
+<p>In physical terms, the Boltzmann distribution reflects how energy is partitioned among the available states at thermal equilibrium. States with lower energy are exponentially more likely to be occupied than states with higher energy. For active matter systems, this distribution is significantly altered because energy is continuously injected at the microscopic level, driving the system away from this equilibrium distribution. Indeed, active systems generally cannot be described by a time-independent Hamiltonian at all, as they involve non-conservative forces.</p>
 <p>The partition function is central to statistical mechanics as it connects microscopic properties to macroscopic observables. For instance, the average energy is:</p>
-<p><span class="math display">\[\langle E \rangle = -\frac{\partial \ln Z}{\partial \beta}\]</span></p>
+<p><span class="math display">\[\langle H \rangle = -\frac{\partial \ln Z}{\partial \beta}\]</span></p>
 <p>This relationship highlights how the partition function serves as a generating function for thermodynamic quantities. When studying active matter, we’ll see that traditional partition functions often cannot be defined because these systems don’t explore phase space according to Boltzmann statistics.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -304,41 +308,242 @@ Figure&nbsp;1: Perrin’s sedimentation experiments. The exponential decay in th
 </figure>
 </div>
 <p>A clear demonstration of the Boltzmann distribution’s power can be derived from the canonical partition function using the barometric distribution of particles in a gravitational field. Consider colloidal particles suspended in a fluid in a gravitational field <span class="math inline">\(g\)</span>.</p>
-<p>For this system, we can construct the partition function by integrating over all possible heights:</p>
-<p><span class="math display">\[Z = \int_0^{\infty} e^{-\beta E(h)} dh = \int_0^{\infty} e^{-\beta mgh} dh = \frac{1}{\beta mg}\]</span></p>
-<p>The probability density for finding a particle at height <span class="math inline">\(h\)</span> is:</p>
-<p><span class="math display">\[P(h) = \frac{e^{-\beta mgh}}{Z} = \beta mg e^{-\beta mgh}\]</span></p>
+<p>The Hamiltonian for a particle at height <span class="math inline">\(h\)</span> with momentum <span class="math inline">\(p\)</span> is:</p>
+<p><span class="math display">\[H(h, p) = \frac{p^2}{2m} + mgh\]</span></p>
+<p>where the first term represents the kinetic energy and the second term is the gravitational potential energy. For this system, we can construct the partition function by integrating over all possible heights and momenta:</p>
+<p><span class="math display">\[Z = \int_0^{\infty} \int_{-\infty}^{\infty} e^{-\beta H(h,p)} dp dh = \int_0^{\infty} \int_{-\infty}^{\infty} e^{-\beta(\frac{p^2}{2m} + mgh)} dp dh\]</span></p>
+<p>This can be separated into:</p>
+<p><span class="math display">\[Z = \int_{-\infty}^{\infty} e^{-\beta\frac{p^2}{2m}} dp \cdot \int_0^{\infty} e^{-\beta mgh} dh\]</span></p>
+<p>The momentum integral gives <span class="math inline">\(\sqrt{\frac{2\pi m}{\beta}}\)</span>, while the height integral yields <span class="math inline">\(\frac{1}{\beta mg}\)</span>, resulting in:</p>
+<p><span class="math display">\[Z = \sqrt{\frac{2\pi m}{\beta}} \cdot \frac{1}{\beta mg} = \sqrt{\frac{2\pi m}{\beta^3 m^2 g^2}}\]</span></p>
+<p>The probability density for finding a particle at height <span class="math inline">\(h\)</span> (integrating over all momenta) is:</p>
+<p><span class="math display">\[P(h) = \frac{\int_{-\infty}^{\infty} e^{-\beta(\frac{p^2}{2m} + mgh)} dp}{Z} = \frac{\sqrt{\frac{2\pi m}{\beta}} \cdot e^{-\beta mgh}}{\sqrt{\frac{2\pi m}{\beta}} \cdot \frac{1}{\beta mg}} = \beta mg e^{-\beta mgh}\]</span></p>
 <p>From this, we can derive the number density <span class="math inline">\(n(h)\)</span> by multiplying by the total number of particles <span class="math inline">\(N\)</span>:</p>
 <p><span class="math display">\[n(h) = N \cdot P(h) = N \beta mg e^{-\beta mgh}\]</span></p>
 <p>If we define <span class="math inline">\(n_0\)</span> as the density at <span class="math inline">\(h=0\)</span>, then <span class="math inline">\(n_0 = N \beta mg\)</span>, and we obtain:</p>
 <p><span class="math display">\[n(h) = n_0 e^{-\beta mgh} = n_0 e^{-\frac{mgh}{k_B T}}\]</span></p>
 <p>Taking the logarithm of both sides:</p>
 <p><span class="math display">\[\ln\left(\frac{n(h)}{n_0}\right) = -\beta mgh = -\frac{mgh}{k_B T}\]</span></p>
-<p>This direct connection between the partition function and the observable barometric distribution provides a compelling experimental verification of statistical mechanics. Jean Perrin used this relationship in 1908 to experimentally determine Avogadro’s number and provide crucial evidence for the atomic theory of matter. Today, similar experiments with colloidal particles serve as textbook demonstrations of statistical mechanics in action.</p>
+<p>This direct connection between the Hamiltonian, partition function, and the observable barometric distribution provides a compelling experimental verification of statistical mechanics. Jean Perrin used this relationship in 1908 to experimentally determine Avogadro’s number and provide crucial evidence for the atomic theory of matter. Today, similar experiments with colloidal particles serve as textbook demonstrations of statistical mechanics in action.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="free-energy-and-thermodynamic-potentials" class="level3">
 <h3 class="anchored" data-anchor-id="free-energy-and-thermodynamic-potentials">Free energy and thermodynamic potentials</h3>
+<p>Here’s how you could introduce the enthalpic and entropic parts in the free energy expression:</p>
 <p>The Helmholtz free energy <span class="math inline">\(F\)</span> is related to the partition function by:</p>
-<p><span class="math display">\[F = -k_B T \ln Z\]</span></p>
-<p>This relationship allows us to calculate thermodynamic quantities such as entropy <span class="math inline">\(S\)</span>:</p>
-<p><span class="math display">\[S = -\left(\frac{\partial F}{\partial T}\right)_V = k_B \ln Z + \frac{\langle E \rangle}{T}\]</span></p>
-<p>For systems with fixed particle number, volume, and temperature (canonical ensemble), minimizing <span class="math inline">\(F\)</span> determines the equilibrium state.</p>
-<p>The principle of free energy minimization is particularly important for understanding the contrast with active systems. In active matter, free energy is constantly being pumped into the system through microscopic driving mechanisms (e.g., molecular motors in cell cytoskeleton, metabolic processes in bacteria, or artificial propulsion mechanisms in synthetic swimmers). Consequently, these systems cannot be described by a minimum free energy principle, which is a fundamental departure from equilibrium thermodynamics.</p>
+<p><span class="math display">\[F = -k_B T \ln Z = -k_B T \ln \left(\int e^{-\beta H(\Gamma)} d\Gamma\right)\]</span></p>
+<p>We can rewrite this as <span class="math inline">\(F = E - TS\)</span>, explicitly showing the competition between the enthalpic (energy) and entropic contributions:</p>
+<p><span class="math display">\[F = \langle H \rangle - TS\]</span></p>
+<p>where <span class="math inline">\(\langle H \rangle\)</span> is the average energy:</p>
+<p><span class="math display">\[\langle H \rangle = -\frac{\partial \ln Z}{\partial \beta} = \frac{\int H(\Gamma) e^{-\beta H(\Gamma)} d\Gamma}{\int e^{-\beta H(\Gamma)} d\Gamma}\]</span></p>
+<p>and <span class="math inline">\(S\)</span> is the entropy:</p>
+<p><span class="math display">\[S = -\left(\frac{\partial F}{\partial T}\right)_V = k_B \ln Z + \frac{\langle H \rangle}{T}\]</span></p>
+<p>At equilibrium, minimizing the free energy involves a fundamental competition between:</p>
+<ol type="1">
+<li><strong>Energy minimization</strong>: The system tends to occupy low-energy states to minimize <span class="math inline">\(\langle H \rangle\)</span></li>
+<li><strong>Entropy maximization</strong>: The system tends to spread over many accessible states to maximize <span class="math inline">\(S\)</span></li>
+</ol>
+<p>The Boltzmann distribution <span class="math inline">\(P(\Gamma) = \frac{1}{Z}e^{-\beta H(\Gamma)}\)</span> represents the optimal compromise between these competing tendencies. For systems with fixed particle number, volume, and temperature (canonical ensemble), this distribution precisely minimizes the free energy subject to the constraints of the canonical ensemble.</p>
+<p>The principle of free energy minimization is particularly important for understanding the contrast with active systems. In active matter, free energy is constantly being pumped into the system through microscopic driving mechanisms (e.g., molecular motors in cell cytoskeleton, metabolic processes in bacteria, or artificial propulsion mechanisms in synthetic swimmers). These systems involve non-conservative forces that cannot be derived from a Hamiltonian, so they cannot be described by a minimum free energy principle, which is a fundamental departure from equilibrium thermodynamics.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Harmonic Oscillator Example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The harmonic oscillator provides another illuminating example of equilibrium statistical mechanics. Consider a Brownian particle in a harmonic potential <span class="math inline">\(U(x) = \frac{1}{2}kx^2\)</span> provided by some highly focused light beam. Here <span class="math inline">\(k\)</span> is the spring constant.</p>
+<div id="fig-harmonic-oscillator" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-harmonic-oscillator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture02/tweezer.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-harmonic-oscillator-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Sketch of a colloidal particle trapped in the focus of a microscopy lens due to electromagnetic forces. <a href="https://physics.nyu.edu/grierlab/nreview2c/">source</a>
+</figcaption>
+</figure>
+</div>
+<p>The particle experiences both a restoring force and random thermal kicks from the surrounding fluid.</p>
+<p>The Hamiltonian for this system is:</p>
+<p><span class="math display">\[H(x,p) = \frac{p^2}{2m} + \frac{1}{2}kx^2\]</span></p>
+<p>where <span class="math inline">\(m\)</span> is the particle mass, <span class="math inline">\(x\)</span> is position, and <span class="math inline">\(p\)</span> is momentum. The partition function is:</p>
+<p><span class="math display">\[Z = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-\beta H(x,p)} dx dp = \int_{-\infty}^{\infty} e^{-\beta \frac{p^2}{2m}} dp \int_{-\infty}^{\infty} e^{-\beta \frac{1}{2}kx^2} dx\]</span></p>
+<p>Evaluating these Gaussian integrals:</p>
+<p><span class="math display">\[Z = \sqrt{\frac{2\pi m}{\beta}} \sqrt{\frac{2\pi}{\beta k}} = \frac{2\pi}{\beta\omega_0}\]</span></p>
+<p>where <span class="math inline">\(\omega_0 = \sqrt{k/m}\)</span> is the natural frequency of the oscillator.</p>
+<p>The probability density for finding the particle at position <span class="math inline">\(x\)</span> is:</p>
+<p><span class="math display">\[P(x) = \sqrt{\frac{\beta k}{2\pi}} e^{-\beta \frac{1}{2}kx^2}\]</span></p>
+<p>This Gaussian distribution has variance <span class="math inline">\(\sigma^2 = \frac{1}{\beta k} = \frac{k_B T}{k}\)</span>.</p>
+<p>The equipartition theorem states that each quadratic term in the Hamiltonian contributes <span class="math inline">\(\frac{1}{2}k_B T\)</span> to the average energy:</p>
+<p><span class="math display">\[\left \langle \frac{p^2}{2m} \right \rangle = \left \langle \frac{1}{2}kx^2 \right \rangle = \frac{1}{2}k_B T\]</span></p>
+<p>Therefore, the mean-square displacement of the particle is:</p>
+<p><span class="math display">\[\langle x^2 \rangle = \frac{k_B T}{k}\]</span></p>
+<p>This simple relation demonstrates how thermal energy causes the particle to explore the potential well, with the stiffness of the spring determining the confinement. Stiffer springs (larger <span class="math inline">\(k\)</span>) lead to smaller position fluctuations.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="ergodicity-and-detailed-balance" class="level3">
-<h3 class="anchored" data-anchor-id="ergodicity-and-detailed-balance">Ergodicity and detailed balance</h3>
+<h3 class="anchored">Ergodicity and detailed balance</h3>
 <p>A key assumption in equilibrium statistical mechanics is ergodicity—the equivalence between time averages and ensemble averages:</p>
 <p><span class="math display">\[\langle A \rangle_{\text{time}} = \lim_{T\to\infty} \frac{1}{T} \int_0^T A(t) dt = \langle A \rangle_{\text{ensemble}}\]</span></p>
 <p>In practical terms, ergodicity means that if you observe a single system for a sufficiently long time, it will eventually visit all microscopic states consistent with its macroscopic constraints, allowing time averages to equal ensemble averages. Active matter systems often violate ergodicity by persistently exploring only a subset of the available phase space due to their self-propulsion mechanisms. This has profound implications for both experimental measurements and theoretical descriptions of active systems.</p>
 <p>Equilibrium dynamics satisfies detailed balance, a microscopic time-reversal symmetry condition. For transitions between states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> with rates <span class="math inline">\(W_{i\to j}\)</span> and <span class="math inline">\(W_{j\to i}\)</span>:</p>
 <p><span class="math display">\[\frac{W_{i\to j}}{W_{j\to i}} = \frac{P_j^{\text{eq}}}{P_i^{\text{eq}}} = e^{-\beta(E_j-E_i)}\]</span></p>
 <p>Detailed balance ensures that there are no net probability currents in equilibrium.</p>
+<section id="application-to-sedimentation" class="level4">
+<h4 class="anchored">Application to Sedimentation</h4>
+<p>In the sedimentation example, we can apply detailed balance to particles moving between different heights in a gravitational field. Consider transitions between heights <span class="math inline">\(h_i\)</span> and <span class="math inline">\(h_j\)</span>:</p>
+<ul>
+<li>The equilibrium probability to find a particle at height <span class="math inline">\(h\)</span> is <span class="math inline">\(P(h) \propto e^{-\beta mgh}\)</span></li>
+<li>For a particle moving from height <span class="math inline">\(h_i\)</span> to a higher position <span class="math inline">\(h_j\)</span>, the energy difference is <span class="math inline">\(\Delta E = mg(h_j - h_i)\)</span></li>
+</ul>
+<p>By detailed balance, the transition rates must satisfy:</p>
+<p><span class="math display">\[\frac{W_{h_i \to h_j}}{W_{h_j \to h_i}} = \frac{e^{-\beta mgh_j}}{e^{-\beta mgh_i}} = e^{-\beta mg(h_j-h_i)}\]</span></p>
+<p>This reveals that upward transitions (against gravity) are exponentially suppressed compared to downward transitions. If we observe the system over time, we would see particles moving both up and down, but with precisely balanced rates that maintain the exponential density profile.</p>
+<p>This balance has profound implications for trajectory reversibility. In equilibrium systems, detailed balance ensures that for any specific trajectory <span class="math inline">\(\gamma\)</span> a particle takes from height <span class="math inline">\(h_i\)</span> to <span class="math inline">\(h_j\)</span> over a time interval <span class="math inline">\([0,t]\)</span>, the time-reversed trajectory <span class="math inline">\(\bar{\gamma}\)</span> (the same path followed backward in time) from <span class="math inline">\(h_j\)</span> to <span class="math inline">\(h_i\)</span> occurs with a probability that differs only by the Boltzmann factor:</p>
+<p><span class="math display">\[\frac{P[\gamma]}{P[\bar{\gamma}]} = e^{-\beta mg(h_j-h_i)}\]</span></p>
+<p>This microscopic reversibility means that if we filmed the motion of an equilibrium system and played the recording backward, the reversed motion would be statistically indistinguishable from the forward motion (when properly weighted by the equilibrium probabilities). For particles in sedimentation, this time-reversal symmetry ensures that no systematic currents exist in the steady state—particles may diffuse up and down, but any apparent “uphill” motion is precisely balanced by “downhill” motion, maintaining the exponential density profile without net circulation in phase space.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Connecting to Fluctuation Theorems
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The relationship between detailed balance, trajectory reversibility, and sedimentation connects directly to fluctuation theorems, which provide a broader framework for understanding non-equilibrium systems:</p>
+<section id="connection-to-fluctuation-theorems" class="level4">
+<h4 class="anchored" data-anchor-id="connection-to-fluctuation-theorems">Connection to Fluctuation Theorems</h4>
+<p>The trajectory reversibility we described for equilibrium systems (where <span class="math inline">\(\frac{P[\gamma]}{P[\bar{\gamma}]} = e^{-\beta mg(h_j-h_i)}\)</span>) is actually a special case of more general fluctuation theorems that apply even to non-equilibrium systems. These theorems quantify the probability of observing trajectories that appear to violate the second law of thermodynamics.</p>
+<p>For the sedimentation example, the key connections are:</p>
+<ol type="1">
+<li><p><strong>Crooks Fluctuation Theorem</strong>: This relates the probability of forward and reverse trajectories to the entropy production:</p>
+<p><span class="math display">\[\frac{P[\gamma]}{P[\bar{\gamma}]} = e^{\beta(W-\Delta F)} = e^{\Delta S_{tot}/k_B}\]</span></p>
+<p>Where <span class="math inline">\(W\)</span> is the work done, <span class="math inline">\(\Delta F\)</span> is the free energy difference, and <span class="math inline">\(\Delta S_{tot}\)</span> is the total entropy production.</p></li>
+<li><p><strong>Equilibrium Special Case</strong>: When detailed balance is satisfied (as in passive sedimentation), <span class="math inline">\(W = \Delta F = mg(h_j-h_i)\)</span> and <span class="math inline">\(\Delta S_{tot} = 0\)</span>, recovering our earlier result.</p></li>
+<li><p><strong>Active Systems</strong>: For active particles in sedimentation, we have additional work from active forces, leading to:</p>
+<p><span class="math display">\[\frac{P[\gamma]}{P[\bar{\gamma}]} = e^{\beta mg(h_j-h_i) + \Delta S_{act}/k_B}\]</span></p>
+<p>Where <span class="math inline">\(\Delta S_{act} &gt; 0\)</span> is the entropy production due to activity.</p></li>
+</ol>
 </section>
-<section id="example-two-brownian-particles-with-non-uniform-temperatures" class="level3">
-<h3 class="anchored" data-anchor-id="example-two-brownian-particles-with-non-uniform-temperatures">Example: Two Brownian particles with non-uniform temperatures</h3>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Master Equation Formulation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Detailed balance can be elegantly formulated in terms of a master equation, which provides a powerful framework for understanding the time evolution of probability distributions.The master equation describes how the probability P_i(t) of finding the system in state i evolves over time:</p>
+<p><span class="math display">\[\frac{dP_i(t)}{dt} = \sum_j [W_{j \to i} P_j(t) - W_{i \to j} P_i(t)]\]</span></p>
+<p>where <span class="math inline">\(W_{j→i}\)</span> is the transition rate from state <span class="math inline">\(j\)</span> to state <span class="math inline">\(i\)</span>.</p>
+<p>The first term represents probability flowing into state <span class="math inline">\(i\)</span> from all other states <span class="math inline">\(j\)</span>, while the second term represents probability flowing out of state <span class="math inline">\(i\)</span> to all other states <span class="math inline">\(j\)</span>.</p>
+<section id="detailed-balance-as-a-stronger-condition" class="level4">
+<h4 class="anchored" data-anchor-id="detailed-balance-as-a-stronger-condition">Detailed Balance as a Stronger Condition</h4>
+<p>At steady state, the left-hand side of the master equation equals zero, meaning:</p>
+<p><span class="math display">\[\sum_j [W_{j \to i} P_j - W_{i \to j} P_i] = 0\]</span></p>
+<p>However, detailed balance imposes a much stronger condition - that each term in this sum must individually equal zero:</p>
+<p><span class="math display">\[W_{j \to i} P_j^{eq} = W_{i \to j} P_i^{eq} \quad \text{for all pairs } i,j\]</span></p>
+<p>This is equivalent to requiring that the net probability current between any two states vanishes at equilibrium.</p>
+</section>
+<section id="application-to-sedimentation-1" class="level4">
+<h4 class="anchored" data-anchor-id="application-to-sedimentation-1">Application to Sedimentation</h4>
+<p>For sedimentation, we can discretize the height into levels <span class="math inline">\({h_i}\)</span>. The master equation becomes:</p>
+<p><span class="math display">\[\frac{dP(h_i,t)}{dt} = \sum_j [W_{h_j \to h_i} P(h_j,t) - W_{h_i \to h_j} P(h_i,t)]\]</span></p>
+<p>Detailed balance requires:</p>
+<p><span class="math display">\[W_{h_j \to h_i} P^{eq}(h_j) = W_{h_i \to h_j} P^{eq}(h_i)\]</span></p>
+<p>Substituting the Boltzmann distribution <span class="math inline">\(P^{eq}(h) \propto e^{-\beta mgh}\)</span>:</p>
+<p><span class="math display">\[W_{h_j \to h_i} e^{-\beta mgh_j} = W_{h_i \to h_j} e^{-\beta mgh_i}\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[\frac{W_{h_i \to h_j}}{W_{h_j \to h_i}} = \frac{e^{-\beta mgh_j}}{e^{-\beta mgh_i}} = e^{-\beta mg(h_j-h_i)}\]</span></p>
+<p>This recovers our previous expression for detailed balance in sedimentation.</p>
+</section>
+<section id="violation-in-active-systems" class="level2">
+<h2 class="anchored" data-anchor-id="violation-in-active-systems">Violation in Active Systems</h2>
+<p>For active particles, we would have additional terms in the master equation representing the active motion. The condition above would no longer be satisfied, and instead, we would find:</p>
+<p><span class="math display">\[W_{h_j \to h_i}^{act} P^{ss}(h_j) \neq W_{h_i \to h_j}^{act} P^{ss}(h_i)\]</span></p>
+<p>where <span class="math inline">\(P^ss\)</span> denotes the non-equilibrium steady state distribution.</p>
+</section>
+</div>
+</div>
+</div>
+<!--
+### Phase space and Liouville's theorem
+
+For classical systems with positions $\mathbf{q}$ and momenta $\mathbf{p}$, the phase space distribution function $\rho(\mathbf{q},\mathbf{p},t)$ evolves according to Liouville's equation:
+
+$$\frac{\partial \rho}{\partial t} = -\{\rho, H\}$$
+
+where $\{\cdot,\cdot\}$ denotes the Poisson bracket and $H$ is the Hamiltonian. At equilibrium, $\rho$ is time-independent and given by:
+
+$$\rho_{\text{eq}}(\mathbf{q},\mathbf{p}) = \frac{1}{Z} e^{-\beta H(\mathbf{q},\mathbf{p})}$$
+
+Liouville's theorem states that the phase space density behaves like an incompressible fluid - it cannot be created or destroyed, only redistributed. In active systems, this fundamental conservation law is violated because the microscopic dynamics cannot be derived from a Hamiltonian. Instead, active systems require modified descriptions that account for energy injection and dissipation at the particle level.
+
+From a practical perspective, this means that we need to extend our theoretical frameworks beyond Hamiltonian mechanics when studying active matter. Statistical field theories, stochastic thermodynamics, and kinetic theories have all been adapted and extended to describe the phase space evolution of active systems.
+-->
+</section>
+</section>
+<section id="brownian-motion-and-the-langevin-equation" class="level3">
+<h3 class="anchored" data-anchor-id="brownian-motion-and-the-langevin-equation">Brownian motion and the Langevin equation</h3>
+<p>Brownian motion provides a simple yet powerful model for understanding thermal fluctuations. The Langevin equation describes the motion of a Brownian particle:</p>
+<p><span class="math display">\[m\frac{d^2x}{dt^2} = -\gamma\frac{dx}{dt} - \frac{dU(x)}{dx} + \xi(t)\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is the friction coefficient, <span class="math inline">\(U(x)\)</span> is the potential energy, and <span class="math inline">\(\xi(t)\)</span> is Gaussian white noise with:</p>
+<p><span class="math display">\[\langle\xi(t)\rangle = 0, \quad \langle\xi(t)\xi(t')\rangle = 2\gamma k_B T \delta(t-t')\]</span></p>
+<p>The noise amplitude is related to the friction coefficient through the fluctuation-dissipation relation, a consequence of thermal equilibrium. This relation embodies a deep physical principle: the same microscopic processes that cause energy dissipation (friction) also generate fluctuations (noise), with temperature determining their relative strength.</p>
+<p>Understanding the Langevin equation is crucial as it serves as a conceptual bridge between equilibrium and non-equilibrium physics. When modeling active particles, we extend this framework by adding a self-propulsion term. The simplest model of an active Brownian particle (ABP) incorporates a propulsion force of constant magnitude but with a direction that changes through rotational diffusion:</p>
+<p><span class="math display">\[\gamma\frac{d\mathbf{r}}{dt} = -\nabla U(\mathbf{r}) + \gamma v_0 \mathbf{n}(t) + \boldsymbol{\xi}(t)\]</span></p>
+<p>where <span class="math inline">\(v_0\)</span> represents the swimming speed and <span class="math inline">\(\mathbf{n}(t)\)</span> is a unit vector undergoing rotational diffusion. This seemingly simple modification profoundly transforms the physics, leading to enhanced diffusion, boundary accumulation, and novel collective behaviors unlike anything seen in passive systems.</p>
+<p>In many situations relevant to colloidal systems and active matter, inertial effects can be neglected, leading to the overdamped limit of the Langevin equation:</p>
+<p><span class="math display">\[\gamma\frac{dx}{dt} = -\frac{dU(x)}{dx} + \xi(t)\]</span></p>
+<p>This overdamped approximation accurately describes microscopic active systems such as bacterial suspensions, catalytic Janus particles, and colloidal rollers. In these systems, the Reynolds number is extremely low (typically 10^-5 to 10^-2), meaning viscous forces dominate over inertial forces. Consequently, particles stop moving almost instantaneously when propulsion ceases—a counterintuitive behavior compared to our macroscopic experience where objects continue moving due to inertia.</p>
+<p>The Langevin framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles. As we explore further, we’ll see that active matter requires expanding our theoretical tools beyond equilibrium statistical mechanics to account for the continuous energy input that drives these fascinating systems far from equilibrium.</p>
+</section>
+<section id="fluctuation-dissipation-relation-fdt" class="level3">
+<h3 class="anchored" data-anchor-id="fluctuation-dissipation-relation-fdt">Fluctuation dissipation relation (FDT)</h3>
+<p>At its core, the FDT tells us something remarkable: by simply watching how a system naturally fluctuates at equilibrium, we can predict exactly how it will respond when we deliberately perturb it. This powerful connection works because in equilibrium systems, the same thermal processes drive both phenomena.</p>
+<p>Imagine tracking the position of a colloidal particle in a harmonic trap. The particle jiggles around due to random collisions with fluid molecules. The FDT tells us that these natural fluctuations contain all the information we need to know how the particle would respond if we were to push it with a small external force.</p>
+<p>Mathematically, we describe this using two key functions:</p>
+<ol type="1">
+<li>The <strong>correlation function</strong> <span class="math inline">\(C_{ij}(t-t')\)</span> measures how fluctuations are related in time:</li>
+</ol>
+<p><span class="math display">\[C_{ij}(t-t') = \langle x_i(t) x_j(t') \rangle - \langle x_i(t) \rangle \langle x_j(t') \rangle\]</span></p>
+<p>This is something we can directly measure in experiments by tracking a system over time and calculating how variables at different times relate to each other.</p>
+<ol start="2" type="1">
+<li>The <strong>response function</strong> <span class="math inline">\(\chi_{ij}(t-t')\)</span> tells us how the system responds to external forces:</li>
+</ol>
+<p><span class="math display">\[\chi_{ij}(t-t') = \frac{\delta \langle x_i(t) \rangle}{\delta h_j(t')}\]</span></p>
+<p>This represents how much variable <span class="math inline">\(x_i\)</span> changes at time <span class="math inline">\(t\)</span> when we apply a small force <span class="math inline">\(h_j\)</span> at an earlier time <span class="math inline">\(t'\)</span>.</p>
+<p>The fluctuation-dissipation theorem connects these two functions through temperature. For a system at equilibrium:</p>
+<p><span class="math display">\[\chi_{ij}(t-t') = -\frac{1}{k_B T} \frac{d}{dt} C_{ij}(t-t') \quad \text{for } t &gt; t'\]</span></p>
+<p>In experiments, it’s often more convenient to work in the frequency domain (using Fourier transforms):</p>
+<p><span class="math display">\[\chi_{ij}''(\omega) = \frac{\omega}{2k_B T} C_{ij}(\omega)\]</span></p>
+<p>Here, <span class="math inline">\(\chi_{ij}''(\omega)\)</span> is the imaginary part of the response function (related to energy dissipation) and <span class="math inline">\(C_{ij}(\omega)\)</span> is the power spectrum of fluctuations at frequency <span class="math inline">\(\omega\)</span>.</p>
+</section>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<section id="two-brownian-particles-with-non-uniform-temperatures" class="level3">
+<h3 class="anchored" data-anchor-id="two-brownian-particles-with-non-uniform-temperatures">Two Brownian particles with non-uniform temperatures</h3>
 <p>To concretely illustrate how equilibrium concepts apply to coupled systems and how they break down when thermal equilibrium is violated, let’s consider a simple model: two Brownian particles connected by springs, with different temperatures.</p>
 <p>Consider the following system: - Two Brownian particles with positions <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> - Particle 1 is connected to a fixed wall by a spring with constant <span class="math inline">\(k_1\)</span> - The two particles are connected to each other by a spring with constant <span class="math inline">\(k_2\)</span> - Particle 2 is connected to a fixed wall by a spring with constant <span class="math inline">\(k_3\)</span> - Particle 1 experiences thermal fluctuations at temperature <span class="math inline">\(T_1\)</span> - Particle 2 experiences thermal fluctuations at temperature <span class="math inline">\(T_2\)</span></p>
 <p>The Langevin equations for this system are:</p>
@@ -348,84 +553,74 @@ Figure&nbsp;1: Perrin’s sedimentation experiments. The exponential decay in th
 <p>When <span class="math inline">\(T_1 = T_2\)</span>, this system is in thermal equilibrium, and the probability distribution for the positions follows the Boltzmann distribution:</p>
 <p><span class="math display">\[P(x_1, x_2) \propto \exp\left(-\frac{1}{k_B T}[k_1 x_1^2/2 + k_2(x_1-x_2)^2/2 + k_3 x_2^2/2]\right)\]</span></p>
 <p>However, when <span class="math inline">\(T_1 \neq T_2\)</span>, the system is driven out of equilibrium, leading to a non-Boltzmann stationary distribution. The correlation between <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> encodes information about the non-equilibrium nature of the system.</p>
-<div id="cell-fig-current" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div id="fig-current" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-heat-transfer" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-current-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture02_files/figure-html/fig-current-output-1.png" id="fig-current" class="img-fluid figure-img">
+<div aria-describedby="fig-heat-transfer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture02/heat_transfer.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-current-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heat-transfer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Brownian-dynamics simulation of 1D bead-spring model. (A) Model schematic. (B) Time series of the bead positions for T2 = 1.5T1 and equal spring constants. See figs. S4 and S5 for the general case (18). (C and D) Probability distribution (color) and flux map (white arrows) in CGPS spanned by x1 and x2 for the simulation in panel B (C) and for a simulation with T2 = T1 (D). Translucent disks represent a 2s confidence interval for fluxes. <a href="https://www.science.org/doi/epdf/10.1126/science.aac8167">source</a>
 </figcaption>
 </figure>
 </div>
-</div>
-</div>
 <p>In this non-equilibrium scenario, energy flows from the hotter to the colder particle, driving the system away from equilibrium. The stationary state represents a balance between this energy flow and dissipation, rather than a state of maximum entropy as in equilibrium systems. The detailed balance condition is violated, and the system exhibits persistent probability currents in phase space - a hallmark of non-equilibrium behavior.</p>
-<p>The violation of detailed balance is perhaps the most direct signature of non-equilibrium behavior in active matter. For example, in bacterial suspensions, each bacterium consumes energy to propel itself in a persistent direction, creating microscopic probability currents that have no counterpart in equilibrium systems. These probability currents can lead to emergent macroscopic phenomena such as collective motion, phase separation without attractive interactions (known as motility-induced phase separation), and other surprising collective behaviors that would be thermodynamically prohibited in equilibrium systems.</p>
 </section>
-<section id="phase-space-and-liouvilles-theorem" class="level3">
-<h3 class="anchored" data-anchor-id="phase-space-and-liouvilles-theorem">Phase space and Liouville’s theorem</h3>
-<p>For classical systems with positions <span class="math inline">\(\mathbf{q}\)</span> and momenta <span class="math inline">\(\mathbf{p}\)</span>, the phase space distribution function <span class="math inline">\(\rho(\mathbf{q},\mathbf{p},t)\)</span> evolves according to Liouville’s equation:</p>
-<p><span class="math display">\[\frac{\partial \rho}{\partial t} = -\{\rho, H\}\]</span></p>
-<p>where <span class="math inline">\(\{\cdot,\cdot\}\)</span> denotes the Poisson bracket and <span class="math inline">\(H\)</span> is the Hamiltonian. At equilibrium, <span class="math inline">\(\rho\)</span> is time-independent and given by:</p>
-<p><span class="math display">\[\rho_{\text{eq}}(\mathbf{q},\mathbf{p}) = \frac{1}{Z} e^{-\beta H(\mathbf{q},\mathbf{p})}\]</span></p>
-<p>Liouville’s theorem states that the phase space density behaves like an incompressible fluid - it cannot be created or destroyed, only redistributed. In active systems, this fundamental conservation law is violated because the microscopic dynamics cannot be derived from a Hamiltonian. Instead, active systems require modified descriptions that account for energy injection and dissipation at the particle level.</p>
-<p>From a practical perspective, this means that we need to extend our theoretical frameworks beyond Hamiltonian mechanics when studying active matter. Statistical field theories, stochastic thermodynamics, and kinetic theories have all been adapted and extended to describe the phase space evolution of active systems.</p>
+<section id="chlamydomonas-swimming" class="level3">
+<h3 class="anchored" data-anchor-id="chlamydomonas-swimming">Chlamydomonas Swimming</h3>
+<p>The violation of detailed balance is perhaps the most direct signature of non-equilibrium behavior in active matter. The microalgae Chlamydomonas Reinhardtii provides an exemplary demonstration of this principle.</p>
+<div id="fig-chlamydomonas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-chlamydomonas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture02/clamy_image.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chlamydomonas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Light microscopy image of Chlamydomonas Reinhardtii, a single-celled green alga with two flagella used for swimming and sensing. <a href="https://en.wikipedia.org/wiki/Chlamydomonas">source</a>
+</figcaption>
+</figure>
+</div>
+<p>Chlamydomonas Reinhardtii propels itself through fluid by coordinated beating of its two flagella. This motion requires continuous energy consumption, as each flagellum hydrolyzes ATP to power molecular motors that generate rhythmic beating patterns. Unlike passive Brownian particles, where motion arises from random thermal fluctuations, the flagellar beating represents a driven, non-equilibrium process.</p>
+<p>As shown in the figures below, researchers have characterized this non-equilibrium behavior by analyzing the flagellar dynamics in a coarse-grained phase space (CGPS) constructed from the principal bending modes. The beating patterns can be decomposed into these fundamental modes (similar to Fourier components), allowing quantitative tracking of the flagellar configuration over time.</p>
+<p>The phase space probability distribution and corresponding flux maps reveal a striking signature of non-equilibrium dynamics: coherent probability currents that form closed loops. These directed cyclic trajectories through configuration space explicitly violate detailed balance, which would require all microscopic transitions to be pairwise-balanced with no net probability flux between states. In an equilibrium system, transitions between any two states would occur with equal frequency in both directions when properly weighted by their equilibrium probabilities.</p>
+<div id="fig-clamy2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clamy2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture02/clamy.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clamy2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Detailed balance and actively beating Chlamydomonas flagella. (A) In thermodynamic equilibrium, transitions between microscopic states are pairwise-balanced, precluding net flux among states. (B) Nonequilibrium steady states can break detailed balance and exhibit flux loops. (C) Snapshots separated by 24 (orange-yellow), 7, and 10 ms in an isolated Chlamydomonas flagellum’s beat cycle (movie S1). Arrows on the central circle indicate the direction of time. Color corresponds to position in (E). (D) The first three bending modes for a freely suspended flexible rod. (E) A three-dimensional (3D) probability flux map of flagellar dynamics in the CGPS spanned by the first three modes.<a href="https://www.science.org/doi/epdf/10.1126/science.aac8167">source</a>
+</figcaption>
+</figure>
+</div>
+<p>The flux maps in panels F and G below show clear rotational currents in the phase space of bending modes. These currents represent the flagellum cycling through configurations in a specific sequence rather than randomly exploring available states as would occur in thermal equilibrium. The directed nature of these probability currents directly quantifies the system’s departure from equilibrium.</p>
+<div id="fig-clamy3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clamy3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture02/clamy_flow.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clamy3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: (F and G) Probability distribution (color) and flux map (white arrows) of flagellar dynamics in CGPS spanned by first and second modes (F), and first and third modes (G). The white legend indicates the flux scale. <a href="https://www.science.org/doi/epdf/10.1126/science.aac8167">source</a>
+</figcaption>
+</figure>
+</div>
+<p>These probability flux loops are fundamental to biological function, enabling directed motion and mechanical work that would be thermodynamically prohibited under equilibrium constraints. Similar non-equilibrium dynamics appear in many biological systems, from molecular motors and cell migration to collective tissue behaviors, where energy consumption drives the system away from equilibrium to perform essential biological functions.</p>
 </section>
-<section id="brownian-motion-and-the-langevin-equation" class="level3">
-<h3 class="anchored" data-anchor-id="brownian-motion-and-the-langevin-equation">Brownian motion and the Langevin equation</h3>
-<p>Brownian motion provides a simple yet powerful model for understanding thermal fluctuations. The Langevin equation describes the motion of a Brownian particle:</p>
-<p><span class="math display">\[m\frac{d^2x}{dt^2} = -\gamma\frac{dx}{dt} - \frac{dU(x)}{dx} + \xi(t)\]</span></p>
-<p>where <span class="math inline">\(\gamma\)</span> is the friction coefficient, <span class="math inline">\(U(x)\)</span> is the potential energy, and <span class="math inline">\(\xi(t)\)</span> is Gaussian white noise with:</p>
-<p><span class="math display">\[\langle\xi(t)\rangle = 0, \quad \langle\xi(t)\xi(t')\rangle = 2\gamma k_B T \delta(t-t')\]</span></p>
-<p>The noise amplitude is related to the friction coefficient through the fluctuation-dissipation relation, a consequence of thermal equilibrium.</p>
-<p>For master students approaching active matter, it’s crucial to understand that the Langevin equation serves as a conceptual bridge between equilibrium and non-equilibrium physics. To model active particles, we typically modify this equation by adding a self-propulsion term. For example, the simplest model of an active Brownian particle (ABP) adds a propulsion force of constant magnitude but changing direction:</p>
-<p><span class="math display">\[\gamma\frac{d\mathbf{r}}{dt} = -\nabla U(\mathbf{r}) + \gamma v_0 \mathbf{n}(t) + \boldsymbol{\xi}(t)\]</span></p>
-<p>where <span class="math inline">\(v_0\)</span> is the swimming speed and <span class="math inline">\(\mathbf{n}(t)\)</span> is a unit vector that undergoes rotational diffusion. This seemingly simple modification leads to profound physical consequences, including enhanced diffusion, boundary accumulation, and novel collective behaviors.</p>
-<p>In the overdamped limit, which is often relevant for colloidal systems and active matter, inertial effects can be neglected:</p>
-<p><span class="math display">\[\gamma\frac{dx}{dt} = -\frac{dU(x)}{dx} + \xi(t)\]</span></p>
-<p>This overdamped approximation is particularly relevant for microscopic active systems like bacterial suspensions, catalytic Janus particles, or colloidal rollers, where the Reynolds number is extremely low (typically 10^-5 to 10^-2). In these systems, viscous forces dominate over inertial forces, meaning that particles stop moving almost instantaneously when propulsion ceases - a counterintuitive regime compared to our macroscopic experience.</p>
-<p>This framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles. As we’ll see in subsequent sections, active matter requires expanding our theoretical tools beyond equilibrium statistical mechanics to account for the continuous energy input that drives these fascinating systems far from equilibrium.</p>
-</section>
-</section>
-<section id="fluctuation-dissipation-theorem-and-its-breakdown" class="level2">
-<h2 class="anchored" data-anchor-id="fluctuation-dissipation-theorem-and-its-breakdown">Fluctuation-dissipation theorem and its breakdown</h2>
-<p>The fluctuation-dissipation theorem (FDT) represents one of the cornerstones of equilibrium statistical mechanics, establishing a fundamental relationship between the response of a system to small external perturbations and its spontaneous fluctuations at thermal equilibrium. However, this elegant theorem breaks down in active matter systems, providing a clear signature of non-equilibrium behavior.</p>
-<p>Let’s begin with a precise formulation of the FDT in equilibrium systems. Consider a system described by a set of variables <span class="math inline">\(\{x_i\}\)</span>. The response function <span class="math inline">\(\chi_{ij}(t-t')\)</span> quantifies how the average value of <span class="math inline">\(x_i\)</span> at time <span class="math inline">\(t\)</span> changes due to a small perturbation applied to <span class="math inline">\(x_j\)</span> at an earlier time <span class="math inline">\(t'\)</span>:</p>
-<p><span class="math display">\[\chi_{ij}(t-t') = \frac{\delta \langle x_i(t) \rangle}{\delta h_j(t')}\]</span></p>
-<p>where <span class="math inline">\(h_j\)</span> represents an external field conjugate to <span class="math inline">\(x_j\)</span>, and <span class="math inline">\(\langle \cdot \rangle\)</span> denotes an ensemble average.</p>
-<p>The correlation function <span class="math inline">\(C_{ij}(t-t')\)</span>, on the other hand, measures the statistical correlation between spontaneous fluctuations of the variables:</p>
-<p><span class="math display">\[C_{ij}(t-t') = \langle x_i(t) x_j(t') \rangle - \langle x_i(t) \rangle \langle x_j(t') \rangle\]</span></p>
-<p>The fluctuation-dissipation theorem connects these two quantities. For a system at thermal equilibrium at temperature <span class="math inline">\(T\)</span>, the theorem states:</p>
-<p><span class="math display">\[\chi_{ij}(t-t') = -\frac{1}{k_B T} \frac{d}{dt} C_{ij}(t-t') \quad \text{for } t &gt; t'\]</span></p>
-<p>where <span class="math inline">\(k_B\)</span> is Boltzmann’s constant. In the frequency domain, this relationship becomes:</p>
-<p><span class="math display">\[\chi_{ij}''(\omega) = \frac{\omega}{2k_B T} C_{ij}(\omega)\]</span></p>
-<p>where <span class="math inline">\(\chi_{ij}''(\omega)\)</span> is the imaginary part of the Fourier transform of the response function, and <span class="math inline">\(C_{ij}(\omega)\)</span> is the Fourier transform of the correlation function.</p>
-<p>To derive this result, we can start from the Langevin equation for a Brownian particle in a potential <span class="math inline">\(U(x)\)</span>:</p>
-<p><span class="math display">\[m\ddot{x} + \gamma \dot{x} + \nabla U(x) = \xi(t)\]</span></p>
-<p>where <span class="math inline">\(\gamma\)</span> is the friction coefficient and <span class="math inline">\(\xi(t)\)</span> is a Gaussian white noise with <span class="math inline">\(\langle \xi(t) \rangle = 0\)</span> and <span class="math inline">\(\langle \xi(t) \xi(t') \rangle = 2\gamma k_B T \delta(t-t')\)</span>.</p>
-<p>In the overdamped limit, which is relevant for most microscopic systems, this simplifies to:</p>
-<p><span class="math display">\[\gamma \dot{x} = -\nabla U(x) + \xi(t)\]</span></p>
-<p>For small displacements around an equilibrium position, we can linearize the potential and calculate both the response function and the correlation function explicitly. The result confirms the fluctuation-dissipation relation.</p>
-<p>The physical interpretation of the FDT is profound: the same microscopic processes that cause dissipation when the system is perturbed externally also drive the spontaneous fluctuations at equilibrium. Or conversely, the system’s response to external perturbations can be predicted from knowledge of its equilibrium fluctuations.</p>
-<p>In active matter systems, however, the FDT breaks down systematically. Active matter encompasses systems composed of self-propelled units that convert stored or ambient energy into directed motion. Examples include bacterial suspensions, cellular tissues, bird flocks, and artificial microswimmers.</p>
-<p>For active systems, we can quantify the breakdown of the FDT by defining an effective temperature <span class="math inline">\(T_{\text{eff}}(\omega)\)</span> through:</p>
-<p><span class="math display">\[T_{\text{eff}}(\omega) = \frac{\omega C_{ij}(\omega)}{2k_B \chi_{ij}''(\omega)}\]</span></p>
-<p>In equilibrium systems, <span class="math inline">\(T_{\text{eff}}(\omega) = T\)</span> is constant across all frequencies. In active systems, <span class="math inline">\(T_{\text{eff}}(\omega)\)</span> becomes frequency-dependent, often showing dramatic deviations from the bath temperature at frequencies related to active processes.</p>
-<p>Consider a simple model of active matter: a particle subject to both thermal noise and an active force <span class="math inline">\(f_a(t)\)</span>:</p>
-<p><span class="math display">\[\gamma \dot{x} = -\nabla U(x) + \xi(t) + f_a(t)\]</span></p>
-<p>The active force typically has a finite correlation time <span class="math inline">\(\tau_a\)</span> and strength characterized by an active diffusion coefficient <span class="math inline">\(D_a\)</span>:</p>
-<p><span class="math display">\[\langle f_a(t) f_a(t') \rangle = \gamma^2 D_a \exp(-|t-t'|/\tau_a)\]</span></p>
-<p>Solving this model shows that the correlation function <span class="math inline">\(C(\omega)\)</span> receives contributions from both thermal and active processes, while the response function <span class="math inline">\(\chi''(\omega)\)</span> remains determined solely by the dissipative properties of the medium. This mismatch leads to a violation of the FDT.</p>
-<p>The extent of FDT violation can be quantified by the ratio:</p>
-<p><span class="math display">\[\frac{T_{\text{eff}}(\omega)}{T} = 1 + \frac{D_a \tau_a}{D} \frac{1}{1 + \omega^2 \tau_a^2}\]</span></p>
-<p>where <span class="math inline">\(D = k_B T/\gamma\)</span> is the equilibrium diffusion coefficient. At low frequencies (<span class="math inline">\(\omega \tau_a \ll 1\)</span>), the effective temperature can be much larger than the bath temperature if <span class="math inline">\(D_a \tau_a \gg D\)</span>, indicating strong non-equilibrium effects. At high frequencies (<span class="math inline">\(\omega \tau_a \gg 1\)</span>), thermal effects dominate and <span class="math inline">\(T_{\text{eff}}(\omega) \approx T\)</span>.</p>
-<p>The breakdown of the FDT has important practical consequences. In active systems, measurements of spontaneous fluctuations cannot be used to predict the response to external perturbations using equilibrium statistical mechanics. Conversely, the violation of the FDT provides a quantitative tool to characterize the non-equilibrium nature of active systems, even when the microscopic details of active processes are unknown.</p>
-<p>This FDT violation is closely connected to entropy production, which we will explore next as a fundamental measure of the arrow of time in non-equilibrium systems.</p>
+<section id="primary-cilia-in-epithelial-cells" class="level3">
+<h3 class="anchored" data-anchor-id="primary-cilia-in-epithelial-cells">Primary cilia in epithelial cells</h3>
+<p>Primary cilia represent another biological system that exhibits non-equilibrium dynamics, but in a more subtle manner than the flagella of Chlamydomonas. These hairlike organelles project from many eukaryotic cells and transduce mechanical and chemical stimuli into intracellular signals. Unlike flagella, primary cilia often lack the dynein machinery necessary for active beating, causing them to fluctuate in what appears to be a random manner.</p>
+<p>When analyzed in the phase space defined by their deflection angle and curvature, primary cilia of MDCK (Madin-Darby canine kidney) epithelial cells reveal clockwise circulation patterns in their probability flux maps. These patterns indicate broken detailed balance, providing direct evidence of non-equilibrium dynamics in these seemingly passive structures. The statistical significance of these flux loops can be quantified, confirming that these cilia indeed operate far from equilibrium despite their apparently random motion.</p>
+<div id="fig-mdck-cilia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mdck-cilia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture02/MDCK_cilia.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mdck-cilia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Left: Schematic of primary cilium and anchoring of the basal body in the cell cortex with angle q and curvature, k, defined positive as shown. Right: Snapshots of cilium, from differential interference contrast microscopy, taken at time points marked in (B). Scale bar: 2 mm.
+</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
