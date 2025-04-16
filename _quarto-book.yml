@@ -16,6 +16,7 @@ book:
     - part: "Foundations and Theoretical Framework"
       chapters:
         - lecture01/lecture01.qmd
+        - lecture02/lecture02.qmd
 
 format:
   pdf:
