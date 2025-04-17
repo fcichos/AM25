@@ -1,5 +1,5 @@
 ---
-title: "Non-equilibrium Statistical Mechanics"
+title: "Statistical Mechanics Terms"
 format:
   html:
     toc: true
