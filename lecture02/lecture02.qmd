@@ -90,7 +90,9 @@ This direct connection between the Hamiltonian, partition function, and the obse
 
 ### Free energy and thermodynamic potentials
 
-Here's how you could introduce the enthalpic and entropic parts in the free energy expression:
+### Free energy and thermodynamic potentials
+
+The Helmholtz free energy is a thermodynamic potential that determines the maximum useful work obtainable from a closed system at constant temperature and volume. Named after German physicist Hermann von Helmholtz, it represents the amount of energy available to do non-expansion work. The Helmholtz free energy is particularly relevant in statistical mechanics because it serves as the fundamental bridge between microscopic properties (encoded in the partition function) and macroscopic thermodynamic behavior. For systems in the canonical ensemble—where the number of particles, volume, and temperature are fixed—the Helmholtz free energy provides the appropriate thermodynamic potential whose minimum determines the equilibrium state.
 
 The Helmholtz free energy $F$ is related to the partition function by:
 
