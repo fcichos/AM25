@@ -28,7 +28,9 @@ $$P(\Gamma) = \frac{1}{Z} e^{-\beta H(\Gamma)}$$
 
 where $\beta = 1/(k_B T)$, $k_B$ is Boltzmann's constant, $H(\Gamma)$ is the Hamiltonian of the system, and $Z$ is the partition function:
 
-$$Z = \int e^{-\beta H(\Gamma)} d\Gamma$$
+$$Z = \frac{1}{h^{3N}N!}\int e^{-\beta H(\Gamma)} d\Gamma$$
+
+In this expression, $h$ is Planck's constant, $N$ is the number of particles, and the factors $h^{3N}$ and $N!$ account for the quantum uncertainty principle and the indistinguishability of identical particles, respectively. This normalization ensures that the partition function is dimensionless.
 
 In physical terms, the Boltzmann distribution reflects how energy is partitioned among the available states at thermal equilibrium. States with lower energy are exponentially more likely to be occupied than states with higher energy. For active matter systems, this distribution is significantly altered because energy is continuously injected at the microscopic level, driving the system away from this equilibrium distribution. Indeed, active systems generally cannot be described by a time-independent Hamiltonian at all, as they involve non-conservative forces.
 
@@ -96,7 +98,9 @@ The Helmholtz free energy is a thermodynamic potential that determines the maxim
 
 The Helmholtz free energy $F$ is related to the partition function by:
 
-$$F = -k_B T \ln Z = -k_B T \ln \left(\int e^{-\beta H(\Gamma)} d\Gamma\right)$$
+$$F = -k_B T \ln Z = -k_B T \ln \left(\frac{1}{h^{3N}N!}\int e^{-\beta H(\Gamma)} d\Gamma\right)$$
+
+where the normalization factor $\frac{1}{h^{3N}N!}$ ensures proper dimensionless units in the partition function, with $h$ being Planck's constant and $N$ the number of particles.
 
 We can rewrite this as $F = E - TS$, explicitly showing the competition between the enthalpic (energy) and entropic contributions:
 
@@ -232,7 +236,7 @@ For the sedimentation example, the key connections are:
 
 :::{.callout-note collapse=true}
 ### Master Equation Formulation
-Detailed balance can be elegantly formulated in terms of a master equation, which provides a powerful framework for understanding the time evolution of probability distributions.The master equation describes how the probability P_i(t) of finding the system in state i evolves over time:
+Detailed balance can be elegantly formulated in terms of a master equation, which provides a powerful framework for understanding the time evolution of probability distributions.The master equation describes how the probability $P_i(t)$ of finding the system in state $i$ evolves over time:
 
 $$\frac{dP_i(t)}{dt} = \sum_j [W_{j \to i} P_j(t) - W_{i \to j} P_i(t)]$$
 
@@ -322,51 +326,78 @@ In many situations relevant to colloidal systems and active matter, inertial eff
 
 $$\gamma\frac{dx}{dt} = -\frac{dU(x)}{dx} + \xi(t)$$
 
-This overdamped approximation accurately describes microscopic active systems such as bacterial suspensions, catalytic Janus particles, and colloidal rollers. In these systems, the Reynolds number is extremely low (typically 10^-5 to 10^-2), meaning viscous forces dominate over inertial forces. Consequently, particles stop moving almost instantaneously when propulsion ceases—a counterintuitive behavior compared to our macroscopic experience where objects continue moving due to inertia.
+This overdamped approximation accurately describes microscopic active systems such as bacterial suspensions, catalytic Janus particles, and colloidal rollers. In these systems, the Reynolds number is extremely low (typically $10^-5$ to $10^-2$), meaning viscous forces dominate over inertial forces. Consequently, particles stop moving almost instantaneously when propulsion ceases—a counterintuitive behavior compared to our macroscopic experience where objects continue moving due to inertia.
 
 The Langevin framework will serve as our starting point for understanding how active systems systematically violate equilibrium principles. As we explore further, we'll see that active matter requires expanding our theoretical tools beyond equilibrium statistical mechanics to account for the continuous energy input that drives these fascinating systems far from equilibrium.
 
 
 ### Fluctuation dissipation relation (FDT)
 
-At its core, the FDT tells us something remarkable: by simply watching how a system naturally fluctuates at equilibrium, we can predict exactly how it will respond when we deliberately perturb it. This powerful connection works because in equilibrium systems, the same thermal processes drive both phenomena.
+The Fluctuation-Dissipation Theorem (FDT) is a cornerstone principle in equilibrium statistical mechanics that connects two seemingly different phenomena:
 
-Imagine tracking the position of a colloidal particle in a harmonic trap. The particle jiggles around due to random collisions with fluid molecules. The FDT tells us that these natural fluctuations contain all the information we need to know how the particle would respond if we were to push it with a small external force.
+1. The random thermal fluctuations that naturally occur in a system at equilibrium
+2. How that same system responds when deliberately disturbed by an external force
 
-Mathematically, we describe this using two key functions:
+Mathematically, the FDT is often most elegantly expressed in frequency space:
 
-1. The **correlation function** $C_{ij}(t-t')$ measures how fluctuations are related in time:
+$$\chi''(\omega) = \frac{\omega}{2k_B T}S(\omega)$$
 
-$$C_{ij}(t-t') = \langle x_i(t) x_j(t') \rangle - \langle x_i(t) \rangle \langle x_j(t') \rangle$$
+where $\chi''(\omega)$ is the imaginary part of the frequency-dependent susceptibility (describing the dissipative response to perturbations), and $S(\omega)$ is the power spectral density of the equilibrium fluctuations.
 
-The indices $i$ and $j$ here are crucial - they represent different components or degrees of freedom in the system. For example:
+Alternatively, using the full complex susceptibility:
 
-- In a system with multiple particles, $i$ and $j$ might label different particles (e.g., $x_1$ is the position of particle 1, $x_2$ is for particle 2)
-- For a single particle moving in three dimensions, $i$ and $j$ could indicate different spatial coordinates ($i=x$, $j=y$, or $j=z$)
-- In a more complex system, these indices might represent entirely different physical quantities (e.g., $i$ could be position while $j$ could be orientation)
-- When $i=j$, we're examining auto-correlations (how a variable correlates with itself at different times)
-- When $i≠j$, we're measuring cross-correlations (how different variables influence each other)
+$$\chi(\omega) = \frac{1}{k_B T}\int_0^{\infty} C(t)e^{i\omega t}dt$$
 
-This function is directly measurable in experiments by tracking system variables over time and calculating their statistical correlations.
-
-2. The **response function** $\chi_{ij}(t-t')$ tells us how the system responds to external forces:
-
-$$\chi_{ij}(t-t') = \frac{\delta \langle x_i(t) \rangle}{\delta h_j(t')}$$
-
-Here, the indices have a directional meaning: $\chi_{ij}$ measures how component $i$ of the system responds when we apply a perturbation to component $j$. Specifically, it quantifies how much variable $x_i$ changes at time $t$ when we apply a small force $h_j$ at an earlier time $t'$. The indices allow us to characterize both direct responses (when $i=j$) and coupled responses (when $i≠j$). A good exaample for the response function is the electrical susceptibility of a material which is the factor that connects the perturbation $E_j$ with the response which is the polarization:
-
-$$P_i = \varepsilon_0 \sum_j \chi_{ij} E_j$$
+The FDT tells us that for systems in thermal equilibrium, these two behaviors are directly linked through temperature. This means we can learn how a system will respond to an external force simply by observing how it naturally fluctuates when left alone—a profound connection that becomes particularly transparent in the frequency domain.
 
 
-The fluctuation-dissipation theorem connects these two functions through temperature. For a system at equilibrium:
+:::{.callout-note collapse=true}
+#### Trapped Brownian particle
 
-$$\chi_{ij}(t-t') = -\frac{1}{k_B T} \frac{d}{dt} C_{ij}(t-t') \quad \text{for } t > t'$$
+Consider a microscopic particle trapped in an optical tweezer (essentially a harmonic potential created by focused laser light). The particle jiggles around randomly due to collisions with surrounding fluid molecules - these are its natural thermal fluctuations.
 
-In experiments, it's often more convenient to work in the frequency domain (using Fourier transforms):
+The FDT tells us that by simply measuring how much this particle naturally jiggles (its position fluctuations), we can predict exactly how far it would move if we applied a small external force to it.
 
-$$\chi_{ij}''(\omega) = \frac{\omega}{2k_B T} C_{ij}(\omega)$$
+Let's examine this for a colloidal particle in a one-dimensional harmonic trap, described by the overdamped Langevin equation:
 
-Here, $\chi_{ij}''(\omega)$ is the imaginary part of the response function (related to energy dissipation) and $C_{ij}(\omega)$ is the power spectrum of fluctuations at frequency $\omega$. The indices maintain their meaning in the frequency domain, allowing us to analyze how different components respond to perturbations at specific frequencies.
+$$\gamma \frac{dx}{dt} = -kx + \xi(t) + F_{ext}(t)$$
+
+where:
+- $\gamma$ is the friction coefficient (resistance to motion)
+- $k$ is the trap stiffness (strength of the restoring force)
+- $\xi(t)$ is thermal noise from random molecular collisions
+- $F_{ext}(t)$ is any external force we might apply
+
+The FDT connects two important quantities:
+
+1. The **position autocorrelation function** $C(t-t')$, which tells us how the particle's random motions are correlated across time:
+
+$$C(t-t') = \langle x(t)x(t') \rangle - \langle x(t) \rangle \langle x(t') \rangle$$
+
+In equilibrium with no external force, this equals:
+
+$$C(t-t') = \frac{k_B T}{k}e^{-\frac{k}{\gamma}|t-t'|}$$
+
+2. The **response function** $\chi(t-t')$, which measures how the particle's position responds to a small external force:
+
+$$\chi(t-t') = \frac{\delta \langle x(t) \rangle}{\delta F_{ext}(t')}$$
+
+For our harmonic trap:
+
+$$\chi(t-t') = \frac{1}{\gamma}e^{-\frac{k}{\gamma}(t-t')} \Theta(t-t')$$
+
+where $\Theta(t-t')$ is the Heaviside step function (ensuring causality - the system can't respond before the force is applied).
+
+The FDT directly relates these quantities through temperature:
+
+$$\chi(t-t') = -\frac{1}{k_B T}\frac{d}{dt}C(t-t') \quad \text{for } t > t'$$
+
+This equation embodies the profound insight that the same microscopic mechanisms responsible for dissipation (friction) also generate fluctuations, with temperature determining their relative strength.
+:::
+
+The FDT is a powerful tool in equilibrium systems, but it breaks down in active matter. In active systems, energy is continuously injected at the microscopic level through self-propulsion mechanisms. This additional energy input means that fluctuations can be much larger than what would be predicted from the system's response properties using the equilibrium FDT.
+
+The violation of the FDT in active systems provides a quantitative measure of how far these systems operate from equilibrium, making it a valuable tool for characterizing active matter.
 
 ## Examples
 
