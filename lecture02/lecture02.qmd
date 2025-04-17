@@ -361,6 +361,7 @@ Let's examine this for a colloidal particle in a one-dimensional harmonic trap, 
 $$\gamma \frac{dx}{dt} = -kx + \xi(t) + F_{ext}(t)$$
 
 where:
+
 - $\gamma$ is the friction coefficient (resistance to motion)
 - $k$ is the trap stiffness (strength of the restoring force)
 - $\xi(t)$ is thermal noise from random molecular collisions
