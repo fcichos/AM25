@@ -357,7 +357,22 @@ $$m\frac{d^2\mathbf{r}}{dt^2} = \underbrace{-\gamma\frac{d\mathbf{r}}{dt}}_{\tex
 
 Here, $\mathbf{r}=(x,y)$ is the particle position, $m$ is the particle mass, and the left side represents inertial forces. On the right side we have a dissipative friction term with coefficient $\gamma$ that removes energy from the system, a conservative force from the potential $U(\mathbf{r})$, and a thermal noise term $\boldsymbol{\xi}(t)$ that injects energy into the particle motion. The thermal translational noise $\boldsymbol{\xi}(t)$ has zero mean ($\langle\boldsymbol{\xi}(t)\rangle = 0$) and correlations $\langle\xi_i(t)\xi_j(t')\rangle = 2\gamma k_B T \delta_{ij}\delta(t-t')$, following the fluctuation-dissipation theorem.
 
-The energy dissipation rate due to friction is given by $P_{diss} = \gamma|\mathbf{v}|^2$, where $\mathbf{v}=\frac{d\mathbf{r}}{dt}$ is the particle velocity. In equilibrium, the average energy dissipation rate per degree of freedom is $\langle P_{diss} \rangle = \frac{2\gamma k_B T}{m}$. Meanwhile, the energy injection rate from thermal fluctuations is $P_{inj} = \boldsymbol{\xi}(t) \cdot \mathbf{v}$, with an average value of $\langle P_{inj} \rangle = \frac{2\gamma k_B T}{m}$ per degree of freedom. The equality between these rates ensures detailed balance in equilibrium systems, maintaining a consistent average kinetic energy of $\frac{k_B T}{2}$ per degree of freedom in accordance with the equipartition theorem.
+The energy dissipation rate due to friction is given by $P_{diss} = \gamma|\mathbf{v}|^2$, where $\mathbf{v}=\frac{d\mathbf{r}}{dt}$ is the particle velocity. In equilibrium, the average energy dissipation rate per degree of freedom is $\langle P_{diss} \rangle = \frac{2\gamma k_B T}{m}$. Meanwhile, the energy injection rate from thermal fluctuations can be calculated from the work done by the random force: $P_{inj} = \boldsymbol{\xi}(t) \cdot \mathbf{v}$.
+
+To determine the average injected power, we need to evaluate $\langle \boldsymbol{\xi}(t) \cdot \mathbf{v} \rangle$. This requires examining the correlation between the noise and velocity, which isn't immediately obvious since both are stochastic quantities. We can solve this by considering the Langevin equation in the stationary state. From the equipartition theorem, we know that $\langle mv^2 \rangle = k_B T$ per degree of freedom, which means $\langle v^2 \rangle = \frac{k_B T}{m}$.
+
+The instantaneous velocity can be formally expressed using the Green's function solution of the Langevin equation:
+
+$$\mathbf{v}(t) = \frac{1}{\gamma}\int_{-\infty}^{t} \boldsymbol{\xi}(t') e^{-(t-t')/\tau_p} dt'$$
+
+where $\tau_p = m/\gamma$ is the momentum relaxation time. Using this expression and the noise correlation function $\langle \xi_i(t) \xi_j(t') \rangle = 2\gamma k_B T \delta_{ij}\delta(t-t')$, we can calculate:
+
+\begin{eqnarray}
+\langle \boldsymbol{\xi}(t) \cdot \mathbf{v}(t) \rangle &= \frac{1}{\gamma}\sum_i\int_{-\infty}^{t} \langle \xi_i(t)\xi_i(t') \rangle e^{-(t-t')/\tau_p} dt' \\
+&= \frac{2\gamma k_B T}{\gamma} \int_{-\infty}^{t} \delta(t-t') e^{-(t-t')/\tau_p} dt' = \frac{2\gamma k_B T}{m} \tau_p = \frac{2\gamma k_B T}{m}
+\end{eqnarray}
+
+Thus, the average energy injection rate per degree of freedom is $\langle P_{inj} \rangle = \frac{2\gamma k_B T}{m}$. The equality between injection and dissipation rates ensures detailed balance in equilibrium systems, maintaining a consistent average kinetic energy of $\frac{k_B T}{2}$ per degree of freedom in accordance with the equipartition theorem.
 
 For microscopic particles in a viscous medium, the inertial term becomes negligible (mass effects disappear on timescales $t \gg m/\gamma$), leading to the overdamped limit.
 
@@ -443,7 +458,7 @@ R=1e-6
 D=D_T(1e-3,R)*1e12   # µm^2/s diffusion coefficient
 Dr=D_R(1e-3,R)   #  rad^2/s rotational diffusion
 N=100 # number of steps
-print(1/Dr)
+
 # Create figure with two subplots side by side
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=get_size(12,6))
 
