@@ -46,3 +46,5 @@ website:
             href: lecture01/lecture01.qmd
           - text: Lecture 2
             href: lecture02/lecture02.qmd
+          - text: Lecture 3
+            href: lecture03/lecture03.qmd

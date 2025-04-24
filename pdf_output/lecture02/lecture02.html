@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Non-equilibrium Statistical Mechanics – Active Matter Physics</title>
+<title>3&nbsp; Statistical Mechanics Terms – Active Matter Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../lecture03/lecture03.html" rel="next">
 <link href="../lecture01/lecture01.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -110,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lecture01/lecture01.html">Foundations and Theoretical Framework</a></li><li class="breadcrumb-item"><a href="../lecture02/lecture02.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Non-equilibrium Statistical Mechanics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lecture01/lecture01.html">Foundations and Theoretical Framework</a></li><li class="breadcrumb-item"><a href="../lecture02/lecture02.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Mechanics Terms</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,7 +160,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lecture02/lecture02.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Non-equilibrium Statistical Mechanics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Mechanics Terms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lecture03/lecture03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Microscopic Models of Self-propulsion</span></span></a>
   </div>
 </li>
       </ul>
@@ -178,8 +185,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#canonical-ensemble-and-partition-function" id="toc-canonical-ensemble-and-partition-function" class="nav-link" data-scroll-target="#canonical-ensemble-and-partition-function"><span class="header-section-number">3.1.1</span> Canonical ensemble and partition function</a></li>
   <li><a href="#free-energy-and-thermodynamic-potentials" id="toc-free-energy-and-thermodynamic-potentials" class="nav-link" data-scroll-target="#free-energy-and-thermodynamic-potentials"><span class="header-section-number">3.1.2</span> Free energy and thermodynamic potentials</a></li>
-  <li><a href="#free-energy-and-thermodynamic-potentials-1" id="toc-free-energy-and-thermodynamic-potentials-1" class="nav-link" data-scroll-target="#free-energy-and-thermodynamic-potentials-1"><span class="header-section-number">3.1.3</span> Free energy and thermodynamic potentials</a></li>
-  <li><a href="#ergodicity-and-detailed-balance" id="toc-ergodicity-and-detailed-balance" class="nav-link" data-scroll-target="#ergodicity-and-detailed-balance"><span class="header-section-number">3.1.4</span> Ergodicity and detailed balance</a></li>
+  <li><a href="#ergodicity-and-detailed-balance" id="toc-ergodicity-and-detailed-balance" class="nav-link" data-scroll-target="#ergodicity-and-detailed-balance"><span class="header-section-number">3.1.3</span> Ergodicity and detailed balance</a></li>
   <li><a href="#brownian-motion-and-the-langevin-equation" id="toc-brownian-motion-and-the-langevin-equation" class="nav-link" data-scroll-target="#brownian-motion-and-the-langevin-equation"><span class="header-section-number">3.2.1</span> Brownian motion and the Langevin equation</a></li>
   <li><a href="#fluctuation-dissipation-relation-fdt" id="toc-fluctuation-dissipation-relation-fdt" class="nav-link" data-scroll-target="#fluctuation-dissipation-relation-fdt"><span class="header-section-number">3.2.2</span> Fluctuation dissipation relation (FDT)</a></li>
   </ul></li>
@@ -195,9 +201,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lecture01/lecture01.html">Foundations and Theoretical Framework</a></li><li class="breadcrumb-item"><a href="../lecture02/lecture02.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Non-equilibrium Statistical Mechanics</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lecture01/lecture01.html">Foundations and Theoretical Framework</a></li><li class="breadcrumb-item"><a href="../lecture02/lecture02.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Mechanics Terms</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Non-equilibrium Statistical Mechanics</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Statistical Mechanics Terms</span></h1>
 </div>
 
 
@@ -282,9 +288,6 @@ Figure&nbsp;3.1: Perrin’s sedimentation experiments. The exponential decay in 
 </section>
 <section id="free-energy-and-thermodynamic-potentials" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="free-energy-and-thermodynamic-potentials"><span class="header-section-number">3.1.2</span> Free energy and thermodynamic potentials</h3>
-</section>
-<section id="free-energy-and-thermodynamic-potentials-1" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="free-energy-and-thermodynamic-potentials-1"><span class="header-section-number">3.1.3</span> Free energy and thermodynamic potentials</h3>
 <p>The Helmholtz free energy is a thermodynamic potential that determines the maximum useful work obtainable from a closed system at constant temperature and volume. Named after German physicist Hermann von Helmholtz, it represents the amount of energy available to do non-expansion work. The Helmholtz free energy is particularly relevant in statistical mechanics because it serves as the fundamental bridge between microscopic properties (encoded in the partition function) and macroscopic thermodynamic behavior. For systems in the canonical ensemble—where the number of particles, volume, and temperature are fixed—the Helmholtz free energy provides the appropriate thermodynamic potential whose minimum determines the equilibrium state.</p>
 <p>The Helmholtz free energy <span class="math inline">\(F\)</span> is related to the partition function by:</p>
 <p><span class="math display">\[F = -k_B T \ln Z = -k_B T \ln \left(\frac{1}{h^{3N}N!}\int e^{-\beta H(\Gamma)} d\Gamma\right)\]</span></p>
@@ -345,16 +348,16 @@ Figure&nbsp;3.2: Sketch of a colloidal particle trapped in the focus of a micros
 </div>
 </div>
 </section>
-<section id="ergodicity-and-detailed-balance" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored"><span class="header-section-number">3.1.4</span> Ergodicity and detailed balance</h3>
+<section id="ergodicity-and-detailed-balance" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored"><span class="header-section-number">3.1.3</span> Ergodicity and detailed balance</h3>
 <p>A key assumption in equilibrium statistical mechanics is ergodicity—the equivalence between time averages and ensemble averages:</p>
 <p><span class="math display">\[\langle A \rangle_{\text{time}} = \lim_{T\to\infty} \frac{1}{T} \int_0^T A(t) dt = \langle A \rangle_{\text{ensemble}}\]</span></p>
 <p>In practical terms, ergodicity means that if you observe a single system for a sufficiently long time, it will eventually visit all microscopic states consistent with its macroscopic constraints, allowing time averages to equal ensemble averages. Active matter systems often violate ergodicity by persistently exploring only a subset of the available phase space due to their self-propulsion mechanisms. This has profound implications for both experimental measurements and theoretical descriptions of active systems.</p>
 <p>Equilibrium dynamics satisfies detailed balance, a microscopic time-reversal symmetry condition. For transitions between states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> with rates <span class="math inline">\(W_{i\to j}\)</span> and <span class="math inline">\(W_{j\to i}\)</span>:</p>
 <p><span class="math display">\[\frac{W_{i\to j}}{W_{j\to i}} = \frac{P_j^{\text{eq}}}{P_i^{\text{eq}}} = e^{-\beta(E_j-E_i)}\]</span></p>
 <p>Detailed balance ensures that there are no net probability currents in equilibrium.</p>
-<section id="application-to-sedimentation" class="level4" data-number="3.1.4.1">
-<h4 data-number="3.1.4.1" class="anchored"><span class="header-section-number">3.1.4.1</span> Application to Sedimentation</h4>
+<section id="application-to-sedimentation" class="level4" data-number="3.1.3.1">
+<h4 data-number="3.1.3.1" class="anchored"><span class="header-section-number">3.1.3.1</span> Application to Sedimentation</h4>
 <p>In the sedimentation example, we can apply detailed balance to particles moving between different heights in a gravitational field. Consider transitions between heights <span class="math inline">\(h_i\)</span> and <span class="math inline">\(h_j\)</span>:</p>
 <ul>
 <li>The equilibrium probability to find a particle at height <span class="math inline">\(h\)</span> is <span class="math inline">\(P(h) \propto e^{-\beta mgh}\)</span></li>
@@ -379,8 +382,8 @@ Connecting to Fluctuation Theorems
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The relationship between detailed balance, trajectory reversibility, and sedimentation connects directly to fluctuation theorems, which provide a broader framework for understanding non-equilibrium systems:</p>
-<section id="connection-to-fluctuation-theorems" class="level4" data-number="3.1.4.2">
-<h4 data-number="3.1.4.2" class="anchored" data-anchor-id="connection-to-fluctuation-theorems"><span class="header-section-number">3.1.4.2</span> Connection to Fluctuation Theorems</h4>
+<section id="connection-to-fluctuation-theorems" class="level4" data-number="3.1.3.2">
+<h4 data-number="3.1.3.2" class="anchored" data-anchor-id="connection-to-fluctuation-theorems"><span class="header-section-number">3.1.3.2</span> Connection to Fluctuation Theorems</h4>
 <p>The trajectory reversibility we described for equilibrium systems (where <span class="math inline">\(\frac{P[\gamma]}{P[\bar{\gamma}]} = e^{-\beta mg(h_j-h_i)}\)</span>) is actually a special case of more general fluctuation theorems that apply even to non-equilibrium systems. These theorems quantify the probability of observing trajectories that appear to violate the second law of thermodynamics.</p>
 <p>For the sedimentation example, the key connections are:</p>
 <ol type="1">
@@ -412,16 +415,16 @@ Master Equation Formulation
 <p><span class="math display">\[\frac{dP_i(t)}{dt} = \sum_j [W_{j \to i} P_j(t) - W_{i \to j} P_i(t)]\]</span></p>
 <p>where <span class="math inline">\(W_{j→i}\)</span> is the transition rate from state <span class="math inline">\(j\)</span> to state <span class="math inline">\(i\)</span>.</p>
 <p>The first term represents probability flowing into state <span class="math inline">\(i\)</span> from all other states <span class="math inline">\(j\)</span>, while the second term represents probability flowing out of state <span class="math inline">\(i\)</span> to all other states <span class="math inline">\(j\)</span>.</p>
-<section id="detailed-balance-as-a-stronger-condition" class="level4" data-number="3.1.4.3">
-<h4 data-number="3.1.4.3" class="anchored" data-anchor-id="detailed-balance-as-a-stronger-condition"><span class="header-section-number">3.1.4.3</span> Detailed Balance as a Stronger Condition</h4>
+<section id="detailed-balance-as-a-stronger-condition" class="level4" data-number="3.1.3.3">
+<h4 data-number="3.1.3.3" class="anchored" data-anchor-id="detailed-balance-as-a-stronger-condition"><span class="header-section-number">3.1.3.3</span> Detailed Balance as a Stronger Condition</h4>
 <p>At steady state, the left-hand side of the master equation equals zero, meaning:</p>
 <p><span class="math display">\[\sum_j [W_{j \to i} P_j - W_{i \to j} P_i] = 0\]</span></p>
 <p>However, detailed balance imposes a much stronger condition - that each term in this sum must individually equal zero:</p>
 <p><span class="math display">\[W_{j \to i} P_j^{eq} = W_{i \to j} P_i^{eq} \quad \text{for all pairs } i,j\]</span></p>
 <p>This is equivalent to requiring that the net probability current between any two states vanishes at equilibrium.</p>
 </section>
-<section id="application-to-sedimentation-1" class="level4" data-number="3.1.4.4">
-<h4 data-number="3.1.4.4" class="anchored" data-anchor-id="application-to-sedimentation-1"><span class="header-section-number">3.1.4.4</span> Application to Sedimentation</h4>
+<section id="application-to-sedimentation-1" class="level4" data-number="3.1.3.4">
+<h4 data-number="3.1.3.4" class="anchored" data-anchor-id="application-to-sedimentation-1"><span class="header-section-number">3.1.3.4</span> Application to Sedimentation</h4>
 <p>For sedimentation, we can discretize the height into levels <span class="math inline">\({h_i}\)</span>. The master equation becomes:</p>
 <p><span class="math display">\[\frac{dP(h_i,t)}{dt} = \sum_j [W_{h_j \to h_i} P(h_j,t) - W_{h_i \to h_j} P(h_i,t)]\]</span></p>
 <p>Detailed balance requires:</p>
@@ -502,7 +505,13 @@ Trapped Brownian particle
 <p>The FDT tells us that by simply measuring how much this particle naturally jiggles (its position fluctuations), we can predict exactly how far it would move if we applied a small external force to it.</p>
 <p>Let’s examine this for a colloidal particle in a one-dimensional harmonic trap, described by the overdamped Langevin equation:</p>
 <p><span class="math display">\[\gamma \frac{dx}{dt} = -kx + \xi(t) + F_{ext}(t)\]</span></p>
-<p>where: - <span class="math inline">\(\gamma\)</span> is the friction coefficient (resistance to motion) - <span class="math inline">\(k\)</span> is the trap stiffness (strength of the restoring force) - <span class="math inline">\(\xi(t)\)</span> is thermal noise from random molecular collisions - <span class="math inline">\(F_{ext}(t)\)</span> is any external force we might apply</p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\gamma\)</span> is the friction coefficient (resistance to motion)</li>
+<li><span class="math inline">\(k\)</span> is the trap stiffness (strength of the restoring force)</li>
+<li><span class="math inline">\(\xi(t)\)</span> is thermal noise from random molecular collisions</li>
+<li><span class="math inline">\(F_{ext}(t)\)</span> is any external force we might apply</li>
+</ul>
 <p>The FDT connects two important quantities:</p>
 <ol type="1">
 <li>The <strong>position autocorrelation function</strong> <span class="math inline">\(C(t-t')\)</span>, which tells us how the particle’s random motions are correlated across time:</li>
@@ -1035,6 +1044,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../lecture03/lecture03.html" class="pagination-link" aria-label="Microscopic Models of Self-propulsion">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Microscopic Models of Self-propulsion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

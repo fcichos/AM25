@@ -17,6 +17,7 @@ book:
       chapters:
         - lecture01/lecture01.qmd
         - lecture02/lecture02.qmd
+        - lecture03/lecture03.qmd
 
 format:
   pdf:
