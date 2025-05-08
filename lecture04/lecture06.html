@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>examples – Active Matter Physics</title>
+<title>lecture06 – Active Matter Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
@@ -208,7 +237,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-examples-across-biological-and-synthetic-systems" id="toc-key-examples-across-biological-and-synthetic-systems" class="nav-link active" data-scroll-target="#key-examples-across-biological-and-synthetic-systems">Key examples across biological and synthetic systems</a></li>
+  <li><a href="#toner-tu-model-for-flocking" id="toc-toner-tu-model-for-flocking" class="nav-link active" data-scroll-target="#toner-tu-model-for-flocking">Toner-Tu Model for Flocking</a></li>
+  <li><a href="#active-field-theories" id="toc-active-field-theories" class="nav-link" data-scroll-target="#active-field-theories">Active Field Theories</a></li>
+  <li><a href="#linear-stability-analysis-in-active-systems" id="toc-linear-stability-analysis-in-active-systems" class="nav-link" data-scroll-target="#linear-stability-analysis-in-active-systems">Linear Stability Analysis in Active Systems</a></li>
+  <li><a href="#experimental-realizations-and-tests" id="toc-experimental-realizations-and-tests" class="nav-link" data-scroll-target="#experimental-realizations-and-tests">Experimental Realizations and Tests</a></li>
+  <li><a href="#summary-and-bridge-to-next-lecture" id="toc-summary-and-bridge-to-next-lecture" class="nav-link" data-scroll-target="#summary-and-bridge-to-next-lecture">Summary and Bridge to Next Lecture</a></li>
+  <li><a href="#references-and-further-reading" id="toc-references-and-further-reading" class="nav-link" data-scroll-target="#references-and-further-reading">References and Further Reading</a></li>
   </ul>
 </nav>
     </div>
@@ -218,28 +252,137 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="key-examples-across-biological-and-synthetic-systems" class="level3">
-<h3 class="anchored" data-anchor-id="key-examples-across-biological-and-synthetic-systems">Key examples across biological and synthetic systems</h3>
-<p>Active matter encompasses a diverse range of systems spanning biological and synthetic domains:</p>
-<p><img src="../assets/images/lecture01/41526_2022_230_Fig1_HTML.png.webp" class="img-fluid"></p>
+<section id="toner-tu-model-for-flocking" class="level3">
+<h3 class="anchored" data-anchor-id="toner-tu-model-for-flocking">Toner-Tu Model for Flocking</h3>
+<section id="from-vicsek-to-toner-tu" class="level4">
+<h4 class="anchored" data-anchor-id="from-vicsek-to-toner-tu">From Vicsek to Toner-Tu</h4>
+<p>The Toner-Tu model provides a hydrodynamic description of flocking phenomena (think birds, fish schools, or cell migrations). It was developed to explain how the discrete Vicsek model, where particles align their velocities with neighbors, leads to collective motion at the macroscopic scale.</p>
+</section>
+<section id="the-hydrodynamic-equations" class="level4">
+<h4 class="anchored" data-anchor-id="the-hydrodynamic-equations">The Hydrodynamic Equations</h4>
+<p>The Toner-Tu equations for the density field <span class="math inline">\(\rho(\mathbf{r},t)\)</span> and velocity field <span class="math inline">\(\mathbf{v}(\mathbf{r},t)\)</span> are:</p>
+<p><span class="math display">\[\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0\]</span></p>
+<p><span class="math display">\[\frac{\partial \mathbf{v}}{\partial t} + \lambda_1 (\mathbf{v} \cdot \nabla)\mathbf{v} = \alpha \mathbf{v} - \beta |\mathbf{v}|^2 \mathbf{v} - \nabla P + D_1 \nabla^2 \mathbf{v} + D_2 \nabla(\nabla \cdot \mathbf{v}) + ...\]</span></p>
+<p>where: - The first equation represents mass conservation - In the second equation: - <span class="math inline">\(\alpha \mathbf{v} - \beta |\mathbf{v}|^2 \mathbf{v}\)</span> drives the velocity to a preferred magnitude <span class="math inline">\(|\mathbf{v}| = \sqrt{\alpha/\beta}\)</span> - <span class="math inline">\(\nabla P\)</span> is the pressure gradient, often written as <span class="math inline">\(P = P_0 + P_1 \rho + P_2 \rho^2 + ...\)</span> - <span class="math inline">\(D_1, D_2\)</span> are diffusion coefficients</p>
+</section>
+<section id="key-predictions-breaking-equilibrium-constraints" class="level4">
+<h4 class="anchored" data-anchor-id="key-predictions-breaking-equilibrium-constraints">Key Predictions: Breaking Equilibrium Constraints</h4>
+<p>The Toner-Tu model makes several remarkable predictions that distinguish flocking from equilibrium systems:</p>
 <ol type="1">
-<li><strong>Biological active matter</strong>
+<li><p><strong>Long-range order in 2D</strong>: Unlike equilibrium systems constrained by the Mermin-Wagner theorem, flocks can maintain true long-range order even in two dimensions.</p></li>
+<li><p><strong>Giant number fluctuations</strong>: Density fluctuations are anomalously large, scaling as <span class="math inline">\(\Delta N \sim N^{a}\)</span> with <span class="math inline">\(a &gt; 1/2\)</span> (the equilibrium value).</p></li>
+<li><p><strong>Sound waves</strong>: Perturbations propagate as sound modes with anisotropic speed, faster along the direction of flock motion.</p></li>
+</ol>
+<div id="fig-toner-tu" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-toner-tu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><img src="../assets/images/lecture05/toner_tu.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<ol type="a">
+<li>Simulated flocking behavior from the Toner-Tu model showing coherent collective motion. (b) Experimental verification of giant number fluctuations in active systems, comparing equilibrium scaling (dashed line) with active matter (solid line).</li>
+</ol>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-toner-tu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="active-field-theories" class="level3">
+<h3 class="anchored" data-anchor-id="active-field-theories">Active Field Theories</h3>
+<section id="active-model-ab-classification" class="level4">
+<h4 class="anchored" data-anchor-id="active-model-ab-classification">Active Model A/B Classification</h4>
+<p>Active field theories extend the classification of equilibrium dynamics (Model A for non-conserved, Model B for conserved fields) to active systems by adding non-equilibrium terms:</p>
+<p><strong>Active Model A</strong> (non-conserved order parameter <span class="math inline">\(\phi\)</span>): <span class="math display">\[\frac{\partial \phi}{\partial t} = -\Gamma \frac{\delta \mathcal{F}}{\delta \phi} + \lambda(\phi, \nabla\phi, ...) + \eta\]</span></p>
+<p><strong>Active Model B</strong> (conserved order parameter <span class="math inline">\(\phi\)</span>): <span class="math display">\[\frac{\partial \phi}{\partial t} = \nabla \cdot \left(\Gamma \nabla \frac{\delta \mathcal{F}}{\delta \phi} + \boldsymbol{\Lambda}(\phi, \nabla\phi, ...) + \boldsymbol{\eta}\right)\]</span></p>
+<p>where <span class="math inline">\(\mathcal{F}\)</span> is an effective free energy, and <span class="math inline">\(\lambda\)</span> or <span class="math inline">\(\boldsymbol{\Lambda}\)</span> are active terms that cannot be derived from a free energy.</p>
+<section id="motility-induced-phase-separation-mips" class="level5">
+<h5 class="anchored" data-anchor-id="motility-induced-phase-separation-mips">Motility-Induced Phase Separation (MIPS)</h5>
+<p>A canonical example of active phase separation is MIPS, where purely repulsive self-propelled particles spontaneously phase separate due to a density-dependent mobility.</p>
+<p>The continuum description can be formulated as a modified Cahn-Hilliard equation:</p>
+<p><span class="math display">\[\frac{\partial \phi}{\partial t} = \nabla \cdot \left(M(\phi) \nabla \frac{\delta \mathcal{F}}{\delta \phi} + \mathbf{v}(\phi) \phi\right)\]</span></p>
+<p>where <span class="math inline">\(M(\phi)\)</span> is the mobility, <span class="math inline">\(\mathcal{F}\)</span> is an effective free energy, and <span class="math inline">\(\mathbf{v}(\phi)\)</span> represents the active current that depends on density.</p>
+<div id="fig-mips" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mips-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture05/mips.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mips-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Motility-induced phase separation. (a) Schematic representation of the mechanism: particles slow down in dense regions, leading to accumulation. (b) Simulation showing phase separation in a system of active Brownian particles. (c) Phase diagram as a function of activity and density.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="linear-stability-analysis-in-active-systems" class="level3">
+<h3 class="anchored" data-anchor-id="linear-stability-analysis-in-active-systems">Linear Stability Analysis in Active Systems</h3>
+<section id="general-methodology" class="level4">
+<h4 class="anchored" data-anchor-id="general-methodology">General Methodology</h4>
+<p>Linear stability analysis is essential for understanding when and how homogeneous states become unstable in active systems:</p>
+<ol type="1">
+<li>Start with a homogeneous steady state solution</li>
+<li>Add small perturbations: <span class="math inline">\(\phi(\mathbf{r},t) = \phi_0 + \delta\phi e^{i\mathbf{k}\cdot\mathbf{r} + \sigma t}\)</span></li>
+<li>Linearize the equations to find the dispersion relation <span class="math inline">\(\sigma(\mathbf{k})\)</span></li>
+<li>If Re(<span class="math inline">\(\sigma\)</span>) &gt; 0 for any wavevector <span class="math inline">\(\mathbf{k}\)</span>, the system is unstable</li>
+</ol>
+</section>
+<section id="active-instabilities" class="level4">
+<h4 class="anchored" data-anchor-id="active-instabilities">Active Instabilities</h4>
+<p>Several instabilities are characteristic of active systems:</p>
+<ol type="1">
+<li><p><strong>Bend instability</strong> in extensile active nematics (<span class="math inline">\(\zeta &lt; 0\)</span>): The growth rate of bend deformations scales as: <span class="math display">\[\sigma \sim -K_b q^2 + |\zeta| q^2\]</span> where <span class="math inline">\(K_b\)</span> is the bend elastic constant. When activity exceeds elasticity (<span class="math inline">\(|\zeta| &gt; K_b\)</span>), the system becomes unstable.</p></li>
+<li><p><strong>Splay instability</strong> in contractile active nematics (<span class="math inline">\(\zeta &gt; 0\)</span>): Similarly, contractile systems preferentially develop splay deformations.</p></li>
+<li><p><strong>Active phase separation</strong> in scalar active matter: The dispersion relation shows an activity-induced instability band at finite wavelengths.</p></li>
+</ol>
+<div id="fig-instabilities" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-instabilities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/images/lecture05/instabilities.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-instabilities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Different instabilities in active systems. (a) Bend instability in extensile active nematics. (b) Splay instability in contractile systems. (c) Dispersion relation showing growth rate vs.&nbsp;wavevector for different activity levels.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="experimental-realizations-and-tests" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-realizations-and-tests">Experimental Realizations and Tests</h3>
+<p>Continuum theories provide testable predictions for experiments:</p>
+<ol type="1">
+<li><strong>Microtubule-kinesin mixtures</strong>: Exhibit active turbulence with self-propelling +1/2 defects</li>
+<li><strong>Bacterial suspensions</strong>: Show active turbulence and collective motion as predicted by hydrodynamic theories</li>
+<li><strong>Cell monolayers</strong>: Display behavior consistent with active elasticity and active phase separation</li>
+<li><strong>Synthetic active colloids</strong>: Demonstrate motility-induced phase separation</li>
+</ol>
+<p>Key experimental measurements that test continuum theories include:</p>
 <ul>
-<li><strong>Cytoskeletal networks</strong>: Actin filaments and microtubules with molecular motors that drive cell division, motility, and shape changes</li>
-<li><strong>Bacterial suspensions</strong>: Dense colonies of swimming bacteria like E. coli that exhibit collective motion and turbulent-like flows</li>
-<li><strong>Cell sheets and tissues</strong>: Epithelial monolayers that display collective migration during wound healing and morphogenesis</li>
-<li><strong>Animal collectives</strong>: Flocking birds, schooling fish, and insect swarms demonstrating emergent group behaviors</li>
-<li><strong>Subcellular organelles</strong>: Active droplets and membrane-less organelles that undergo phase separation driven by metabolic activity</li>
-</ul></li>
-<li><strong>Synthetic active matter</strong>
-<ul>
-<li><strong>Janus particles</strong>: Colloids with asymmetric surface properties that enable self-propulsion through chemical or thermal gradients</li>
-<li><strong>Light-activated swimmers</strong>: Particles containing photosensitive materials that convert light energy into directed motion</li>
-<li><strong>Magnetically driven systems</strong>: Artificial swimmers controlled by external magnetic fields</li>
-<li><strong>Active liquid crystals</strong>: Nematic liquid crystals with embedded energy-consuming components that create topological defects and flow patterns</li>
-<li><strong>Vibration-powered granular matter</strong>: Macroscopic particles energized by mechanical vibrations exhibiting fluidization and pattern formation</li>
-<li><strong>Chemically-powered colloids</strong>: Particles utilizing catalytic reactions (e.g., platinum-catalyzed hydrogen peroxide decomposition) for propulsion</li>
-</ul></li>
+<li>Velocity correlation functions and their decay with distance</li>
+<li>Defect statistics and dynamics</li>
+<li>Structure factors and scaling laws</li>
+<li>Sound propagation in active systems</li>
+</ul>
+</section>
+<section id="summary-and-bridge-to-next-lecture" class="level3">
+<h3 class="anchored" data-anchor-id="summary-and-bridge-to-next-lecture">Summary and Bridge to Next Lecture</h3>
+<p>Today we’ve covered how continuum theories describe collective phenomena in active matter:</p>
+<ol type="1">
+<li>Hydrodynamic theories and coarse-graining provide a framework for deriving field equations</li>
+<li>Active liquid crystals exhibit unique instabilities and defect dynamics</li>
+<li>The Toner-Tu model explains long-range order in flocking systems</li>
+<li>Active field theories describe phase separation in active systems</li>
+<li>Linear stability analysis predicts pattern formation</li>
+</ol>
+<p>In our next lecture, we’ll explore one of these phenomena—motility-induced phase separation—in much greater detail, examining its microscopic origins, dynamics, and experimental realizations.</p>
+</section>
+<section id="references-and-further-reading" class="level3">
+<h3 class="anchored" data-anchor-id="references-and-further-reading">References and Further Reading</h3>
+<ol type="1">
+<li>Marchetti, M. C. et al.&nbsp;(2013). Hydrodynamics of soft active matter. Rev.&nbsp;Mod. Phys., 85(3), 1143.</li>
+<li>Toner, J., &amp; Tu, Y. (1995). Long-range order in a two-dimensional dynamical XY model: How birds fly together. Phys. Rev.&nbsp;Lett., 75(23), 4326.</li>
+<li>Doostmohammadi, A. et al.&nbsp;(2018). Active nematics. Nature Communications, 9(1), 1-13.</li>
+<li>Cates, M. E., &amp; Tailleur, J. (2015). Motility-induced phase separation. Annual Review of Condensed Matter Physics, 6(1), 219-244.</li>
 </ol>
 
 

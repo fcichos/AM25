@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>examples – Active Matter Physics</title>
+<title>lecture05 – Active Matter Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
@@ -100,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Continuum Theories of Active Matter</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -208,41 +237,134 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-examples-across-biological-and-synthetic-systems" id="toc-key-examples-across-biological-and-synthetic-systems" class="nav-link active" data-scroll-target="#key-examples-across-biological-and-synthetic-systems">Key examples across biological and synthetic systems</a></li>
+  <li><a href="#hydrodynamic-theories-and-coarse-graining" id="toc-hydrodynamic-theories-and-coarse-graining" class="nav-link active" data-scroll-target="#hydrodynamic-theories-and-coarse-graining">Hydrodynamic Theories and Coarse-Graining</a></li>
+  <li><a href="#active-liquid-crystals" id="toc-active-liquid-crystals" class="nav-link" data-scroll-target="#active-liquid-crystals">Active Liquid Crystals</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Continuum Theories of Active Matter</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="key-examples-across-biological-and-synthetic-systems" class="level3">
-<h3 class="anchored" data-anchor-id="key-examples-across-biological-and-synthetic-systems">Key examples across biological and synthetic systems</h3>
-<p>Active matter encompasses a diverse range of systems spanning biological and synthetic domains:</p>
-<p><img src="../assets/images/lecture01/41526_2022_230_Fig1_HTML.png.webp" class="img-fluid"></p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In previous lectures, we explored microscopic models of active matter, focusing on individual self-propelled particles like ABPs and RTPs, as well as microswimmers and their hydrodynamic interactions. However, real active systems often contain thousands to millions of constituents, making particle-based approaches computationally expensive and conceptually challenging.</p>
+<p>This motivates a continuum approach, where we describe the system using fields that vary continuously in space and time rather than tracking individual particles. Today we’ll examine how these continuum theories help us understand collective phenomena in active systems.</p>
+<section id="hydrodynamic-theories-and-coarse-graining" class="level3">
+<h3 class="anchored" data-anchor-id="hydrodynamic-theories-and-coarse-graining">Hydrodynamic Theories and Coarse-Graining</h3>
+<section id="basic-principles-of-coarse-graining" class="level4">
+<h4 class="anchored" data-anchor-id="basic-principles-of-coarse-graining">Basic Principles of Coarse-Graining</h4>
+<p>Coarse-graining is like zooming out from a detailed map to see the big picture. Instead of tracking every particle, we describe the system using smoothly varying fields. Here’s how it works:</p>
 <ol type="1">
-<li><strong>Biological active matter</strong>
+<li><p><strong>Identifying what matters at large scales</strong>: Imagine a crowd of people. From far away, you don’t see individuals but patterns of density and movement. Similarly, we focus on:</p>
 <ul>
-<li><strong>Cytoskeletal networks</strong>: Actin filaments and microtubules with molecular motors that drive cell division, motility, and shape changes</li>
-<li><strong>Bacterial suspensions</strong>: Dense colonies of swimming bacteria like E. coli that exhibit collective motion and turbulent-like flows</li>
-<li><strong>Cell sheets and tissues</strong>: Epithelial monolayers that display collective migration during wound healing and morphogenesis</li>
-<li><strong>Animal collectives</strong>: Flocking birds, schooling fish, and insect swarms demonstrating emergent group behaviors</li>
-<li><strong>Subcellular organelles</strong>: Active droplets and membrane-less organelles that undergo phase separation driven by metabolic activity</li>
+<li>Density fields <span class="math inline">\(\rho(\mathbf{r},t)\)</span> - how many particles are in each region</li>
+<li>Velocity fields <span class="math inline">\(\mathbf{v}(\mathbf{r},t)\)</span> - how fast and in what direction particles move</li>
+<li>Orientation fields <span class="math inline">\(\mathbf{p}(\mathbf{r},t)\)</span> - which way particles are pointing</li>
 </ul></li>
-<li><strong>Synthetic active matter</strong>
-<ul>
-<li><strong>Janus particles</strong>: Colloids with asymmetric surface properties that enable self-propulsion through chemical or thermal gradients</li>
-<li><strong>Light-activated swimmers</strong>: Particles containing photosensitive materials that convert light energy into directed motion</li>
-<li><strong>Magnetically driven systems</strong>: Artificial swimmers controlled by external magnetic fields</li>
-<li><strong>Active liquid crystals</strong>: Nematic liquid crystals with embedded energy-consuming components that create topological defects and flow patterns</li>
-<li><strong>Vibration-powered granular matter</strong>: Macroscopic particles energized by mechanical vibrations exhibiting fluidization and pattern formation</li>
-<li><strong>Chemically-powered colloids</strong>: Particles utilizing catalytic reactions (e.g., platinum-catalyzed hydrogen peroxide decomposition) for propulsion</li>
-</ul></li>
+<li><p><strong>Keeping track of what’s conserved</strong>: Some quantities like the total number of particles can’t disappear. This gives us equations like: <span class="math display">\[\frac{\partial \rho}{\partial t} + \nabla \cdot \mathbf{j} = 0\]</span> This simply means: if particles flow out of a region (<span class="math inline">\(\nabla \cdot \mathbf{j}\)</span> positive), the density must decrease over time.</p></li>
+<li><p><strong>Describing how things flow</strong>: We need equations for how currents and forces depend on our fields. Like how traffic flow depends on car density - too many cars and everything slows down.</p></li>
+<li><p><strong>Adding the “active” ingredients</strong>: What makes active matter special is that particles consume energy to move. This creates effects that wouldn’t exist in passive systems, like spontaneous flows or pattern formation.</p></li>
 </ol>
+<p>Let’s see this in action by looking at a system of Active Brownian Particles (ABPs):</p>
+<div id="cell-fig-coarsegraining" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-coarsegraining" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coarsegraining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lecture05_files/figure-html/fig-coarsegraining-output-1.png" width="722" height="274" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coarsegraining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1— Coarse-graining procedure: from a collection of individual active particles with positions <span class="math inline">\(\mathbf{r}_i\)</span> and orientations <span class="math inline">\(\mathbf{n}_i\)</span> (left) to continuous density <span class="math inline">\(\rho(\mathbf{r})\)</span> (middle) and polarization <span class="math inline">\(\mathbf{p}(\mathbf{r})\)</span> fields (right). The density field captures particle concentrations, while the polarization field shows the average local orientation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>From these coarse-grained fields, we can derive the hydrodynamic equations by:</p>
+<ol type="1">
+<li><p>From the density field, we obtain the continuity equation: <span class="math display">\[\frac{\partial \rho}{\partial t} + \nabla \cdot \mathbf{j} = 0\]</span> where <span class="math inline">\(\mathbf{j} = v_0 \rho \mathbf{p}\)</span> for ABPs. Here <span class="math inline">\(v_0\)</span> is the self-propulsion speed of the active particles (the constant speed at which ABPs move).</p></li>
+<li><p>For the polarization field, the dynamics include alignment, rotational diffusion, and spatial diffusion: <span class="math display">\[\frac{\partial \mathbf{p}}{\partial t} = -D_r \mathbf{p} + v_0 \nabla \rho + D_p \nabla^2 \mathbf{p} + ...\]</span></p></li>
+</ol>
+<p>By tracking how these fields evolve over time, we transition from tracking individual particles to following continuous fields, making analysis of large-scale behaviors tractable.</p>
+</section>
+<section id="active-vs.-passive-hydrodynamics" class="level4">
+<h4 class="anchored" data-anchor-id="active-vs.-passive-hydrodynamics">Active vs.&nbsp;Passive Hydrodynamics</h4>
+<p>A key feature that distinguishes active from passive hydrodynamics is the presence of active stresses. Let’s break this down with some everyday examples:</p>
+<ol type="1">
+<li><p><strong>Passive stress</strong> is like a stretched rubber band wanting to return to its original shape. It derives from a free energy (like elastic energy) and works to minimize that energy. In equilibrium systems, these stresses always dissipate energy.</p>
+<p>Example: When you stretch a liquid crystal, it develops passive stresses that try to restore its preferred alignment.</p></li>
+<li><p><strong>Active stress</strong> is fundamentally different - it’s like having tiny motors embedded throughout the material. These stresses:</p>
+<ul>
+<li>Don’t derive from a free energy (they’re not trying to minimize anything)</li>
+<li>Continuously inject energy at the microscopic scale (like the ATP-consuming motor proteins we’ll see in active liquid crystals)</li>
+<li>Create patterns and flows that would be impossible in equilibrium systems</li>
+</ul>
+<p>Example: In the microtubule-kinesin systems we’ll examine later, motor proteins create stresses that drive chaotic flows and pattern formation.</p></li>
+</ol>
+<p>The total stress in an active fluid combines both passive and active components. The type of active stress (whether pushing outward or pulling inward) determines what kinds of instabilities develop in the system, which we’ll explore later when discussing active liquid crystals.</p>
+</section>
+</section>
+<section id="active-liquid-crystals" class="level3">
+<h3 class="anchored" data-anchor-id="active-liquid-crystals">Active Liquid Crystals</h3>
+<p>Active liquid crystals represent a fascinating class of materials that combine the orientational ordering characteristic of conventional liquid crystals with out-of-equilibrium activity. Unlike passive liquid crystals that minimize free energy and relax to equilibrium, active liquid crystals continuously convert stored or ambient energy into mechanical work at the microscopic level, driving the system away from equilibrium. This active energy conversion creates novel dynamic behaviors not observed in passive systems. Several biological and synthetic systems exemplify active liquid crystalline behavior. Cytoskeletal filaments such as microtubules and actin, when powered by ATP-consuming motor proteins like kinesin or myosin, form active liquid crystalline structures essential for cell division and motility. Dense bacterial suspensions containing elongated cells such as E. coli or B. subtilis naturally tend to align through steric interactions while simultaneously self-propelling, creating active nematic or polar order. In the laboratory, scientists have created synthetic active liquid crystals using vibrated granular rods, light-activated colloidal particles, or specially designed microswimmers that can be controlled externally.</p>
+<section id="nematic-order-parameter" class="level4">
+<h4 class="anchored" data-anchor-id="nematic-order-parameter">Nematic Order Parameter</h4>
+<p>For rod-like active particles that lack head-tail distinction (meaning they are symmetric when flipped 180 degrees), the appropriate mathematical description uses the nematic order parameter. Instead of a vector that would indicate a preferred direction with a specific head and tail, we use a second-rank tensor known as the nematic tensor:</p>
+<p><span class="math display">\[Q_{ij} = S \left(n_i n_j - \frac{1}{d}\delta_{ij}\right)\]</span></p>
+<p>In this expression, <span class="math inline">\(S\)</span> represents the magnitude of nematic order, measuring how strongly the particles are aligned (with <span class="math inline">\(S=0\)</span> indicating complete disorder and <span class="math inline">\(S=1\)</span> perfect alignment). The unit vector <span class="math inline">\(\mathbf{n}\)</span> (with components <span class="math inline">\(n_i\)</span>) is called the director and indicates the average orientation of the particles at a given point. The subscripts <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> denote tensor components (e.g., <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, or <span class="math inline">\(z\)</span> in 3D space). The term <span class="math inline">\(\delta_{ij}\)</span> is the Kronecker delta (equal to 1 when <span class="math inline">\(i=j\)</span> and 0 otherwise), and <span class="math inline">\(d\)</span> is the dimension of the system (typically <span class="math inline">\(d=2\)</span> for a 2D system or <span class="math inline">\(d=3\)</span> for a 3D system). The subtraction of <span class="math inline">\(\delta_{ij}/d\)</span> ensures that the tensor is traceless (its sum of diagonal elements equals zero), reflecting the fact that nematic order represents an orientation without a preferred direction.</p>
+</section>
+<section id="active-nematic-hydrodynamics" class="level4">
+<h4 class="anchored" data-anchor-id="active-nematic-hydrodynamics">Active Nematic Hydrodynamics</h4>
+<p>The evolution of active nematic liquid crystals is governed by a set of coupled partial differential equations that describe how the flow field and orientational order evolve over time. These equations combine conventional liquid crystal hydrodynamics with active terms that capture non-equilibrium effects.</p>
+<p>The flow field is described by the Navier-Stokes equation, modified to include active stresses:</p>
+<p><span class="math display">\[\rho \left(\frac{\partial \mathbf{v}}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{v}\right) = \eta \nabla^2 \mathbf{v} - \nabla p + \nabla \cdot \boldsymbol{\sigma}^{passive} + \nabla \cdot \boldsymbol{\sigma}^{active}\]</span></p>
+<p>Here, <span class="math inline">\(\rho\)</span> is the fluid density, <span class="math inline">\(\mathbf{v}\)</span> is the velocity field (with components <span class="math inline">\(v_i\)</span> representing flow velocity in different directions), <span class="math inline">\(t\)</span> is time, and <span class="math inline">\(\nabla\)</span> is the gradient operator. The term <span class="math inline">\(\mathbf{v} \cdot \nabla \mathbf{v}\)</span> represents advection (how the flow carries itself). On the right side, <span class="math inline">\(\eta\)</span> is the shear viscosity coefficient characterizing the fluid’s resistance to flow, <span class="math inline">\(\nabla^2 \mathbf{v}\)</span> is the Laplacian of the velocity field describing diffusion of momentum, and <span class="math inline">\(p\)</span> is the pressure. The term <span class="math inline">\(\boldsymbol{\sigma}^{passive}\)</span> represents passive stresses arising from elastic deformations of the nematic order, while <span class="math inline">\(\boldsymbol{\sigma}^{active}\)</span> represents active stresses generated by energy conversion. For incompressible fluids, we additionally impose the constraint <span class="math inline">\(\nabla \cdot \mathbf{v} = 0\)</span>, meaning the fluid density remains constant as it flows.</p>
+<p>The nematic order parameter evolves according to:</p>
+<p><span class="math display">\[\frac{\partial \mathbf{Q}}{\partial t} + \mathbf{v} \cdot \nabla \mathbf{Q} = \lambda \mathbf{S} \cdot \mathbf{Q} + \mathbf{Q} \cdot \mathbf{\Omega} - \mathbf{\Omega} \cdot \mathbf{Q} - \Gamma \frac{\delta \mathcal{F}}{\delta \mathbf{Q}} + \mathbf{D}\]</span></p>
+<p>The left side describes how the nematic tensor <span class="math inline">\(\mathbf{Q}\)</span> changes over time, with <span class="math inline">\(\mathbf{v} \cdot \nabla \mathbf{Q}\)</span> representing the advection of nematic order by the flow. On the right side, <span class="math inline">\(\mathbf{S} = \frac{1}{2}(\nabla \mathbf{v} + (\nabla \mathbf{v})^T)\)</span> is the strain rate tensor describing the symmetric part of velocity gradients (how the fluid is being stretched), and <span class="math inline">\(\mathbf{\Omega} = \frac{1}{2}(\nabla \mathbf{v} - (\nabla \mathbf{v})^T)\)</span> is the vorticity tensor describing the antisymmetric part (how the fluid rotates). The parameter <span class="math inline">\(\lambda\)</span> is the flow-alignment parameter that determines how nematic particles align in response to flow, with <span class="math inline">\(|\lambda| &gt; 1\)</span> indicating flow-aligning behavior and <span class="math inline">\(|\lambda| &lt; 1\)</span> indicating flow-tumbling behavior. The term <span class="math inline">\(-\Gamma \frac{\delta \mathcal{F}}{\delta \mathbf{Q}}\)</span> represents relaxation toward minimizing the free energy <span class="math inline">\(\mathcal{F}\)</span>, with <span class="math inline">\(\Gamma\)</span> being the rotational diffusion coefficient. The free energy <span class="math inline">\(\mathcal{F}\)</span> typically includes terms for the isotropic-nematic phase transition, elastic distortions (splay, twist, and bend), and surface anchoring effects. Finally, <span class="math inline">\(\mathbf{D}\)</span> represents additional contributions such as diffusion of the order parameter.</p>
+<p>The active stress that makes this system truly non-equilibrium is given to lowest order by:</p>
+<p><span class="math display">\[\boldsymbol{\sigma}^{active} = -\zeta \mathbf{Q}\]</span></p>
+<p>Here, <span class="math inline">\(\zeta\)</span> is the activity parameter measuring the strength of active forces. The sign of <span class="math inline">\(\zeta\)</span> critically determines the system’s behavior: when <span class="math inline">\(\zeta &lt; 0\)</span> (extensile activity), the active units push outward along their long axis, as observed in microtubule-kinesin systems where motor proteins slide antiparallel filaments apart. When <span class="math inline">\(\zeta &gt; 0\)</span> (contractile activity), the active units pull inward along their long axis, as seen in actomyosin networks where myosin motors contract the actin filaments. Higher-order corrections to the active stress may include terms proportional to gradients of <span class="math inline">\(\mathbf{Q}\)</span> or density variations.</p>
+</section>
+<section id="active-turbulence-and-defect-dynamics" class="level4">
+<h4 class="anchored" data-anchor-id="active-turbulence-and-defect-dynamics">Active Turbulence and Defect Dynamics</h4>
+<p>One of the most striking phenomena in active nematics is the emergence of active turbulence, a state of chaotic fluid motion fundamentally different from conventional inertial turbulence. Active turbulence exhibits several distinctive characteristics that set it apart from its passive counterpart. The flow field displays complex vortex structures with characteristic length scales determined by the balance between active stresses and elastic restoring forces, not by an energy cascade from large to small scales as in inertial turbulence. The dimensionless “active Reynolds number” <span class="math inline">\(Re_{a} = \zeta L^2/K\)</span>, where <span class="math inline">\(L\)</span> is the system size and <span class="math inline">\(K\)</span> is the elastic constant, characterizes the relative importance of active versus elastic forces.</p>
+<p>Active turbulence is characterized by the continuous creation and annihilation of topological defects in the nematic order. Defects are points (in 2D) or lines (in 3D) where the nematic order parameter becomes undefined. They are classified by their topological charge, which measures how the director rotates around the defect. The most common defects in 2D nematics have charges +1/2 and -1/2, referring to a rotation of the director by +π and -π around the defect, respectively.</p>
+<p>A unique feature of active nematics is that these defects are not merely passive structures but actively participate in the dynamics. +1/2 defects have a comet-like structure with a well-defined polarity (a vector pointing from the “tail” to the “head”), while -1/2 defects have three-fold symmetry with no clear polarity. Due to this structural asymmetry, +1/2 defects generate asymmetric flow fields that cause them to self-propel in the direction of their “head” with a velocity proportional to the activity: <span class="math inline">\(v_{+1/2} \sim \zeta/\eta\)</span>, where <span class="math inline">\(\eta\)</span> is the viscosity. The self-propulsion velocity can be derived by solving the Stokes equation with the active stress distribution around the defect. In contrast, -1/2 defects have symmetric structure and generally remain approximately stationary, though they can be moved by background flows.</p>
+<p>The interaction between defects leads to complex spatiotemporal patterns. Defects of opposite charge attract each other and annihilate when they come close enough, converting elastic energy into flow. Simultaneously, active stresses continuously generate new defect pairs by tearing the nematic field apart when elastic distortions become too strong. This balance between creation and annihilation results in a steady-state defect density that scales with activity as <span class="math inline">\(\rho_{defect} \sim \sqrt{\zeta/K}\)</span>, where <span class="math inline">\(K\)</span> is the elastic constant. The resulting defect dynamics can form ordered patterns such as nematic order of defects themselves, crystalline arrangements, or even active defect turbulence where the defect trajectories become chaotic. These defect dynamics play a crucial role in biological contexts, such as cell division and collective cell migration, where they can dictate locations of mechanical stress concentration or cell extrusion.</p>
+<div id="fig-active-turbulence" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-active-turbulence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><img src="../assets/images/lecture05/active_turbulence.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<ol type="a">
+<li>A two-dimensional active nematic suspension ofmicrotubule bundles and kinesin at the water-oil interface. Thewhite scale bar corresponds to100μm (courtesy of the DogicLab). (b)–(d) Numerical simulations of an extensile activenematic obtained from an integration of Eq.(1). (b) Flow velocity(black streamlines) and vorticity (background color). (c)Schlierentexture constructed from the director fieldn. The red and bluedots mark, respectively, theþ1=2and−1=2disclinations.(d) Clockwise rotating (blue) and counterclockwise rotating(red) vortices, detected by measuring the Okubo-Weiss field. <a href="https://www.researchgate.net/publication/265386115_Geometry_and_Topology_of_Turbulence_in_Active_Nematics">source</a></li>
+</ol>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-active-turbulence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

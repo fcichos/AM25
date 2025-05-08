@@ -1,59 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fcichos.github.io/AM25/lecture04/lecture04.html</loc>
-    <lastmod>2025-04-24T07:06:34.813Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/lecture02/lecture02.html</loc>
-    <lastmod>2025-04-24T07:06:34.811Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/index.html</loc>
-    <lastmod>2025-04-24T07:06:34.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/course-info/exam.html</loc>
-    <lastmod>2025-04-24T07:06:34.781Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/course-info/intructors.html</loc>
-    <lastmod>2025-04-24T07:06:34.781Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/lecture01/examples.html</loc>
-    <lastmod>2025-04-24T07:06:34.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/lecture03/hydrodynamics.html</loc>
-    <lastmod>2025-04-24T07:06:34.813Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/lecture03/lecture03.html</loc>
-    <lastmod>2025-04-24T07:06:34.813Z</lastmod>
-  </url>
-  <url>
     <loc>https://fcichos.github.io/AM25/lecture01/lecture01.html</loc>
-    <lastmod>2025-04-24T07:06:34.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/course-info/schedule.html</loc>
-    <lastmod>2025-04-24T07:06:34.782Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fcichos.github.io/AM25/course-info/resources.html</loc>
-    <lastmod>2025-04-24T07:06:34.782Z</lastmod>
+    <lastmod>2025-04-23T17:45:47.202Z</lastmod>
   </url>
   <url>
     <loc>https://fcichos.github.io/AM25/about.html</loc>
-    <lastmod>2025-04-24T07:06:34.615Z</lastmod>
+    <lastmod>2025-04-14T17:40:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/course-info/schedule.html</loc>
+    <lastmod>2025-04-14T17:40:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/course-info/exam.html</loc>
+    <lastmod>2025-04-14T17:40:28.000Z</lastmod>
   </url>
   <url>
     <loc>https://fcichos.github.io/AM25/lecture02/entropy_and_time_reversal.html</loc>
-    <lastmod>2025-04-24T07:06:34.811Z</lastmod>
+    <lastmod>2025-04-16T18:04:16.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture03/lecture03.html</loc>
+    <lastmod>2025-04-24T10:48:47.668Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture04/lecture06.html</loc>
+    <lastmod>2025-05-08T06:37:15.473Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture04/lecture04.html</loc>
+    <lastmod>2025-05-08T06:34:38.442Z</lastmod>
   </url>
   <url>
     <loc>https://fcichos.github.io/AM25/overview.html</loc>
-    <lastmod>2025-04-24T07:06:34.813Z</lastmod>
+    <lastmod>2025-05-07T17:50:06.099Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture04/lecture05.html</loc>
+    <lastmod>2025-05-08T06:37:21.746Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture03/hydrodynamics.html</loc>
+    <lastmod>2025-04-23T20:38:57.717Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture02/lecture02.html</loc>
+    <lastmod>2025-04-17T07:08:38.719Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/course-info/intructors.html</loc>
+    <lastmod>2025-04-14T17:40:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/course-info/resources.html</loc>
+    <lastmod>2025-04-14T17:40:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/index.html</loc>
+    <lastmod>2025-04-14T20:14:41.609Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fcichos.github.io/AM25/lecture01/examples.html</loc>
+    <lastmod>2025-04-14T17:40:28.000Z</lastmod>
   </url>
 </urlset>

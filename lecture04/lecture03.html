@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../lecture03/lecture03.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -130,7 +164,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lecture01/lecture01.html">Introduction to Active Matter</a></li><li class="breadcrumb-item"><a href="../lecture04/lecture04.html">Lecture 4</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Microscopic Models of Self-propulsion</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -220,12 +254,6 @@ window.Quarto = {
  <span class="menu-text">Lecture 3</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../lecture04/lecture04.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lecture 4</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -255,9 +283,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#from-swimming-to-hydrodynamic-interactions" id="toc-from-swimming-to-hydrodynamic-interactions" class="nav-link" data-scroll-target="#from-swimming-to-hydrodynamic-interactions">From Swimming to Hydrodynamic Interactions</a>
   <ul class="collapse">
-  <li><a href="#fundamental-solutions-to-the-stokes-equations" id="toc-fundamental-solutions-to-the-stokes-equations" class="nav-link" data-scroll-target="#fundamental-solutions-to-the-stokes-equations">Fundamental Solutions to the Stokes Equations</a></li>
-  <li><a href="#the-squirmer-model" id="toc-the-squirmer-model" class="nav-link" data-scroll-target="#the-squirmer-model">The Squirmer Model</a></li>
-  <li><a href="#hydrodynamic-singularities-and-time-reversibility-breaking" id="toc-hydrodynamic-singularities-and-time-reversibility-breaking" class="nav-link" data-scroll-target="#hydrodynamic-singularities-and-time-reversibility-breaking">Hydrodynamic Singularities and Time-Reversibility Breaking</a></li>
+  <li><a href="#the-origin-of-hydrodynamic-singularities-in-swimming" id="toc-the-origin-of-hydrodynamic-singularities-in-swimming" class="nav-link" data-scroll-target="#the-origin-of-hydrodynamic-singularities-in-swimming">The Origin of Hydrodynamic Singularities in Swimming</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -265,7 +291,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lecture01/lecture01.html">Introduction to Active Matter</a></li><li class="breadcrumb-item"><a href="../lecture04/lecture04.html">Lecture 4</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Microscopic Models of Self-propulsion</h1>
 </div>
@@ -332,7 +358,7 @@ Figure&nbsp;1— Janus particles performing active Brownian motion. These synthe
 <div id="fig-traj1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-traj1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-traj1-output-1.png" width="692" height="339" class="figure-img">
+<img src="lecture03_files/figure-html/fig-traj1-output-1.png" width="692" height="339" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-traj1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2— Trajectories of a particle (R=1 µm) starting at the origin with an initial orientation <span class="math inline">\(\theta=0\)</span>. Left: passive Brownian particle (<span class="math inline">\(v=0\)</span> µm/s). Right: Active Brownian Particle (<span class="math inline">\(v=10\)</span> µm/s). (<span class="math inline">\(\tau_r=6 s\)</span>.)
@@ -369,11 +395,57 @@ Figure&nbsp;2— Trajectories of a particle (R=1 µm) starting at the origin wit
 <p><span class="math display">\[D_{\text{eff}} = D_t + \frac{v_0^2}{2dD_r}\]</span></p>
 <p>where <span class="math inline">\(d\)</span> is the dimensionality. This enhanced diffusion coefficient represents a key signature of the system’s non-equilibrium nature and cannot be explained by equilibrium statistical mechanics.</p>
 <div id="cell-fig-msd" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>D_t <span class="op">=</span> <span class="fl">1.0</span>      <span class="co"># thermal translational diffusion coefficient</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>v_0 <span class="op">=</span> <span class="fl">5.0</span>      <span class="co"># self-propulsion speed</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>D_r <span class="op">=</span> <span class="fl">0.2</span>      <span class="co"># rotational diffusion coefficient</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tau_r <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>D_r  <span class="co"># rotational diffusion time</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate theoretical MSD</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> msd_theory(t, D_t, v_0, D_r):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Theoretical mean square displacement for active Brownian particles"""</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">4</span><span class="op">*</span>D_t<span class="op">*</span>t <span class="op">+</span> (<span class="dv">2</span><span class="op">*</span>v_0<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(D_r<span class="op">**</span><span class="dv">2</span>)<span class="op">*</span>(D_r<span class="op">*</span>t <span class="op">-</span> <span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>D_r<span class="op">*</span>t))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Time range spanning multiple regimes</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1000</span>)  <span class="co"># from 0.01 to 100</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>msd <span class="op">=</span> msd_theory(t, D_t, v_0, D_r)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate effective diffusion coefficient</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>D_eff <span class="op">=</span> D_t <span class="op">+</span> v_0<span class="op">**</span><span class="dv">2</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>D_r)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Create figure</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>get_size(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot MSD on log-log scale</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.loglog(t, msd, <span class="st">'b-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'MSD of ABP'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Add reference lines for different scaling regimes</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>t_ref <span class="op">=</span> np.array([<span class="fl">0.05</span>, <span class="dv">50</span>])</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>plt.loglog(t_ref, <span class="dv">4</span><span class="op">*</span>D_t<span class="op">*</span>t_ref, <span class="st">'k--'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\s</span><span class="vs">im 4D_t t</span><span class="dv">$</span><span class="vs"> </span><span class="kw">(</span><span class="vs">thermal diffusion</span><span class="kw">)</span><span class="vs">'</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.loglog(t_ref, v_0<span class="op">**</span><span class="dv">2</span><span class="op">*</span>t_ref<span class="op">**</span><span class="dv">2</span>, <span class="st">'r--'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\s</span><span class="vs">im v_0</span><span class="dv">^</span><span class="vs">2 t</span><span class="dv">^</span><span class="vs">2</span><span class="dv">$</span><span class="vs"> </span><span class="kw">(</span><span class="vs">ballistic</span><span class="kw">)</span><span class="vs">'</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.loglog(t_ref, <span class="dv">4</span><span class="op">*</span>D_eff<span class="op">*</span>t_ref, <span class="st">'g--'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$\s</span><span class="vs">im 4D_{eff}t</span><span class="dv">$</span><span class="vs"> </span><span class="kw">(</span><span class="vs">enhanced diffusion</span><span class="kw">)</span><span class="vs">'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Add vertical line at rotational diffusion time</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>tau_r, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, label<span class="op">=</span><span class="vs">r'</span><span class="dv">$</span><span class="ch">\t</span><span class="vs">au_r = 1/D_r</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Mark the three regimes</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.annotate("Short-time regime", xy=(0.02, 0.3), xytext=(0.02, 0.3), fontsize=9)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.annotate("Intermediate-time regime", xy=(0.5, 10), xytext=(0.5, 10), fontsize=9)</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.annotate("Long-time regime", xy=(10, 200), xytext=(10, 200), fontsize=9)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="vs">r'Time </span><span class="dv">$</span><span class="vs">t</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r'MSD </span><span class="dv">$</span><span class="er">\</span><span class="vs">langle</span><span class="cf">|</span><span class="dv">\m</span><span class="vs">athbf{r}</span><span class="kw">(</span><span class="vs">t</span><span class="kw">)</span><span class="vs"> - </span><span class="dv">\m</span><span class="vs">athbf{r}</span><span class="kw">(</span><span class="vs">0</span><span class="kw">)</span><span class="cf">|</span><span class="dv">^</span><span class="vs">2</span><span class="ch">\r</span><span class="vs">angle</span><span class="dv">$</span><span class="vs">'</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.legend()</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-msd" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-msd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-msd-output-1.png" width="570" height="452" class="figure-img">
+<img src="lecture03_files/figure-html/fig-msd-output-1.png" width="570" height="452" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-msd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3— Mean square displacement (MSD) of an active Brownian particle showing three distinct regimes. At short times (<span class="math inline">\(t \ll \tau_r\)</span>), a combination of diffusive and ballistic motion is observed. At intermediate times, ballistic motion dominates (<span class="math inline">\(\text{MSD} \sim t^2\)</span>). At long times (<span class="math inline">\(t \gg \tau_r\)</span>), enhanced diffusion emerges with an effective diffusion coefficient larger than the thermal value.
@@ -581,22 +653,68 @@ Figure&nbsp;10— Purcell’s three-link swimmer demonstrates how a simple artic
 <section id="from-swimming-to-hydrodynamic-interactions" class="level2">
 <h2 class="anchored" data-anchor-id="from-swimming-to-hydrodynamic-interactions">From Swimming to Hydrodynamic Interactions</h2>
 <p>When microorganisms swim at low Reynolds numbers, they don’t just move themselves - they also generate flow fields in the surrounding fluid. These flow fields arise from the force-free swimming mechanisms we’ve explored and significantly influence how microswimmers interact with their environment and each other.</p>
-<section id="fundamental-solutions-to-the-stokes-equations" class="level3">
-<h3 class="anchored" data-anchor-id="fundamental-solutions-to-the-stokes-equations">Fundamental Solutions to the Stokes Equations</h3>
-<p>To understand how swimming generates flow fields, we need to examine fundamental solutions to the Stokes equations. A particularly instructive example comes from analyzing the flow field around a sphere moving through a fluid.</p>
-<p>When a sphere of radius <span class="math inline">\(a\)</span> moves through a fluid with velocity <span class="math inline">\(\mathbf{v}_p=\frac{\mathbf{F}}{6\pi\eta a}\)</span>, it generates a flow field given by:</p>
-<p><span class="math display">\[\mathbf{u}(\mathbf{r}) = \frac{3a}{4r} \left( \mathbf{I} + \frac{\mathbf{r}\mathbf{r}}{r^2} \right) \cdot \mathbf{v}_p + \frac{a^3}{4r^3} \left( \mathbf{I} - 3\frac{\mathbf{r}\mathbf{r}}{r^2} \right) \mathbf{v}_p\]</span></p>
-<p>The first term represents the Stokeslet (point force) contribution, which decays as <span class="math inline">\(1/r\)</span>. This term is related to the Oseen tensor, which is the fundamental solution to the Stokes equation for a point force acting on a fluid element. The Oseen tensor describes the resulting velocity field when an isolated force is applied to a fluid, assuming boundary conditions where the flow vanishes at infinity:</p>
+<section id="the-origin-of-hydrodynamic-singularities-in-swimming" class="level3">
+<h3 class="anchored" data-anchor-id="the-origin-of-hydrodynamic-singularities-in-swimming">The Origin of Hydrodynamic Singularities in Swimming</h3>
+<p>To understand how swimming generates flow fields, we need to examine two fundamental types of elementary flow patterns in Stokes flow. These flow patterns can be derived from a fundamental solution of the Stokes equation which is the Oseen tensor.</p>
+<p>The Oseen tensor is the fundamental solution to the Stokes equation for a point force acting on a fluid element. This tensor describes the resulting velocity field when an isolated force is applied to a fluid, assuming boundary conditions where the flow vanishes at infinity:</p>
 <p><span class="math display">\[G_{ij}(\mathbf{r}) = \frac{1}{8\pi\eta}\left(\frac{\delta_{ij}}{r} + \frac{r_i r_j}{r^3}\right)\]</span></p>
-<p>Therefore the flow field around a point force is given by</p>
-<p><span class="math display">\[\mathbf{u}_{Stokeslet}(\mathbf{r}) = \frac{3a}{4r} \left( \mathbf{I} + \frac{\mathbf{r}\mathbf{r}}{r^2} \right) \cdot \mathbf{v}_p\]</span></p>
-<p>which is plotted below.</p>
 <div id="cell-fig-oseen" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up a grid</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R (distance from origin) for each point</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> np.sqrt(X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up arrays for velocity field components</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.zeros_like(X)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.zeros_like(Y)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Force vector along x-direction</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>F_x, F_y <span class="op">=</span> <span class="fl">1.0</span>, <span class="fl">0.0</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>eta <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Normalize viscosity</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the Oseen tensor equation at each point where R &gt; 0</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># u_i = (1/8πη)[(δ_ij/r + r_i r_j/r³)F_j]</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Avoid singularity at origin</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> R <span class="op">&gt;</span> <span class="fl">0.2</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># x-component: (1/8πη)[(1/r + x²/r³)F_x + xy/r³·F_y]</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>u[mask] <span class="op">=</span> (<span class="dv">1</span><span class="op">/</span>(<span class="dv">8</span><span class="op">*</span>np.pi<span class="op">*</span>eta))<span class="op">*</span>((<span class="dv">1</span><span class="op">/</span>R[mask] <span class="op">+</span> X[mask]<span class="op">**</span><span class="dv">2</span><span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>F_x <span class="op">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                             (X[mask]<span class="op">*</span>Y[mask]<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>F_y)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># y-component: (1/8πη)[(xy/r³)F_x + (1/r + y²/r³)F_y]</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>v[mask] <span class="op">=</span> (<span class="dv">1</span><span class="op">/</span>(<span class="dv">8</span><span class="op">*</span>np.pi<span class="op">*</span>eta))<span class="op">*</span>((X[mask]<span class="op">*</span>Y[mask]<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>F_x <span class="op">+</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>                             (<span class="dv">1</span><span class="op">/</span>R[mask] <span class="op">+</span> Y[mask]<span class="op">**</span><span class="dv">2</span><span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">3</span>)<span class="op">*</span>F_y)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plot</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>get_size(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot streamlines</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.streamplot(X, Y, u, v, density<span class="op">=</span><span class="fl">1.2</span>, color<span class="op">=</span><span class="st">'k'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, arrowsize<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Add force location and direction</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">50</span>, label<span class="op">=</span><span class="st">'Force location'</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">0</span>, width<span class="op">=</span><span class="fl">0.05</span>, head_width<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>          head_length<span class="op">=</span><span class="fl">0.2</span>, fc<span class="op">=</span><span class="st">'red'</span>, ec<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Force direction'</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-oseen" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-oseen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-oseen-output-1.png" width="340" height="333" class="figure-img">
+<img src="lecture03_files/figure-html/fig-oseen-output-1.png" width="340" height="333" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oseen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;11— Flow field generated by a point force (Stokeslet) acting along the positive x-direction. The streamlines show the characteristic flow pattern of the Oseen tensor solution, where fluid velocity decays as <span class="math inline">\(1/r\)</span>. This fundamental solution forms the basis for more complex hydrodynamic interactions.
@@ -605,77 +723,86 @@ Figure&nbsp;11— Flow field generated by a point force (Stokeslet) acting along
 </div>
 </div>
 </div>
-<p>This flow field obviously violates the hydrodynamic boundary condition at the sphere’s surface. The velocity at the spheres boundary should fulfill two conditions. i) There is no inflow or outflow at the boundary, and ii) the velocity at the boundary matches the sphere’s velocity <span class="math inline">\(\mathbf{v}_p\)</span>.</p>
-<p>The second term in the above equation must therefore be responsible for the correction of the boundary conditions.</p>
-<p><span class="math display">\[\mathbf{u}_{Sliplet}(\mathbf{r}) =  \frac{a^3}{4r^3} \left( \mathbf{I} - 3\frac{\mathbf{r}\mathbf{r}}{r^2} \right) \mathbf{v}_p\]</span></p>
-<div id="cell-fig-source-sliplet" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display">
-<div id="fig-source-sliplet" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-source-sliplet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-source-sliplet-output-1.png" width="340" height="333" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-source-sliplet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12— Flow field generated by the sliplet (source dipole) term for a sphere moving in the positive x-direction. This term decays as <span class="math inline">\(1/r^3\)</span> and contributes to satisfying the no-slip boundary condition at the sphere’s surface.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>This flow field looks dipolar and as a dipole it will have a source and a sink combined. We call this flow field a source dipole (or sometimes “sliplet”) to account for the correction at the boundary. Since all the force and friction is contained in the point force solution, the source dipole does not contribute to hydrodynamic forces.</p>
-<p>The combined flow field of both point force solution (Stokeslet and Source Dipole) lookes then Like</p>
-<div id="cell-fig-combined-flow" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div id="fig-combined-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-combined-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-combined-flow-output-1.png" width="340" height="333" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-combined-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13— Combined flow field around a sphere moving in the positive x-direction in the moving frame, showing the superposition of the Stokeslet (point force, decaying as <span class="math inline">\(1/r\)</span>) and source dipole (sliplet, decaying as <span class="math inline">\(1/r^3\)</span>) contributions. This complete solution satisfies the no-slip boundary condition at the sphere’s surface.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Since the first term in the total flow field is responsible for the forces, the second one does not add any forces. It must be therefore a force free solution for a sphere moving at <span class="math inline">\(\mathbf{v}_p\)</span>. To create a swimmer from this, this sliplet term should respect the no-influx condition, i.e., there should be no normal component of the flow field on the sphere boundary.</p>
-<p>Calculating the normal component by</p>
-<p><span class="math display">\[\mathbf{u}_{\text{normal}}(\mathbf{r}) = \mathbf{u}_{Sliplet}(\mathbf{r}) \cdot \mathbf{\hat{r}}\]</span></p>
-<p>yields</p>
-<p><span class="math display">\[\mathbf{u}(\mathbf{r}) \cdot \mathbf{\hat{r}}= \frac{a^3}{4r^3}(1-3)\mathbf{\hat{r}}\cdot\mathbf{v}_p=-\frac{a^3}{2r^3}v_p\cos(\theta)\]</span></p>
-<p>To get no influx, we would need to go to a moving particle frame where the particle moves at a speed of <span class="math inline">\(v_{p}/2\)</span>. This means that multiplying the sliplet flow field by a factor of <span class="math inline">\(-2\)</span> will generate a force free solution where the particle moves at a velocity of <span class="math inline">\(\mathbf{v}_p\)</span>.</p>
-<p>The flow field of a force free ideal spherical swimmer is therefore</p>
-<p><span class="math display">\[\mathbf{u}_{Swimmer}(\mathbf{r}) = \frac{a^3}{2r^3} \left( 3\frac{\mathbf{r}\mathbf{r}}{r^2}- \mathbf{I} \right) \mathbf{v}_p\]</span></p>
-<p>This flow field is that of a source dipole. This is analogous to the electric field of an electric dipole, with the <span class="math inline">\(1/r^3\)</span> decay characteristic of dipole fields.</p>
-<p>In terms of the Oseen tensor, a source dipole can be expressed as a derivative of the Stokeslet solution. If we consider the Oseen tensor <span class="math inline">\(G_{ij}(\mathbf{r})\)</span> and take its derivative with respect to the source position, we obtain the source dipole:</p>
+<ol type="1">
+<li><p><strong>Source/sink dipoles</strong>: These represent the displacement of fluid as a body moves through it. Consider a sphere moving through fluid - it pushes fluid ahead (source) and creates a region behind where fluid flows in (sink). These source dipoles:</p>
+<ul>
+<li>Decay rapidly with distance as <span class="math inline">\(1/r^3\)</span></li>
+<li>Contribute to the propulsion of the swimmer</li>
+<li>Result from the swimmer’s shape changes and boundary motion</li>
+</ul>
+<p>The flow field generated by a source dipole with dipole moment <span class="math inline">\(\mathbf{p}\)</span> at a position <span class="math inline">\(\mathbf{r}\)</span> relative to the dipole center is:</p>
+<p><span class="math display">\[\mathbf{u}_{\text{dipole}}(\mathbf{r}) = -\frac{1}{4\pi}\nabla \left(\frac{\mathbf{p} \cdot \mathbf{r}}{r^3}\right) = \frac{1}{4\pi}\left[\frac{3(\mathbf{p} \cdot \mathbf{r})\mathbf{r}}{r^5} - \frac{\mathbf{p}}{r^3}\right]\]</span></p>
+<p>where <span class="math inline">\(r = |\mathbf{r}|\)</span>. This is analogous to the electric field of an electric dipole, with the <span class="math inline">\(1/r^3\)</span> decay characteristic of dipole fields.</p>
+<p>In terms of the Oseen tensor, a source dipole can be expressed as a derivative of the Stokeslet solution. If we consider the Oseen tensor <span class="math inline">\(G_{ij}(\mathbf{r})\)</span> and take its divergence with respect to the source position, we obtain the source dipole:</p>
 <p><span class="math display">\[\mathbf{u}_{\text{source dipole}, i}(\mathbf{r}) = p_j \frac{\partial}{\partial r_j} G_{ik}(\mathbf{r}) p_k\]</span></p>
-<p>where <span class="math inline">\(\mathbf{p}\)</span> is the dipole moment vector. This formulation highlights how the source dipole represents a higher-order singularity in the Stokes flow, derived from the fundamental Stokeslet solution by spatial differentiation.</p>
-<div id="cell-fig-source-dipole" class="cell" data-execution_count="7">
+<p>This formulation highlights how the source dipole represents a higher-order singularity in the Stokes flow, derived from the fundamental Stokeslet solution by spatial differentiation.</p></li>
+</ol>
+<div id="cell-fig-source-dipole" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up a grid</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R (distance from origin) for each point</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> np.sqrt(X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define dipole moment vector (along x-axis)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>p_x, p_y <span class="op">=</span> <span class="fl">1.0</span>, <span class="fl">0.0</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate dot product p·r</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>p_dot_r <span class="op">=</span> p_x<span class="op">*</span>X <span class="op">+</span> p_y<span class="op">*</span>Y</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up arrays for velocity field components</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> np.zeros_like(X)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.zeros_like(Y)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the dipole equation at each point where R &gt; 0</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># u = (1/4π)[(3(p·r)x/r^5) - (p_x/r^3)]</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># v = (1/4π)[(3(p·r)y/r^5) - (p_y/r^3)]</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> R <span class="op">&gt;</span> <span class="fl">0.2</span>  <span class="co"># Avoid singularity at origin</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>u[mask] <span class="op">=</span> (<span class="dv">1</span><span class="op">/</span>(<span class="dv">4</span><span class="op">*</span>np.pi))<span class="op">*</span>(<span class="dv">3</span><span class="op">*</span>p_dot_r[mask]<span class="op">*</span>X[mask]<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">5</span> <span class="op">-</span> p_x<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>v[mask] <span class="op">=</span> (<span class="dv">1</span><span class="op">/</span>(<span class="dv">4</span><span class="op">*</span>np.pi))<span class="op">*</span>(<span class="dv">3</span><span class="op">*</span>p_dot_r[mask]<span class="op">*</span>Y[mask]<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">5</span> <span class="op">-</span> p_y<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plot</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>get_size(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot streamlines</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>plt.streamplot(X, Y, u, v, density<span class="op">=</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">'k'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, arrowsize<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Add dipole location and moment direction</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">50</span>, label<span class="op">=</span><span class="st">'Dipole location'</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, p_x<span class="op">*</span><span class="fl">0.5</span>, p_y<span class="op">*</span><span class="fl">0.5</span>, width<span class="op">=</span><span class="fl">0.05</span>, head_width<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>          head_length<span class="op">=</span><span class="fl">0.2</span>, fc<span class="op">=</span><span class="st">'red'</span>, ec<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Dipole moment'</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-source-dipole" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-source-dipole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-source-dipole-output-1.png" width="340" height="333" class="figure-img">
+<img src="lecture03_files/figure-html/fig-source-dipole-output-1.png" width="340" height="333" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-source-dipole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14— Flow field generated by a source dipole with dipole moment <span class="math inline">\(\mathbf{p}\)</span> pointing in the x-direction. The streamlines show the characteristic pattern of fluid being pushed away along the dipole axis and drawn in from the sides, with the flow strength decaying as <span class="math inline">\(1/r^3\)</span>.
+Figure&nbsp;12— Flow field generated by a source dipole with dipole moment <span class="math inline">\(\mathbf{p}\)</span> pointing in the x-direction. The streamlines show the characteristic pattern of fluid being pushed away along the dipole axis and drawn in from the sides, with the flow strength decaying as <span class="math inline">\(1/r^3\)</span>.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Beyond the source dipole, which is resembling the ideal swimmer, there are also situations where additional flow field components exist, that are, however, not contributing to the propulsion. Such a component is a force dipole, which is for example relavant for a E.coli bacterium.</p>
-<div id="fig-pusher-puller" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-pusher-puller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/images/lecture04/pusher_puller.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pusher-puller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15— Mechanical forces on microswimmers: E. coli (left) generates thrust from the back, pushing fluid backwards to propel itself forward - a “pusher” flow field. Chlamydomonas (right) pulls fluid from the front using its flagella in a breaststroke motion, creating a “puller” flow field. These distinct force distributions create fundamentally different hydrodynamic interactions.
-</figcaption>
-</figure>
-</div>
-<p><strong>Force dipoles</strong>: Since microswimmers are force-free (no net external force), the thrust forces they generate must be balanced by drag forces, creating a force dipole configuration. A force dipole is generated by two equal and opposite point forces aligned along the x-axis, either both pointing towards the origin (converging) or both pointing away from the origin (diverging). These force dipoles:</p>
+<ol start="2" type="1">
+<li><p><strong>Force dipoles</strong>: Since microswimmers are force-free (no net external force), the thrust forces they generate must be balanced by drag forces, creating a force dipole configuration. A force dipole is generated by two equal and opposite point forces aligned along the x-axis, either both pointing towards the origin (converging) or both pointing away from the origin (diverging). These force dipoles:</p>
 <ul>
 <li>Decay more slowly with distance as <span class="math inline">\(1/r^2\)</span></li>
 <li>Dominate the long-range hydrodynamic interactions</li>
@@ -689,170 +816,159 @@ Figure&nbsp;15— Mechanical forces on microswimmers: E. coli (left) generates t
 <p>where <span class="math inline">\(S\)</span> is the stresslet strength (dipole moment) and <span class="math inline">\(\eta\)</span> is the fluid viscosity. The sign of <span class="math inline">\(S\)</span> determines the swimmer type: <span class="math inline">\(S &lt; 0\)</span> for pushers and <span class="math inline">\(S &gt; 0\)</span> for pullers. For a swimmer of size <span class="math inline">\(a\)</span> moving at speed <span class="math inline">\(v_0\)</span>, we can estimate <span class="math inline">\(S \sim \eta a^2 v_0\)</span>.</p>
 <p>At large distances, this simplifies to:</p>
 <p><span class="math display">\[\mathbf{u}_{\text{stresslet}}(\mathbf{r}) \approx \frac{S}{8\pi\eta}\frac{3(\mathbf{e}\cdot\hat{\mathbf{r}})^2-1}{r^2}\hat{\mathbf{r}} \quad \text{as } r \to \infty\]</span></p>
-<p>where <span class="math inline">\(\hat{\mathbf{r}} = \mathbf{r}/r\)</span> is the direction vector.</p>
-<div id="cell-fig-stresslet" class="cell" data-execution_count="8">
+<p>where <span class="math inline">\(\hat{\mathbf{r}} = \mathbf{r}/r\)</span> is the direction vector.</p></li>
+</ol>
+<div id="cell-fig-stresslet" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create figure with two subplots for pusher and puller</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>get_size(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up a grid</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">100</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>X, Y <span class="op">=</span> np.meshgrid(x, y)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R (distance from origin) for each point</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> np.sqrt(X<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># For both pusher and puller</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, S, title <span class="kw">in</span> <span class="bu">zip</span>([ax1, ax2], [<span class="op">-</span><span class="fl">1.0</span>, <span class="fl">1.0</span>], [<span class="st">"Puller (S &lt; 0)"</span>, <span class="st">"Pusher (S &gt; 0)"</span>]):</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set up arrays for velocity field components</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> np.zeros_like(X)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> np.zeros_like(Y)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Avoid singularity at origin</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> R <span class="op">&gt;</span> <span class="fl">0.2</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    eta <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Normalize viscosity</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    r_sq <span class="op">=</span> X[mask]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y[mask]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x-component</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    u[mask] <span class="op">=</span> (S<span class="op">/</span>(<span class="dv">8</span><span class="op">*</span>np.pi<span class="op">*</span>eta)) <span class="op">*</span> (<span class="dv">3</span><span class="op">*</span>(X[mask]<span class="op">**</span><span class="dv">2</span>)<span class="op">*</span>X[mask] <span class="op">-</span> r_sq<span class="op">*</span>X[mask])<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">5</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># y-component</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    v[mask] <span class="op">=</span> (S<span class="op">/</span>(<span class="dv">8</span><span class="op">*</span>np.pi<span class="op">*</span>eta)) <span class="op">*</span> (<span class="dv">3</span><span class="op">*</span>(X[mask]<span class="op">**</span><span class="dv">2</span>)<span class="op">*</span>Y[mask] <span class="op">-</span> <span class="dv">0</span>)<span class="op">/</span>R[mask]<span class="op">**</span><span class="dv">5</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot streamlines</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    ax.streamplot(X, Y, u, v, density<span class="op">=</span><span class="fl">1.2</span>, color<span class="op">=</span><span class="st">'k'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, arrowsize<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add force locations and arrows to visualize the dipole</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> S <span class="op">&lt;</span> <span class="dv">0</span>:  <span class="co"># Puller: forces pointing outward</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        ax.arrow(<span class="op">-</span><span class="fl">0.4</span>, <span class="dv">0</span>, <span class="fl">0.3</span>, <span class="dv">0</span>, width<span class="op">=</span><span class="fl">0.05</span>, head_width<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                head_length<span class="op">=</span><span class="fl">0.2</span>, fc<span class="op">=</span><span class="st">'red'</span>, ec<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        ax.arrow(<span class="fl">0.4</span>, <span class="dv">0</span>, <span class="op">-</span><span class="fl">0.3</span>, <span class="dv">0</span>, width<span class="op">=</span><span class="fl">0.05</span>, head_width<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                head_length<span class="op">=</span><span class="fl">0.2</span>, fc<span class="op">=</span><span class="st">'red'</span>, ec<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        ax.scatter([<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>], [<span class="dv">0</span>, <span class="dv">0</span>], color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># Puller: forces pointing inward</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        ax.arrow(<span class="op">-</span><span class="fl">0.4</span>, <span class="dv">0</span>, <span class="op">-</span><span class="fl">0.3</span>, <span class="dv">0</span>, width<span class="op">=</span><span class="fl">0.05</span>, head_width<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                head_length<span class="op">=</span><span class="fl">0.2</span>, fc<span class="op">=</span><span class="st">'red'</span>, ec<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        ax.arrow(<span class="fl">0.4</span>, <span class="dv">0</span>, <span class="fl">0.3</span>, <span class="dv">0</span>, width<span class="op">=</span><span class="fl">0.05</span>, head_width<span class="op">=</span><span class="fl">0.15</span>,</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>                head_length<span class="op">=</span><span class="fl">0.2</span>, fc<span class="op">=</span><span class="st">'red'</span>, ec<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        ax.scatter([<span class="op">-</span><span class="fl">0.4</span>, <span class="fl">0.4</span>], [<span class="dv">0</span>, <span class="dv">0</span>], color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'x'</span>)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'y'</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    ax.set_xlim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>    ax.set_ylim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>    ax.set_aspect(<span class="st">'equal'</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-stresslet" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-stresslet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-stresslet-output-1.png" width="694" height="350" class="figure-img">
+<img src="lecture03_files/figure-html/fig-stresslet-output-1.png" width="694" height="350" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stresslet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16— Pusher Puller
+Figure&nbsp;13— Pusher Puller
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>In the far field, the flow generated by a force dipole (pusher, S &gt; 0) at large distances from the swimmer exhibits a dominant <span class="math inline">\(1/r^2\)</span> decay pattern. Fluid is pulled in from the sides and pushed away along the swimming direction.</p>
-<div id="cell-fig-farfield" class="cell" data-execution_count="9">
+<div id="cell-fig-farfield" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up a grid for far-field visualization (larger domain)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x_far <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y_far <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>X_far, Y_far <span class="op">=</span> np.meshgrid(x_far, y_far)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate R (distance from origin) for each point</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>R_far <span class="op">=</span> np.sqrt(X_far<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> Y_far<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up arrays for velocity field components</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>u_far <span class="op">=</span> np.zeros_like(X_far)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>v_far <span class="op">=</span> np.zeros_like(Y_far)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>S <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Positive for pusher</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>eta <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Normalized viscosity</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>e_x, e_y <span class="op">=</span> <span class="fl">1.0</span>, <span class="fl">0.0</span>  <span class="co"># Unit vector along x-axis</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Avoid singularity at origin</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>mask_far <span class="op">=</span> R_far <span class="op">&gt;</span> <span class="fl">0.5</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute unit radial vectors</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>r_hat_x <span class="op">=</span> X_far[mask_far] <span class="op">/</span> R_far[mask_far]</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>r_hat_y <span class="op">=</span> Y_far[mask_far] <span class="op">/</span> R_far[mask_far]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute e·r̂</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>e_dot_r_hat <span class="op">=</span> e_x<span class="op">*</span>r_hat_x <span class="op">+</span> e_y<span class="op">*</span>r_hat_y</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Far-field approximation: u ≈ (S/8πη)[(3(e·r̂)² - 1)/r²]r̂</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the scalar coefficient</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>coef <span class="op">=</span> (S<span class="op">/</span>(<span class="dv">8</span><span class="op">*</span>np.pi<span class="op">*</span>eta)) <span class="op">*</span> (<span class="dv">3</span><span class="op">*</span>e_dot_r_hat<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> R_far[mask_far]<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply to get velocity components</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>u_far[mask_far] <span class="op">=</span> coef <span class="op">*</span> r_hat_x</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>v_far[mask_far] <span class="op">=</span> coef <span class="op">*</span> r_hat_y</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plot</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>get_size(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot streamlines for far-field approximation</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>plt.streamplot(X_far, Y_far, u_far, v_far, density<span class="op">=</span><span class="fl">1.0</span>, color<span class="op">=</span><span class="st">'k'</span>,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>               linewidth<span class="op">=</span><span class="fl">0.8</span>, arrowsize<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Add swimming direction indication</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>plt.arrow(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>, width<span class="op">=</span><span class="fl">0.2</span>, head_width<span class="op">=</span><span class="fl">0.6</span>,</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>          head_length<span class="op">=</span><span class="fl">0.8</span>, fc<span class="op">=</span><span class="st">'blue'</span>, ec<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span><span class="st">'blue'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Swimmer'</span>)</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Far-field Force Dipole Flow (Pusher)'</span>)</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'square'</span>)</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a circle to indicate the near-field region</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>circle <span class="op">=</span> plt.Circle((<span class="dv">0</span>, <span class="dv">0</span>), <span class="dv">2</span>, fill<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>plt.gca().add_patch(circle)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>plt.text(<span class="fl">2.2</span>, <span class="fl">0.5</span>, <span class="st">'Near-field'</span>, color<span class="op">=</span><span class="st">'red'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <div id="fig-farfield" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-farfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-farfield-output-1.png" width="440" height="412" class="figure-img">
+<img src="lecture03_files/figure-html/fig-farfield-output-1.png" width="487" height="459" class="figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-farfield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17— Far-field approximation of the flow generated by a force dipole (pusher, S &gt; 0) at large distances from the swimmer. The streamlines illustrate how the dominant <span class="math inline">\(1/r^2\)</span> decay pattern emerges, with fluid being pulled in from the sides and pushed away along the swimming direction.
+Figure&nbsp;14— Far-field approximation of the flow generated by a force dipole (pusher, S &gt; 0) at large distances from the swimmer. The streamlines illustrate how the dominant <span class="math inline">\(1/r^2\)</span> decay pattern emerges, with fluid being pulled in from the sides and pushed away along the swimming direction.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Such flow fields have been measured experimentally for bacteria.</p>
-<div id="fig-real-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-real-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/images/lecture04/flow_field_measured.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-real-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18— Average flow field created by a single freely swimming bacterium far from surfaces (A–D) and close to a wall (E–H). Streamlines indicate the local direction of flow, and the logarithmic color scheme indicates flow speed magnitudes. (A) Experimentally measured flow field in the bacterial swimming plane, with the inset showing the anterior-posterior asymmetry close to the cell body. (B) Best-fit force dipole flow. (C) Residual flow field, obtained by subtracting the best-fit dipole model from the measured field. (D) Radial decay of the flow speed <span class="math inline">\(u\)</span> in different directions, with <span class="math inline">\(r = 0\)</span> corresponding to the center of the cell body. For distances <span class="math inline">\(r \lesssim 6~\mu\text{m}\)</span> the dipole model overestimates the flow field behind and to the side of the cell body. (E) Experimentally measured flow field in the bacterial swimming plane, for bacteria swimming parallel to a wall at a distance of <span class="math inline">\(2~\mu\text{m}\)</span>. (F) Best-fit force dipole flow, where the presence of the wall causes inward and outward streamlines to join. (G) Residual flow field. (H) The flow speed decays much faster for bacteria swimming close to a wall, as the fluid velocity must vanish on the surface. <a href="https://www.damtp.cam.ac.uk/user/gold/pdfs/PNAS-2011-Drescher-1019079108.pdf">Source: Drescher, K., Dunkel, J., Cisneros, L. H., Ganguly, S., &amp; Goldstein, R. E. (2011). Proceedings of the National Academy of Sciences, 108(27), 10940-10945.</a>
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="the-squirmer-model" class="level3">
-<h3 class="anchored" data-anchor-id="the-squirmer-model">The Squirmer Model</h3>
-<p>The squirmer model provides a simplified yet powerful framework for understanding the hydrodynamics of microswimmers with surface actuation, particularly relevant for organisms propelled by ciliary or flagellar beating. Originally developed by Lighthill and refined by Blake, this model captures the essential physics of swimming at low Reynolds numbers through prescribed surface deformations.</p>
-<section id="from-boundary-conditions-to-surface-actuation" class="level4">
-<h4 class="anchored" data-anchor-id="from-boundary-conditions-to-surface-actuation">From Boundary Conditions to Surface Actuation</h4>
-<p>The squirmer model extends the fundamental solutions of Stokes equations to active surfaces by replacing the complex dynamics of cilia or flagella with an effective slip velocity at the swimmer’s surface. Instead of modeling individual beating appendages, we consider a spherical body with a prescribed tangential velocity at its surface that mimics the net effect of the propulsion mechanism.</p>
-<p>The key insight of the squirmer model is the formulation of this surface slip velocity in terms of a series expansion using Legendre polynomials. For a sphere of radius <span class="math inline">\(a\)</span>, the tangential velocity at the surface is given by:</p>
-<p><span class="math display">\[u_θ(θ) = \sum_{n≥1} B_n \sin θ \, P_n'(\cos θ)\]</span></p>
-<p>where <span class="math inline">\(θ\)</span> is the polar angle measured from the swimming direction, <span class="math inline">\(P_n'\)</span> is the derivative of the Legendre polynomial of degree <span class="math inline">\(n\)</span>, and <span class="math inline">\(B_n\)</span> are coefficients that characterize the propulsion mechanism.</p>
-<p>Each coefficient <span class="math inline">\(B_n\)</span> corresponds to a specific mode of the surface actuation:</p>
-<ul>
-<li><span class="math inline">\(B_1\)</span> determines the swimming speed (proportional to <span class="math inline">\(v_0 = \frac{2}{3}B_1\)</span>)</li>
-<li><span class="math inline">\(B_2\)</span> controls the strength and sign of the force dipole (stresslet)</li>
-<li>Higher-order modes (<span class="math inline">\(B_3\)</span>, <span class="math inline">\(B_4\)</span>, etc.) represent increasingly complex surface deformation patterns</li>
-</ul>
-<p>The complete flow field around the swimmer can be derived from these boundary conditions and is given by the radial and tangential velocity components in the moving particle frame:</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp; u_r(r, \theta)=\frac{2}{3}\left(\frac{a^3}{r^3}-1\right) B_1 P_1(\cos \theta)+\sum_{n=2}^{\infty}\left(\frac{a^{n+2}}{r^{n+2}}-\frac{a^n}{r^n}\right) B_n P_n(\cos \theta), \\
-&amp; u_\theta(r, \theta)=\frac{2}{3}\left(\frac{a^3}{2 r^3}+1\right) B_1 V_1(\cos \theta)+\sum_{n=2}^{\infty} \frac{1}{2}\left(n \frac{a^{n+2}}{r^{n+2}}+(2-n) \frac{a^n}{r^n}\right) B_n V_n(\cos \theta) .
-\end{aligned}
-\]</span></p>
-<p>Here <span class="math inline">\(B_n\)</span> are the mode coefficients, <span class="math inline">\(P_n(\cos \theta)\)</span> are Legendre polynomials, and</p>
-<p><span class="math display">\[V_n(\cos \theta)=\frac{-2}{n(n+1)} \partial_\theta P_n(\cos \theta)\]</span>.</p>
-<p>One finds</p>
-<p><span class="math display">\[\begin{eqnarray}
-P_1(\cos \theta) &amp;=&amp; \cos \theta\\
-P_2(\cos \theta) &amp;=&amp; \frac{1}{2}\left(3 \cos ^2 \theta-1\right)\\
-\ldots\\
-V_1(\cos \theta) &amp;=&amp; \sin \theta\\
-V_2(\cos \theta) &amp;=&amp; \frac{1}{2} \sin 2 \theta\\
-\ldots
-\end{eqnarray}\]</span></p>
-<p>At the surface boundary (r = a), the tangential velocity is given by <span class="math inline">\(u_\theta(a, \theta)=\sum_{n=1}^{\infty} B_n V_n\)</span> while the radial component vanishes with <span class="math inline">\(u_r(a, \theta)=0\)</span>.</p>
-<p>Limiting our analysis to just the first two modes (n = 1 and n = 2), the tangential velocity at the boundary simplifies to:</p>
-<p><span class="math display">\[
-u_\theta(a, \theta)=B_1 \sin \theta+\frac{1}{2} B_2 \sin 2 \theta
-\]</span></p>
-<p>This allows us to introduce an important dimensionless quantity called the squirmer parameter:</p>
-<p><span class="math display">\[
-\beta=B_2 /\left|B_1\right|
-\]</span></p>
-<p>This parameter measures the ratio of the force dipole to the contribution of the source dipole. According to that, the swimmer are classified as</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 23%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Squirmer Type</th>
-<th>Parameter Value</th>
-<th>Far-Field Decay</th>
-<th>Force Configuration</th>
-<th>Biological Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Neutral squirmer</td>
-<td>β = 0</td>
-<td>~1/r³ (source dipole)</td>
-<td>No force dipole</td>
-<td>Some ciliates with symmetrical propulsion</td>
-</tr>
-<tr class="even">
-<td>Pusher</td>
-<td>β &lt; 0</td>
-<td>~1/r² (force dipole)</td>
-<td>Forces pointing outward</td>
-<td>E. coli bacteria, sperm cells</td>
-</tr>
-<tr class="odd">
-<td>Puller</td>
-<td>β &gt; 0</td>
-<td>~1/r² (force dipole)</td>
-<td>Forces pointing inward</td>
-<td>Chlamydomonas (algae with anterior flagella)</td>
-</tr>
-</tbody>
-</table>
-<div id="cell-fig-squirmer-types" class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display">
-<div id="fig-squirmer-types" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-squirmer-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture04_files/figure-html/fig-squirmer-types-output-1.png" width="713" height="280" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-squirmer-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;19— Flow fields generated by different types of squirmers. Left to right: Pusher (β = -5), Neutral squirmer (β = 0), and Puller (β = 5). All swimmers are moving to the right (positive x-direction). Notice how pushers generate outward flows along their swimming axis, neutral squirmers produce a symmetric dipole pattern, and pullers create inward flows along their swimming axis.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="squirmer-dynamics-and-classification" class="level4">
-<h4 class="anchored" data-anchor-id="squirmer-dynamics-and-classification">Squirmer Dynamics and Classification</h4>
-<p>Based on the value of <span class="math inline">\(B_2\)</span> relative to <span class="math inline">\(B_1\)</span>, squirmers can be classified into three fundamental types:</p>
-<ol type="1">
-<li><p><strong>Neutral squirmers</strong> (<span class="math inline">\(B_2 = 0\)</span>): These swimmers generate no force dipole in the far field. Their leading-order flow decays as <span class="math inline">\(1/r^3\)</span> (source dipole), resulting in minimal long-range hydrodynamic interactions. The swimming speed is determined solely by <span class="math inline">\(B_1\)</span>.</p></li>
-<li><p><strong>Pushers</strong> (<span class="math inline">\(B_2 &lt; 0\)</span>): These generate a negative force dipole, pushing fluid away along their swimming axis and drawing it in from the sides. This flow pattern corresponds to organisms like E. coli or sperm cells that propel by pushing fluid backward. The far-field flow decays as <span class="math inline">\(1/r^2\)</span>.</p></li>
-<li><p><strong>Pullers</strong> (<span class="math inline">\(B_2 &gt; 0\)</span>): These generate a positive force dipole, pulling fluid in along their swimming axis and pushing it out to the sides. This pattern is characteristic of organisms like Chlamydomonas that pull fluid toward their body using anterior flagella. The far-field flow also decays as <span class="math inline">\(1/r^2\)</span>.</p></li>
-</ol>
-<p>The connection to the force dipole approximation we discussed earlier becomes clear in the far field (at distances <span class="math inline">\(r \gg a\)</span>), where the squirmer’s flow field is dominated by the <span class="math inline">\(B_2\)</span> mode and can be approximated by:</p>
-<p><span class="math display">\[\mathbf{u}(\mathbf{r}) \approx \frac{B_2 a^2}{4r^2}(3(\mathbf{e}\cdot\hat{\mathbf{r}})^2-1)\hat{\mathbf{r}}\]</span></p>
-<p>This expression directly corresponds to the stresslet flow field we derived earlier, with the stresslet strength <span class="math inline">\(S\)</span> proportional to <span class="math inline">\(B_2 a^2\)</span>. The sign of <span class="math inline">\(B_2\)</span> determines whether the squirmer acts as a pusher (<span class="math inline">\(B_2 &lt; 0\)</span>) or puller (<span class="math inline">\(B_2 &gt; 0\)</span>), creating the characteristic force dipole field that dominates long-range hydrodynamic interactions.</p>
-</section>
-<section id="applications-and-examples" class="level4">
-<h4 class="anchored" data-anchor-id="applications-and-examples">Applications and Examples</h4>
-<p>The squirmer model has proven invaluable for understanding both biological and synthetic microswimmers:</p>
-<p><strong>Biological examples</strong> include ciliated organisms like Paramecium, which use coordinated beating of thousands of cilia to generate metachronal waves along their surface. These waves can be effectively modeled as squirmer modes. The flexibility of the squirmer model allows representation of diverse organisms from bacteria to algae by adjusting the <span class="math inline">\(B_n\)</span> coefficients to match observed flow fields.</p>
-<p><strong>Artificial microswimmers</strong> such as autophoretic Janus particles can also be described using the squirmer framework. By selecting appropriate <span class="math inline">\(B_n\)</span> values, researchers can design synthetic swimmers with specific propulsion characteristics and hydrodynamic signatures.</p>
-<p><strong>Squirmer interactions</strong> with surfaces and other swimmers provide insight into collective behavior. Near boundaries, squirmers exhibit different behaviors depending on their type: pushers tend to be attracted to surfaces and align parallel to them, while pullers are often repelled. When multiple squirmers interact, their collective dynamics depend strongly on the relative values of their <span class="math inline">\(B_n\)</span> coefficients, leading to complex emergent behaviors ranging from stable clusters to turbulent swarms.</p>
-<p>The squirmer model thus bridges the gap between microscopic propulsion mechanisms and macroscopic collective behaviors, providing a versatile framework for understanding active matter across scales.</p>
-</section>
-</section>
-<section id="hydrodynamic-singularities-and-time-reversibility-breaking" class="level3">
-<h3 class="anchored" data-anchor-id="hydrodynamic-singularities-and-time-reversibility-breaking">Hydrodynamic Singularities and Time-Reversibility Breaking</h3>
 <p>This distinction has important physical consequences: source dipoles enable self-propulsion but decay rapidly, while force dipoles dominate the long-range interactions between swimmers. These hydrodynamic singularities directly impact time reversibility in swimming. While the Stokes equations themselves are time-reversible, the interactions between swimmers and their environment through these flow fields introduce time-irreversibility in several important ways:</p>
 <ol type="1">
 <li><p><strong>Force dipole asymmetry</strong>: The force dipole structure (whether pusher or puller) creates directional flow fields that fundamentally break time-reversal symmetry. For a swimmer with orientation vector <span class="math inline">\(\mathbf{e}\)</span> and stresslet strength <span class="math inline">\(S\)</span>, the far-field velocity is given by:</p>
@@ -949,7 +1065,7 @@ Figure&nbsp;19— Flow fields generated by different types of squirmers. Left to
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/fcichos\.github\.io\/AM25\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1276,15 +1392,6 @@ Figure&nbsp;19— Flow fields generated by different types of squirmers. Left to
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../lecture03/lecture03.html" class="pagination-link" aria-label="Lecture 3">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lecture 3</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
