@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>lecture05 – Active Matter Physics</title>
+<title>active_tubulence – Active Matter Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,7 +129,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Continuum Theories of Active Matter</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -225,6 +225,12 @@ window.Quarto = {
  <span class="menu-text">Lecture 4</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lecture05/lecture05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 5</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -237,90 +243,16 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hydrodynamic-theories-and-coarse-graining" id="toc-hydrodynamic-theories-and-coarse-graining" class="nav-link active" data-scroll-target="#hydrodynamic-theories-and-coarse-graining">Hydrodynamic Theories and Coarse-Graining</a></li>
-  <li><a href="#active-liquid-crystals" id="toc-active-liquid-crystals" class="nav-link" data-scroll-target="#active-liquid-crystals">Active Liquid Crystals</a></li>
+  <li><a href="#active-liquid-crystals" id="toc-active-liquid-crystals" class="nav-link active" data-scroll-target="#active-liquid-crystals">Active Liquid Crystals</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Continuum Theories of Active Matter</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>In previous lectures, we explored microscopic models of active matter, focusing on individual self-propelled particles like ABPs and RTPs, as well as microswimmers and their hydrodynamic interactions. However, real active systems often contain thousands to millions of constituents, making particle-based approaches computationally expensive and conceptually challenging.</p>
-<p>This motivates a continuum approach, where we describe the system using fields that vary continuously in space and time rather than tracking individual particles. Today we’ll examine how these continuum theories help us understand collective phenomena in active systems.</p>
-<section id="hydrodynamic-theories-and-coarse-graining" class="level3">
-<h3 class="anchored" data-anchor-id="hydrodynamic-theories-and-coarse-graining">Hydrodynamic Theories and Coarse-Graining</h3>
-<section id="basic-principles-of-coarse-graining" class="level4">
-<h4 class="anchored" data-anchor-id="basic-principles-of-coarse-graining">Basic Principles of Coarse-Graining</h4>
-<p>Coarse-graining is like zooming out from a detailed map to see the big picture. Instead of tracking every particle, we describe the system using smoothly varying fields. Here’s how it works:</p>
-<ol type="1">
-<li><p><strong>Identifying what matters at large scales</strong>: Imagine a crowd of people. From far away, you don’t see individuals but patterns of density and movement. Similarly, we focus on:</p>
-<ul>
-<li>Density fields <span class="math inline">\(\rho(\mathbf{r},t)\)</span> - how many particles are in each region</li>
-<li>Velocity fields <span class="math inline">\(\mathbf{v}(\mathbf{r},t)\)</span> - how fast and in what direction particles move</li>
-<li>Orientation fields <span class="math inline">\(\mathbf{p}(\mathbf{r},t)\)</span> - which way particles are pointing</li>
-</ul></li>
-<li><p><strong>Keeping track of what’s conserved</strong>: Some quantities like the total number of particles can’t disappear. This gives us equations like: <span class="math display">\[\frac{\partial \rho}{\partial t} + \nabla \cdot \mathbf{j} = 0\]</span> This simply means: if particles flow out of a region (<span class="math inline">\(\nabla \cdot \mathbf{j}\)</span> positive), the density must decrease over time.</p></li>
-<li><p><strong>Describing how things flow</strong>: We need equations for how currents and forces depend on our fields. Like how traffic flow depends on car density - too many cars and everything slows down.</p></li>
-<li><p><strong>Adding the “active” ingredients</strong>: What makes active matter special is that particles consume energy to move. This creates effects that wouldn’t exist in passive systems, like spontaneous flows or pattern formation.</p></li>
-</ol>
-<p>Let’s see this in action by looking at a system of Active Brownian Particles (ABPs):</p>
-<div id="cell-fig-coarsegraining" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<div id="fig-coarsegraining" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-coarsegraining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="lecture05_files/figure-html/fig-coarsegraining-output-1.png" width="722" height="274" class="figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coarsegraining-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1— Coarse-graining procedure: from a collection of individual active particles with positions <span class="math inline">\(\mathbf{r}_i\)</span> and orientations <span class="math inline">\(\mathbf{n}_i\)</span> (left) to continuous density <span class="math inline">\(\rho(\mathbf{r})\)</span> (middle) and polarization <span class="math inline">\(\mathbf{p}(\mathbf{r})\)</span> fields (right). The density field captures particle concentrations, while the polarization field shows the average local orientation.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>From these coarse-grained fields, we can derive the hydrodynamic equations by:</p>
-<ol type="1">
-<li><p>From the density field, we obtain the continuity equation: <span class="math display">\[\frac{\partial \rho}{\partial t} + \nabla \cdot \mathbf{j} = 0\]</span> where <span class="math inline">\(\mathbf{j} = v_0 \rho \mathbf{p}\)</span> for ABPs. Here <span class="math inline">\(v_0\)</span> is the self-propulsion speed of the active particles (the constant speed at which ABPs move).</p></li>
-<li><p>For the polarization field, the dynamics include alignment, rotational diffusion, and spatial diffusion: <span class="math display">\[\frac{\partial \mathbf{p}}{\partial t} = -D_r \mathbf{p} + v_0 \nabla \rho + D_p \nabla^2 \mathbf{p} + ...\]</span></p></li>
-</ol>
-<p>By tracking how these fields evolve over time, we transition from tracking individual particles to following continuous fields, making analysis of large-scale behaviors tractable.</p>
-</section>
-<section id="active-vs.-passive-hydrodynamics" class="level4">
-<h4 class="anchored" data-anchor-id="active-vs.-passive-hydrodynamics">Active vs.&nbsp;Passive Hydrodynamics</h4>
-<p>A key feature that distinguishes active from passive hydrodynamics is the presence of active stresses. Let’s break this down with some everyday examples:</p>
-<ol type="1">
-<li><p><strong>Passive stress</strong> is like a stretched rubber band wanting to return to its original shape. It derives from a free energy (like elastic energy) and works to minimize that energy. In equilibrium systems, these stresses always dissipate energy.</p>
-<p>Example: When you stretch a liquid crystal, it develops passive stresses that try to restore its preferred alignment.</p></li>
-<li><p><strong>Active stress</strong> is fundamentally different - it’s like having tiny motors embedded throughout the material. These stresses:</p>
-<ul>
-<li>Don’t derive from a free energy (they’re not trying to minimize anything)</li>
-<li>Continuously inject energy at the microscopic scale (like the ATP-consuming motor proteins we’ll see in active liquid crystals)</li>
-<li>Create patterns and flows that would be impossible in equilibrium systems</li>
-</ul>
-<p>Example: In the microtubule-kinesin systems we’ll examine later, motor proteins create stresses that drive chaotic flows and pattern formation.</p></li>
-</ol>
-<p>The total stress in an active fluid combines both passive and active components. The type of active stress (whether pushing outward or pulling inward) determines what kinds of instabilities develop in the system, which we’ll explore later when discussing active liquid crystals.</p>
-</section>
-</section>
 <section id="active-liquid-crystals" class="level3">
 <h3 class="anchored" data-anchor-id="active-liquid-crystals">Active Liquid Crystals</h3>
 <p>Active liquid crystals represent a fascinating class of materials that combine the orientational ordering characteristic of conventional liquid crystals with out-of-equilibrium activity. Unlike passive liquid crystals that minimize free energy and relax to equilibrium, active liquid crystals continuously convert stored or ambient energy into mechanical work at the microscopic level, driving the system away from equilibrium. This active energy conversion creates novel dynamic behaviors not observed in passive systems. Several biological and synthetic systems exemplify active liquid crystalline behavior. Cytoskeletal filaments such as microtubules and actin, when powered by ATP-consuming motor proteins like kinesin or myosin, form active liquid crystalline structures essential for cell division and motility. Dense bacterial suspensions containing elongated cells such as E. coli or B. subtilis naturally tend to align through steric interactions while simultaneously self-propelling, creating active nematic or polar order. In the laboratory, scientists have created synthetic active liquid crystals using vibrated granular rods, light-activated colloidal particles, or specially designed microswimmers that can be controlled externally.</p>
@@ -358,10 +290,13 @@ Figure&nbsp;1— Coarse-graining procedure: from a collection of individual acti
 </ol>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-active-turbulence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2
+Figure&nbsp;1
 </figcaption>
 </figure>
 </div>
+<p>The continuum description can be formulated as a modified Cahn-Hilliard equation:</p>
+<p><span class="math display">\[\frac{\partial \phi}{\partial t} = \nabla \cdot \left(M(\phi) \nabla \frac{\delta \mathcal{F}}{\delta \phi} + \mathbf{v}(\phi) \phi\right)\]</span></p>
+<p>where <span class="math inline">\(M(\phi)\)</span> is the mobility, <span class="math inline">\(\mathcal{F}\)</span> is an effective free energy, and <span class="math inline">\(\mathbf{v}(\phi)\)</span> represents the active current that depends on density.</p>
 
 
 </section>
