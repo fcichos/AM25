@@ -347,7 +347,7 @@ window.Quarto = {
 <div id="fig-ehrenfest" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ehrenfest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/images/lecture06/ehrenfest.png" class="img-fluid figure-img">
+<img src="../assets/images/lecture06/ehrenfest.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ehrenfest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1— Ehrenfest classification of phase transitions. First-order transitions show discontinuities in first derivatives of the free energy (such as volume or entropy), while second-order transitions show discontinuities in second derivatives (such as heat capacity or compressibility).
@@ -422,7 +422,7 @@ Figure&nbsp;1— Ehrenfest classification of phase transitions. First-order tran
 <div id="fig-landau-potential" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-landau-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="a97b371c" class="cell" data-execution_count="2">
+<div id="6aca8eaf" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -441,7 +441,7 @@ Figure&nbsp;2— Potential <span class="math inline">\(V(\phi)\)</span> in the L
 <p><span class="math display">\[-\nabla^2\phi + \frac{\partial V}{\partial \phi} = 0\]</span></p>
 <p>Near the critical point, the system exhibits remarkable scaling behaviors that define its critical properties. Let’s explore these key behaviors in more detail:</p>
 <ol type="1">
-<li><p><strong>Correlation Length (ξ)</strong>: This measures how far the influence of one microscopic variable extends to others. Near the critical point, it diverges according to <span class="math inline">\(\xi \sim |T-T_c|^{-\nu}\)</span>, meaning fluctuations become correlated over macroscopic distances.</p></li>
+<li><p><strong>Correlation Length (ξ)</strong>: This measures how far the influence of one microscopic variable extends to others. Mathematically, it can be calculated from the spatial correlation function <span class="math inline">\(G(r) = \langle \phi(0) \phi(r) \rangle - \langle \phi \rangle^2\)</span>, which typically decays exponentially as <span class="math inline">\(G(r) \sim e^{-r/\xi}\)</span> away from the critical point. Near the critical point, it diverges according to <span class="math inline">\(\xi \sim |T-T_c|^{-\nu}\)</span>, meaning fluctuations become correlated over macroscopic distances.</p></li>
 <li><p><strong>Order Parameter (φ)</strong>: This quantity distinguishes between phases - like magnetization in magnets or density difference in fluids. It scales as <span class="math inline">\(\phi \sim |T-T_c|^{\beta}\)</span> below Tc, gradually vanishing as temperature approaches the critical point.</p></li>
 <li><p><strong>Susceptibility (χ)</strong>: This measures how responsive the system is to external fields (like magnetic susceptibility). It diverges as <span class="math inline">\(\chi \sim |T-T_c|^{-\gamma}\)</span>, indicating the system becomes extremely sensitive to small perturbations.</p></li>
 <li><p><strong>Specific Heat (C)</strong>: This thermodynamic quantity shows how much energy is needed to raise the temperature, scaling as <span class="math inline">\(C \sim |T-T_c|^{-\alpha}\)</span>.</p></li>
@@ -454,7 +454,7 @@ Figure&nbsp;2— Potential <span class="math inline">\(V(\phi)\)</span> in the L
 </section>
 <section id="the-ising-model" class="level3">
 <h3 class="anchored" data-anchor-id="the-ising-model">The Ising Model</h3>
-<p>The Ising model provides perhaps the simplest theoretical framework exhibiting a phase transition:</p>
+<p>The Ising model provides perhaps the simplest theoretical framework exhibiting a continuous second order phase transition:</p>
 <p><span class="math display">\[H = -J\sum_{\langle i,j \rangle} \sigma_i \sigma_j - h\sum_i \sigma_i\]</span></p>
 <p>Where <span class="math inline">\(\sigma_i = \pm 1\)</span> represents a spin at site <span class="math inline">\(i\)</span>, <span class="math inline">\(J\)</span> is the coupling constant, and <span class="math inline">\(h\)</span> is an external field. The model describes a ferromagnetic transition with order parameter <span class="math inline">\(M = \frac{1}{N}\sum_i \sigma_i\)</span> (the magnetization).</p>
 <p>The Ising model has been realized experimentally in various magnetic systems:</p>
@@ -528,19 +528,19 @@ button:hover {
   <div class="controls">
     <div class="slider-container">
       <label for="temperature">Temperature (T/J):</label>
-      <input type="range" id="temperature" min="0.1" max="5" step="0.1" value="2.27">
+      <input type="range" id="temperature" min="0.1" max="5" step="0.01" value="2.27">
       <span class="slider-value" id="temperature-value">2.27</span>
     </div>
 
     <div class="slider-container">
       <label for="magnetic-field">Magnetic Field (h/J):</label>
-      <input type="range" id="magnetic-field" min="-1" max="1" step="0.1" value="0">
+      <input type="range" id="magnetic-field" min="-1" max="1" step="0.01" value="0">
       <span class="slider-value" id="magnetic-field-value">0</span>
     </div>
 
     <div class="slider-container">
       <label for="coupling">Coupling Strength (J):</label>
-      <input type="range" id="coupling" min="0.1" max="2" step="0.1" value="1">
+      <input type="range" id="coupling" min="0.1" max="2" step="0.01" value="1">
       <span class="slider-value" id="coupling-value">1.0</span>
     </div>
 
@@ -1444,6 +1444,43 @@ document.addEventListener('DOMContentLoaded', () => {
 <p>This equation reveals the instability directly. When <span class="math inline">\(\rho &gt; \rho_c/2\)</span>, the coefficient of the gradient term becomes positive, meaning that density increases in the direction of increasing density - exactly the opposite of regular diffusion. This “anti-diffusion” behavior is the mathematical expression of our intuitive feedback loop.</p>
 <p>The critical density for instability is <span class="math inline">\(\rho_{critical} = \rho_c/2\)</span>, which is exactly what more complex analyses using Fourier modes would find. Any small density fluctuation above this threshold will grow rather than decay, leading to phase separation.</p>
 <p>This simple derivation captures the essential physics of MIPS: the feedback between density and motility creates regions where particles effectively move up concentration gradients rather than down, driving spontaneous phase separation even without attractive interactions between particles.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Incorporating Brownian Motion
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To develop a more complete picture of MIPS, we need to incorporate rotational diffusion explicitly. Recall that active particles undergo rotational Brownian motion described by:</p>
+<p><span class="math display">\[\dot{\theta}_i = \sqrt{2D_r} \eta_i(t)\]</span></p>
+<p>where <span class="math inline">\(D_r\)</span> is the rotational diffusion coefficient and <span class="math inline">\(\eta_i(t)\)</span> is Gaussian white noise.</p>
+<p>This rotational diffusion leads to a persistence time <span class="math inline">\(\tau_p = 1/D_r\)</span>, which is the characteristic time over which a particle maintains its direction before randomizing. This timescale critically affects the development of MIPS.</p>
+<p>To incorporate this effect mathematically, we need to extend our continuum model to include both translational and rotational diffusion. Starting from the particle flux:</p>
+<p><span class="math display">\[J = v(\rho)\rho = v_0(1-\rho/\rho_c)\rho\]</span></p>
+<p>We add a diffusion term that accounts for both translational diffusion (<span class="math inline">\(D_t\)</span>) and effective diffusion from rotational motion:</p>
+<p><span class="math display">\[J = v_0(1-\rho/\rho_c)\rho - D_\text{eff} \nabla \rho\]</span></p>
+<p>where <span class="math inline">\(D_\text{eff} = D_t + v_0^2/(2dD_r)\)</span> for a <span class="math inline">\(d\)</span>-dimensional system. The second term captures how particles effectively diffuse due to their persistent random motion, with persistence length <span class="math inline">\(l_p = v_0/D_r\)</span>.</p>
+<p>Now our continuity equation becomes:</p>
+<p><span class="math display">\[\partial_t\rho = -\nabla \cdot [v_0(1-\rho/\rho_c)\rho] + \nabla \cdot (D_\text{eff} \nabla \rho)\]</span></p>
+<p>Expanding in 1D:</p>
+<p><span class="math display">\[\partial_t\rho = -v_0\frac{\partial}{\partial x}[\rho - \rho^2/\rho_c] + D_\text{eff}\frac{\partial^2 \rho}{\partial x^2}\]</span></p>
+<p><span class="math display">\[\partial_t\rho = -v_0\frac{\partial \rho}{\partial x} + \frac{v_0}{\rho_c}\frac{\partial}{\partial x}[\rho^2] + D_\text{eff}\frac{\partial^2 \rho}{\partial x^2}\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[\partial_t\rho = v_0(2\rho/\rho_c - 1)\frac{\partial \rho}{\partial x} + D_\text{eff}\frac{\partial^2 \rho}{\partial x^2}\]</span></p>
+<p>This equation now contains two competing effects: the “anti-diffusion” term that drives phase separation when <span class="math inline">\(\rho &gt; \rho_c/2\)</span>, and the effective diffusion term that works to homogenize the system. Phase separation occurs when the anti-diffusion overcomes the regularizing effect of diffusion.</p>
+<p>A stability analysis shows that the critical condition for MIPS becomes:</p>
+<p><span class="math display">\[\frac{v_0^2}{D_\text{eff} D_r} &gt; \frac{4\rho_c}{\rho(\rho_c-\rho)}\]</span></p>
+<p>This reveals that MIPS requires a sufficiently large ratio of self-propulsion to diffusion, commonly expressed through the Péclet number Pe = <span class="math inline">\(v_0/(\sigma D_r)\)</span>, where <span class="math inline">\(\sigma\)</span> is the particle size. Specifically, the system phase separates when:</p>
+<ol type="1">
+<li>The density is in the appropriate range: <span class="math inline">\(\rho &lt; \rho_c\)</span></li>
+<li>The Péclet number exceeds a critical value that depends on density</li>
+<li>The rotational diffusion <span class="math inline">\(D_r\)</span> is sufficiently low to allow persistent motion</li>
+</ol>
 <p>The phase behavior of MIPS is controlled by the interplay of several key parameters. One critical factor we haven’t yet discussed is rotational diffusion. Active particles do not maintain their direction indefinitely—they undergo random reorientations characterized by the rotational diffusion coefficient <span class="math inline">\(D_r\)</span>. This rotational diffusion limits how far particles move in a straight line before changing direction, with a persistence time <span class="math inline">\(\tau_p = 1/D_r\)</span>.</p>
 <p>The phase behavior of MIPS is thus controlled by two critical parameters:</p>
 <ol type="1">
@@ -1451,7 +1488,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <li>The particle density <span class="math inline">\(\rho\)</span></li>
 </ol>
 <p>When both exceed their critical values, the feedback mechanism between density and mobility becomes sufficiently strong to induce phase separation. At high Péclet numbers, particles move persistently along their orientation before randomizing, creating density fluctuations that can trigger the instability. Similarly, when the density surpasses a threshold value, the motility reduction in crowded regions becomes pronounced enough to sustain the positive feedback loop.</p>
-<p>This behavior is captured in the binodal curve shown in the phase diagram above, which separates the homogeneous phase from the phase-separated region. The system exhibits a critical point where the distinction between phases vanishes, similar to equilibrium phase transitions. However, the critical exponents and scaling behavior of MIPS may belong to different universality classes than equilibrium systems—reflecting the fundamental non-equilibrium nature of active matter.</p>
+</div>
+</div>
+</div>
+<p>This behavior is captured in the binodal curve shown in the phase diagram above, which separates the homogeneous phase from the phase-separated region. The system exhibits a critical point where the distinction between phases vanishes, similar to equilibrium phase transitions. However, the critical exponents and scaling behavior of MIPS may belong to different universality classes than equilibrium systems—reflecting the fundamental non-equilibrium nature of active matter. The critical exponents for MIPS include the order parameter exponent <span class="math inline">\(\beta\)</span> (typically <span class="math inline">\(\approx 0.5\)</span> for MIPS), the susceptibility exponent <span class="math inline">\(\gamma\)</span> (often <span class="math inline">\(\approx 1.0\)</span>), the correlation length exponent <span class="math inline">\(\nu\)</span> (measured around <span class="math inline">\(0.5-0.7\)</span>), and the specific heat exponent <span class="math inline">\(\alpha\)</span> (approximately <span class="math inline">\(0.1-0.2\)</span>). These values differ from both the Ising universality class and liquid-gas critical points, highlighting MIPS’s distinct non-equilibrium character.</p>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>v_c <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Critical speed</span></span>
@@ -1521,7 +1561,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <div id="fig-phaseplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-phaseplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="79dd9569" class="cell" data-execution_count="3">
+<div id="11b1a735" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
