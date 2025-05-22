@@ -422,7 +422,7 @@ Figure&nbsp;1— Ehrenfest classification of phase transitions. First-order tran
 <div id="fig-landau-potential" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-landau-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="40c636d8" class="cell" data-execution_count="2">
+<div id="029bf9eb" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1548,17 +1548,11 @@ Incorporating Brownian Motion
 <li>The Péclet number exceeds a critical value that depends on density</li>
 <li>The rotational diffusion <span class="math inline">\(D_r\)</span> is sufficiently low to allow persistent motion</li>
 </ol>
-<p>The phase behavior of MIPS is controlled by the interplay of several key parameters. One critical factor we haven’t yet discussed is rotational diffusion. Active particles do not maintain their direction indefinitely—they undergo random reorientations characterized by the rotational diffusion coefficient <span class="math inline">\(D_r\)</span>. This rotational diffusion limits how far particles move in a straight line before changing direction, with a persistence time <span class="math inline">\(\tau_p = 1/D_r\)</span>.</p>
-<p>The phase behavior of MIPS is thus controlled by two critical parameters:</p>
-<ol type="1">
-<li>The Péclet number Pe = <span class="math inline">\(v_0/(D_r \sigma)\)</span>, which quantifies the ratio of self-propulsion to rotational diffusion. This dimensionless number represents how far a particle travels before its direction randomizes.</li>
-<li>The particle density <span class="math inline">\(\rho\)</span></li>
-</ol>
-<p>When both exceed their critical values, the feedback mechanism between density and mobility becomes sufficiently strong to induce phase separation. At high Péclet numbers, particles move persistently along their orientation before randomizing, creating density fluctuations that can trigger the instability. Similarly, when the density surpasses a threshold value, the motility reduction in crowded regions becomes pronounced enough to sustain the positive feedback loop.</p>
+<p>When all of these parameters exceed their critical values, the feedback mechanism between density and mobility becomes sufficiently strong to induce phase separation. At high Péclet numbers, particles move persistently along their orientation before randomizing, creating density fluctuations that can trigger the instability. Similarly, when the density surpasses a threshold value, the motility reduction in crowded regions becomes pronounced enough to sustain the positive feedback loop.</p>
 </div>
 </div>
 </div>
-<p>This behavior is captured in the binodal curve shown in the phase diagram above, which separates the homogeneous phase from the phase-separated region. The system exhibits a critical point where the distinction between phases vanishes, similar to equilibrium phase transitions. However, the critical exponents and scaling behavior of MIPS may belong to different universality classes than equilibrium systems—reflecting the fundamental non-equilibrium nature of active matter. The critical exponents for MIPS include the order parameter exponent <span class="math inline">\(\beta\)</span> (typically <span class="math inline">\(\approx 0.5\)</span> for MIPS), the susceptibility exponent <span class="math inline">\(\gamma\)</span> (often <span class="math inline">\(\approx 1.0\)</span>), the correlation length exponent <span class="math inline">\(\nu\)</span> (measured around <span class="math inline">\(0.5-0.7\)</span>), and the specific heat exponent <span class="math inline">\(\alpha\)</span> (approximately <span class="math inline">\(0.1-0.2\)</span>). These values differ from both the Ising universality class and liquid-gas critical points, highlighting MIPS’s distinct non-equilibrium character.</p>
+<p>The phase separation behavior is captured in the binodal curve shown in the phase diagram above, which separates the homogeneous phase from the phase-separated region. The system exhibits a critical point where the distinction between phases vanishes, similar to equilibrium phase transitions. However, the critical exponents and scaling behavior of MIPS may belong to different universality classes than equilibrium systems—reflecting the fundamental non-equilibrium nature of active matter. The critical exponents for MIPS include the order parameter exponent <span class="math inline">\(\beta\)</span> (typically <span class="math inline">\(\approx 0.5\)</span> for MIPS), the susceptibility exponent <span class="math inline">\(\gamma\)</span> (often <span class="math inline">\(\approx 1.0\)</span>), the correlation length exponent <span class="math inline">\(\nu\)</span> (measured around <span class="math inline">\(0.5-0.7\)</span>), and the specific heat exponent <span class="math inline">\(\alpha\)</span> (approximately <span class="math inline">\(0.1-0.2\)</span>). These values differ from both the Ising universality class and liquid-gas critical points, highlighting MIPS’s distinct non-equilibrium character.</p>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>v_c <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Critical speed</span></span>
@@ -1628,7 +1622,7 @@ Incorporating Brownian Motion
 <div id="fig-phaseplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-phaseplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="a90096fc" class="cell" data-execution_count="4">
+<div id="02515024" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1643,7 +1637,7 @@ Figure&nbsp;6— Stationary density distribution in MIPS. The plot shows density
 </figcaption>
 </figure>
 </div>
-<p>The phase behavior of MIPS can be visualized through the binodal curve shown above, which separates the homogeneous region from the phase-separated region. Several key features are evident:</p>
+<p>Several key features become evident from the binodal curve shown above, which separates the homogeneous region from the phase-separated region. These features include:</p>
 <ol type="1">
 <li><p><strong>Critical Point</strong>: At a critical speed <span class="math inline">\(v_c\)</span> and density <span class="math inline">\(\rho_c\)</span>, the system undergoes a continuous phase transition.</p></li>
 <li><p><strong>Binodal Curve</strong>: Above <span class="math inline">\(v_c\)</span>, the system separates into coexisting phases with densities following the binodal branches.</p></li>
