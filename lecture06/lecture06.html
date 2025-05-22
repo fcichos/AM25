@@ -422,7 +422,7 @@ Figure&nbsp;1— Ehrenfest classification of phase transitions. First-order tran
 <div id="fig-landau-potential" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-landau-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="029bf9eb" class="cell" data-execution_count="2">
+<div id="c01c74e6" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -930,13 +930,13 @@ button:hover {
 
     <div class="slider-container">
       <label for="noise">Orientational Noise:</label>
-      <input type="range" id="noise" min="0" max="1" step="0.01" value="0.05">
+      <input type="range" id="noise" min="0" max="0.5" step="0.01" value="0.05">
       <span class="slider-value" id="noise-value">0.05</span>
     </div>
 
     <div class="slider-container">
       <label for="speed">Particle Speed:</label>
-      <input type="range" id="speed" min="0.1" max="4" step="0.1" value="3.0">
+      <input type="range" id="speed" min="0.1" max="1" step="0.01" value="0.2">
       <span class="slider-value" id="speed-value">3.0</span>
     </div>
 
@@ -987,10 +987,10 @@ class MIPSSimulation {
     this.height = this.canvas.height;
 
     // Simulation parameters
-    this.particleRadius = 10;
+    this.particleRadius = 5;
     this.particleCount = 0;
     this.fillingFraction = 0.35;  // Changed default to MIPS-favorable settings
-    this.speed = 3.0;             // Changed default to MIPS-favorable settings
+    this.speed = 1.0;             // Changed default to MIPS-favorable settings
     this.noise = 0.05;            // Changed default to MIPS-favorable settings
     this.attraction = 0.0;        // Default to no attraction
     this.running = true;
@@ -1622,7 +1622,7 @@ Incorporating Brownian Motion
 <div id="fig-phaseplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-phaseplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="02515024" class="cell" data-execution_count="4">
+<div id="8185fc34" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
