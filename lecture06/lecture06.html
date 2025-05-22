@@ -343,7 +343,7 @@ window.Quarto = {
 <p>First-order transitions show discontinuities in the first derivatives of the free energy. This manifests as jumps in quantities like volume (<span class="math inline">\(V = \partial G/\partial P\)</span>) or entropy (<span class="math inline">\(S = -\partial G/\partial T\)</span>), with familiar examples including water boiling or ice melting. These transitions involve latent heat and exhibit phase coexistence, where both phases can exist simultaneously.</p>
 <p>In contrast, second-order (or continuous) transitions show continuous first derivatives but discontinuous second derivatives of the free energy. For example, the heat capacity <span class="math inline">\(C = -T \frac{\partial^2 G}{\partial T^2}\)</span> may exhibit a discontinuity or divergence at the transition. These transitions are characterized by diverging correlation lengths and scale invariance near the critical point. The magnetization of a ferromagnet near its Curie temperature exemplifies this behavior, with free energy of the form</p>
 <p><span class="math display">\[G(T,H) = G_0(T) - H M(T) - \frac{1}{2}\chi(T)H^2 + ...\]</span>,</p>
-<p>where the susceptibility <span class="math inline">\(\chi(T)\)</span> diverges at the critical point. Modern physics often simply distinguishes between discontinuous (first-order) and continuous transitions, with the latter revealing fascinating universal properties at the critical point.</p>
+<p>where <span class="math inline">\(G(T,H)\)</span> is the Gibbs free energy as a function of temperature <span class="math inline">\(T\)</span> and magnetic field <span class="math inline">\(H\)</span>, <span class="math inline">\(G_0(T)\)</span> is the field-independent part of the free energy, <span class="math inline">\(M(T)\)</span> is the magnetization (the order parameter), <span class="math inline">\(\chi(T)\)</span> is the magnetic susceptibility which measures how the magnetization responds to the applied field, and the susceptibility <span class="math inline">\(\chi(T)\)</span> diverges at the critical point. Modern physics often simply distinguishes between discontinuous (first-order) and continuous transitions, with the latter revealing fascinating universal properties at the critical point.</p>
 <div id="fig-ehrenfest" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ehrenfest-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -422,7 +422,7 @@ Figure&nbsp;1— Ehrenfest classification of phase transitions. First-order tran
 <div id="fig-landau-potential" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-landau-potential-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="3b79fefc" class="cell" data-execution_count="2">
+<div id="40c636d8" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -464,6 +464,73 @@ Figure&nbsp;2— Potential <span class="math inline">\(V(\phi)\)</span> in the L
 <li>CoNb<span class="math inline">\(_2\)</span>O<span class="math inline">\(_6\)</span> (cobalt niobate) provides a rare example of a 1D Ising system</li>
 </ul>
 <p>The 2D Ising model was solved analytically by Onsager, revealing a critical temperature <span class="math inline">\(T_c = \frac{2J}{k_B\ln(1+\sqrt{2})}\)</span> and critical exponents: <span class="math inline">\(\alpha = 0\)</span>, <span class="math inline">\(\beta = 1/8\)</span>, <span class="math inline">\(\gamma = 7/4\)</span>, and <span class="math inline">\(\nu = 1\)</span>.</p>
+<div id="cell-fig-ising" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the susceptibility and order parameter for the 2D Ising model</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>get_size(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Temperature range (normalized by J/k_B)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> np.linspace(<span class="fl">1.8</span>, <span class="fl">2.8</span>, <span class="dv">1000</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>T_c <span class="op">=</span> <span class="fl">2.27</span>  <span class="co"># Critical temperature for 2D Ising model</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Order parameter (magnetization) with critical exponent beta = 1/8</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.zeros_like(T)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">8</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, t <span class="kw">in</span> <span class="bu">enumerate</span>(T):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> t <span class="op">&lt;</span> T_c:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        m[i] <span class="op">=</span> (<span class="dv">1</span> <span class="op">-</span> t<span class="op">/</span>T_c) <span class="op">**</span> beta</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        m[i] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Susceptibility with critical exponent gamma = 7/4</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>chi <span class="op">=</span> np.zeros_like(T)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="dv">7</span><span class="op">/</span><span class="dv">4</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">10</span>  <span class="co"># Amplitude factor for visualization</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, t <span class="kw">in</span> <span class="bu">enumerate</span>(T):</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(t <span class="op">-</span> T_c) <span class="op">&lt;</span> <span class="fl">0.001</span>:  <span class="co"># Avoid division by zero at critical point</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        chi[i] <span class="op">=</span> A <span class="op">*</span> <span class="dv">100</span>  <span class="co"># Large but finite value at critical point</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        chi[i] <span class="op">=</span> A <span class="op">*</span> (<span class="dv">1</span><span class="op">/</span><span class="bu">abs</span>(t <span class="op">-</span> T_c))<span class="op">**</span>gamma</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> chi[i] <span class="op">&gt;</span> A <span class="op">*</span> <span class="dv">100</span>:  <span class="co"># Cap the maximum value for better visualization</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            chi[i] <span class="op">=</span> A <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot order parameter (magnetization)</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>ax1.plot(T, m, <span class="st">'b-'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'temperature $T$ (in units of $J/k_B$)'</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'magnetization $|M|$'</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>ax1.axvline(x<span class="op">=</span>T_c, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>ax1.text(T_c<span class="op">+</span><span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="st">'$T_c$'</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>ax1.set_xlim(<span class="fl">1.8</span>, <span class="fl">2.8</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>ax1.set_ylim(<span class="op">-</span><span class="fl">0.05</span>, <span class="fl">1.05</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot susceptibility</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>ax2.plot(T, chi, <span class="st">'g-'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'temperature $T$ (in units of $J/k_B$)'</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'susceptibility $</span><span class="ch">\\</span><span class="st">chi$'</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>ax2.axvline(x<span class="op">=</span>T_c, color<span class="op">=</span><span class="st">'r'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>ax2.text(T_c<span class="op">+</span><span class="fl">0.05</span>, <span class="dv">50</span>, <span class="st">'$T_c$'</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim(<span class="fl">1.8</span>, <span class="fl">2.8</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim(<span class="op">-</span><span class="dv">5</span>, <span class="dv">510</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div id="fig-ising" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ising-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lecture06_files/figure-html/fig-ising-output-1.png" width="707" height="343" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ising-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3— Critical behavior of the 2D Ising model
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="ising-model-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="ising-model-simulation">Ising Model Simulation</h3>
@@ -733,7 +800,7 @@ simulate();
 <video src="../assets/movies/lecture06/1230020s2.mov" class="img-fluid" style="width:100.0%" controls=""><a href="../assets/movies/lecture06/1230020s2.mov">Video</a></video>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MIPS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3— Formation of lvining crystals from light activated colloidal surfers. <a href="https://www.science.org/doi/10.1126/science.1230020">Palacci, J., Sacanna, S., Steinberg, A. P., Pine, D. J. &amp; Chaikin, P. M. Living Crystals of Light-Activated Colloidal Surfers. Science 339, 936–940 (2013)</a>
+Figure&nbsp;4— Formation of lvining crystals from light activated colloidal surfers. <a href="https://www.science.org/doi/10.1126/science.1230020">Palacci, J., Sacanna, S., Steinberg, A. P., Pine, D. J. &amp; Chaikin, P. M. Living Crystals of Light-Activated Colloidal Surfers. Science 339, 936–940 (2013)</a>
 </figcaption>
 </figure>
 </div>
@@ -744,7 +811,7 @@ Figure&nbsp;3— Formation of lvining crystals from light activated colloidal su
 <img src="../assets/images/lecture06/MIPS.png" id="fig-MIPS-clustering" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MIPST-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4— Phase separation: (a) Relative mean size <span class="math inline">\(P\)</span> of the largest cluster as a function of swimming speed <span class="math inline">\(v\)</span>. Shown are experimental results (open symbols) and simulation results (closed symbols). (b) Simulation snapshot of the separated system at <span class="math inline">\(\phi=0.5\)</span> and speed <span class="math inline">\(\mathrm{Pe}=100\)</span>. (c) Experimental snapshot at <span class="math inline">\(\phi \simeq 0.25\)</span> and <span class="math inline">\(v \simeq 1.45 \mu \mathrm{~m} / \mathrm{s}\)</span>. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.238301">Buttinoni, I. et al.&nbsp;Dynamical Clustering and Phase Separation in Suspensions of Self-Propelled Colloidal Particles. Phys. Rev.&nbsp;Lett. 110, 238301 (2017)</a>
+Figure&nbsp;5— Phase separation: (a) Relative mean size <span class="math inline">\(P\)</span> of the largest cluster as a function of swimming speed <span class="math inline">\(v\)</span>. Shown are experimental results (open symbols) and simulation results (closed symbols). (b) Simulation snapshot of the separated system at <span class="math inline">\(\phi=0.5\)</span> and speed <span class="math inline">\(\mathrm{Pe}=100\)</span>. (c) Experimental snapshot at <span class="math inline">\(\phi \simeq 0.25\)</span> and <span class="math inline">\(v \simeq 1.45 \mu \mathrm{~m} / \mathrm{s}\)</span>. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.110.238301">Buttinoni, I. et al.&nbsp;Dynamical Clustering and Phase Separation in Suspensions of Self-Propelled Colloidal Particles. Phys. Rev.&nbsp;Lett. 110, 238301 (2017)</a>
 </figcaption>
 </figure>
 </div>
@@ -1494,85 +1561,85 @@ Incorporating Brownian Motion
 <p>This behavior is captured in the binodal curve shown in the phase diagram above, which separates the homogeneous phase from the phase-separated region. The system exhibits a critical point where the distinction between phases vanishes, similar to equilibrium phase transitions. However, the critical exponents and scaling behavior of MIPS may belong to different universality classes than equilibrium systems—reflecting the fundamental non-equilibrium nature of active matter. The critical exponents for MIPS include the order parameter exponent <span class="math inline">\(\beta\)</span> (typically <span class="math inline">\(\approx 0.5\)</span> for MIPS), the susceptibility exponent <span class="math inline">\(\gamma\)</span> (often <span class="math inline">\(\approx 1.0\)</span>), the correlation length exponent <span class="math inline">\(\nu\)</span> (measured around <span class="math inline">\(0.5-0.7\)</span>), and the specific heat exponent <span class="math inline">\(\alpha\)</span> (approximately <span class="math inline">\(0.1-0.2\)</span>). These values differ from both the Ising universality class and liquid-gas critical points, highlighting MIPS’s distinct non-equilibrium character.</p>
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>v_c <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Critical speed</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rho_c <span class="op">=</span> <span class="fl">0.2</span>  <span class="co"># Critical density</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>speed_range <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1000</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>max_density <span class="op">=</span> <span class="fl">0.7</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate binodal curve</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binodal(v, v_c, rho_c, max_density):</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> v <span class="op">&lt;=</span> v_c:</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array([rho_c])  <span class="co"># Just critical density below v_c</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate high and low density branches</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        delta <span class="op">=</span> <span class="fl">0.6</span> <span class="op">*</span> np.sqrt((v<span class="op">-</span>v_c)<span class="op">/</span>v_c)  <span class="co"># Simplified model</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        high_density <span class="op">=</span> <span class="bu">min</span>(rho_c <span class="op">+</span> delta, max_density)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        low_density <span class="op">=</span> <span class="bu">max</span>(rho_c <span class="op">-</span> delta, <span class="fl">0.05</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array([low_density, high_density])  <span class="co"># Return BOTH phases</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create figure</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>get_size(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot intensity map showing density distribution</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>mesh_v, mesh_rho <span class="op">=</span> np.meshgrid(</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    speed_range,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> np.zeros_like(mesh_v)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(speed_range):</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    densities <span class="op">=</span> binodal(v, v_c, rho_c, max_density)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(densities) <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># Homogeneous phase</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>) <span class="op">-</span> densities[<span class="dv">0</span>]))</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        intensity[idx, i] <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># Phase separated - fill the coexistence region</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        low_idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>) <span class="op">-</span> densities[<span class="dv">0</span>]))</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        high_idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>) <span class="op">-</span> densities[<span class="dv">1</span>]))</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>        intensity[low_idx:high_idx<span class="op">+</span><span class="dv">1</span>, i] <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># Fill the region between branches</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Smooth the intensity for visualization</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot binodal line</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>binodal_points <span class="op">=</span> []</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> speed_range:</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    densities <span class="op">=</span> binodal(v, v_c, rho_c, max_density)</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d <span class="kw">in</span> densities:</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        binodal_points.append([v, d])</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>binodal_points <span class="op">=</span> np.array(binodal_points)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Only plot the high density branch</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>mask_low <span class="op">=</span> binodal_points[:, <span class="dv">1</span>] <span class="op">&lt;=</span> rho_c</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>mask_high <span class="op">=</span> binodal_points[:, <span class="dv">1</span>] <span class="op">&gt;=</span> rho_c</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>plt.plot(binodal_points[mask_high, <span class="dv">0</span>], binodal_points[mask_high, <span class="dv">1</span>], <span class="st">'k-'</span>, lw<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'High density'</span>)</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>plt.plot(binodal_points[mask_low, <span class="dv">0</span>], binodal_points[mask_low, <span class="dv">1</span>], <span class="st">'k-'</span>, lw<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Low density'</span>)</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Add critical point</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>plt.plot(v_c, rho_c, <span class="st">'ro'</span>, markersize<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels and title</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'particle speed $v_0$'</span>)</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'density $</span><span class="ch">\\</span><span class="st">rho$'</span>)</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>v_c <span class="op">=</span> <span class="fl">1.0</span>  <span class="co"># Critical speed</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>rho_c <span class="op">=</span> <span class="fl">0.2</span>  <span class="co"># Critical density</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>speed_range <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1000</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>max_density <span class="op">=</span> <span class="fl">0.7</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate binodal curve</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binodal(v, v_c, rho_c, max_density):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> v <span class="op">&lt;=</span> v_c:</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array([rho_c])  <span class="co"># Just critical density below v_c</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Calculate high and low density branches</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        delta <span class="op">=</span> <span class="fl">0.6</span> <span class="op">*</span> np.sqrt((v<span class="op">-</span>v_c)<span class="op">/</span>v_c)  <span class="co"># Simplified model</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        high_density <span class="op">=</span> <span class="bu">min</span>(rho_c <span class="op">+</span> delta, max_density)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        low_density <span class="op">=</span> <span class="bu">max</span>(rho_c <span class="op">-</span> delta, <span class="fl">0.05</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.array([low_density, high_density])  <span class="co"># Return BOTH phases</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create figure</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>get_size(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot intensity map showing density distribution</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>mesh_v, mesh_rho <span class="op">=</span> np.meshgrid(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    speed_range,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>intensity <span class="op">=</span> np.zeros_like(mesh_v)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(speed_range):</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    densities <span class="op">=</span> binodal(v, v_c, rho_c, max_density)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(densities) <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># Homogeneous phase</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>) <span class="op">-</span> densities[<span class="dv">0</span>]))</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        intensity[idx, i] <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># Phase separated - fill the coexistence region</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        low_idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>) <span class="op">-</span> densities[<span class="dv">0</span>]))</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        high_idx <span class="op">=</span> np.argmin(np.<span class="bu">abs</span>(np.linspace(<span class="dv">0</span>, max_density, <span class="dv">200</span>) <span class="op">-</span> densities[<span class="dv">1</span>]))</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        intensity[low_idx:high_idx<span class="op">+</span><span class="dv">1</span>, i] <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># Fill the region between branches</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Smooth the intensity for visualization</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot binodal line</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>binodal_points <span class="op">=</span> []</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> speed_range:</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    densities <span class="op">=</span> binodal(v, v_c, rho_c, max_density)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d <span class="kw">in</span> densities:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        binodal_points.append([v, d])</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>binodal_points <span class="op">=</span> np.array(binodal_points)</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Only plot the high density branch</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>mask_low <span class="op">=</span> binodal_points[:, <span class="dv">1</span>] <span class="op">&lt;=</span> rho_c</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>mask_high <span class="op">=</span> binodal_points[:, <span class="dv">1</span>] <span class="op">&gt;=</span> rho_c</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>plt.plot(binodal_points[mask_high, <span class="dv">0</span>], binodal_points[mask_high, <span class="dv">1</span>], <span class="st">'k-'</span>, lw<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'High density'</span>)</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>plt.plot(binodal_points[mask_low, <span class="dv">0</span>], binodal_points[mask_low, <span class="dv">1</span>], <span class="st">'k-'</span>, lw<span class="op">=</span><span class="dv">1</span>, label<span class="op">=</span><span class="st">'Low density'</span>)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Add critical point</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>plt.plot(v_c, rho_c, <span class="st">'ro'</span>, markersize<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Labels and title</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'particle speed $v_0$'</span>)</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'density $</span><span class="ch">\\</span><span class="st">rho$'</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">3</span>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>plt.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="fig-phaseplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-phaseplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="9b768893" class="cell" data-execution_count="3">
+<div id="a90096fc" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="lecture06_files/figure-html/cell-4-output-1.png" width="463" height="342" class="figure-img"></p>
+<p><img src="lecture06_files/figure-html/cell-5-output-1.png" width="463" height="342" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-phaseplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5— Stationary density distribution in MIPS. The plot shows density in the coexistence region as a function of the particle speed v₀. Below a critical speed v_c, the system remains homogeneous. Above v_c, the system separates into dense and dilute phases, with their respective densities following the binodal curve.
+Figure&nbsp;6— Stationary density distribution in MIPS. The plot shows density in the coexistence region as a function of the particle speed v₀. Below a critical speed v_c, the system remains homogeneous. Above v_c, the system separates into dense and dilute phases, with their respective densities following the binodal curve.
 </figcaption>
 </figure>
 </div>
@@ -1604,7 +1671,7 @@ Figure&nbsp;5— Stationary density distribution in MIPS. The plot shows density
 <img src="../assets/images/lecture06/number1.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-giantnumber-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6— Giant number fluctuations observed in active colloidal clusters formed by light-activated particles. The number fluctuations <span class="math inline">\(\Delta n\)</span> scale with the average number <span class="math inline">\(\langle n \rangle\)</span> of particles with an exponent <span class="math inline">\(\alpha = 0.9\)</span>, significantly exceeding the equilibrium value of 0.5. Taken rom Palacci, J., Sacanna, S., Steinberg, A. P., Pine, D. J. &amp; Chaikin, P. M. Living Crystals of Light-Activated Colloidal Surfers. Science 339, 936–940 (2013).
+Figure&nbsp;7— Giant number fluctuations observed in active colloidal clusters formed by light-activated particles. The number fluctuations <span class="math inline">\(\Delta n\)</span> scale with the average number <span class="math inline">\(\langle n \rangle\)</span> of particles with an exponent <span class="math inline">\(\alpha = 0.9\)</span>, significantly exceeding the equilibrium value of 0.5. Taken rom Palacci, J., Sacanna, S., Steinberg, A. P., Pine, D. J. &amp; Chaikin, P. M. Living Crystals of Light-Activated Colloidal Surfers. Science 339, 936–940 (2013).
 </figcaption>
 </figure>
 </div>
