@@ -51,6 +51,17 @@
     ]
   },
   {
+    "objectID": "lecture07/lecture07.html#footnotes",
+    "href": "lecture07/lecture07.html#footnotes",
+    "title": "Vicsek Model and Flocking Transition",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nMishra, S., Tunstrøm, K., Couzin, I. D., & Huepe, C. (2012). Collective dynamics of self-propelled particles with variable speed. Physical Review E, 86(1), 011901. https://doi.org/10.1103/PhysRevE.86.011901↩︎\nCalovi, D. S., Litchinko, A., Lecheval, V., Lopez, U., Pérez Escudero, A., Chaté, H., Sire, C., & Theraulaz, G. (2018). Disentangling and modeling interactions in fish with burst-and-coast swimming reveal distinct alignment and attraction behaviors. PLOS Computational Biology, 14(1), e1005933. https://doi.org/10.1371/journal.pcbi.1005933↩︎",
+    "crumbs": [
+      "Emergent Phenomena and Phase Behavior",
+      "Lecture 7"
+    ]
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",

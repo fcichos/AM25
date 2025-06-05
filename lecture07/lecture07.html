@@ -714,8 +714,8 @@ Figure&nbsp;4— Voronoi tessellation applied to a system of particles. Each cel
 <li><p><strong>Emergence of oscillatory states</strong>: The system can develop spatiotemporal patterns like traveling waves, oscillations, and even chaotic states not seen in the standard model.</p></li>
 <li><p><strong>Enhanced stability in some regimes</strong>: Counterintuitively, moderate time delays can sometimes stabilize ordered motion by dampening overreactions to fluctuations.</p></li>
 </ol>
-<p>The role of delay becomes particularly important when considering how flocks respond to rapid environmental changes like predator attacks. Simulations by Mishra et al.&nbsp;(2012) showed that the delay-induced wave-like propagation allows information about threats to spread through a flock up to 20 times faster than would be possible through sequential neighbor-to-neighbor transmission.</p>
-<p>Experimental validation comes from studies like those by Calovi et al.&nbsp;(2018), who analyzed trajectory data from schooling fish and found evidence of memory effects in their alignment behavior. They showed that fish respond not just to their neighbors’ current positions and orientations, but to an effective “anticipated” position based on past movement. This anticipation mechanism effectively implements a negative delay (prediction rather than reaction), which further enhances the school’s ability to maintain cohesion during rapid maneuvers.</p>
+<p>The role of delay becomes particularly important when considering how flocks respond to rapid environmental changes like predator attacks. Studies on self-propelled particle models with variable speed, such as the work by Mishra et al.&nbsp;(2012) <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, provide insights into how information can propagate through collectives at rates much faster than would be possible through sequential neighbor-to-neighbor transmission.</p>
+<p>Experimental validation comes from studies like those by Calovi et al.&nbsp;(2018) <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, who analyzed trajectory data from schooling fish with burst-and-coast swimming patterns. They disentangled and modeled the interactions involved in swimming coordination, finding that both attraction and alignment behaviors govern how fish react to their neighbors. Their data-driven model successfully reproduced the key features of coordinated motion observed in experiments, showing how these interactions allow fish to maintain cohesion during complex maneuvers.</p>
 <p>Theoretically, the delay Vicsek model provides a critical link between microscopic interaction rules and macroscopic wave propagation. When properly formulated with inertial effects (resistance to orientation changes), the model produces a linear dispersion relation for small perturbations:</p>
 <p><span class="math display">\[\omega \approx c_s q + i\gamma q^2\]</span></p>
 <p>where <span class="math inline">\(c_s\)</span> is the propagation speed and <span class="math inline">\(\gamma\)</span> is a damping coefficient. This matches the observed dynamics of starling flocks far better than the purely diffusive propagation (<span class="math inline">\(\omega \sim iq^2\)</span>) predicted by the standard Vicsek model.</p>
@@ -755,7 +755,14 @@ Figure&nbsp;4— Voronoi tessellation applied to a system of particles. Each cel
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Mishra, S., Tunstrøm, K., Couzin, I. D., &amp; Huepe, C. (2012). Collective dynamics of self-propelled particles with variable speed. Physical Review E, 86(1), 011901. https://doi.org/10.1103/PhysRevE.86.011901<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Calovi, D. S., Litchinko, A., Lecheval, V., Lopez, U., Pérez Escudero, A., Chaté, H., Sire, C., &amp; Theraulaz, G. (2018). Disentangling and modeling interactions in fish with burst-and-coast swimming reveal distinct alignment and attraction behaviors. PLOS Computational Biology, 14(1), e1005933. https://doi.org/10.1371/journal.pcbi.1005933<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
