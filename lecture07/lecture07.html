@@ -717,16 +717,11 @@ Figure&nbsp;4— Voronoi tessellation applied to a system of particles. Each cel
 <li><p><strong>Enhanced stability in some regimes</strong>: Counterintuitively, moderate time delays can sometimes stabilize ordered motion by dampening overreactions to fluctuations.</p></li>
 </ol>
 <p>The role of delay becomes particularly important when considering how flocks respond to rapid environmental changes like predator attacks. Simulations by Mishra et al.&nbsp;(2012) showed that the delay-induced wave-like propagation allows information about threats to spread through a flock up to 20 times faster than would be possible through sequential neighbor-to-neighbor transmission.</p>
-<div id="fig-delay-vicsek" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-delay-vicsek-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/images/lecture07/delay_vicsek.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-delay-vicsek-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5— Comparison of information propagation in (a) standard Vicsek model showing diffusive spreading and (b) delay Vicsek model exhibiting wave-like propagation. The colors represent the time at which particles change their direction after a perturbation is introduced at the center. Notice how in the delay model, the information front moves at nearly constant speed (linear relationship between distance and time).
-</figcaption>
-</figure>
-</div>
+<!-- :::{#fig-delay-vicsek}
+![](/assets/images/lecture07/delay_vicsek.png){width=70%}
+
+Comparison of information propagation in (a) standard Vicsek model showing diffusive spreading and (b) delay Vicsek model exhibiting wave-like propagation. The colors represent the time at which particles change their direction after a perturbation is introduced at the center. Notice how in the delay model, the information front moves at nearly constant speed (linear relationship between distance and time).
+::: -->
 <p>Experimental validation comes from studies like those by Calovi et al.&nbsp;(2018), who analyzed trajectory data from schooling fish and found evidence of memory effects in their alignment behavior. They showed that fish respond not just to their neighbors’ current positions and orientations, but to an effective “anticipated” position based on past movement. This anticipation mechanism effectively implements a negative delay (prediction rather than reaction), which further enhances the school’s ability to maintain cohesion during rapid maneuvers.</p>
 <p>Theoretically, the delay Vicsek model provides a critical link between microscopic interaction rules and macroscopic wave propagation. When properly formulated with inertial effects (resistance to orientation changes), the model produces a linear dispersion relation for small perturbations:</p>
 <p><span class="math display">\[\omega \approx c_s q + i\gamma q^2\]</span></p>
@@ -783,7 +778,7 @@ Mathematical Derivation of the Dispersion Relation
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-starling-turns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6— Experimental evidence of linear wave propagation in starling flocks. (source: Attanasi, A. et al.&nbsp;Information transfer and behavioural inertia in starling flocks. Nature Physics 10, 691–696 (2014))
+Figure&nbsp;5— Experimental evidence of linear wave propagation in starling flocks. (source: Attanasi, A. et al.&nbsp;Information transfer and behavioural inertia in starling flocks. Nature Physics 10, 691–696 (2014))
 </figcaption>
 </figure>
 </div>
@@ -822,7 +817,7 @@ Figure&nbsp;6— Experimental evidence of linear wave propagation in starling fl
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-midge-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7— Rescaled correlation functions from different midge swarms collapsing onto a single curve, revealing a dynamic critical exponent z ≈ 1, consistent with non-diffusive information transfer. (source: Cavagna, A. et al.&nbsp;Physics Reports 728, 1-62 (2018))
+Figure&nbsp;6— Rescaled correlation functions from different midge swarms collapsing onto a single curve, revealing a dynamic critical exponent z ≈ 1, consistent with non-diffusive information transfer. (source: Cavagna, A. et al.&nbsp;Physics Reports 728, 1-62 (2018))
 </figcaption>
 </figure>
 </div>
@@ -859,7 +854,7 @@ Spatiotemporal Correlation Functions in Collective Motion
 <img src="../assets/images/lecture07/speed_order_relationship.png" class="img-fluid figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-speed-order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8— Experimentally measured relationship between propagation speed and polarization in starling flocks, showing that more ordered flocks transmit information faster.Each point represents a different turning event. (source: Attanasi, A. et al.&nbsp;Nature Physics 10, 691–696 (2014))
+Figure&nbsp;7— Experimentally measured relationship between propagation speed and polarization in starling flocks, showing that more ordered flocks transmit information faster.Each point represents a different turning event. (source: Attanasi, A. et al.&nbsp;Nature Physics 10, 691–696 (2014))
 </figcaption>
 </figure>
 </div>
@@ -891,7 +886,7 @@ The equal-radius turning that results from this propagation mechanism has clear 
 <img src="../assets/images/lecture07/robot_fish_interaction.png" class="img-fluid figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-robot-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9— A robotic fish designed to interact with and influence the collective behavior of real fish schools. Biohybrid systems combining robotic agents with living collectives allow experimental manipulation of information flow. (source: Bonnet, F. et al.&nbsp;Science Robotics 5, eabd8668 (2020))
+Figure&nbsp;8— A robotic fish designed to interact with and influence the collective behavior of real fish schools. Biohybrid systems combining robotic agents with living collectives allow experimental manipulation of information flow. (source: Bonnet, F. et al.&nbsp;Science Robotics 5, eabd8668 (2020))
 </figcaption>
 </figure>
 </div>
