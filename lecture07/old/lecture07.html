@@ -254,6 +254,18 @@ window.Quarto = {
  <span class="menu-text">Lecture 7</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lecture08/lecture08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 8</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lecture09/lecture09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 9</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -266,30 +278,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#interactive-vicsek-model-simulation" id="toc-interactive-vicsek-model-simulation" class="nav-link active" data-scroll-target="#interactive-vicsek-model-simulation">Interactive Vicsek Model Simulation</a></li>
-  <li><a href="#topological-interactions-in-collective-motion" id="toc-topological-interactions-in-collective-motion" class="nav-link" data-scroll-target="#topological-interactions-in-collective-motion">Topological Interactions in Collective Motion</a></li>
-  <li><a href="#voronoi-based-interactions" id="toc-voronoi-based-interactions" class="nav-link" data-scroll-target="#voronoi-based-interactions">Voronoi-Based Interactions</a></li>
-  <li><a href="#delay-vicsek-model-information-transfer-with-memory" id="toc-delay-vicsek-model-information-transfer-with-memory" class="nav-link" data-scroll-target="#delay-vicsek-model-information-transfer-with-memory">Delay Vicsek Model: Information Transfer with Memory</a></li>
+  <li><a href="#introduction-to-collective-motion" id="toc-introduction-to-collective-motion" class="nav-link active" data-scroll-target="#introduction-to-collective-motion">Introduction to Collective Motion</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation">Mathematical Formulation</a></li>
+  <li><a href="#phase-transition-behavior" id="toc-phase-transition-behavior" class="nav-link" data-scroll-target="#phase-transition-behavior">Phase Transition Behavior</a></li>
+  <li><a href="#connections-to-other-models" id="toc-connections-to-other-models" class="nav-link" data-scroll-target="#connections-to-other-models">Connections to Other Models</a></li>
+  <li><a href="#interactive-vicsek-model-simulation" id="toc-interactive-vicsek-model-simulation" class="nav-link" data-scroll-target="#interactive-vicsek-model-simulation">Interactive Vicsek Model Simulation</a></li>
+  <li><a href="#empirical-evidence-and-model-limitations" id="toc-empirical-evidence-and-model-limitations" class="nav-link" data-scroll-target="#empirical-evidence-and-model-limitations">Empirical Evidence and Model Limitations</a></li>
+  <li><a href="#extensions-of-the-vicsek-model" id="toc-extensions-of-the-vicsek-model" class="nav-link" data-scroll-target="#extensions-of-the-vicsek-model">Extensions of the Vicsek Model</a></li>
   <li><a href="#information-propagation-in-active-groups" id="toc-information-propagation-in-active-groups" class="nav-link" data-scroll-target="#information-propagation-in-active-groups">Information Propagation in Active Groups</a>
   <ul class="collapse">
+  <li><a href="#mathematical-derivation-of-the-dispersion-relation" id="toc-mathematical-derivation-of-the-dispersion-relation" class="nav-link" data-scroll-target="#mathematical-derivation-of-the-dispersion-relation">Mathematical Derivation of the Dispersion Relation</a></li>
   <li><a href="#wave-like-information-transfer-in-starling-flocks" id="toc-wave-like-information-transfer-in-starling-flocks" class="nav-link" data-scroll-target="#wave-like-information-transfer-in-starling-flocks">Wave-like Information Transfer in Starling Flocks</a></li>
-  <li><a href="#the-role-of-behavioral-inertia" id="toc-the-role-of-behavioral-inertia" class="nav-link" data-scroll-target="#the-role-of-behavioral-inertia">The Role of Behavioral Inertia</a></li>
-  <li><a href="#evidence-from-natural-swarms-and-other-systems" id="toc-evidence-from-natural-swarms-and-other-systems" class="nav-link" data-scroll-target="#evidence-from-natural-swarms-and-other-systems">Evidence from Natural Swarms and Other Systems</a></li>
-  <li><a href="#the-speed-order-relationship" id="toc-the-speed-order-relationship" class="nav-link" data-scroll-target="#the-speed-order-relationship">The Speed-Order Relationship</a></li>
-  <li><a href="#functional-benefits-of-wave-like-propagation" id="toc-functional-benefits-of-wave-like-propagation" class="nav-link" data-scroll-target="#functional-benefits-of-wave-like-propagation">Functional Benefits of Wave-Like Propagation</a></li>
-  <li><a href="#applications-and-future-directions" id="toc-applications-and-future-directions" class="nav-link" data-scroll-target="#applications-and-future-directions">Applications and Future Directions</a></li>
-  </ul></li>
-  <li><a href="#active-liquid-crystals-and-nematic-order" id="toc-active-liquid-crystals-and-nematic-order" class="nav-link" data-scroll-target="#active-liquid-crystals-and-nematic-order">Active Liquid Crystals and Nematic Order</a>
-  <ul class="collapse">
-  <li><a href="#liquid-crystals-a-state-between-solid-and-liquid" id="toc-liquid-crystals-a-state-between-solid-and-liquid" class="nav-link" data-scroll-target="#liquid-crystals-a-state-between-solid-and-liquid">Liquid Crystals: A State Between Solid and Liquid</a></li>
-  <li><a href="#from-passive-to-active-nematics-adding-energy-to-the-mix" id="toc-from-passive-to-active-nematics-adding-energy-to-the-mix" class="nav-link" data-scroll-target="#from-passive-to-active-nematics-adding-energy-to-the-mix">From Passive to Active Nematics: Adding Energy to the Mix</a></li>
-  <li><a href="#rod-like-particles-with-no-front-or-back" id="toc-rod-like-particles-with-no-front-or-back" class="nav-link" data-scroll-target="#rod-like-particles-with-no-front-or-back">Rod-Like Particles with No Front or Back</a></li>
-  <li><a href="#describing-alignment-the-director-field-and-order-parameter" id="toc-describing-alignment-the-director-field-and-order-parameter" class="nav-link" data-scroll-target="#describing-alignment-the-director-field-and-order-parameter">Describing Alignment: The Director Field and Order Parameter</a></li>
-  <li><a href="#the-q-tensor-a-complete-mathematical-description" id="toc-the-q-tensor-a-complete-mathematical-description" class="nav-link" data-scroll-target="#the-q-tensor-a-complete-mathematical-description">The Q-Tensor: A Complete Mathematical Description</a></li>
-  <li><a href="#q-tensor-visualization" id="toc-q-tensor-visualization" class="nav-link" data-scroll-target="#q-tensor-visualization">1. Q Tensor Visualization</a></li>
-  <li><a href="#understanding-defects-in-nematic-fields" id="toc-understanding-defects-in-nematic-fields" class="nav-link" data-scroll-target="#understanding-defects-in-nematic-fields">Understanding Defects in Nematic Fields</a></li>
-  <li><a href="#director-field-visualization-with-tensor-glyphs" id="toc-director-field-visualization-with-tensor-glyphs" class="nav-link" data-scroll-target="#director-field-visualization-with-tensor-glyphs">2. Director Field Visualization with Tensor Glyphs</a></li>
-  <li><a href="#mathematical-structure-of-the-q-tensor" id="toc-mathematical-structure-of-the-q-tensor" class="nav-link" data-scroll-target="#mathematical-structure-of-the-q-tensor">Mathematical Structure of the Q Tensor</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -316,56 +315,36 @@ window.Quarto = {
 </header>
 
 
-<p>The Vicsek model, introduced in 1995, provides a minimal framework for understanding collective motion in active systems. It was motivated by striking observations of coordinated movement across diverse biological systems, from bird flocks and fish schools to bacterial colonies and insect swarms. These natural systems display remarkable collective behaviors despite the absence of any centralized control mechanism:</p>
-<ul>
-<li><p><strong>Bird flocks</strong>: Starling murmurations demonstrate rapid information propagation, with thousands of birds turning almost simultaneously. High-speed photography has revealed that changes in direction can spread across a flock at speeds faster than single-bird reaction times would allow.</p></li>
-<li><p><strong>Fish schools</strong>: Experimental studies show that fish maintain remarkably consistent distances from neighbors while executing coordinated turns. When startled, information about predator threats propagates as a wave through the school at speeds much higher than individual swimming speeds.</p></li>
-<li><p><strong>Bacterial colonies</strong>: Time-lapse microscopy of bacterial swarms reveals long-range orientational order spanning distances hundreds of times larger than individual bacteria. These colonies can navigate complex environments despite each bacterium having only local sensory capabilities.</p></li>
-<li><p><strong>Locust swarms</strong>: Field studies demonstrate that locusts maintain aligned motion over vast distances despite considerable environmental perturbations, with density-dependent transitions from disordered to ordered movement.</p></li>
-</ul>
-<p>The Vicsek model represents one of the simplest models demonstrating a non-equilibrium phase transition from disordered motion to coherent flocking behavior, and has become a cornerstone of the active matter field.</p>
-<p>The model’s profound impact on the active matter community stems from its demonstration that simple local alignment rules can produce complex collective phenomena without any centralized control. This insight has inspired thousands of subsequent studies, from bacterial colonies and cellular tissues to robotic swarms and synthetic active colloids. The Vicsek model established the paradigm that active systems—those consuming energy to maintain non-equilibrium states—can exhibit fundamentally different physics from their passive counterparts.</p>
-<p>Recent experimental studies have provided crucial insights that both validate and challenge aspects of the Vicsek model. Cavagna et al.&nbsp;(2017) demonstrated the emergence of dynamic scaling laws in natural swarms of midges, establishing that these biological collectives exhibit critical behavior analogous to physical systems near phase transitions. Their groundbreaking analysis revealed that spatio-temporal correlation functions in different swarms can be rescaled using a single characteristic time, which grows with correlation length according to a dynamical critical exponent z ≈ 1. This finding stands in stark contrast to both equilibrium models and simulations of self-propelled particles (including the Vicsek model), which typically yield z ≈ 2. This discrepancy suggests that natural swarms belong to a novel dynamic universality class not captured by existing theoretical frameworks.</p>
-<div id="fig-midges" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-midges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../assets/images/lecture07/midges.png" class="img-fluid figure-img"></p>
-<figcaption>a, A system of three synchronized high-speed cameras shooting at 170 fps is used to collect videosequences of midge swarms in their natural environment.b, A swarm of approximately 300 midges.c, Close-up of two trajectories within the swarm.</figcaption>
-</figure>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-midges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1
-</figcaption>
-</figure>
-</div>
-<p>The study provided experimental evidence for non-dissipative modes in the relaxation dynamics of swarms, indicating that previously overlooked inertial effects are essential to describe collective animal motion accurately. Unlike the original Vicsek model, which assumes instantaneous alignment and purely dissipative dynamics, real biological systems appear to incorporate behavioral inertia that fundamentally alters information propagation through the group.</p>
-<p>This finding aligns with research by Attanasi et al.&nbsp;(2014) on information transfer in starling flocks during collective turns. Their empirical observations revealed that direction changes propagate across flocks with a linear dispersion law and negligible attenuation, dramatically minimizing group decoherence. This linear and undamped propagation stands in direct opposition to standard models of collective motion, including the original Vicsek model, which predict diffusive transport of information that would cause significant group fragmentation during rapid maneuvers.</p>
-<p>The authors identified behavioral inertia—the tendency of individuals to resist sudden changes in their state of motion—as the crucial missing ingredient in existing models. By incorporating this inertia into a theoretical framework built on spontaneous symmetry breaking and conservation principles, they successfully reproduced the observed linear propagation. Importantly, their theory predicted that information transfer becomes faster as a group’s orientational order increases, a prediction they confirmed through detailed analysis of empirical data. This suggests that the strong polarization observed in many animal groups may have evolved specifically to enable rapid collective decision-making.</p>
-<p>In this model, self-propelled particles move with constant speed while adjusting their direction based on their neighbors. The update rule is elegantly simple:</p>
+<section id="introduction-to-collective-motion" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-collective-motion">Introduction to Collective Motion</h3>
+<p>The Vicsek model, introduced in 1995<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, provides a minimal framework for understanding collective motion in active systems. It was motivated by striking observations of coordinated movement across diverse biological systems, from bird flocks and fish schools to bacterial colonies and insect swarms. These natural systems display remarkable collective behaviors despite the absence of any centralized control mechanism.</p>
+<p>The model’s profound impact on the active matter community stems from its demonstration that simple local alignment rules can produce complex collective phenomena without any centralized control. The Vicsek model established the paradigm that active systems—those consuming energy to maintain non-equilibrium states—can exhibit fundamentally different physics from their passive counterparts.</p>
+</section>
+<section id="mathematical-formulation" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-formulation">Mathematical Formulation</h3>
+<p>In the Vicsek model, self-propelled particles move with constant speed while adjusting their direction based on their neighbors. The update rule is elegantly simple:</p>
 <p><span class="math display">\[\theta_i(t+1) = \langle \theta_j(t) \rangle_{j \in \mathcal{N}_i} + \eta \xi_i(t)\]</span></p>
 <p>where <span class="math inline">\(\theta_i\)</span> is the direction of the <span class="math inline">\(i\)</span>-th particle, <span class="math inline">\(\mathcal{N}_i\)</span> represents its neighbors within a radius <span class="math inline">\(R\)</span>, and <span class="math inline">\(\xi_i(t)\)</span> is a random variable uniformly distributed in <span class="math inline">\([-\pi,\pi]\)</span> with noise strength <span class="math inline">\(\eta\)</span>.</p>
 <p>The particles move with position updates:</p>
 <p><span class="math display">\[\mathbf{r}_i(t+1) = \mathbf{r}_i(t) + v_0 (\cos\theta_i(t+1), \sin\theta_i(t+1))\]</span></p>
-<p>The Vicsek model bears striking resemblances to classical equilibrium models in statistical physics, particularly the XY model, while also connecting to the simpler Ising model. Like the two-dimensional XY model, the Vicsek system has continuous rotational symmetry—particles can point in any direction in the plane—and exhibits ordering through alignment interactions. Both models use similar order parameters measuring the degree of collective alignment. However, a crucial difference emerges: while the Mermin-Wagner theorem prohibits long-range order in the 2D equilibrium XY model at finite temperature due to thermal fluctuations, the active Vicsek system can maintain stable ordered states because it operates far from equilibrium through constant energy injection.</p>
-<p>The connection to the Ising model is more conceptual but equally illuminating. Both models involve local alignment interactions leading to global order-disorder transitions, with the key distinction being that Ising spins are discrete (up/down) while Vicsek particles have continuous orientations. In some sense, the Vicsek model can be viewed as a “dynamic Ising model” with continuous spins, constant motion, and broken detailed balance—features that fundamentally alter the nature of the phase transition.</p>
+<p>This simple model captures the essential dynamics of collective motion: local alignment interactions combined with noise, leading to emergent global order.</p>
+</section>
+<section id="phase-transition-behavior" class="level3">
+<h3 class="anchored" data-anchor-id="phase-transition-behavior">Phase Transition Behavior</h3>
 <p>The key physical insight from the Vicsek model is the emergence of a phase transition controlled by two parameters: the noise strength <span class="math inline">\(\eta\)</span> and the particle density <span class="math inline">\(\rho\)</span>. As noise decreases or density increases, the system transitions from a disordered gas-like state to a coherent flock where particles move collectively in a common direction.</p>
+<p>This transition is typically characterized by the order parameter:</p>
+<p><span class="math display">\[\phi = \frac{1}{Nv_0}\left|\sum_{i=1}^{N} \mathbf{v}_i\right|\]</span></p>
+<p>Which measures the degree of alignment between particle velocities, ranging from 0 (complete disorder) to 1 (perfect alignment).</p>
 <div id="fig-vicsek-snapshots" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vicsek-snapshots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="../../assets/images/lecture07/vicsek_snapshots.png" class="img-fluid figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vicsek-snapshots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2— In this figure the velocities of the particles are displayed for varying values of the density and the noise. The actual velocity of a particle is indicated by a small arrow, while their trajectory for the last 20 time steps is shown by a short continuous curve. The number of particles is <span class="math inline">\(N=300\)</span> in each case. (a) <span class="math inline">\(t=0, L=7, \eta=2.0\)</span>. (b) For small densities and noise the particles tend to form groups moving coherently in random directions, here <span class="math inline">\(L=25, \eta=0.1\)</span>. (c) After some time at higher densities and noise <span class="math inline">\((L=7, \eta=2.0)\)</span> the particles move randomly with some correlation. (d) For higher density and small noise ( <span class="math inline">\(L=5, \eta=0.1\)</span> ) the motion becomes ordered. All of our results shown in Figs. 1-3 were obtained from simulations in which <span class="math inline">\(v\)</span> was set to be equal to 0.03. (source: Vicsek, T., Czirók, A., Ben-Jacob, E., Cohen, I. &amp; Shochet, O. Novel type of phase transition in a system of self-driven particles. Phys Rev Lett 75, 1226 (1995).)
+Figure&nbsp;1— In this figure the velocities of the particles are displayed for varying values of the density and the noise. The actual velocity of a particle is indicated by a small arrow, while their trajectory for the last 20 time steps is shown by a short continuous curve. The number of particles is <span class="math inline">\(N=300\)</span> in each case. (a) <span class="math inline">\(t=0, L=7, \eta=2.0\)</span>. (b) For small densities and noise the particles tend to form groups moving coherently in random directions, here <span class="math inline">\(L=25, \eta=0.1\)</span>. (c) After some time at higher densities and noise <span class="math inline">\((L=7, \eta=2.0)\)</span> the particles move randomly with some correlation. (d) For higher density and small noise ( <span class="math inline">\(L=5, \eta=0.1\)</span> ) the motion becomes ordered. All of our results shown in Figs. 1-3 were obtained from simulations in which <span class="math inline">\(v\)</span> was set to be equal to 0.03. (source: Vicsek et al., 1995<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.)
 </figcaption>
 </figure>
 </div>
-<p>This transition is typically characterized by the order parameter:</p>
-<p><span class="math display">\[\phi = \frac{1}{Nv_0}\left|\sum_{i=1}^{N} \mathbf{v}_i\right|\]</span></p>
-<p>Which measures the degree of alignment between particle velocities, ranging from 0 (complete disorder) to 1 (perfect alignment).</p>
-<p>The nature of this transition remains an active research topic, with evidence suggesting it may be a first-order transition with unique properties related to long-range correlations and giant number fluctuations. These features distinguish it from equilibrium phase transitions, making it a paradigmatic example of non-equilibrium statistical physics.</p>
 <div id="fig-vicsek-PT" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vicsek-PT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -379,10 +358,30 @@ Figure&nbsp;2— In this figure the velocities of the particles are displayed fo
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vicsek-PT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3— The absolute value of the average velocity (<span class="math inline">\(v_a\)</span>) versus the noise <span class="math inline">\(\eta\)</span> in cells of various sizes for a fixed density <span class="math inline">\(\rho\)</span>. The symbols correspond to <span class="math inline">\(\square\)</span>: <span class="math inline">\(N=40, L=3.1;\)</span> <span class="math inline">\(+: N=100, L=5 ;\)</span> $ : N=400, L=10 ; : N=4000, L=31.6 ; : N=10000, L=50$. How <span class="math inline">\(v_a\)</span> changes if the noise is kept constant and the density is increased (for <span class="math inline">\(L=20\)</span>). Phase transitions in the Vicsek model: (a) order parameter vs.&nbsp;noise strength, and (b) order parameter vs.&nbsp;density. (source: 1.Vicsek, T., Czirók, A., Ben-Jacob, E., Cohen, I. &amp; Shochet, O. Novel type of phase transition in a system of self-driven particles. Phys Rev Lett 75, 1226 (1995).)
+Figure&nbsp;2— The absolute value of the average velocity (<span class="math inline">\(v_a\)</span>) versus the noise <span class="math inline">\(\eta\)</span> in cells of various sizes for a fixed density <span class="math inline">\(\rho\)</span>. The symbols correspond to <span class="math inline">\(\square\)</span>: <span class="math inline">\(N=40, L=3.1;\)</span> <span class="math inline">\(+: N=100, L=5 ;\)</span> $ : N=400, L=10 ; : N=4000, L=31.6 ; : N=10000, L=50$. How <span class="math inline">\(v_a\)</span> changes if the noise is kept constant and the density is increased (for <span class="math inline">\(L=20\)</span>). Phase transitions in the Vicsek model: (a) order parameter vs.&nbsp;noise strength, and (b) order parameter vs.&nbsp;density. (source: Vicsek et al., 1995<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.)
 </figcaption>
 </figure>
 </div>
+<section id="nature-of-the-phase-transition" class="level4">
+<h4 class="anchored" data-anchor-id="nature-of-the-phase-transition">Nature of the Phase Transition</h4>
+<p>The nature of the order-disorder transition in the Vicsek model has been the subject of significant debate in the scientific community. In their original 1995 paper<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, Vicsek and colleagues characterized the transition as continuous (second-order), with the order parameter scaling as <span class="math inline">\((\eta_c-\eta)^\beta\)</span> with <span class="math inline">\(\beta \approx 0.45\)</span>.</p>
+<p>Continuous phase transitions are characterized by several key features that the Vicsek model appears to share:</p>
+<ol type="1">
+<li><p><strong>Scale-free correlations</strong>: Near the critical point, correlation lengths diverge, leading to scale-invariant behavior where fluctuations occur at all length scales. This property is evidenced in the Vicsek model by the emergence of clusters of aligned particles at all scales near the transition.</p></li>
+<li><p><strong>Critical exponents</strong>: The behavior near the transition can be described by power laws with characteristic critical exponents. The original Vicsek model revealed an order parameter exponent <span class="math inline">\(\beta \approx 0.45\)</span>, which differs from known equilibrium universality classes, suggesting a novel universality class specific to active systems.</p></li>
+<li><p><strong>Universality</strong>: The values of these exponents are expected to be universal, depending only on fundamental properties like symmetry and dimensionality rather than microscopic details. Recent work by Jentsch and Lee (2024) has proposed that the Vicsek model indeed represents a novel universality class with distinct critical exponents that have been confirmed through both theoretical analysis and simulations.</p></li>
+<li><p><strong>Dynamic scaling</strong>: Time-dependent correlation functions exhibit scaling properties near the critical point, as demonstrated by Cavagna et al.&nbsp;(2017) in natural swarms, though with important differences from the Vicsek model predictions.</p></li>
+</ol>
+<p>However, subsequent studies by Chaté and collaborators (2008) challenged this view, presenting evidence that the transition might actually be first-order (discontinuous) under certain conditions. Their detailed numerical analyses revealed that the apparent continuous nature of the transition might be an artifact of finite-size effects and simulation protocols.</p>
+<p>Recent research by Solon, Chaté, and Tailleur (2015) has offered a unifying perspective by framing the Vicsek transition as analogous to a liquid-gas transition rather than a simple order-disorder one. In this view, the system undergoes microphase separation, leading to traveling bands of high-density ordered regions surrounded by a disordered gas phase. This interpretation helps explain the apparent discontinuity while connecting to the original observations of scaling behavior.</p>
+</section>
+</section>
+<section id="connections-to-other-models" class="level3">
+<h3 class="anchored" data-anchor-id="connections-to-other-models">Connections to Other Models</h3>
+<p>The Vicsek model bears striking resemblances to classical equilibrium models in statistical physics, particularly the XY model, while also connecting to the simpler Ising model. Like the two-dimensional XY model, the Vicsek system has continuous rotational symmetry—particles can point in any direction in the plane—and exhibits ordering through alignment interactions. Both models use similar order parameters measuring the degree of collective alignment.</p>
+<p>However, a crucial difference emerges: while the Mermin-Wagner theorem prohibits long-range order in the 2D equilibrium XY model at finite temperature due to thermal fluctuations, the active Vicsek system can maintain stable ordered states because it operates far from equilibrium through constant energy injection.</p>
+<p>The connection to the Ising model is more conceptual but equally illuminating. Both models involve local alignment interactions leading to global order-disorder transitions, with the key distinction being that Ising spins are discrete (up/down) while Vicsek particles have continuous orientations. In some sense, the Vicsek model can be viewed as a “dynamic Ising model” with continuous spins, constant motion, and broken detailed balance—features that fundamentally alter the nature of the phase transition.</p>
+</section>
 <section id="interactive-vicsek-model-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="interactive-vicsek-model-simulation">Interactive Vicsek Model Simulation</h3>
 <p>Below is an interactive simulation of the Vicsek model, demonstrating how local alignment interactions lead to global order. You can adjust key parameters to observe how they affect the emergence of flocking behavior.</p>
@@ -652,20 +651,32 @@ d3.select("#particle-density").on("input", function() {
 <li><p><strong>Emergent Behavior</strong>: The global ordering emerges spontaneously from purely local interactions, without any centralized control.</p></li>
 </ol>
 <p>Try different parameter combinations to explore how these factors affect the collective dynamics. For instance, increasing the noise while keeping other parameters constant will eventually break down the ordered flocking state, illustrating the noise-induced phase transition that made the Vicsek model so influential in the field of active matter.</p>
-<p>The nature of the order-disorder transition in the Vicsek model has been the subject of significant debate in the scientific community. In their original 1995 paper, Vicsek and colleagues characterized the transition as continuous (second-order), with the order parameter scaling as <span class="math inline">\((\eta_c-\eta)^\beta\)</span> with <span class="math inline">\(\beta \approx 0.45\)</span>. This classification aligns with many traditional continuous phase transitions in equilibrium statistical physics, where the order parameter grows continuously from zero as the control parameter crosses a critical threshold.</p>
-<p>Continuous phase transitions are characterized by several key features that the Vicsek model appears to share:</p>
-<ol type="1">
-<li><p><strong>Scale-free correlations</strong>: Near the critical point, correlation lengths diverge, leading to scale-invariant behavior where fluctuations occur at all length scales. This property is evidenced in the Vicsek model by the emergence of clusters of aligned particles at all scales near the transition.</p></li>
-<li><p><strong>Critical exponents</strong>: The behavior near the transition can be described by power laws with characteristic critical exponents. The original Vicsek model revealed an order parameter exponent <span class="math inline">\(\beta \approx 0.45\)</span>, which differs from known equilibrium universality classes, suggesting a novel universality class specific to active systems.</p></li>
-<li><p><strong>Universality</strong>: The values of these exponents are expected to be universal, depending only on fundamental properties like symmetry and dimensionality rather than microscopic details. Recent work by Jentsch and Lee (2024) has proposed that the Vicsek model indeed represents a novel universality class with distinct critical exponents that have been confirmed through both theoretical analysis and simulations.</p></li>
-<li><p><strong>Dynamic scaling</strong>: Time-dependent correlation functions exhibit scaling properties near the critical point, as demonstrated by Cavagna et al.&nbsp;(2017) in natural swarms, though with important differences from the Vicsek model predictions.</p></li>
-</ol>
-<p>However, subsequent studies by Chaté and collaborators (2008) challenged this view, presenting evidence that the transition might actually be first-order (discontinuous) under certain conditions. Their detailed numerical analyses revealed that the apparent continuous nature of the transition might be an artifact of finite-size effects and simulation protocols. This controversy has led to extensive investigations of how factors such as boundary conditions, system size, and update rules affect the observed transition.</p>
-<p>Recent research by Solon, Chaté, and Tailleur (2015) has offered a unifying perspective by framing the Vicsek transition as analogous to a liquid-gas transition rather than a simple order-disorder one. In this view, the system undergoes microphase separation, leading to traveling bands of high-density ordered regions surrounded by a disordered gas phase. This interpretation helps explain the apparent discontinuity while connecting to the original observations of scaling behavior.</p>
-<p>Remarkably, the detailed nature of the transition depends critically on fluctuations in the system, which select between different possible inhomogeneous patterns. This highlights a fundamental feature of active matter: the essential role of nonequilibrium fluctuations in determining macroscopic behavior, a feature without parallel in equilibrium systems undergoing continuous phase transitions.</p>
 </section>
-<section id="topological-interactions-in-collective-motion" class="level3">
-<h3 class="anchored" data-anchor-id="topological-interactions-in-collective-motion">Topological Interactions in Collective Motion</h3>
+<section id="empirical-evidence-and-model-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="empirical-evidence-and-model-limitations">Empirical Evidence and Model Limitations</h3>
+<p>Recent experimental studies have provided crucial insights that both validate and challenge aspects of the Vicsek model. Cavagna et al.&nbsp;(2017) demonstrated the emergence of dynamic scaling laws in natural swarms of midges, establishing that these biological collectives exhibit critical behavior analogous to physical systems near phase transitions. Their groundbreaking analysis revealed that spatio-temporal correlation functions in different swarms can be rescaled using a single characteristic time, which grows with correlation length according to a dynamical critical exponent z ≈ 1. This finding stands in stark contrast to both equilibrium models and simulations of self-propelled particles (including the Vicsek model), which typically yield z ≈ 2.</p>
+<div id="fig-midges" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-midges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/images/lecture07/midges.png" class="img-fluid figure-img"></p>
+<figcaption>a, A system of three synchronized high-speed cameras shooting at 170 fps is used to collect videosequences of midge swarms in their natural environment.b, A swarm of approximately 300 midges.c, Close-up of two trajectories within the swarm.</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-midges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
+</div>
+<p>The study provided experimental evidence for non-dissipative modes in the relaxation dynamics of swarms, indicating that previously overlooked inertial effects are essential to describe collective animal motion accurately. Unlike the original Vicsek model, which assumes instantaneous alignment and purely dissipative dynamics, real biological systems appear to incorporate behavioral inertia that fundamentally alters information propagation through the group.</p>
+<p>This finding aligns with research by Attanasi et al.&nbsp;(2014) on information transfer in starling flocks during collective turns. Their empirical observations revealed that direction changes propagate across flocks with a linear dispersion law and negligible attenuation, dramatically minimizing group decoherence. This linear and undamped propagation stands in direct opposition to standard models of collective motion, including the original Vicsek model, which predict diffusive transport of information that would cause significant group fragmentation during rapid maneuvers.</p>
+</section>
+<section id="extensions-of-the-vicsek-model" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-of-the-vicsek-model">Extensions of the Vicsek Model</h3>
+<section id="topological-interactions-in-collective-motion" class="level4">
+<h4 class="anchored" data-anchor-id="topological-interactions-in-collective-motion">Topological Interactions in Collective Motion</h4>
 <p>The original Vicsek model uses metric interactions, where particles align with neighbors within a fixed radius. However, studies of starling flocks by Ballerini et al.&nbsp;(2008) revealed that birds interact with a fixed number of neighbors rather than all individuals within a certain distance. This topological interaction scheme has profound implications for collective behavior.</p>
 <p>In topological Vicsek models, each particle interacts with its k nearest neighbors regardless of their distance. The update rule becomes:</p>
 <p><span class="math display">\[\theta_i(t+1) = \langle \theta_j(t) \rangle_{j \in \mathcal{K}_i} + \eta \xi_i(t)\]</span></p>
@@ -678,8 +689,8 @@ d3.select("#particle-density").on("input", function() {
 </ol>
 <p>High-speed tracking experiments of starling flocks found that birds consistently interact with their 6-7 nearest neighbors, regardless of flock density. This topological interaction rule appears optimized for both robust cohesion and rapid information transfer.</p>
 </section>
-<section id="voronoi-based-interactions" class="level3">
-<h3 class="anchored" data-anchor-id="voronoi-based-interactions">Voronoi-Based Interactions</h3>
+<section id="voronoi-based-interactions" class="level4">
+<h4 class="anchored" data-anchor-id="voronoi-based-interactions">Voronoi-Based Interactions</h4>
 <p>A refinement of topological interactions comes through Voronoi tessellation, where space is partitioned into regions closest to each particle. In the Voronoi Vicsek model, particles interact with their Voronoi neighbors—those sharing a boundary in the tessellation.</p>
 <div id="fig-voronoi" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -702,10 +713,9 @@ Figure&nbsp;4— Voronoi tessellation applied to a system of particles. Each cel
 <li>More efficient information propagation compared to fixed-radius interactions</li>
 </ul>
 <p>Recent work by Bastien and Romanczuk (2020) showed that Voronoi-based models better replicate the emergent properties of fish schools, particularly the characteristic “milling” behavior where groups form rotating torus patterns.</p>
-<p>The Voronoi framework also provides natural extensions to include visual occlusion effects, where individuals can only interact with neighbors they can see—a constraint believed to be important in the self-organization of dense biological collectives.</p>
 </section>
-<section id="delay-vicsek-model-information-transfer-with-memory" class="level3">
-<h3 class="anchored" data-anchor-id="delay-vicsek-model-information-transfer-with-memory">Delay Vicsek Model: Information Transfer with Memory</h3>
+<section id="delay-vicsek-model-information-transfer-with-memory" class="level4">
+<h4 class="anchored" data-anchor-id="delay-vicsek-model-information-transfer-with-memory">Delay Vicsek Model: Information Transfer with Memory</h4>
 <p>Recent empirical studies revealing linear wave propagation in starling flocks highlight a key limitation of the standard Vicsek model: it assumes that particles respond instantaneously to the orientation of their neighbors. However, real biological agents—whether birds, fish, or cells—can’t react immediately due to sensory processing time, neural delays, and mechanical constraints of their bodies. This limitation has motivated the development of delay Vicsek models, where particles adjust their orientation based on the state of their neighbors at some time in the past.</p>
 <p>The delay Vicsek model modifies the standard update rule to incorporate this temporal lag:</p>
 <p><span class="math display">\[\theta_i(t+1) = \langle \theta_j(t-\tau) \rangle_{j \in \mathcal{N}_i} + \eta \xi_i(t)\]</span></p>
@@ -715,1413 +725,59 @@ Figure&nbsp;4— Voronoi tessellation applied to a system of particles. Each cel
 <li><p><strong>Emergence of oscillatory states</strong>: The system can develop spatiotemporal patterns like traveling waves, oscillations, and even chaotic states not seen in the standard model.</p></li>
 <li><p><strong>Enhanced stability in some regimes</strong>: Counterintuitively, moderate time delays can sometimes stabilize ordered motion by dampening overreactions to fluctuations.</p></li>
 </ol>
-<p>The role of delay becomes particularly important when considering how flocks respond to rapid environmental changes like predator attacks. Simulations by Mishra et al.&nbsp;(2012) showed that the delay-induced wave-like propagation allows information about threats to spread through a flock up to 20 times faster than would be possible through sequential neighbor-to-neighbor transmission.</p>
-<!-- :::{#fig-delay-vicsek}
-![](/assets/images/lecture07/delay_vicsek.png){width=70%}
-
-Comparison of information propagation in (a) standard Vicsek model showing diffusive spreading and (b) delay Vicsek model exhibiting wave-like propagation. The colors represent the time at which particles change their direction after a perturbation is introduced at the center. Notice how in the delay model, the information front moves at nearly constant speed (linear relationship between distance and time).
-::: -->
-<p>Experimental validation comes from studies like those by Calovi et al.&nbsp;(2018), who analyzed trajectory data from schooling fish and found evidence of memory effects in their alignment behavior. They showed that fish respond not just to their neighbors’ current positions and orientations, but to an effective “anticipated” position based on past movement. This anticipation mechanism effectively implements a negative delay (prediction rather than reaction), which further enhances the school’s ability to maintain cohesion during rapid maneuvers.</p>
+<p>The role of delay becomes particularly important when considering how flocks respond to rapid environmental changes like predator attacks. Studies on self-propelled particle models with variable speed, such as the work by Mishra et al.&nbsp;(2012) <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, provide insights into how information can propagate through collectives at rates much faster than would be possible through sequential neighbor-to-neighbor transmission.</p>
+<p>Experimental validation comes from studies like those by Calovi et al.&nbsp;(2018) <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, who analyzed trajectory data from schooling fish with burst-and-coast swimming patterns. They disentangled and modeled the interactions involved in swimming coordination, finding that both attraction and alignment behaviors govern how fish react to their neighbors. Their data-driven model successfully reproduced the key features of coordinated motion observed in experiments, showing how these interactions allow fish to maintain cohesion during complex maneuvers.</p>
 <p>Theoretically, the delay Vicsek model provides a critical link between microscopic interaction rules and macroscopic wave propagation. When properly formulated with inertial effects (resistance to orientation changes), the model produces a linear dispersion relation for small perturbations:</p>
 <p><span class="math display">\[\omega \approx c_s q + i\gamma q^2\]</span></p>
 <p>where <span class="math inline">\(c_s\)</span> is the propagation speed and <span class="math inline">\(\gamma\)</span> is a damping coefficient. This matches the observed dynamics of starling flocks far better than the purely diffusive propagation (<span class="math inline">\(\omega \sim iq^2\)</span>) predicted by the standard Vicsek model.</p>
 <p>Current research is exploring how heterogeneous delays (different response times for different individuals) affect collective dynamics, and how natural systems might exploit these delay effects to optimize information transfer while maintaining robust coordination in noisy environments.</p>
 </section>
+</section>
 <section id="information-propagation-in-active-groups" class="level2">
 <h2 class="anchored" data-anchor-id="information-propagation-in-active-groups">Information Propagation in Active Groups</h2>
-<p>Understanding how information flows through active matter systems provides crucial insights into their collective behavior and response to perturbations. A fundamental question is: how do changes in motion propagate through a flock or swarm, allowing the group to respond coherently to environmental stimuli or threats?</p>
-<p>In standard models of collective behavior, like the Vicsek model we discussed earlier, information transfer is typically predicted to be diffusive. To understand why this diffusion equation arises, we need to examine what happens when small disturbances propagate through the system.</p>
-<p>When we linearize the Vicsek model around a homogeneously ordered state (where all particles are moving in roughly the same direction), we’re essentially looking at how small deviations from perfect alignment evolve over time. In the ordered phase, each particle adjusts its direction based on the average direction of its neighbors plus some noise.</p>
-<p>The key insight is that this alignment process resembles a random walk in orientation space. When a particle’s orientation differs slightly from its neighbors, it tends to adjust back toward the average, but imperfectly due to noise. This process is mathematically analogous to a particle undergoing Brownian motion, which is the classic example of diffusion.</p>
-<p>The mathematical formulation yields a diffusion equation for the propagation of orientation fluctuations:</p>
-<p><span class="math display">\[\frac{\partial \phi}{\partial t} = D \nabla^2 \phi\]</span></p>
-<p>where <span class="math inline">\(\phi\)</span> represents the orientation angle and <span class="math inline">\(D\)</span> is a diffusion constant. This diffusion equation has a characteristic dispersion relation:</p>
-<p><span class="math display">\[\omega(q) \sim iq^2\]</span></p>
-<p>where <span class="math inline">\(\omega\)</span> is the frequency and <span class="math inline">\(q\)</span> is the wavevector. In physical terms, this means that information about direction changes would spread through the group as a diffusive process, where the distance covered scales with time as <span class="math inline">\(x \sim \sqrt{t}\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Mathematical Derivation of the Dispersion Relation
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To find the dispersion relation, we can analyze how small perturbations propagate through the system. For a diffusion equation:</p>
-<p><span class="math display">\[\frac{\partial \phi}{\partial t} = D \nabla^2 \phi\]</span></p>
-<p>Let’s consider a plane wave solution of the form:</p>
-<p><span class="math display">\[\phi(\mathbf{r},t) = \phi_0 e^{i(\mathbf{q}\cdot\mathbf{r} - \omega t)}\]</span></p>
-<p>Substituting this into the diffusion equation:</p>
-<p><span class="math display">\[-i\omega \phi_0 e^{i(\mathbf{q}\cdot\mathbf{r} - \omega t)} = -D q^2 \phi_0 e^{i(\mathbf{q}\cdot\mathbf{r} - \omega t)}\]</span></p>
-<p>Simplifying:</p>
-<p><span class="math display">\[\omega = iDq^2\]</span></p>
-<p>This is the dispersion relation for diffusive processes. The imaginary coefficient indicates that these waves are damped rather than propagating, with the amplitude decaying as <span class="math inline">\(e^{-Dq^2t}\)</span>. Longer wavelengths (smaller <span class="math inline">\(q\)</span>) decay more slowly than shorter wavelengths.</p>
-</div>
-</div>
-</div>
-<p>The diffusive nature of information transfer poses a serious problem for biological groups: during rapid maneuvers, like avoiding a predator, diffusion would cause significant decoherence—different parts of the flock would receive the information at vastly different times, potentially fragmenting the group. This is especially problematic for large flocks, where diffusion would be far too slow to maintain cohesion during quick turns.</p>
+<section id="mathematical-derivation-of-the-dispersion-relation" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-derivation-of-the-dispersion-relation">Mathematical Derivation of the Dispersion Relation</h3>
+<p>Accurate models of information transfer in animal groups require understanding how behavioral changes propagate through a collection of moving individuals. Unlike the diffusive transport predicted by the original Vicsek model, empirical data from starling flocks shows that directional information travels as a wave with minimal damping, enabling rapid collective responses without sacrificing group cohesion.</p>
+<p>To understand the mathematics behind this propagation, we start with a linearized description of small perturbations to a uniformly ordered flock. Consider a system where all individuals are initially moving in the same direction (along the x-axis) when a small perturbation in orientation is introduced. The key insight from biological data is that individuals exhibit behavioral inertia—they resist sudden changes in direction due to physical and cognitive constraints.</p>
+<p>Incorporating inertia leads to a second-order differential equation in time for the orientation field:</p>
+<p><span class="math display">\[\tau \frac{\partial^2 \theta}{\partial t^2} + \frac{\partial \theta}{\partial t} = v_0 J \nabla^2 \theta + \eta\]</span></p>
+<p>where <span class="math inline">\(\tau\)</span> is the inertial time constant, <span class="math inline">\(v_0\)</span> is the speed, <span class="math inline">\(J\)</span> is the alignment coupling strength, and <span class="math inline">\(\eta\)</span> represents noise.</p>
+<p>Without inertia (<span class="math inline">\(\tau=0\)</span>), this reduces to a diffusion equation:</p>
+<p><span class="math display">\[\frac{\partial \theta}{\partial t} = v_0 J \nabla^2 \theta + \eta\]</span></p>
+<p>leading to diffusive information propagation with dispersion relation <span class="math inline">\(\omega = i D q^2\)</span> where <span class="math inline">\(D = v_0 J\)</span>. This implies that perturbations decay without propagating, with characteristic timescales that scale as <span class="math inline">\(t \sim 1/q^2\)</span> with wavenumber.</p>
+<p>However, with inertia (<span class="math inline">\(\tau &gt; 0\)</span>), we get the dispersion relation:</p>
+<p><span class="math display">\[\omega = \frac{-i \pm \sqrt{4\tau v_0 J q^2 - 1}}{2\tau}\]</span></p>
+<p>For sufficiently long wavelengths (small <span class="math inline">\(q\)</span>), this produces purely damped modes. But for <span class="math inline">\(q &gt; q_c = 1/\sqrt{4\tau v_0 J}\)</span>, propagating modes emerge with:</p>
+<p><span class="math display">\[\omega \approx \pm c_s q - i\gamma\]</span></p>
+<p>where <span class="math inline">\(c_s = \sqrt{v_0 J/\tau}\)</span> is the propagation speed and <span class="math inline">\(\gamma\)</span> is a damping coefficient.</p>
+<p>This transition from diffusive to wave-like transport at a critical wavelength matches observations in starling flocks, where directional changes propagate linearly (constant speed) rather than diffusively across the group.</p>
+</section>
 <section id="wave-like-information-transfer-in-starling-flocks" class="level3">
 <h3 class="anchored" data-anchor-id="wave-like-information-transfer-in-starling-flocks">Wave-like Information Transfer in Starling Flocks</h3>
-<p>High-resolution tracking experiments of starling flocks by Attanasi et al.&nbsp;(2014) revealed a fundamentally different mechanism of information propagation. Using a system of three synchronized high-speed cameras recording at 170 frames per second (see <a href="#fig-midges" class="quarto-xref">Figure&nbsp;1</a>), they captured the three-dimensional trajectories of individual birds within flocks of up to 3,000 starlings during natural turning events.</p>
-<div id="fig-starling-turns" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-starling-turns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../assets/images/lecture07/starling_turn_propagation.png" class="img-fluid figure-img"></p>
-<figcaption>Left: 3D reconstruction of a turning flock of starlings, with each point representing a bird and colors indicating time progression (blue→yellow). Right: Angular velocity propagation through the flock, showing the linear spatial-temporal relationship.</figcaption>
-</figure>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-starling-turns-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5— Experimental evidence of linear wave propagation in starling flocks. (source: Attanasi, A. et al.&nbsp;Information transfer and behavioural inertia in starling flocks. Nature Physics 10, 691–696 (2014))
-</figcaption>
-</figure>
-</div>
-<p>Their analysis revealed that direction changes propagate linearly in time (rather than diffusively) and with negligible damping. When one bird initiates a turn, this directional change spreads through the flock as a wave, with a nearly constant speed of propagation. The experimental data showed a clear linear relationship between the distance from the initiation point and the time at which birds responded, contradicting the quadratic relationship expected from diffusive models.</p>
-<p>The researchers measured propagation speeds of 20-40 meters per second—remarkably faster than the flight speed of individual birds (about 10 m/s). This high-speed propagation allows information to reach all flock members almost simultaneously, enabling the dramatic, seemingly choreographed turns observed in starling murmurations.</p>
-</section>
-<section id="the-role-of-behavioral-inertia" class="level3">
-<h3 class="anchored" data-anchor-id="the-role-of-behavioral-inertia">The Role of Behavioral Inertia</h3>
-<p>To explain these observations, Attanasi and colleagues developed a theoretical framework based on three key physical concepts:</p>
+<p>Field studies of starling murmurations provide compelling evidence for wave-like propagation of direction changes. Attanasi et al.&nbsp;(2014) analyzed high-speed video recordings of thousands of starlings performing collective turns and measured how orientation changes propagate through the flock. Their analysis revealed several key features:</p>
 <ol type="1">
-<li><p><strong>Behavioral inertia</strong>: Unlike the assumption in most models that individuals can instantly adjust their direction, real birds exhibit resistance to sudden changes in their state of motion. This inertial effect fundamentally alters the equations of motion.</p></li>
-<li><p><strong>Social interactions</strong>: Birds align their motion with neighbors, creating a coupling between nearby individuals.</p></li>
-<li><p><strong>Conservation laws arising from symmetry</strong>: The rotational invariance of the system (a gauge symmetry) leads to a conservation law via Noether’s theorem. When combined with behavioral inertia, this produces wave-like rather than diffusive propagation.</p></li>
+<li><p><strong>Linear propagation</strong>: Changes in direction spread through the flock at a nearly constant speed of approximately 20-40 meters per second, far faster than the flight speed of individual birds (about 10-15 m/s).</p></li>
+<li><p><strong>Low attenuation</strong>: Unlike diffusive processes where information degrades as it spreads, the turning waves maintained their form with minimal damping as they traversed the entire flock.</p></li>
+<li><p><strong>Scale-free behavior</strong>: The propagation speed showed remarkable consistency across flocks of different sizes, suggesting a fundamental mechanism independent of specific group parameters.</p></li>
 </ol>
-<p>These elements lead to an equation of motion resembling a wave equation rather than a diffusion equation:</p>
-<p><span class="math display">\[\frac{\partial^2 \phi}{\partial t^2} = c^2 \nabla^2 \phi\]</span></p>
-<p>This supports wave-like propagation of information with a linear relationship between distance and time, allowing even large flocks to turn coherently.</p>
-<p>Mathematically, they introduced a two-dimensional order parameter <span class="math inline">\(\phi_i\)</span>, representing the angle between bird <span class="math inline">\(i\)</span>’s direction of motion and that of the flock. In the highly ordered regime where <span class="math inline">\(\phi_i \ll 1\)</span>, they linearized the dynamics.</p>
-<p>With behavioral inertia included, the system’s dynamics is governed by D’Alembert’s wave equation rather than the diffusion equation:</p>
-<p><span class="math display">\[\frac{\partial^2 \phi}{\partial t^2} - c_s^2 \nabla^2 \phi = 0\]</span></p>
-<p>This wave equation has a linear dispersion relation:</p>
-<p><span class="math display">\[\omega(q) = c_s q\]</span></p>
-<p>This means that information travels linearly with time (x = c_s t), much faster than diffusive propagation would allow. This explains the observed linear propagation of turning information through the flock.</p>
-</section>
-<section id="evidence-from-natural-swarms-and-other-systems" class="level3">
-<h3 class="anchored" data-anchor-id="evidence-from-natural-swarms-and-other-systems">Evidence from Natural Swarms and Other Systems</h3>
-<p>Complementary evidence for non-diffusive dynamics comes from studies of natural midge swarms. Cavagna et al.&nbsp;(2017) analyzed the spatio-temporal correlation functions in midge swarms and found that different swarms can be rescaled using a single characteristic time that grows with correlation length according to a dynamical critical exponent z ≈ 1, rather than z ≈ 2 expected for diffusive processes.</p>
-<div id="fig-midge-correlation" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-midge-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../assets/images/lecture07/midge_correlations.png" class="img-fluid figure-img"></p>
-<figcaption>Correlation function collapse in natural midge swarms, showing evidence of non-diffusive dynamic scaling.</figcaption>
-</figure>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-midge-correlation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6— Rescaled correlation functions from different midge swarms collapsing onto a single curve, revealing a dynamic critical exponent z ≈ 1, consistent with non-diffusive information transfer. (source: Cavagna, A. et al.&nbsp;Physics Reports 728, 1-62 (2018))
-</figcaption>
-</figure>
-</div>
-<p>Similar wave-like propagation has been observed in fish schools. Rosenthal et al.&nbsp;(2015) documented that startled golden shiners (Notemigonus crysoleucas) generate a wave of behavioral change that propagates through the school at a speed of approximately 15 body lengths per second—much faster than would be predicted by nearest-neighbor reaction time models. This behavioral wave allows the entire school to respond to a threat almost simultaneously, dramatically improving collective escape success.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Spatiotemporal Correlation Functions in Collective Motion
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The behavior of spatiotemporal correlation functions reveals the underlying physics of information transfer in collective systems:</p>
-<p><strong>Correlation Function Definition:</strong> <span class="math display">\[C(r,t) = \langle \delta\mathbf{v}(\mathbf{r}+\mathbf{r}',t+t') \cdot \delta\mathbf{v}(\mathbf{r}',t') \rangle\]</span></p>
-<p>where <span class="math inline">\(\delta\mathbf{v}\)</span> represents velocity fluctuations around the mean.</p>
-<p><strong>Dynamical Scaling:</strong> For systems with critical behavior, the correlation function follows a scaling form: <span class="math display">\[C(r,t) = r^{-(d-2+\eta)}f(t/r^z)\]</span></p>
-<p>The dynamical critical exponent <span class="math inline">\(z\)</span> determines how information propagation scales with distance:</p>
-<ul>
-<li><span class="math inline">\(z \approx 2\)</span>: Diffusive propagation (standard models)</li>
-<li><span class="math inline">\(z \approx 1\)</span>: Linear wave propagation (observed in bird flocks)</li>
-</ul>
-<p><strong>Experimental Evidence:</strong> In midge swarms, different-sized groups collapse onto a single curve when time is rescaled by <span class="math inline">\(t/r^z\)</span> with <span class="math inline">\(z \approx 1\)</span>, providing strong evidence for non-diffusive dynamics that enables rapid collective response.</p>
-</div>
-</div>
-</section>
-<section id="the-speed-order-relationship" class="level3">
-<h3 class="anchored" data-anchor-id="the-speed-order-relationship">The Speed-Order Relationship</h3>
-<p>A key prediction of the wave-propagation theory is that the speed of information transfer should increase with the group’s orientational order. Attanasi and colleagues confirmed this prediction by analyzing turning events in different flocks, finding that the propagation speed <span class="math inline">\(c_s\)</span> increases with the polarization <span class="math inline">\(\Phi\)</span> of the flock.</p>
-<div id="fig-speed-order" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-speed-order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../assets/images/lecture07/speed_order_relationship.png" class="img-fluid figure-img" style="width:60.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-speed-order-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7— Experimentally measured relationship between propagation speed and polarization in starling flocks, showing that more ordered flocks transmit information faster.Each point represents a different turning event. (source: Attanasi, A. et al.&nbsp;Nature Physics 10, 691–696 (2014))
-</figcaption>
-</figure>
-</div>
-<p>This relationship has profound implications for understanding the functional benefits of alignment in animal groups. The high degree of polarization commonly observed in fish schools and bird flocks may have evolved specifically to enable rapid information transfer, allowing coordinated responses to environmental challenges.</p>
-</section>
-<section id="functional-benefits-of-wave-like-propagation" class="level3">
-<h3 class="anchored" data-anchor-id="functional-benefits-of-wave-like-propagation">Functional Benefits of Wave-Like Propagation</h3>
-<p>The linear, undamped propagation allows flocks to execute coherent turns without fragmentation, as information about direction changes reaches all members with minimal delay. The turning dynamics represents what physicists call “second sound”—propagating waves of orientation rather than density, analogous to phenomena observed in superfluids and crystalline solids.</p>
-<p>This mechanism explains how starling flocks maintain their remarkable cohesion during complex aerial maneuvers. Their study reveals that biological collectives have evolved mechanisms that effectively overcome the limitations of diffusive information transfer, enabling rapid and coordinated responses essential for survival.</p>
-<!-- :::{#fig-equal-radius}
-![Equal-radius turning in starling flocks, showing how birds maintain their relative positions during turns.](/assets/images/lecture07/equal_radius_turning.png)
+<p>This wave-like propagation is critical for collective survival: when a predator approaches, the need to transmit evasive maneuver information quickly throughout the group becomes a matter of life and death. Diffusive propagation would cause the flock to fragment during rapid turns, making individuals vulnerable to predation.</p>
 
-Equal-radius turning in starling flocks minimizes relative position changes during maneuvers, reducing collision risk. (source: Pomeroy, H. & Heppner, F. The Auk 109, 256-267 (1992))
-:::
 
-The equal-radius turning that results from this propagation mechanism has clear biological advantages:
+</section>
+</section>
 
-1. It maintains nearly constant speed throughout the flock, conserving energy during maneuvers
-2. It preserves the relative positions of individuals, minimizing collision risks during rapid turns
-3. It keeps the flock's shape relatively stable, maintaining the sensory network topology -->
-</section>
-<section id="applications-and-future-directions" class="level3">
-<h3 class="anchored" data-anchor-id="applications-and-future-directions">Applications and Future Directions</h3>
-<p>These findings highlight how active biological systems can achieve robust collective behavior through mechanisms that incorporate memory effects (behavioral inertia) and leverage fundamental principles of symmetry and conservation. The mathematical framework bridges statistical physics, information theory, and collective behavior, showing how local interactions with inertial effects produce the coherent global coordination observed in natural flocks.</p>
-<p>Recent experimental work by Bonnet et al.&nbsp;(2020) on hybrid systems—where autonomous robots interact with living fish schools—has demonstrated the possibility of injecting information through controlled perturbations. By programming a robotic fish with specific behavioral rules including appropriate behavioral inertia, they successfully influenced the collective motion of live zebrafish schools, steering their direction and even inducing consensus changes.</p>
-<div id="fig-robot-fish" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-robot-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../../assets/images/lecture07/robot_fish_interaction.png" class="img-fluid figure-img" style="width:60.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-robot-fish-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8— A robotic fish designed to interact with and influence the collective behavior of real fish schools. Biohybrid systems combining robotic agents with living collectives allow experimental manipulation of information flow. (source: Bonnet, F. et al.&nbsp;Science Robotics 5, eabd8668 (2020))
-</figcaption>
-</figure>
-</div>
-<p>These hybrid systems offer promising avenues for both testing theoretical models of information propagation and developing applications for guiding collective behavior through minimal interventions. Understanding the wave-like nature of information transfer could enable more effective crowd management systems, wildlife conservation strategies, and even targeted manipulation of biological collectives for ecological applications.</p>
-<p>Current research continues to explore how behavioral inertia interacts with other collective mechanisms like leadership dynamics, selective attention, and variable interaction networks to create the remarkably robust yet responsive collective behavior observed across diverse animal groups in nature.</p>
-</section>
-</section>
-<section id="active-liquid-crystals-and-nematic-order" class="level2">
-<h2 class="anchored" data-anchor-id="active-liquid-crystals-and-nematic-order">Active Liquid Crystals and Nematic Order</h2>
-<section id="liquid-crystals-a-state-between-solid-and-liquid" class="level3">
-<h3 class="anchored" data-anchor-id="liquid-crystals-a-state-between-solid-and-liquid">Liquid Crystals: A State Between Solid and Liquid</h3>
-<p>Liquid crystals represent a state of matter that combines properties of both liquids and crystalline solids. Unlike ordinary liquids where molecules move and orient randomly, or crystals where molecules are locked in rigid lattices, liquid crystals flow like liquids while maintaining some degree of molecular orientation order.</p>
-<p>The simplest and most common type of liquid crystal is the nematic phase, named from the Greek word “νήμα” (nema) meaning “thread.” In nematics, rod-like molecules align roughly parallel to each other, but their centers of mass are distributed randomly like in a liquid. This gives the material a preferred direction, known as the director, while still allowing it to flow.</p>
-<p>This makes liquid crystals useful in everyday applications like LCD displays, where electric fields can be used to control the orientation of the liquid crystal molecules, affecting how light passes through them.</p>
-</section>
-<section id="from-passive-to-active-nematics-adding-energy-to-the-mix" class="level3">
-<h3 class="anchored" data-anchor-id="from-passive-to-active-nematics-adding-energy-to-the-mix">From Passive to Active Nematics: Adding Energy to the Mix</h3>
-<p>Active nematics take the concept of liquid crystals one step further by incorporating internal energy consumption. While regular (passive) liquid crystals only change their configuration in response to external forces, active nematics continuously convert stored or ambient energy into motion.</p>
-<p>Think about the difference between a crowd of people standing still (passive system) versus a crowd where everyone is walking (active system). Both might show alignment—people facing the same direction—but the active system has a constant energy input that drives motion.</p>
-<p>In laboratory settings, active nematics can be created using:</p>
-<ol type="1">
-<li><strong>Biological components</strong>: Mixtures of microtubules (protein filaments from cell structures) and kinesin motor proteins that consume ATP for movement</li>
-<li><strong>Bacterial suspensions</strong>: Rod-shaped bacteria like E. coli that swim using flagella</li>
-<li><strong>Synthetic systems</strong>: Specially designed particles that convert chemical energy or light into motion</li>
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Vicsek, T., Czirók, A., Ben-Jacob, E., Cohen, I., &amp; Shochet, O. (1995). Novel type of phase transition in a system of self-driven particles. Physical Review Letters, 75(6), 1226-1229. https://doi.org/10.1103/physrevlett.75.1226<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Vicsek, T., Czirók, A., Ben-Jacob, E., Cohen, I., &amp; Shochet, O. (1995). Novel type of phase transition in a system of self-driven particles. Physical Review Letters, 75(6), 1226-1229. https://doi.org/10.1103/physrevlett.75.1226<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Vicsek, T., Czirók, A., Ben-Jacob, E., Cohen, I., &amp; Shochet, O. (1995). Novel type of phase transition in a system of self-driven particles. Physical Review Letters, 75(6), 1226-1229. https://doi.org/10.1103/physrevlett.75.1226<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Vicsek, T., Czirók, A., Ben-Jacob, E., Cohen, I., &amp; Shochet, O. (1995). Novel type of phase transition in a system of self-driven particles. Physical Review Letters, 75(6), 1226-1229. https://doi.org/10.1103/physrevlett.75.1226<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Mishra, S., Tunstrøm, K., Couzin, I. D., &amp; Huepe, C. (2012). Collective dynamics of self-propelled particles with variable speed. Physical Review E, 86(1), 011901. https://doi.org/10.1103/PhysRevE.86.011901<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Calovi, D. S., Litchinko, A., Lecheval, V., Lopez, U., Pérez Escudero, A., Chaté, H., Sire, C., &amp; Theraulaz, G. (2018). Disentangling and modeling interactions in fish with burst-and-coast swimming reveal distinct alignment and attraction behaviors. PLOS Computational Biology, 14(1), e1005933. https://doi.org/10.1371/journal.pcbi.1005933<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section>
-<section id="rod-like-particles-with-no-front-or-back" class="level3">
-<h3 class="anchored" data-anchor-id="rod-like-particles-with-no-front-or-back">Rod-Like Particles with No Front or Back</h3>
-<p>A key distinction between the Vicsek model (discussed earlier) and nematic systems lies in the symmetry of the particles:</p>
-<ul>
-<li><p>In the Vicsek model, particles have a distinct front and back (like birds or fish), giving them a clear direction of movement. This is called <strong>polar symmetry</strong>.</p></li>
-<li><p>In nematic systems, the rod-like particles have <strong>head-tail symmetry</strong> - they look the same from either end (like a pencil). This means that a particle pointing “up” is equivalent to one pointing “down.”</p></li>
-</ul>
-<p>This fundamental difference in particle symmetry leads to entirely different types of collective behavior and mathematical descriptions.</p>
-</section>
-<section id="describing-alignment-the-director-field-and-order-parameter" class="level3">
-<h3 class="anchored" data-anchor-id="describing-alignment-the-director-field-and-order-parameter">Describing Alignment: The Director Field and Order Parameter</h3>
-<p>In nematic systems, we need two key concepts to describe the alignment:</p>
-<ol type="1">
-<li><p><strong>The director field (n)</strong>: A unit vector that represents the average orientation of particles at each point in space. Because of head-tail symmetry, n and -n represent the same physical state.</p></li>
-<li><p><strong>The scalar order parameter (S)</strong>: A measure of how well-aligned the particles are with the director. S ranges from 0 (complete disorder) to 1 (perfect alignment).</p></li>
-</ol>
-<p>For a collection of rod-like particles, the scalar order parameter can be calculated as:</p>
-<p><span class="math display">\[S = \langle 2(\mathbf{u}_i \cdot \mathbf{n})^2 - 1 \rangle\]</span></p>
-<p>Where <span class="math inline">\(\mathbf{u}_i\)</span> is the orientation of the i-th particle, <span class="math inline">\(\mathbf{n}\)</span> is the director, and the angle brackets represent an average over all particles in a small region. This formula gives S = 1 when all particles align perfectly with n, and S = 0 when orientations are completely random.</p>
-</section>
-<section id="the-q-tensor-a-complete-mathematical-description" class="level3">
-<h3 class="anchored" data-anchor-id="the-q-tensor-a-complete-mathematical-description">The Q-Tensor: A Complete Mathematical Description</h3>
-<p>While the director and scalar order parameter provide an intuitive picture, a more complete mathematical description uses the Q-tensor. This tensor captures both the direction of alignment and its strength in a single mathematical object.</p>
-<p>The Q-tensor is defined as:</p>
-<p><span class="math display">\[\mathbf{Q} = S \left(\mathbf{n}\mathbf{n} - \frac{1}{d}\mathbf{I}\right)\]</span></p>
-<p>where: - S is the scalar order parameter (strength of alignment) - n is the director field (average orientation) - d is the dimension of space (usually 2 or 3) - I is the identity tensor</p>
-<p>This might look complicated, but it has a simple physical interpretation: the Q-tensor describes how the orientation of particles deviates from being completely random. The subtraction of I/d ensures that the tensor is traceless (the sum of diagonal elements is zero), reflecting the fact that we’re measuring deviations from the isotropic (random) state.</p>
-</section>
-<section id="q-tensor-visualization" class="level3">
-<h3 class="anchored" data-anchor-id="q-tensor-visualization">1. Q Tensor Visualization</h3>
-<div id="q-tensor-visualization" style="width: 100%; height: 450px; margin-bottom: 20px;">
-  <div style="display: flex; justify-content: space-between;">
-    <div id="ellipsoid-container" style="width: 60%; height: 400px;"></div>
-    <div style="width: 35%; padding: 20px;">
-      <h4 class="anchored">Q Tensor Parameters</h4>
-      <div style="margin: 15px 0;">
-        <label for="scalar-parameter">Scalar Order Parameter (S): <span id="s-value">0.5</span></label><br>
-        <input type="range" id="scalar-parameter" min="0" max="1" step="0.01" value="0.5" style="width: 100%;">
-      </div>
-      <div style="margin: 15px 0;">
-        <label for="director-theta">Director θ (azimuthal): <span id="theta-value">0</span>°</label><br>
-        <input type="range" id="director-theta" min="0" max="360" step="1" value="0" style="width: 100%;">
-      </div>
-      <div style="margin: 15px 0;">
-        <label for="director-phi">Director φ (polar): <span id="phi-value">0</span>°</label><br>
-        <input type="range" id="director-phi" min="0" max="180" step="1" value="0" style="width: 100%;">
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Initial parameters
-  let S = 0.5; // scalar order parameter
-  let theta = 0; // azimuthal angle in degrees
-  let phi = 0; // polar angle in degrees
-
-  // Function to update the visualization
-  function updateQTensorVisualization() {
-    // Convert angles to radians
-    const thetaRad = theta * Math.PI / 180;
-    const phiRad = phi * Math.PI / 180;
-
-    // Calculate director vector
-    const nx = Math.sin(phiRad) * Math.cos(thetaRad);
-    const ny = Math.sin(phiRad) * Math.sin(thetaRad);
-    const nz = Math.cos(phiRad);
-
-    // Calculate Q tensor (in 3D)
-    const d = 3; // dimension
-
-    // Q tensor components (using the formula Q_ij = S * (n_i * n_j - delta_ij/d))
-    const Qxx = S * (nx * nx - 1/d);
-    const Qxy = S * (nx * ny);
-    const Qxz = S * (nx * nz);
-    const Qyy = S * (ny * ny - 1/d);
-    const Qyz = S * (ny * nz);
-    const Qzz = S * (nz * nz - 1/d);
-
-    // Calculate eigenvalues and eigenvectors
-    // For simplicity, we'll use the fact that for a uniaxial nematic:
-    // The eigenvalue along the director is S*(d-1)/d
-    // The eigenvalues perpendicular to the director are -S/d
-
-    const eigenvalue1 = S * (d-1)/d;
-    const eigenvalue2 = -S/d;
-    const eigenvalue3 = -S/d;
-
-    // Scale for visualization (adjust if needed)
-    const scale = 1.5;
-    const e1 = scale * (eigenvalue1 + 0.5);
-    const e2 = scale * (eigenvalue2 + 0.5);
-    const e3 = scale * (eigenvalue3 + 0.5);
-
-    // Generate points for ellipsoid with higher resolution for smoother appearance
-    const u = Array.from({length: 100}, (_, i) => i * Math.PI / 50);
-    const v = Array.from({length: 100}, (_, i) => i * 2 * Math.PI / 100);
-
-    const x = [], y = [], z = [];
-
-    // Create a properly connected surface by organizing points into a grid
-    for (let i = 0; i < u.length; i++) {
-      const uVal = u[i];
-      // Start a new row for each u value
-      const xRow = [], yRow = [], zRow = [];
-
-      for (let j = 0; j < v.length; j++) {
-        const vVal = v[j];
-        // Parametric equations for ellipsoid
-        let xVal = e1 * Math.sin(uVal) * Math.cos(vVal);
-        let yVal = e2 * Math.sin(uVal) * Math.sin(vVal);
-        let zVal = e3 * Math.cos(uVal);
-
-        // Apply rotation to align with director
-        // This is a simplified rotation - would need proper transformation
-        // using eigenvectors for full accuracy
-
-        // Simple rotation around z then y axis to align with director
-        let x1 = xVal * Math.cos(thetaRad) - yVal * Math.sin(thetaRad);
-        let y1 = xVal * Math.sin(thetaRad) + yVal * Math.cos(thetaRad);
-        let z1 = zVal;
-
-        let x2 = x1 * Math.cos(phiRad) + z1 * Math.sin(phiRad);
-        let y2 = y1;
-        let z2 = -x1 * Math.sin(phiRad) + z1 * Math.cos(phiRad);
-
-        xRow.push(x2);
-        yRow.push(y2);
-        zRow.push(z2);
-      }
-
-      // Add this row of points to our surface
-      x.push(xRow);
-      y.push(yRow);
-      z.push(zRow);
-    }
-
-    // Add director vector
-    const directorScale = 2;
-    const directorX = [0, directorScale * nx];
-    const directorY = [0, directorScale * ny];
-    const directorZ = [0, directorScale * nz];
-
-    // Create the plot
-    const ellipsoidTrace = {
-      type: 'surface',
-      x: x,
-      y: y,
-      z: z,
-      opacity: 0.7,
-      colorscale: 'Blues',
-      showscale: false,
-      lighting: {
-        ambient: 0.7,
-        diffuse: 0.8,
-        specular: 0.9,
-        roughness: 0.5,
-        fresnel: 0.8
-      }
-    };
-
-    const directorTrace = {
-      type: 'scatter3d',
-      mode: 'lines',
-      x: directorX,
-      y: directorY,
-      z: directorZ,
-      line: {
-        width: 6,
-        color: 'red'
-      },
-      name: 'Director (n)'
-    };
-
-    const layout = {
-      autosize: true,
-      scene: {
-        aspectratio: {x: 1, y: 1, z: 1},
-        camera: {
-          eye: {x: 1.5, y: 1.5, z: 1.5}
-        },
-        xaxis: {range: [-2, 2]},
-        yaxis: {range: [-2, 2]},
-        zaxis: {range: [-2, 2]}
-      },
-      margin: {l: 0, r: 0, b: 0, t: 0},
-      showlegend: false
-    };
-
-    Plotly.newPlot('ellipsoid-container', [ellipsoidTrace, directorTrace], layout);
-  }
-
-  // Initialize visualization
-  updateQTensorVisualization();
-
-  // Add event listeners to sliders
-  document.getElementById('scalar-parameter').addEventListener('input', function(e) {
-    S = parseFloat(e.target.value);
-    document.getElementById('s-value').textContent = S.toFixed(2);
-    updateQTensorVisualization();
-  });
-
-  document.getElementById('director-theta').addEventListener('input', function(e) {
-    theta = parseFloat(e.target.value);
-    document.getElementById('theta-value').textContent = theta.toFixed(0);
-    updateQTensorVisualization();
-  });
-
-  document.getElementById('director-phi').addEventListener('input', function(e) {
-    phi = parseFloat(e.target.value);
-    document.getElementById('phi-value').textContent = phi.toFixed(0);
-    updateQTensorVisualization();
-  });
-});
-</script>
-<p>In the visualization above, the ellipsoid represents the Q tensor with:</p>
-<ul>
-<li>The red line shows the director (n), the average orientation of particles</li>
-<li>The blue ellipsoid shape is determined by the scalar order parameter (S)</li>
-<li>When S = 1 (perfect alignment), the ellipsoid is maximally elongated along the director</li>
-<li>When S = 0 (no alignment), the ellipsoid becomes a sphere, indicating no preferred direction</li>
-</ul>
-</section>
-<section id="understanding-defects-in-nematic-fields" class="level3">
-<h3 class="anchored" data-anchor-id="understanding-defects-in-nematic-fields">Understanding Defects in Nematic Fields</h3>
-<p>In any nematic system, there are points or regions where perfect alignment becomes impossible. These are called topological defects, and they’re unavoidable when the director field must satisfy certain boundary conditions. You can think of them as the “frustration points” in the system.</p>
-<p>The most common defects in 2D nematics are characterized by their “charge” or “winding number,” which indicates how the director rotates as you move around the defect:</p>
-<ul>
-<li><strong>+1/2 defect</strong>: The director rotates by 180° (half a turn) as you move around the defect. These have a distinctive comet-like appearance with a single tail.</li>
-<li><strong>-1/2 defect</strong>: Similar to +1/2 but with opposite rotation, creating a three-pronged star pattern.</li>
-<li><strong>+1 defect</strong>: The director rotates by 360° (full turn), creating a pattern that resembles a source or sink.</li>
-</ul>
-<p>The interactive visualization below shows these different defect types:</p>
-</section>
-<section id="director-field-visualization-with-tensor-glyphs" class="level3">
-<h3 class="anchored" data-anchor-id="director-field-visualization-with-tensor-glyphs">2. Director Field Visualization with Tensor Glyphs</h3>
-<p>For 2D nematic fields, combine director field visualization with tensor glyphs:</p>
-<div id="nematic-field-container" style="width: 100%; height: 500px; margin-bottom: 20px;">
-  <div style="display: flex; justify-content: space-between;">
-    <div id="nematic-field" style="width: 75%; height: 500px;"></div>
-    <div style="width: 23%; padding: 10px;">
-      <h4 class="anchored">Nematic Field Controls</h4>
-      <div style="margin: 15px 0;">
-        <label for="defect-type">Defect Type:</label><br>
-        <select id="defect-type" style="width: 100%; padding: 5px;">
-          <option value="none">No Defect</option>
-          <option value="+1/2">+1/2 Defect</option>
-          <option value="-1/2">-1/2 Defect</option>
-          <option value="+1">+1 Defect</option>
-        </select>
-      </div>
-      <div style="margin: 15px 0;">
-        <label for="field-density">Director Density:</label><br>
-        <input type="range" id="field-density" min="5" max="20" value="10" style="width: 100%;">
-      </div>
-      <div style="margin: 15px 0;">
-        <label for="order-variance">Order Parameter Variation:</label><br>
-        <input type="range" id="order-variance" min="0" max="1" step="0.1" value="0.3" style="width: 100%;">
-    </div>
-  </div>
-</div>
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // SVG setup
-  const container = d3.select("#nematic-field");
-  const width = container.node().getBoundingClientRect().width;
-  const height = 500;
-
-  const svg = container.append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .style("background", "#f9f9f9");
-
-  // Parameters
-  let gridSize = 10; // Default director density
-  let orderVariance = 0.3; // How much the order parameter varies near defects
-  let defectType = "none";
-
-  // Create a color scale for the order parameter
-  const colorScale = d3.scaleSequential(d3.interpolateRdYlBu)
-    .domain([0, 1]);
-
-  // Function to calculate director field based on defect type
-  function calculateDirectorField(x, y) {
-    // Convert to coordinates centered at defect (middle of the visualization)
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const dx = x - centerX;
-    const dy = y - centerY;
-
-    // Calculate polar coordinates
-    const r = Math.sqrt(dx*dx + dy*dy);
-    let theta = Math.atan2(dy, dx);
-
-    // Director angle based on defect type
-    let directorAngle = 0;
-    let orderParameter = 1.0;
-
-    if (defectType === "+1/2") {
-      directorAngle = theta / 2;
-      orderParameter = Math.min(1, r / 50); // Order decreases near defect core
-    } else if (defectType === "-1/2") {
-      directorAngle = -theta / 2;
-      orderParameter = Math.min(1, r / 50);
-    } else if (defectType === "+1") {
-      directorAngle = theta;
-      orderParameter = Math.min(1, r / 50);
-    } else {
-      // No defect, use a simple uniform field
-      directorAngle = Math.PI / 4; // 45 degrees
-      orderParameter = 1.0;
-    }
-
-    // Apply variance to order parameter
-    if (defectType !== "none") {
-      orderParameter = Math.min(1, orderParameter + (Math.random() * 2 - 1) * orderVariance * 0.2);
-    }
-
-    // Director vector components (unit vector)
-    const nx = Math.cos(directorAngle);
-    const ny = Math.sin(directorAngle);
-
-    // Calculate Q tensor components (in 2D)
-    const S = orderParameter;
-    const d = 2; // dimension
-
-    const Qxx = S * (nx * nx - 1/d);
-    const Qxy = S * (nx * ny);
-    const Qyy = S * (ny * ny - 1/d);
-
-    // Eigenvalues and eigenvectors
-    // For a 2D nematic, we have one positive and one negative eigenvalue
-    const eigenvalue1 = S/2;
-    const eigenvalue2 = -S/2;
-
-    // Scaling factor for visualization
-    const scale = 10;
-
-    return {
-      angle: directorAngle,
-      nx: nx,
-      ny: ny,
-      S: orderParameter,
-      Qxx: Qxx,
-      Qxy: Qxy,
-      Qyy: Qyy,
-      majorAxis: scale * (eigenvalue1 + 0.5),
-      minorAxis: scale * (eigenvalue2 + 0.5)
-    };
-  }
-
-  // Function to draw the director field
-  function drawNematicField() {
-    // Clear previous field
-    svg.selectAll("*").remove();
-
-    // Calculate grid points
-    const points = [];
-    for (let x = gridSize; x < width; x += width / gridSize) {
-      for (let y = gridSize; y < height; y += height / gridSize) {
-        const directorData = calculateDirectorField(x, y);
-        points.push({
-          x: x,
-          y: y,
-          ...directorData
-        });
-      }
-    }
-
-    // Draw ellipses representing Q tensor
-    svg.selectAll(".tensor-glyph")
-      .data(points)
-      .enter()
-      .append("ellipse")
-      .attr("class", "tensor-glyph")
-      .attr("cx", d => d.x)
-      .attr("cy", d => d.y)
-      .attr("rx", d => d.majorAxis)
-      .attr("ry", d => d.minorAxis)
-      .attr("transform", d => `rotate(${d.angle * 180 / Math.PI}, ${d.x}, ${d.y})`)
-      .attr("fill", d => colorScale(d.S))
-      .attr("stroke", "#333")
-      .attr("stroke-width", 0.5)
-      .attr("opacity", 0.7);
-
-    // Draw lines representing director field
-    svg.selectAll(".director")
-      .data(points)
-      .enter()
-      .append("line")
-      .attr("class", "director")
-      .attr("x1", d => d.x - 15 * d.nx)
-      .attr("y1", d => d.y - 15 * d.ny)
-      .attr("x2", d => d.x + 15 * d.nx)
-      .attr("y2", d => d.y + 15 * d.ny)
-      .attr("stroke", "black")
-      .attr("stroke-width", 1.5);
-
-    // Add defect center marker
-    if (defectType !== "none") {
-      svg.append("circle")
-        .attr("cx", width / 2)
-        .attr("cy", height / 2)
-        .attr("r", 5)
-        .attr("fill", "red");
-    }
-
-    // Add color legend
-    const legendWidth = 200;
-    const legendHeight = 20;
-    const legendX = width - legendWidth - 20;
-    const legendY = height - 40;
-
-    // Create gradient
-    const defs = svg.append("defs");
-    const gradient = defs.append("linearGradient")
-      .attr("id", "legend-gradient")
-      .attr("x1", "0%")
-      .attr("y1", "0%")
-      .attr("x2", "100%")
-      .attr("y2", "0%");
-
-    // Add color stops
-    const stops = [0, 0.25, 0.5, 0.75, 1];
-    stops.forEach(stop => {
-      gradient.append("stop")
-        .attr("offset", `${stop * 100}%`)
-        .attr("stop-color", colorScale(stop));
-    });
-
-    // Draw legend rectangle
-    svg.append("rect")
-      .attr("x", legendX)
-      .attr("y", legendY)
-      .attr("width", legendWidth)
-      .attr("height", legendHeight)
-      .style("fill", "url(#legend-gradient)");
-
-    // Add legend labels
-    svg.append("text")
-      .attr("x", legendX)
-      .attr("y", legendY - 5)
-      .text("S = 0")
-      .attr("font-size", "12px");
-
-    svg.append("text")
-      .attr("x", legendX + legendWidth - 30)
-      .attr("y", legendY - 5)
-      .text("S = 1")
-      .attr("font-size", "12px");
-
-    svg.append("text")
-      .attr("x", legendX + legendWidth / 2 - 60)
-      .attr("y", legendY - 5)
-      .text("Scalar Order Parameter")
-      .attr("font-size", "12px");
-  }
-
-  // Initial drawing
-  drawNematicField();
-
-  // Event listeners
-  d3.select("#defect-type").on("change", function() {
-    defectType = this.value;
-    drawNematicField();
-  });
-
-  d3.select("#field-density").on("input", function() {
-    gridSize = +this.value;
-    drawNematicField();
-  });
-
-  d3.select("#order-variance").on("input", function() {
-    orderVariance = +this.value;
-    drawNematicField();
-  });
-});
-</script>
-</div>
-<div style="margin-top: 30px;">
-<p>
-<strong>Visualization Guide:</strong>
-</p>
-<ul>
-<li>Lines represent the director field (n)</li>
-<li>Ellipses represent Q tensor</li>
-<li>Color indicates scalar order parameter (S)</li>
-<li>Notice how defects affect both director orientation and magnitude of order</li>
-</ul>
-</div>
-</section>
-<section id="mathematical-structure-of-the-q-tensor" class="level3">
-<h3 class="anchored" data-anchor-id="mathematical-structure-of-the-q-tensor">Mathematical Structure of the Q Tensor</h3>
-<p>To better understand the mathematical structure of the Q tensor, here’s an interactive visualization showing how the components of the tensor depend on the director angle and order parameter:</p>
-<!-- ### 3. Component Matrix Visualization
-
-To help students understand the mathematical structure of the Q tensor:
-
-```{=html}
-<div id="q-matrix-container" style="width: 100%; margin-bottom: 20px; text-align: center;">
-  <h4>Q Tensor Components Visualization</h4>
-  <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-    <div style="width: 40%;">
-      <label for="director-angle">Director Angle: <span id="angle-value">0</span>°</label><br>
-      <input type="range" id="director-angle" min="0" max="180" step="1" value="0" style="width: 100%;">
-    </div>
-    <div style="width: 40%;">
-      <label for="matrix-s-value">Order Parameter (S): <span id="matrix-s-display">0.6</span></label><br>
-      <input type="range" id="matrix-s-value" min="0" max="1" step="0.05" value="0.6" style="width: 100%;">
-    </div>
-  </div>
-
-  <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-    <div>
-      <div style="font-size: 24px; margin-bottom: 10px;">
-        Q = <span id="s-value-display">0.6</span> ×
-      </div>
-      <div style="font-size: 24px;">
-        ( <span id="nn-matrix">
-          [cos²θ - 1/2, cosθ·sinθ]<br>
-          [cosθ·sinθ, sin²θ - 1/2]
-        </span> )
-      </div>
-      <div style="margin-top: 30px; font-size: 24px;">
-        = <span id="q-matrix">
-          [0.1, 0]<br>
-          [0, -0.1]
-        </span>
-      </div>
-    </div>
-
-    <div id="director-visualization" style="margin-left: 50px; width: 200px; height: 200px; border: 1px solid #ccc;"></div>
-  </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Initial values
-  let angle = 0; // degrees
-  let S = 0.6;   // scalar order parameter
-
-  // SVG for director visualization
-  const dirWidth = 200;
-  const dirHeight = 200;
-  const centerX = dirWidth / 2;
-  const centerY = dirHeight / 2;
-
-  const dirSvg = d3.select("#director-visualization")
-    .append("svg")
-    .attr("width", dirWidth)
-    .attr("height", dirHeight);
-
-  // Add circle to represent unit circle
-  dirSvg.append("circle")
-    .attr("cx", centerX)
-    .attr("cy", centerY)
-    .attr("r", 80)
-    .attr("fill", "none")
-    .attr("stroke", "#ccc")
-    .attr("stroke-width", 1);
-
-  // Add director line
-  const directorLine = dirSvg.append("line")
-    .attr("x1", centerX)
-    .attr("y1", centerY)
-    .attr("x2", centerX + 80)
-    .attr("y2", centerY)
-    .attr("stroke", "red")
-    .attr("stroke-width", 2);
-
-  // Add director head indicator
-  const directorHead = dirSvg.append("circle")
-    .attr("cx", centerX + 80)
-    .attr("cy", centerY)
-    .attr("r", 5)
-    .attr("fill", "red");
-
-  // Add ellipse representing the Q tensor
-  const tensorEllipse = dirSvg.append("ellipse")
-    .attr("cx", centerX)
-    .attr("cy", centerY)
-    .attr("rx", 60)
-    .attr("ry", 30)
-    .attr("fill", "rgba(70, 130, 180, 0.3)")
-    .attr("stroke", "steelblue")
-    .attr("stroke-width", 1.5);
-
-  // Function to update visualization
-  function updateQMatrixVisualization() {
-    // Convert angle to radians
-    const angleRad = angle * Math.PI / 180;
-
-    // Calculate director components
-    const nx = Math.cos(angleRad);
-    const ny = Math.sin(angleRad);
-
-    // Calculate Q tensor components in 2D
-    const d = 2;
-    const Qxx = S * (nx * nx - 1/d);
-    const Qxy = S * nx * ny;
-    const Qyy = S * (ny * ny - 1/d);
-
-    // Update matrix display
-    document.getElementById('s-value-display').textContent = S.toFixed(2);
-
-    // Display the nn - I/d matrix
-    const nn_xx = (nx * nx - 1/d).toFixed(2);
-    const nn_xy = (nx * ny).toFixed(2);
-    const nn_yy = (ny * ny - 1/d).toFixed(2);
-
-    document.getElementById('nn-matrix').innerHTML =
-      `[${nn_xx}, ${nn_xy}]<br>[${nn_xy}, ${nn_yy}]`;
-
-    // Display the Q matrix
-    document.getElementById('q-matrix').innerHTML =
-      `[${Qxx.toFixed(2)}, ${Qxy.toFixed(2)}]<br>[${Qxy.toFixed(2)}, ${Qyy.toFixed(2)}]`;
-
-    // Update director visualization
-    directorLine
-      .attr("x2", centerX + 80 * nx)
-      .attr("y2", centerY + 80 * ny);
-
-    directorHead
-      .attr("cx", centerX + 80 * nx)
-      .attr("cy", centerY + 80 * ny);
-
-    // Update ellipse representing the Q tensor
-    // The eigenvalues in 2D are S/2 and -S/2
-    const majorAxis = 70 * (1 + S/2);
-    const minorAxis = 70 * (1 - S/2);
-
-    tensorEllipse
-      .attr("rx", majorAxis)
-      .attr("ry", minorAxis)
-      .attr("transform", `rotate(${angle}, ${centerX}, ${centerY})`);
-  }
-
-  // Initial update
-  updateQMatrixVisualization();
-
-  // Event listeners
-  document.getElementById('director-angle').addEventListener('input', function(e) {
-    angle = parseFloat(e.target.value);
-    document.getElementById('angle-value').textContent = angle.toFixed(0);
-    updateQMatrixVisualization();
-  });
-
-  document.getElementById('matrix-s-value').addEventListener('input', function(e) {
-    S = parseFloat(e.target.value);
-    document.getElementById('matrix-s-display').textContent = S.toFixed(2);
-    updateQMatrixVisualization();
-  });
-});
-</script>
-``` -->
-<!-- ## Animal Collective Behavior and Biological Swarms
-
-Biological collective motion provides both inspiration for theoretical models and testing grounds for their predictions. Across diverse organisms—from bird flocks and fish schools to insect swarms and mammalian herds—similar patterns of self-organization emerge despite vastly different sensory and cognitive capabilities.
-
-In bird flocks (particularly starlings), high-resolution tracking has revealed several key features:
-- Scale-free velocity correlations, where correlation length scales with group size
-- The "topological" nature of interactions, with birds responding to a fixed number of neighbors (~6-7) rather than all neighbors within a metric distance
-- Information transfer through linear waves during turning maneuvers, propagating at speeds faster than would be predicted by simple reaction times
-- Marginal opacity, where the average number of individuals blocked from view remains constant regardless of flock density
-
-Fish schools exhibit distinct dynamical regimes characterized by:
-- Highly aligned, polarized schools during directed travel
-- Milling patterns (toroidal rotations) during foraging or predator response
-- Sudden transitions between these states triggered by environmental cues or internal fluctuations
-- Dynamic responses to predators including the "flash expansion" (rapid outward acceleration) and "fountain effect" (splitting and rejoining around a predator)
-
-Insect swarms (like midges) show different organizing principles:
-- Limited polarization but strong density correlations
-- Emergent virial scaling relations between kinetic energy and group size
-- Evidence for tensile forces mediated through the air, effectively creating "social potential" between individuals
-
-The functional benefits of collective motion include enhanced predator detection (many-eyes effect), confusion of predators through density waves, improved navigation accuracy through error cancellation, and energetic advantages from hydrodynamic or aerodynamic interactions.
-
-Surprisingly, many of these diverse systems can be effectively modeled using relatively simple interaction rules, suggesting convergent evolution toward similar strategies for coordinating groups across different ecological contexts and evolutionary lineages.
-
-## Synthetic Realizations of Collective Motion
-
-Engineering artificial systems that exhibit collective motion offers both practical applications and fundamental tests of theoretical principles. These synthetic active matter systems span multiple scales, from nanometers to centimeters, and utilize diverse energy sources.
-
-At microscopic scales, self-propelled colloids represent a versatile platform:
-- Janus particles with asymmetric surface chemistry, propelled by catalytic reactions (e.g., platinum-coated silica spheres in hydrogen peroxide)
-- Light-activated particles that convert optical energy into motion through thermophoresis or photocatalysis
-- These systems demonstrate motility-induced phase separation (MIPS), where purely repulsive particles spontaneously form dense clusters due to their self-propulsion
-
-Active emulsions and droplets exploit:
-- Marangoni flows driven by chemical gradients at liquid-liquid interfaces
-- Controlled release of surfactants leading to directed motion
-- These systems can perform complex tasks including maze-solving and cargo transport through chemical sensing and response
-
-Macroscopic active matter includes:
-- Vibrated granular rods that convert vertical vibration into horizontal motion through asymmetric friction
-- Robotic swarms with programmable interaction rules, enabling systematic variation of parameters impossible in biological systems
-- Magnetically actuated systems where external fields drive particle motion while interactions arise from induced dipoles
-
-Recent innovations combine active matter with designed environments:
-- Topological defects in nematic fields can guide particle trajectories
-- Curved surfaces induce effective forces that organize collective motion
-- Patterned substrates create energy landscapes that shape emergent behaviors
-
-These synthetic systems offer several advantages:
-- Precise control over interaction parameters
-- Direct visualization of individual and collective dynamics
-- The ability to incorporate feedback between environmental sensing and behavioral response
-
-Bridging the gap between biological and synthetic systems, bio-hybrid active materials incorporate biological components (molecular motors, bacteria, or cells) with engineered structures, creating systems that harvest biological energy transduction mechanisms while allowing technological control and functionality.
-
-The development of these synthetic systems not only validates theoretical models but also points toward applications in self-assembled materials, microsurgery, environmental remediation, and distributed sensing networks.
-
-
-
-## Toner-Tu Model for Flocking
-
-The Toner-Tu model describes how particles like birds, fish, or cells move together in groups with a shared direction. Unlike the nematic systems we discussed earlier (where particles have no front or back), flocking systems show a clear directional preference—particles have a definite front and back. Developed in 1995, this model helps us understand collective motion across many biological and synthetic systems.
-
-The model builds on the simpler Vicsek model, where each particle moves at constant speed and tries to align with its neighbors while experiencing some random noise. What makes the Toner-Tu approach powerful is that it describes these behaviors at a large scale, much like how we describe fluid flow without tracking individual molecules.
-
-The model tracks two main quantities:
-
-1. The density field $\rho(\mathbf{r},t)$ - how many particles are at position $\mathbf{r}$ at time $t$
-2. The velocity field $\mathbf{v}(\mathbf{r},t)$ - the average direction and speed of particles at position $\mathbf{r}$ at time $t$
-
-The simplified Toner-Tu equations are:
-
-$$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0$$
-
-This first equation simply states that particles are conserved—they can't be created or destroyed, only moved around.
-
-$$\frac{\partial \mathbf{v}}{\partial t} + \lambda_1 (\mathbf{v} \cdot \nabla)\mathbf{v} = \alpha \mathbf{v} - \beta |\mathbf{v}|^2 \mathbf{v} - \nabla P + D \nabla^2 \mathbf{v} + \mathbf{f}$$
-
-This second equation, though still complex, is a simplified version that captures the essential physics. Here's what each term means in practical terms:
-
-- $\alpha \mathbf{v} - \beta |\mathbf{v}|^2 \mathbf{v}$: This drives alignment. When $\alpha > 0$, particles want to move with a preferred speed, rather than stopping or moving infinitely fast. Think of this as setting the cruise control speed for the flock.
-
-- $\lambda_1 (\mathbf{v} \cdot \nabla)\mathbf{v}$: This term describes how velocity carries itself along—like how a wave of turning behavior propagates through a bird flock.
-
-- $\nabla P$: This pressure gradient term pushes particles from high-density to low-density regions, preventing overcrowding.
-
-- $D \nabla^2 \mathbf{v}$: This diffusion term smooths out sharp changes in velocity, representing how neighboring particles influence each other.
-
-- $\mathbf{f}$: This represents random noise—unpredictable movements due to individual decisions or environmental factors.
-
-What's remarkable about these flocking systems is that they can maintain coordinated motion over long distances, even in two dimensions. In contrast, equilibrium systems (like magnets) can't maintain such long-range order in 2D because thermal fluctuations destroy it (this is the Mermin-Wagner theorem). Flocks escape this limitation because they're constantly using energy to maintain their ordered state.
-
-In experiments, you can look for these distinctive behaviors that signal flocking:
-
-1. **Giant number fluctuations**: If you count particles in different regions, you'll find unusually large variations in the numbers—much larger than you'd expect in ordinary materials.
-
-2. **Self-organized flows**: The system spontaneously creates coherent flow patterns like swirls, bands, or vortices that can be observed directly.
-
-3. **Wave propagation**: Disturbances spread through the flock like sound waves, but with different speeds depending on whether they travel along or perpendicular to the direction of motion.
-
-4. **Robust order**: Despite noise and disruptions, the flock maintains its coherent motion through a self-correcting mechanism.
-
-These behaviors have been observed in diverse systems—from bacteria swarming on surfaces to cell layers migrating during wound healing, and even in synthetic systems like vibrated granular rods or light-activated colloidal particles. The simple model captures the essential physics that leads to these complex, coordinated behaviors across very different experimental systems.
-
-
-### Interactive Simulation of the Toner-Tu Model
-
-Below is an interactive simulation that demonstrates the key features of the Toner-Tu model for flocking behavior. This simulation shows how local alignment rules can lead to collective motion with long-range order. The simulation uses a simplified version of the model where particles adjust their velocity based on their neighbors' average direction, while maintaining a preferred speed.
-
-```{=html}
-<div id="toner-tu-simulation" style="width: 100%; height: 560px; border: 1px solid #ccc;">
-  <div id="combined-field" style="width: 100%; height: 500px;"></div>
-  <div style="display: flex; justify-content: space-around; margin-top: 10px;">
-    <div>
-      <label for="alignment-strength">Alignment Strength: </label>
-      <input type="range" id="alignment-strength" min="0" max="1" step="0.01" value="0.5">
-      <span id="alignment-value">0.5</span>
-    </div>
-    <div>
-      <label for="noise-strength">Noise: </label>
-      <input type="range" id="noise-strength" min="0" max="0.5" step="0.01" value="0.1">
-      <span id="noise-valuett">0.1</span>
-    </div>
-    <div>
-      <label for="density-decay">Density Persistence: </label>
-      <input type="range" id="density-decay" min="0.5" max="0.99" step="0.01" value="0.85">
-      <span id="density-valuett">0.85</span>
-    </div>
-    <button id="reset-simulation">Reset</button>
-  </div>
-</div>
-
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script>
-// Simulation parameters
-const width = document.getElementById('toner-tu-simulation').clientWidth;
-const height = 500;
-const gridSize = 10; // Smaller grid cells for higher resolution
-const gridCols = Math.ceil(width / gridSize);
-const gridRows = Math.ceil(height / gridSize);
-const particleSpeed = 2.5;
-const numParticles = 20000;
-let diffusionRate = 0.1; // Rate at which density diffuses
-let densityDecay = 0.85; // How much density persists between frames
-
-// Create SVG container for combined visualization
-const combinedSvg = d3.select("#combined-field")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height);
-
-// Create a group for density cells
-const densityGroup = combinedSvg.append("g");
-
-// Create a group for velocity vectors that will be drawn on top
-const vectorGroup = combinedSvg.append("g");
-
-// Add arrowhead marker
-combinedSvg.append("defs").append("marker")
-  .attr("id", "arrowhead")
-  .attr("viewBox", "0 -5 10 10")
-  .attr("refX", 5)
-  .attr("refY", 0)
-  .attr("markerWidth", 4)
-  .attr("markerHeight", 4)
-  .attr("orient", "auto")
-  .append("path")
-  .attr("d", "M0,-5L10,0L0,5")
-  .attr("fill", "steelblue");
-
-// Initialize density grid and velocity field
-let densityGrid = Array(gridRows).fill().map(() => Array(gridCols).fill(0));
-let velocityField = Array(gridRows).fill().map(() =>
-  Array(gridCols).fill().map(() => ({ vx: 0, vy: 0 }))
-);
-
-// Create grid cells for density visualization
-const densityCells = densityGroup.selectAll(".density-cell")
-  .data(d3.cross(d3.range(gridRows), d3.range(gridCols)))
-  .enter()
-  .append("rect")
-  .attr("class", "density-cell")
-  .attr("x", d => d[1] * gridSize)
-  .attr("y", d => d[0] * gridSize)
-  .attr("width", gridSize)
-  .attr("height", gridSize)
-  .attr("fill", "white");
-
-// Create arrows for vector field visualization
-const vectorArrows = vectorGroup.selectAll(".vector-arrow")
-  .data(d3.cross(
-    d3.range(0, gridRows, 2), // Sample every other cell to avoid overcrowding
-    d3.range(0, gridCols, 2)
-  ))
-  .enter()
-  .append("line")
-  .attr("class", "vector-arrow")
-  .attr("x1", d => (d[1] + 0.5) * gridSize)
-  .attr("y1", d => (d[0] + 0.5) * gridSize)
-  .attr("x2", d => (d[1] + 0.5) * gridSize)
-  .attr("y2", d => (d[0] + 0.5) * gridSize)
-  .attr("stroke", "steelblue")
-  .attr("stroke-width", 1.5)
-  .attr("marker-end", "url(#arrowhead)");
-
-// Initialize particles with clustered positions to create density waves
-let particles = [];
-function initializeParticles() {
-  particles = [];
-  // Reset density and velocity fields
-  densityGrid = densityGrid.map(row => row.map(() => 0));
-  velocityField = velocityField.map(row => row.map(() => ({ vx: 0, vy: 0 })));
-
-  // Create several clusters of particles
-  const numClusters = 5;
-  for (let c = 0; c < numClusters; c++) {
-    const clusterX = Math.random() * width;
-    const clusterY = Math.random() * height;
-    const clusterSize = 50 + Math.random() * 50;
-    const clusterParticles = Math.floor(numParticles / numClusters);
-
-    // Create a shared initial direction for the cluster
-    const clusterAngle = Math.random() * 2 * Math.PI;
-    const clusterVx = Math.cos(clusterAngle);
-    const clusterVy = Math.sin(clusterAngle);
-
-    for (let i = 0; i < clusterParticles; i++) {
-      // Gaussian-like distribution within cluster
-      const r = clusterSize * Math.sqrt(Math.random());
-      const theta = Math.random() * 2 * Math.PI;
-      const x = clusterX + r * Math.cos(theta);
-      const y = clusterY + r * Math.sin(theta);
-
-      // Small variation in initial velocity direction
-      const angleVar = 0.5; // Variation in radians
-      const angle = clusterAngle + (Math.random() - 0.5) * angleVar;
-
-      particles.push({
-        id: particles.length,
-        x: (x + width) % width, // Ensure within bounds
-        y: (y + height) % height,
-        vx: particleSpeed * Math.cos(angle),
-        vy: particleSpeed * Math.sin(angle),
-      });
-    }
-  }
-
-  // Fill remaining slots with random particles
-  const remainingParticles = numParticles - particles.length;
-  for (let i = 0; i < remainingParticles; i++) {
-    const angle = Math.random() * 2 * Math.PI;
-    particles.push({
-      id: particles.length,
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: particleSpeed * Math.cos(angle),
-      vy: particleSpeed * Math.sin(angle),
-    });
-  }
-}
-
-// Update density grid based on particle positions
-function updateDensityGrid() {
-  densityDecay = parseFloat(d3.select("#density-decay").property("value"));
-  d3.select("#density-valuett").text(densityDecay.toFixed(2));
-
-  // First decay existing density (instead of full diffusion which is computationally expensive)
-  for (let i = 0; i < gridRows; i++) {
-    for (let j = 0; j < gridCols; j++) {
-      densityGrid[i][j] *= densityDecay;
-    }
-  }
-
-  // Apply simplified diffusion (just to neighboring cells)
-  const newDensityGrid = densityGrid.map(row => [...row]);
-  for (let i = 0; i < gridRows; i++) {
-    for (let j = 0; j < gridCols; j++) {
-      if (densityGrid[i][j] > 0.1) { // Only diffuse significant density
-        for (let di = -1; di <= 1; di++) {
-          for (let dj = -1; dj <= 1; dj++) {
-            if (di === 0 && dj === 0) continue;
-            const ni = (i + di + gridRows) % gridRows;
-            const nj = (j + dj + gridCols) % gridCols;
-            newDensityGrid[ni][nj] += densityGrid[i][j] * diffusionRate / 8; // 8 neighbors
-          }
-        }
-        newDensityGrid[i][j] -= densityGrid[i][j] * diffusionRate;
-      }
-    }
-  }
-  densityGrid = newDensityGrid;
-
-  // Add particle contributions with Gaussian-like density
-  particles.forEach(particle => {
-    const gridX = Math.floor(particle.x / gridSize);
-    const gridY = Math.floor(particle.y / gridSize);
-
-    // Add density not just to the particle's cell but to a small area around it
-    const spreadRadius = 1; // How many cells around the particle to affect
-
-    for (let di = -spreadRadius; di <= spreadRadius; di++) {
-      for (let dj = -spreadRadius; dj <= spreadRadius; dj++) {
-        const distance = Math.sqrt(di*di + dj*dj);
-        if (distance <= spreadRadius) {
-          const density = 1.0 * Math.exp(-distance*distance/1.5); // Gaussian falloff
-          const ni = (gridY + di + gridRows) % gridRows; // Wrap around edges
-          const nj = (gridX + dj + gridCols) % gridCols;
-          densityGrid[ni][nj] += density;
-        }
-      }
-    }
-  });
-}
-
-// Update velocity field based on particle velocities
-function updateVelocityField() {
-  // Reset velocity counts
-  const velocityCounts = Array(gridRows).fill().map(() =>
-    Array(gridCols).fill().map(() => ({ vx: 0, vy: 0, count: 0 }))
-  );
-
-  // Accumulate velocities for each grid cell
-  particles.forEach(particle => {
-    const gridX = Math.floor(particle.x / gridSize);
-    const gridY = Math.floor(particle.y / gridSize);
-
-    if (gridX >= 0 && gridX < gridCols && gridY >= 0 && gridY < gridRows) {
-      velocityCounts[gridY][gridX].vx += particle.vx;
-      velocityCounts[gridY][gridX].vy += particle.vy;
-      velocityCounts[gridY][gridX].count++;
-    }
-  });
-
-  // Average the velocities
-  for (let i = 0; i < gridRows; i++) {
-    for (let j = 0; j < gridCols; j++) {
-      if (velocityCounts[i][j].count > 0) {
-        velocityField[i][j].vx = velocityCounts[i][j].vx / velocityCounts[i][j].count;
-        velocityField[i][j].vy = velocityCounts[i][j].vy / velocityCounts[i][j].count;
-      } else {
-        // Smooth velocity field by averaging neighbors when no particles present
-        let sumVx = 0, sumVy = 0, count = 0;
-
-        for (let di = -1; di <= 1; di++) {
-          for (let dj = -1; dj <= 1; dj++) {
-            const ni = (i + di + gridRows) % gridRows;
-            const nj = (j + dj + gridCols) % gridCols;
-            if (velocityCounts[ni][nj].count > 0) {
-              sumVx += velocityCounts[ni][nj].vx / velocityCounts[ni][nj].count;
-              sumVy += velocityCounts[ni][nj].vy / velocityCounts[ni][nj].count;
-              count++;
-            }
-          }
-        }
-
-        if (count > 0) {
-          velocityField[i][j].vx = 0.8 * velocityField[i][j].vx + 0.2 * (sumVx / count);
-          velocityField[i][j].vy = 0.8 * velocityField[i][j].vy + 0.2 * (sumVy / count);
-        } else {
-          // Decay velocity if no neighbors have particles
-          velocityField[i][j].vx *= 0.95;
-          velocityField[i][j].vy *= 0.95;
-        }
-      }
-    }
-  }
-}
-
-// Visualize density grid with enhanced contrast
-function visualizeDensityGrid() {
-  // Find max density for better color scaling
-  let maxDensity = 0.1; // Minimal baseline to avoid division by zero
-  for (let i = 0; i < gridRows; i++) {
-    for (let j = 0; j < gridCols; j++) {
-      maxDensity = Math.max(maxDensity, densityGrid[i][j]);
-    }
-  }
-
-  const colorScale = d3.scaleSequential(d3.interpolateReds)
-    .domain([0, maxDensity * 0.8]); // Scale to improve visibility
-
-  densityCells.attr("fill", d => {
-    const density = densityGrid[d[0]][d[1]];
-    return colorScale(density);
-  })
-  .attr("fill-opacity", 0.8); // Slightly transparent to see arrows better
-}
-
-// Visualize velocity field
-function visualizeVelocityField() {
-  vectorArrows.each(function(d) {
-    const i = d[0];
-    const j = d[1];
-    const vx = velocityField[i][j].vx;
-    const vy = velocityField[i][j].vy;
-    const speed = Math.sqrt(vx*vx + vy*vy);
-
-    // Only show arrows where there's significant velocity
-    if (speed > 0.1) {
-      const arrowLength = Math.min(gridSize * 0.9, speed * 3);
-      const x1 = (j + 0.5) * gridSize;
-      const y1 = (i + 0.5) * gridSize;
-      const x2 = x1 + (vx / speed) * arrowLength;
-      const y2 = y1 + (vy / speed) * arrowLength;
-
-      d3.select(this)
-        .attr("x1", x1)
-        .attr("y1", y1)
-        .attr("x2", x2)
-        .attr("y2", y2)
-        .attr("stroke-opacity", Math.min(1, speed))
-        .attr("visibility", "visible");
-    } else {
-      d3.select(this).attr("visibility", "hidden");
-    }
-  });
-}
-
-// Update particle positions and velocities based on Toner-Tu model
-function updateParticles() {
-  const alignmentStrength = parseFloat(d3.select("#alignment-strength").property("value"));
-  const noiseStrength = parseFloat(d3.select("#noise-strength").property("value"));
-
-  d3.select("#alignment-value").text(alignmentStrength.toFixed(2));
-  d3.select("#noise-valuett").text(noiseStrength.toFixed(2));
-
-  // Add density-dependent movement: particles prefer to move toward higher density
-  const densityAttraction = 0.3;
-
-  // Update each particle
-  particles.forEach(particle => {
-    // Get grid cell location
-    const gridX = Math.floor(particle.x / gridSize);
-    const gridY = Math.floor(particle.y / gridSize);
-
-    // Determine local alignment field
-    let fieldVx = 0, fieldVy = 0;
-    let localDensityGradX = 0, localDensityGradY = 0;
-
-    if (gridX >= 0 && gridX < gridCols && gridY >= 0 && gridY < gridRows) {
-      fieldVx = velocityField[gridY][gridX].vx;
-      fieldVy = velocityField[gridY][gridX].vy;
-
-      const fieldSpeed = Math.sqrt(fieldVx*fieldVx + fieldVy*fieldVy);
-      if (fieldSpeed > 0) {
-        fieldVx /= fieldSpeed;
-        fieldVy /= fieldSpeed;
-      }
-
-      // Calculate local density gradient (simplified)
-      for (let di = -1; di <= 1; di += 2) { // Just check left/right
-        const ni = (gridY + gridRows) % gridRows;
-        const nj = (gridX + di + gridCols) % gridCols;
-        localDensityGradX += di * densityGrid[ni][nj];
-      }
-
-      for (let dj = -1; dj <= 1; dj += 2) { // Just check up/down
-        const ni = (gridY + dj + gridRows) % gridRows;
-        const nj = (gridX + gridCols) % gridCols;
-        localDensityGradY += dj * densityGrid[ni][nj];
-      }
-
-      // Normalize density gradient if significant
-      const gradMag = Math.sqrt(localDensityGradX*localDensityGradX + localDensityGradY*localDensityGradY);
-      if (gradMag > 0.1) {
-        localDensityGradX /= gradMag;
-        localDensityGradY /= gradMag;
-      } else {
-        localDensityGradX = 0;
-        localDensityGradY = 0;
-      }
-    }
-
-    // Update velocity based on alignment, density gradient, and noise
-    // This aligns with the Toner-Tu model where velocity update depends on:
-    // 1. Self-propulsion at constant speed (implicit in normalization)
-    // 2. Alignment with neighbors (fieldVx, fieldVy)
-    // 3. Response to density gradient (localDensityGradX/Y)
-    // 4. Random noise (noiseStrength)
-    particle.vx = (1 - alignmentStrength) * particle.vx +
-                  alignmentStrength * fieldVx * particleSpeed +
-                  densityAttraction * localDensityGradX;
-
-    particle.vy = (1 - alignmentStrength) * particle.vy +
-                  alignmentStrength * fieldVy * particleSpeed +
-                  densityAttraction * localDensityGradY;
-
-    // Add noise - important element of the Toner-Tu model
-    particle.vx += (Math.random() - 0.5) * noiseStrength;
-    particle.vy += (Math.random() - 0.5) * noiseStrength;
-
-    // Normalize to maintain constant speed - a key assumption in Toner-Tu
-    const speed = Math.sqrt(particle.vx**2 + particle.vy**2);
-    if (speed > 0) {
-      particle.vx = (particle.vx / speed) * particleSpeed;
-      particle.vy = (particle.vy / speed) * particleSpeed;
-    }
-
-    // Update position
-    particle.x += particle.vx;
-    particle.y += particle.vy;
-
-    // Periodic boundary conditions
-    if (particle.x < 0) particle.x += width;
-    if (particle.x > width) particle.x -= width;
-    if (particle.y < 0) particle.y += height;
-    if (particle.y > height) particle.y -= height;
-  });
-}
-
-// Main simulation step
-function simulationStep() {
-  updateParticles();
-  updateDensityGrid();
-  updateVelocityField();
-  visualizeDensityGrid();
-  visualizeVelocityField();
-}
-
-// Initialize and start the simulation
-initializeParticles();
-let timer = d3.interval(simulationStep, 30);
-
-// Reset button handler
-d3.select("#reset-simulation").on("click", () => {
-  timer.stop();
-  initializeParticles();
-  timer = d3.interval(simulationStep, 30);
-});
-</script>
-```
-
-This interactive simulation demonstrates several key aspects of the Toner-Tu model:
-
-1. **Emergent Order**: Even with simple local alignment rules, the particles spontaneously organize into coherent moving flocks.
-
-2. **Parameter Sensitivity**: You can adjust the alignment strength to see how strongly particles align with neighbors, and the noise level to represent individual randomness in movement decisions.
-
-3. **Phase Transitions**: At low noise and high alignment strength, particles form a coherent flock with global order. As noise increases or alignment decreases, the system transitions to a disordered state.
-
-4. **Density Waves**: Under certain parameter regimes, you may observe waves of high density propagating through the system, similar to the density fluctuations predicted by the Toner-Tu model.
-
-The simulation simplifies the full Toner-Tu equations while maintaining their essential features: particles move with approximately constant speed, align with neighbors, and experience noise. The visual representation helps build intuition for how collective motion emerges from simple interaction rules, highlighting why these models have been so influential in understanding phenomena from bird flocks to cell migration. -->
-
-
-</section>
-</section>
-
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
