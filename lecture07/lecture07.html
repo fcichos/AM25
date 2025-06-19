@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input62f1c678ca7a772c – Active Matter Physics</title>
+<title>quarto-input2d0ae751bc4ffe46 – Active Matter Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -268,6 +268,12 @@ window.Quarto = {
  <span class="menu-text">Lecture 9</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lecture10/lecture10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lecture 10</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -280,7 +286,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vicsek-model-and-flocking-transition" id="toc-vicsek-model-and-flocking-transition" class="nav-link active" data-scroll-target="#vicsek-model-and-flocking-transition">Vicsek Model and Flocking Transition</a></li>
+  <li><a href="#vicsek-model-and-flocking-transition" id="toc-vicsek-model-and-flocking-transition" class="nav-link active" data-scroll-target="#vicsek-model-and-flocking-transition">Vicsek Model and Flocking Transition</a>
+  <ul class="collapse">
+  <li><a href="#interactive-vicsek-model-simulation" id="toc-interactive-vicsek-model-simulation" class="nav-link" data-scroll-target="#interactive-vicsek-model-simulation">Interactive Vicsek Model Simulation</a></li>
+  <li><a href="#topological-interactions-in-collective-motion" id="toc-topological-interactions-in-collective-motion" class="nav-link" data-scroll-target="#topological-interactions-in-collective-motion">Topological Interactions in Collective Motion</a></li>
+  <li><a href="#voronoi-based-interactions" id="toc-voronoi-based-interactions" class="nav-link" data-scroll-target="#voronoi-based-interactions">Voronoi-Based Interactions</a></li>
+  <li><a href="#delay-vicsek-model-information-transfer-with-memory" id="toc-delay-vicsek-model-information-transfer-with-memory" class="nav-link" data-scroll-target="#delay-vicsek-model-information-transfer-with-memory">Delay Vicsek Model: Information Transfer with Memory</a></li>
+  </ul></li>
+  <li><a href="#information-propagation-in-active-groups" id="toc-information-propagation-in-active-groups" class="nav-link" data-scroll-target="#information-propagation-in-active-groups">Information Propagation in Active Groups</a>
+  <ul class="collapse">
+  <li><a href="#wave-like-information-transfer-in-starling-flocks" id="toc-wave-like-information-transfer-in-starling-flocks" class="nav-link" data-scroll-target="#wave-like-information-transfer-in-starling-flocks">Wave-like Information Transfer in Starling Flocks</a></li>
+  <li><a href="#the-role-of-behavioral-inertia" id="toc-the-role-of-behavioral-inertia" class="nav-link" data-scroll-target="#the-role-of-behavioral-inertia">The Role of Behavioral Inertia</a></li>
+  <li><a href="#evidence-from-natural-swarms-and-other-systems" id="toc-evidence-from-natural-swarms-and-other-systems" class="nav-link" data-scroll-target="#evidence-from-natural-swarms-and-other-systems">Evidence from Natural Swarms and Other Systems</a></li>
+  <li><a href="#the-speed-order-relationship" id="toc-the-speed-order-relationship" class="nav-link" data-scroll-target="#the-speed-order-relationship">The Speed-Order Relationship</a></li>
+  <li><a href="#functional-benefits-of-wave-like-propagation" id="toc-functional-benefits-of-wave-like-propagation" class="nav-link" data-scroll-target="#functional-benefits-of-wave-like-propagation">Functional Benefits of Wave-Like Propagation</a></li>
+  <li><a href="#applications-and-future-directions" id="toc-applications-and-future-directions" class="nav-link" data-scroll-target="#applications-and-future-directions">Applications and Future Directions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -385,6 +406,8 @@ Key Properties of the Vicsek Model
 <li><strong>Universality class</strong>: Belongs to a distinct non-equilibrium universality class with unique critical exponents</li>
 <li><strong>Applications</strong>: Successfully applied to bird flocks, fish schools, bacterial colonies, cell migrations, and artificial swarms</li>
 </ul>
+</div>
+</div>
 <section id="interactive-vicsek-model-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="interactive-vicsek-model-simulation">Interactive Vicsek Model Simulation</h3>
 <p>Below is an interactive simulation of the Vicsek model, demonstrating how local alignment interactions lead to global order. You can adjust key parameters to observe how they affect the emergence of flocking behavior.</p>
@@ -729,6 +752,7 @@ Comparison of information propagation in (a) standard Vicsek model showing diffu
 <p>where <span class="math inline">\(c_s\)</span> is the propagation speed and <span class="math inline">\(\gamma\)</span> is a damping coefficient. This matches the observed dynamics of starling flocks far better than the purely diffusive propagation (<span class="math inline">\(\omega \sim iq^2\)</span>) predicted by the standard Vicsek model.</p>
 <p>Current research is exploring how heterogeneous delays (different response times for different individuals) affect collective dynamics, and how natural systems might exploit these delay effects to optimize information transfer while maintaining robust coordination in noisy environments.</p>
 </section>
+</section>
 <section id="information-propagation-in-active-groups" class="level2">
 <h2 class="anchored" data-anchor-id="information-propagation-in-active-groups">Information Propagation in Active Groups</h2>
 <p>Understanding how information flows through active matter systems provides crucial insights into their collective behavior and response to perturbations. A fundamental question is: how do changes in motion propagate through a flock or swarm, allowing the group to respond coherently to environmental stimuli or threats?</p>
@@ -741,7 +765,7 @@ Comparison of information propagation in (a) standard Vicsek model showing diffu
 <p><span class="math display">\[\omega(q) \sim iq^2\]</span></p>
 <p>where <span class="math inline">\(\omega\)</span> is the frequency and <span class="math inline">\(q\)</span> is the wavevector. In physical terms, this means that information about direction changes would spread through the group as a diffusive process, where the distance covered scales with time as <span class="math inline">\(x \sim \sqrt{t}\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -750,7 +774,7 @@ Mathematical Derivation of the Dispersion Relation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To find the dispersion relation, we can analyze how small perturbations propagate through the system. For a diffusion equation:</p>
 <p><span class="math display">\[\frac{\partial \phi}{\partial t} = D \nabla^2 \phi\]</span></p>
@@ -896,9 +920,6 @@ Figure&nbsp;8— A robotic fish designed to interact with and influence the coll
 
 
 </section>
-</section>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
